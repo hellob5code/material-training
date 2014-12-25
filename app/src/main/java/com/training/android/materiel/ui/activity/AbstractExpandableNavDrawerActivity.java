@@ -141,7 +141,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
                 if (drawerItemsListContainer.isGroupExpanded(groupPosition)) {
                     drawerItemsListContainer.collapseGroup(groupPosition);
                 } else {
-                    drawerItemsListContainer.expandGroup(groupPosition);
+                    drawerItemsListContainer.expandGroup(groupPosition, true);
                 }
                 if (id != NAVDRAWER_ITEM_INVALID && id != NAVDRAWER_DIVIDER && id != NAVDRAWER_SUBHEADER) {
                     onNavigationDrawerItemClicked(adapter.getGroup(groupPosition));
@@ -158,6 +158,11 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
                 return true;
             }
         });
+
+        int selectedGroupIndex = adapter.getGroupIndex(getSelectedNavigationDrawerGroupId());
+        if (selectedGroupIndex != -1) {
+            drawerItemsListContainer.expandGroup(selectedGroupIndex);
+        }
     }
 
     /**
@@ -761,6 +766,15 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
 //        if (minHeight > layoutParams.height && (AvatarListControl.class.isInstance(item.primary) || AvatarListControl.class.isInstance(item.secondary))) {
 //            layoutParams.height = minHeight;
 //        }
+        }
+
+        public int getGroupIndex(int selectedNavigationDrawerGroupId) {
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i).id == selectedNavigationDrawerGroupId) {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }

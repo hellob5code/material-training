@@ -69,17 +69,24 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
 
     @Override
     protected boolean onNavDrawerItemSelected(NavDrawerItem item) {
-        int id = item.getParentId();
-        if (id == NAVDRAWER_GROUP_COMPONENTS) {
-            Intent intent = new Intent(this, ComponentsActivity.class);
-            startActivity(intent);
-            finish();
+        int id = item.getId();
+        if (id == NAVDRAWER_ITEM_SETTINGS_ID) {
             return true;
-        } else if (id == NAVDRAWER_GROUP_PATTERNS) {
-            Intent intent = new Intent(this, PatternsActivity.class);
-            startActivity(intent);
-            finish();
+        } else if (id == NAVDRAWER_ITEM_DEV_MODE_ID) {
             return true;
+        } else {
+            int parentId = item.getParentId();
+            if (parentId == NAVDRAWER_GROUP_COMPONENTS) {
+                Intent intent = new Intent(this, ComponentsActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            } else if (parentId == NAVDRAWER_GROUP_PATTERNS) {
+                Intent intent = new Intent(this, PatternsActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            }
         }
         return false;
     }
