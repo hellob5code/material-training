@@ -36,11 +36,12 @@ public abstract class AbstractNavDrawerActivity extends Activity {
 
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
     protected static final int NAVDRAWER_ITEM_DIVIDER = -2;
+    protected static final int NAVDRAWER_SUBHEADER = -3;
 
     /**
      * Ordered list of items added to the navigation drawer
      */
-    protected ArrayList<NavDrawerItem> mNavDrawerItems = new ArrayList<NavDrawerItem>();
+    private ArrayList<NavDrawerItem> mNavDrawerItems = new ArrayList<NavDrawerItem>();
 
     protected ActionBarDrawerToggle mDrawerToggle;
 
@@ -191,6 +192,10 @@ public abstract class AbstractNavDrawerActivity extends Activity {
 
     public void closeDrawer() {
         getDrawerLayout().closeDrawer(Gravity.START);
+    }
+
+    public ArrayList<NavDrawerItem> getNavDrawerItems() {
+        return mNavDrawerItems;
     }
 
     protected void addItem(NavDrawerItem item) {

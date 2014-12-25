@@ -23,11 +23,11 @@
     <color name="material_text_hint_inverse">#42ffffff</color>
     <color name="material_divider_inverse">#31ffffff</color>
 
-    <color name="material_navdrawer_text">@color/material_text_secondary</color>
+    <color name="material_navdrawer_text">@color/material_text</color>
     <color name="material_navdrawer_icon">#8a000000</color>
     <color name="material_navdrawer_selected">#000000</color>
 
-    <color name="material_navdrawer_text_inverse">@color/material_text_secondary_inverse</color>
+    <color name="material_navdrawer_text_inverse">@color/material_text_inverse</color>
     <color name="material_navdrawer_icon_inverse">#8affffff</color>
     <color name="material_navdrawer_selected_inverse">#ffffff</color>
 

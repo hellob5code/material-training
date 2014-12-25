@@ -27,7 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
         android:maxLines="1"
         android:textSize="@dimen/text_size_small"
-        tools:text="Item text"/>
+        tools:text="Item text" />
 </RelativeLayout>
