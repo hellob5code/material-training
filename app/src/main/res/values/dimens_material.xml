@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text -->
+    <dimen name="text_size_button">@dimen/text_size_small</dimen>
+    <dimen name="text_size_menu">@dimen/text_size_small</dimen>
+    <dimen name="text_size_caption">@dimen/text_size_xsmall</dimen>
+    <dimen name="text_size_body">@dimen/text_size_small</dimen>
+    <dimen name="text_size_subhead">@dimen/text_size_normal</dimen>
+    <dimen name="text_size_title">@dimen/text_size_medium</dimen>
+    <dimen name="text_size_headline">@dimen/text_size_large</dimen>
+
+    <!-- Grids, keylines and rhythm -->
+    <dimen name="keyline_1">16dp</dimen>
+    <dimen name="keyline_1_minus_8dp">8dp</dimen>
+    <dimen name="keyline_2">72dp</dimen>
+    <dimen name="keyline_2_minus_12dp">60dp</dimen>
+    <dimen name="keyline_2_minus_16dp">56dp</dimen>
+    <dimen name="keyline_2_minus_48dp">24dp</dimen>
+
+    <!-- List -->
+    <dimen name="material_list_icon_size">24dp</dimen>
+    <dimen name="material_avatar_list_item_min_size">56dp</dimen>
+
+</resources>

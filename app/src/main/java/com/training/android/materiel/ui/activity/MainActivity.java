@@ -1,18 +1,19 @@
-package com.training.android.materiel;
+package com.training.android.materiel.ui.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import com.training.android.materiel.R;
 
-public class MainActivity extends Activity {
+public class MainActivity extends MaterialTrainingNavDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,5 +35,30 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected int getSelectedNavigationDrawerItemId() {
+        return NAVDRAWER_ITEM_MAIN_ID;
+    }
+
+    @Override
+    protected String getNavigationDrawerOpenedTitle() {
+        return getString(R.string.app_name);
+    }
+
+    @Override
+    protected String getNavigationDrawerClosedTitle() {
+        return getString(R.string.navdrawer_item_main);
+    }
+
+    @Override
+    public DrawerLayout getDrawerLayout() {
+        return (DrawerLayout) findViewById(R.id.drawer_layout);
+    }
+
+    @Override
+    public View getContentLayout() {
+        return findViewById(R.id.content);
     }
 }
