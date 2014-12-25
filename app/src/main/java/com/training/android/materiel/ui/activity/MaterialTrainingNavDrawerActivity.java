@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.training.android.materiel.BuildConfig;
 import com.training.android.materiel.R;
 import com.training.android.materiel.ui.listcontrol.IconListControl;
 import com.training.android.materiel.ui.listcontrol.ListControl;
@@ -16,12 +17,19 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
     private static final String TAG = MaterialTrainingNavDrawerActivity.class.getSimpleName();
 
     protected static final int NAVDRAWER_ITEM_MAIN_ID = 0;
+    protected static final int NAVDRAWER_ITEM_SETTINGS_ID = 1000;
+    protected static final int NAVDRAWER_ITEM_DEV_MODE_ID = 1001;
 
     @Override
     protected void populateNavigationDrawer() {
         super.populateNavigationDrawer();
-        addItem(new MaterialTrainingNavDrawerItem(NAVDRAWER_ITEM_MAIN_ID, R.string.navdrawer_item_main, new IconListControl(R.drawable.ic_launcher), null));
-        addItem(new MaterialTrainingNavDrawerItem(1, R.string.hello_world, new IconListControl(R.drawable.ic_launcher), null));
+        addItem(NAVDRAWER_ITEM_MAIN_ID, R.string.navdrawer_item_main, new IconListControl(R.drawable.action_ic_bookmark), null);
+        addItem(1, R.string.hello_world, new IconListControl(R.drawable.action_ic_bookmark_outline), null);
+        addDivider();
+        addItem(NAVDRAWER_ITEM_SETTINGS_ID, R.string.navdrawer_item_settings, new IconListControl(R.drawable.action_ic_settings), null);
+        if (BuildConfig.DEBUG) {
+            addItem(NAVDRAWER_ITEM_DEV_MODE_ID, R.string.navdrawer_item_developer_mode, new IconListControl(R.drawable.device_ic_developer_mode), null);
+        }
     }
 
     @Override
@@ -35,18 +43,18 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
         drawerItemsListContainer.removeAllViews();
         int i = 0;
         for (NavDrawerItem item : mNavDrawerItems) {
-            navDrawerItemViews[i] = createNavigationDrawerItem((MaterialTrainingNavDrawerItem) item, drawerItemsListContainer);
+            navDrawerItemViews[i] = createNavigationDrawerItem(item, drawerItemsListContainer);
             drawerItemsListContainer.addView(navDrawerItemViews[i]);
             i++;
         }
     }
 
-    private View createNavigationDrawerItem(final MaterialTrainingNavDrawerItem item, ViewGroup container) {
+    private View createNavigationDrawerItem(final NavDrawerItem item, ViewGroup container) {
         boolean isSelected = getSelectedNavigationDrawerItemId() == item.id;
 
         // Select layout to inflate
         int layoutToInflate;
-        if (item.id == NAVDRAWER_ITEM_SEPARATOR) {
+        if (item.id == NAVDRAWER_ITEM_DIVIDER) {
             layoutToInflate = R.layout.list_divider_material;
         } else {
             layoutToInflate = R.layout.list_item_single_line_material;
@@ -54,24 +62,26 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
 
         // Perform inflation
         View view = getLayoutInflater().inflate(layoutToInflate, container, false);
-        if (item.id == NAVDRAWER_ITEM_SEPARATOR) {
+        if (item.id == NAVDRAWER_ITEM_DIVIDER) {
             return view;
         }
 
+        SingleLineNavDrawerItem singleLineItem = (SingleLineNavDrawerItem) item;
+
         // Setup item content
         boolean startIndented = false;
-        if (item.primary != null) {
-            View primaryView = inflateStubIfViewNotNull(view, R.id.primary_stub, item.primary);
-            startIndented = item.primary.setupView(this, primaryView);
+        if (singleLineItem.primary != null) {
+            View primaryView = inflateStubIfViewNotNull(view, R.id.primary_stub, singleLineItem.primary);
+            startIndented = singleLineItem.primary.setupView(this, primaryView);
         }
         boolean endIndented = false;
-        if (item.secondary != null) {
-            View secondaryView = inflateStubIfViewNotNull(view, R.id.secondary_stub, item.secondary);
-            endIndented = item.secondary.setupView(this, secondaryView);
+        if (singleLineItem.secondary != null) {
+            View secondaryView = inflateStubIfViewNotNull(view, R.id.secondary_stub, singleLineItem.secondary);
+            endIndented = singleLineItem.secondary.setupView(this, secondaryView);
         }
 
         TextView titleView = (TextView) view.findViewById(R.id.text);
-        titleView.setText(getString(item.textId));
+        titleView.setText(getString(singleLineItem.textId));
 
         // Format item content
         formatNavigationDrawerItem(view, startIndented, endIndented, item, isSelected);
@@ -99,13 +109,15 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
         return null;
     }
 
-    private void formatNavigationDrawerItem(View view, boolean startIndented, boolean endIndented, MaterialTrainingNavDrawerItem item, boolean selected) {
-        if (item.id == NAVDRAWER_ITEM_SEPARATOR) {
+    private void formatNavigationDrawerItem(View view, boolean startIndented, boolean endIndented, NavDrawerItem item, boolean selected) {
+        if (item.id == NAVDRAWER_ITEM_DIVIDER) {
             return;
         }
 
+        SingleLineNavDrawerItem singleLineItem = (SingleLineNavDrawerItem) item;
+
         // Configure its appearance according to whether or not it's selected
-        if (IconListControl.class.isInstance(item.primary) && ((IconListControl) item.primary).getDrawableId() > 0) {
+        if (IconListControl.class.isInstance(singleLineItem.primary) && ((IconListControl) singleLineItem.primary).getDrawableId() > 0) {
             ImageView iconView = (ImageView) view.findViewById(R.id.list_control_icon_material);
             iconView.setColorFilter(selected ? getThemeColorPrimary() : getResources().getColor(R.color.material_navdrawer_icon), PorterDuff.Mode.SRC_IN);
         }
@@ -117,7 +129,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
             layoutParams.setMarginStart(getResources().getDimensionPixelSize(R.dimen.keyline_2_minus_16dp));
         }
         if (endIndented) {
-            int controlWidth = getResources().getDimensionPixelSize(item.secondary.getLayoutSizeId());
+            int controlWidth = getResources().getDimensionPixelSize(singleLineItem.secondary.getLayoutSizeId());
             int marginSmall = getResources().getDimensionPixelSize(R.dimen.margin_small);
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
             layoutParams.setMarginEnd(controlWidth + marginSmall);
@@ -145,13 +157,27 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
         return false;
     }
 
-    protected static class MaterialTrainingNavDrawerItem extends NavDrawerItem {
+    private void addDivider() {
+        addItem(new NavDrawerItem(NAVDRAWER_ITEM_DIVIDER));
+    }
+
+    private void addItem(int id, int title, ListControl primary, ListControl secondary) {
+        addItem(new SingleLineNavDrawerItem(id, title, primary, secondary));
+    }
+
+    protected static class SingleLineNavDrawerItem extends NavDrawerItem {
+        int textId;
         ListControl primary, secondary;
 
-        public MaterialTrainingNavDrawerItem(int id, int textId, ListControl primary, ListControl secondary) {
-            super(id, textId);
+        public SingleLineNavDrawerItem(int id, int textId, ListControl primary, ListControl secondary) {
+            super(id);
+            this.textId = textId;
             this.primary = primary;
             this.secondary = secondary;
+        }
+
+        public int getTextId() {
+            return textId;
         }
 
         public ListControl getPrimary() {

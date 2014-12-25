@@ -35,7 +35,7 @@ public abstract class AbstractNavDrawerActivity extends Activity {
     protected static final int CONTENT_FADE_IN_DURATION = 100;
 
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
-    protected static final int NAVDRAWER_ITEM_SEPARATOR = -2;
+    protected static final int NAVDRAWER_ITEM_DIVIDER = -2;
 
     /**
      * Ordered list of items added to the navigation drawer
@@ -199,19 +199,13 @@ public abstract class AbstractNavDrawerActivity extends Activity {
 
     protected static class NavDrawerItem {
         int id;
-        int textId;
 
-        public NavDrawerItem(int id, int textId) {
+        public NavDrawerItem(int id) {
             this.id = id;
-            this.textId = textId;
         }
 
         public int getId() {
             return id;
-        }
-
-        public int getTextId() {
-            return textId;
         }
     }
 }
