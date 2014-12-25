@@ -2,7 +2,6 @@
 <resources>
 
     <color name="navdrawer_background">#ffffff</color>
-    <color name="navdrawer_text_color">#808080</color>
     <color name="navdrawer_text_color_selected">#000000</color>
 
 </resources>

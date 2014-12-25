@@ -1,10 +1,6 @@
 package com.training.android.materiel.ui.activity;
 
-import android.animation.ArgbEvaluator;
-import android.annotation.TargetApi;
-import android.graphics.Color;
-import android.os.Build;
-import android.util.TypedValue;
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -16,24 +12,15 @@ import com.training.android.materiel.ui.listcontrol.ListControl;
 
 public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawerActivity {
 
-    protected static final int NAVDRAWER_ITEM_MAIN_ID = 0;
+    private static final String TAG = MaterialTrainingNavDrawerActivity.class.getSimpleName();
 
-    @Override
-    protected void updateStatusBarForNavDrawerSlide(float slideOffset) {
-        TypedValue tv = new TypedValue();
-        if (getTheme().resolveAttribute(R.attr.colorPrimaryDark, tv, true)) {
-            if (tv.resourceId > 0) {
-                int themedStatusBarColor = getResources().getColor(tv.resourceId);
-                int transparentThemedStatusBarColor = Color.argb(127, Color.red(themedStatusBarColor), Color.green(themedStatusBarColor), Color.blue(themedStatusBarColor));
-                getWindow().setStatusBarColor((Integer) new ArgbEvaluator().evaluate(slideOffset, themedStatusBarColor, transparentThemedStatusBarColor));
-            }
-        }
-    }
+    protected static final int NAVDRAWER_ITEM_MAIN_ID = 0;
 
     @Override
     protected void populateNavigationDrawer() {
         super.populateNavigationDrawer();
         addItem(new MaterialTrainingNavDrawerItem(NAVDRAWER_ITEM_MAIN_ID, R.string.navdrawer_item_main, new IconListControl(R.drawable.ic_launcher), null));
+        addItem(new MaterialTrainingNavDrawerItem(1, R.string.hello_world, new IconListControl(R.drawable.ic_launcher), null));
     }
 
     @Override
@@ -59,9 +46,9 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
         // Select layout to inflate
         int layoutToInflate;
         if (item.id == NAVDRAWER_ITEM_SEPARATOR) {
-            layoutToInflate = R.layout.navdrawer_divider_material;
+            layoutToInflate = R.layout.list_divider_material;
         } else {
-            layoutToInflate = R.layout.navdrawer_item_material;
+            layoutToInflate = R.layout.list_item_single_line_material;
         }
 
         // Perform inflation
@@ -121,12 +108,12 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
             ImageView iconView = (ImageView) view.findViewById(R.id.list_control_icon_material);
             iconView.setColorFilter(selected ?
                     getResources().getColor(R.color.navdrawer_text_color_selected) :
-                    getResources().getColor(R.color.navdrawer_text_color));
+                    getResources().getColor(R.color.material_navdrawer_icon), PorterDuff.Mode.SRC_IN);
         }
         TextView textView = (TextView) view.findViewById(R.id.text);
         textView.setTextColor(selected ?
                 getResources().getColor(R.color.navdrawer_text_color_selected) :
-                getResources().getColor(R.color.navdrawer_text_color));
+                getResources().getColor(R.color.material_navdrawer_text));
 
         if (startIndented) {
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();

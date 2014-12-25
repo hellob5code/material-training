@@ -108,7 +108,6 @@ public abstract class AbstractNavDrawerActivity extends Activity {
         };
 
         getDrawerLayout().setDrawerListener(mDrawerToggle);
-        //getDrawerLayout().setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);

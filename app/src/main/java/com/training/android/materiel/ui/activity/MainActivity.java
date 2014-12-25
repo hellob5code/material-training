@@ -5,6 +5,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toolbar;
 import com.training.android.materiel.R;
 
 public class MainActivity extends MaterialTrainingNavDrawerActivity {
@@ -13,6 +14,7 @@ public class MainActivity extends MaterialTrainingNavDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     @Override
