@@ -110,6 +110,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
     }
 
     private void formatNavigationDrawerItem(View view, boolean startIndented, boolean endIndented, NavDrawerItem item, boolean selected) {
+        // TODO: The touch ripple also becomes a highlight, to further indicate selection.
         if (item.id == NAVDRAWER_ITEM_DIVIDER) {
             return;
         }
@@ -119,10 +120,10 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
         // Configure its appearance according to whether or not it's selected
         if (IconListControl.class.isInstance(singleLineItem.primary) && ((IconListControl) singleLineItem.primary).getDrawableId() > 0) {
             ImageView iconView = (ImageView) view.findViewById(R.id.list_control_icon_material);
-            iconView.setColorFilter(selected ? getThemeColorPrimary() : getResources().getColor(R.color.material_navdrawer_icon), PorterDuff.Mode.SRC_IN);
+            iconView.setColorFilter(selected ? getSelectedColor() : getResources().getColor(R.color.material_navdrawer_icon), PorterDuff.Mode.SRC_IN);
         }
         TextView textView = (TextView) view.findViewById(R.id.text);
-        textView.setTextColor(selected ? getThemeColorPrimary() : getResources().getColor(R.color.material_navdrawer_text));
+        textView.setTextColor(selected ? getSelectedColor() : getResources().getColor(R.color.material_navdrawer_text));
 
         if (startIndented) {
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
@@ -143,7 +144,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
 //        }
     }
 
-    private int getThemeColorPrimary() {
+    private int getSelectedColor() {
         TypedValue tv = new TypedValue();
         if (getTheme().resolveAttribute(android.R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
             return getResources().getColor(tv.resourceId);
