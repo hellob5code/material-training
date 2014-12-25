@@ -25,8 +25,10 @@
 
     <color name="material_navdrawer_text">@color/material_text_secondary</color>
     <color name="material_navdrawer_icon">#8a000000</color>
+    <color name="material_navdrawer_selected">#000000</color>
 
     <color name="material_navdrawer_text_inverse">@color/material_text_secondary_inverse</color>
     <color name="material_navdrawer_icon_inverse">#8affffff</color>
+    <color name="material_navdrawer_selected_inverse">#ffffff</color>
 
 </resources>

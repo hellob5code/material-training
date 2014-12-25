@@ -1,6 +1,7 @@
 package com.training.android.materiel.ui.activity;
 
 import android.graphics.PorterDuff;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -106,14 +107,10 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
         // Configure its appearance according to whether or not it's selected
         if (IconListControl.class.isInstance(item.primary) && ((IconListControl) item.primary).getDrawableId() > 0) {
             ImageView iconView = (ImageView) view.findViewById(R.id.list_control_icon_material);
-            iconView.setColorFilter(selected ?
-                    getResources().getColor(R.color.navdrawer_text_color_selected) :
-                    getResources().getColor(R.color.material_navdrawer_icon), PorterDuff.Mode.SRC_IN);
+            iconView.setColorFilter(selected ? getThemeColorPrimary() : getResources().getColor(R.color.material_navdrawer_icon), PorterDuff.Mode.SRC_IN);
         }
         TextView textView = (TextView) view.findViewById(R.id.text);
-        textView.setTextColor(selected ?
-                getResources().getColor(R.color.navdrawer_text_color_selected) :
-                getResources().getColor(R.color.material_navdrawer_text));
+        textView.setTextColor(selected ? getThemeColorPrimary() : getResources().getColor(R.color.material_navdrawer_text));
 
         if (startIndented) {
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
@@ -132,6 +129,15 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractNavDrawe
 //        if (minHeight > layoutParams.height && (AvatarListControl.class.isInstance(item.primary) || AvatarListControl.class.isInstance(item.secondary))) {
 //            layoutParams.height = minHeight;
 //        }
+    }
+
+    private int getThemeColorPrimary() {
+        TypedValue tv = new TypedValue();
+        if (getTheme().resolveAttribute(android.R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
+            return getResources().getColor(tv.resourceId);
+        } else {
+            return getResources().getColor(R.color.material_navdrawer_selected);
+        }
     }
 
     @Override
