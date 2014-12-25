@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="Theme.Patterns.Light.NoActionBar" parent="Base.Theme">
+        <item name="android:colorPrimary">@color/material_orange</item>
+        <item name="android:colorPrimaryDark">@color/material_orange_700</item>
+        <item name="android:colorAccent">@color/material_green</item>
+    </style>
+
+</resources>
