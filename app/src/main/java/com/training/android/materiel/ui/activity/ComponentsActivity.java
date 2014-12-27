@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import com.training.android.materiel.R;
 import com.training.android.materiel.ui.fragment.BottomSheetsFragment;
 import com.training.android.materiel.ui.fragment.ButtonsFragment;
+import com.training.android.materiel.ui.fragment.ListsFragment;
 
 public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
 
@@ -18,6 +19,8 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
         int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID);
         if (id == NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID) {
             getFragmentManager().beginTransaction().add(R.id.content, new BottomSheetsFragment()).commit();
+        } else if (id == NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID) {
+            getFragmentManager().beginTransaction().add(R.id.content, new ButtonsFragment()).commit();
         } else if (id == NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID) {
             getFragmentManager().beginTransaction().add(R.id.content, new ButtonsFragment()).commit();
         }
@@ -61,6 +64,9 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
             return true;
         } else if (id == NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID) {
             getFragmentManager().beginTransaction().replace(R.id.content, new ButtonsFragment()).commit();
+            return true;
+        } else if (id == NAVDRAWER_ITEM_COMPONENTS_LISTS_ID) {
+            getFragmentManager().beginTransaction().replace(R.id.content, new ListsFragment()).commit();
             return true;
         }
         return super.onNavDrawerItemSelected(item);

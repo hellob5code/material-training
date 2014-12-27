@@ -21,6 +21,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
     protected static final int NAVDRAWER_GROUP_COMPONENTS = 400;
     protected static final int NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID = 401;
     protected static final int NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID = 402;
+    protected static final int NAVDRAWER_ITEM_COMPONENTS_LISTS_ID = 408;
     protected static final int NAVDRAWER_GROUP_PATTERNS = 500;
     protected static final int NAVDRAWER_ITEM_PATTERNS_DATA_FORMATS_ID = 501;
     protected static final int NAVDRAWER_ITEM_PATTERNS_ERRORS_ID = 502;
@@ -58,6 +59,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
         super.populateNavigationDrawer();
         addGroup(NAVDRAWER_GROUP_COMPONENTS, R.string.navdrawer_group_components,
                 addChild(NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID, R.string.navdrawer_item_bottom_sheets, null, null),
+                addChild(NAVDRAWER_ITEM_COMPONENTS_LISTS_ID, R.string.navdrawer_item_lists, null, null),
                 addChild(NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID, R.string.navdrawer_item_buttons, null, null));
         addGroup(NAVDRAWER_GROUP_PATTERNS, R.string.navdrawer_group_patterns,
                 addChild(NAVDRAWER_ITEM_PATTERNS_DATA_FORMATS_ID, R.string.navdrawer_item_data_formats, null, null),

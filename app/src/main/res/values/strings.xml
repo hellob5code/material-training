@@ -8,6 +8,7 @@
     <!-- Navigation Drawer -->
     <string name="navdrawer_group_components">Components</string>
     <string name="navdrawer_item_bottom_sheets">Bottom sheets</string>
+    <string name="navdrawer_item_lists">Lists</string>
     <string name="navdrawer_item_buttons">Buttons</string>
     <string name="navdrawer_group_patterns">Patterns</string>
     <string name="navdrawer_item_data_formats">Data formats</string>

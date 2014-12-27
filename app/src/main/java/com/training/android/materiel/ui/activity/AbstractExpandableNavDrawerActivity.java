@@ -556,7 +556,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
             NavDrawerItem item = getChild(groupPosition, childPosition);
 
             // Select layout to inflate
-            int layoutToInflate = R.layout.list_item_single_line_material;
+            int layoutToInflate = R.layout.navdrawer_child_single_line_material;
 
             // Perform inflation
             final View view = getLayoutInflater().inflate(layoutToInflate, container, false);
@@ -616,7 +616,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
             } else if (item.id == NAVDRAWER_SUBHEADER) {
                 layoutToInflate = R.layout.list_subheader_material;
             } else {
-                layoutToInflate = R.layout.list_item_single_line_material;
+                layoutToInflate = R.layout.navdrawer_child_single_line_material;
             }
 
             // Perform inflation
