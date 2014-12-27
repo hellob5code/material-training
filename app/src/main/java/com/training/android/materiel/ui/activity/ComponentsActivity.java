@@ -1,5 +1,6 @@
 package com.training.android.materiel.ui.activity;
 
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.training.android.materiel.R;
@@ -9,6 +10,18 @@ import com.training.android.materiel.ui.fragment.ButtonsFragment;
 public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
 
     private static final String TAG = ComponentsActivity.class.getSimpleName();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID);
+        if (id == NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID) {
+            getFragmentManager().beginTransaction().add(R.id.content, new BottomSheetsFragment()).commit();
+        } else if (id == NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID) {
+            getFragmentManager().beginTransaction().add(R.id.content, new ButtonsFragment()).commit();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -23,6 +36,11 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected int getSelectedNavigationDrawerItemId() {
+        return getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID);
     }
 
     @Override

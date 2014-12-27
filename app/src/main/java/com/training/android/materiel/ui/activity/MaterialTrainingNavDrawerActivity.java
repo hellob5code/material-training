@@ -16,6 +16,8 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
 
     private static final String TAG = MaterialTrainingNavDrawerActivity.class.getSimpleName();
 
+    protected static final String EXTRA_SELECTED_CHILD_ID = "selected_child_id";
+
     protected static final int NAVDRAWER_GROUP_COMPONENTS = 400;
     protected static final int NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID = 401;
     protected static final int NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID = 402;
@@ -33,7 +35,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
         setContentView(R.layout.activity_navdrawer);
         ButterKnife.inject(this);
         setActionBar(toolbar);
-        overridePendingTransition(0, 0);
+        overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
     }
 
     @Override
@@ -78,11 +80,13 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
             int parentId = item.getParentId();
             if (parentId == NAVDRAWER_GROUP_COMPONENTS) {
                 Intent intent = new Intent(this, ComponentsActivity.class);
+                intent.putExtra(EXTRA_SELECTED_CHILD_ID, id);
                 startActivity(intent);
                 finish();
                 return true;
             } else if (parentId == NAVDRAWER_GROUP_PATTERNS) {
                 Intent intent = new Intent(this, PatternsActivity.class);
+                intent.putExtra(EXTRA_SELECTED_CHILD_ID, id);
                 startActivity(intent);
                 finish();
                 return true;

@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.*;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
@@ -36,8 +38,8 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
     private static final int NAVDRAWER_LAUNCH_DELAY = 200;
 
     /** Fade in and fade out durations for the main content when switching between different Activities of the app through the Nav Drawer */
-    protected static final int CONTENT_FADE_OUT_DURATION = 100;
-    protected static final int CONTENT_FADE_IN_DURATION = 100;
+    protected static final int CONTENT_FADE_OUT_DURATION = 200;
+    protected static final int CONTENT_FADE_IN_DURATION = 200;
 
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
     protected static final int NAVDRAWER_DIVIDER = -2;
@@ -46,6 +48,10 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
     protected ActionBarDrawerToggle mDrawerToggle;
     private ArrayList<NavDrawerGroup> mNavDrawerItems = new ArrayList<NavDrawerGroup>();
     private int mSelectedNavigationDrawerItemId = NAVDRAWER_ITEM_INVALID;
+
+    protected int getSelectedNavigationDrawerItemId() {
+        return NAVDRAWER_ITEM_INVALID;
+    }
 
     protected int getSelectedNavigationDrawerGroupId() {
         return NAVDRAWER_ITEM_INVALID;
@@ -178,7 +184,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
         }
 
         // Simply close the drawer on reselect
-        if (item.id == mSelectedNavigationDrawerItemId) {
+        if (item.getId() == mSelectedNavigationDrawerItemId) {
             getDrawerLayout().closeDrawer(Gravity.START);
             return;
         }
@@ -190,32 +196,32 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
             public void run() {
                 mSelectedNavigationDrawerItemId = item.getId();
                 onNavDrawerItemSelected(item);
-                fadeInContent(item);
+                fadeInContent(item.getId());
             }
         }, NAVDRAWER_LAUNCH_DELAY);
 
-        fadeOutContent(item);
+        fadeOutContent(item.getId());
 
         getDrawerLayout().closeDrawer(Gravity.START);
     }
 
-    private void fadeInContent(NavDrawerItem item) {
-        if (!skipFade(item.id)) {
+    private void fadeInContent(int itemId) {
+        if (!skipFade(itemId)) {
             if (getContentLayout() != null) {
                 Log.d(TAG, "Fading in content. [class=" + getClass().getSimpleName() + "]");
                 getContentLayout().setAlpha(0);
-                getContentLayout().animate().alpha(1).setDuration(CONTENT_FADE_IN_DURATION);
+                getContentLayout().animate().setInterpolator(new DecelerateInterpolator()).alpha(1).setDuration(CONTENT_FADE_IN_DURATION);
             } else {
                 Log.e(TAG, "No content view to fade in, implement getContentLayout() to initialize it.");
             }
         }
     }
 
-    private void fadeOutContent(NavDrawerItem item) {
-        if (!skipFade(item.id)) {
+    private void fadeOutContent(int itemId) {
+        if (!skipFade(itemId)) {
             if (getContentLayout() != null) {
                 Log.d(TAG, "Fading out content. [class=" + getClass().getSimpleName() + "]");
-                getContentLayout().animate().alpha(0).setDuration(CONTENT_FADE_OUT_DURATION);
+                getContentLayout().animate().setInterpolator(new AccelerateInterpolator()).alpha(0).setDuration(CONTENT_FADE_OUT_DURATION);
             } else {
                 Log.e(TAG, "No content view to fade out, implement getContentLayout() to initialize it.");
             }
@@ -250,10 +256,6 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
 
     public ArrayList<NavDrawerGroup> getNavDrawerItems() {
         return mNavDrawerItems;
-    }
-
-    public int getSelectedNavigationDrawerItemId() {
-        return mSelectedNavigationDrawerItemId;
     }
 
     protected void addDivider() {
@@ -575,7 +577,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
                     endIndented = controlItem.secondary.setupView(AbstractExpandableNavDrawerActivity.this, secondaryView);
                 }
 
-                boolean isSelected = getSelectedNavigationDrawerItemId() == item.id;
+                boolean isSelected = item.id == getSelectedNavigationDrawerItemId();
                 formatNavDrawerChild(view, controlItem, endIndented, isSelected);
 
             } else if (SingleLineNavDrawerItem.class.isInstance(item)) {
@@ -638,7 +640,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
                     endIndented = controlItem.secondary.setupView(AbstractExpandableNavDrawerActivity.this, secondaryView);
                 }
 
-                boolean isSelected = getSelectedNavigationDrawerItemId() == item.id;
+                boolean isSelected = item.id == getSelectedNavigationDrawerItemId();
                 formatNavDrawerGroup(view, controlItem, startIndented, endIndented, isSelected);
 
             } else if (SingleLineNavDrawerGroup.class.isInstance(item)) {
