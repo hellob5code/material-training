@@ -65,9 +65,9 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
                 addChild(NAVDRAWER_ITEM_PATTERNS_DATA_FORMATS_ID, R.string.navdrawer_item_data_formats, null, null),
                 addChild(NAVDRAWER_ITEM_PATTERNS_ERRORS_ID, R.string.navdrawer_item_errors, null, null));
         addDivider();
-        addItem(NAVDRAWER_ITEM_SETTINGS_ID, R.string.navdrawer_item_settings, new IconListControl(R.drawable.action_ic_settings), null);
+        addItem(NAVDRAWER_ITEM_SETTINGS_ID, R.string.navdrawer_item_settings, new IconListControl(this, R.drawable.action_ic_settings), null);
         if (BuildConfig.DEBUG) {
-            addItem(NAVDRAWER_ITEM_DEV_MODE_ID, R.string.navdrawer_item_developer_mode, new IconListControl(R.drawable.device_ic_developer_mode), null);
+            addItem(NAVDRAWER_ITEM_DEV_MODE_ID, R.string.navdrawer_item_developer_mode, new IconListControl(this, R.drawable.device_ic_developer_mode), null);
         }
     }
 

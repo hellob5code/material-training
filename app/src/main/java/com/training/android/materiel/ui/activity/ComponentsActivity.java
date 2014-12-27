@@ -16,13 +16,13 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID);
+        int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_ITEM_COMPONENTS_LISTS_ID);
         if (id == NAVDRAWER_ITEM_COMPONENTS_BOTTOM_SHEETS_ID) {
             getFragmentManager().beginTransaction().add(R.id.content, new BottomSheetsFragment()).commit();
         } else if (id == NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID) {
             getFragmentManager().beginTransaction().add(R.id.content, new ButtonsFragment()).commit();
-        } else if (id == NAVDRAWER_ITEM_COMPONENTS_BUTTONS_ID) {
-            getFragmentManager().beginTransaction().add(R.id.content, new ButtonsFragment()).commit();
+        } else if (id == NAVDRAWER_ITEM_COMPONENTS_LISTS_ID) {
+            getFragmentManager().beginTransaction().add(R.id.content, new ListsFragment()).commit();
         }
     }
 

@@ -22,6 +22,7 @@
 
     <!-- List -->
     <dimen name="material_list_icon_size">24dp</dimen>
+    <dimen name="material_list_icon_size_plus_16dp">40dp</dimen>
     <dimen name="material_avatar_list_item_min_size">56dp</dimen>
 
 </resources>

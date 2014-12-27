@@ -29,5 +29,5 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textSize="@dimen/text_size_normal"
-        tools:text="Item text" />
+        tools:text="Single-line item" />
 </RelativeLayout>

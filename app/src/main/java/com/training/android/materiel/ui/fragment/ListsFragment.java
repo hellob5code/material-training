@@ -10,34 +10,19 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.materiel.R;
-import com.training.android.materiel.ui.adapter.SingleLineListAdapter;
+import com.training.android.materiel.ui.adapter.MaterialIconListAdapter;
+import com.training.android.materiel.ui.listcontrol.AvatarListControl;
+import com.training.android.materiel.ui.listcontrol.IconListControl;
+import com.training.android.materiel.ui.row.SingleLineListRow;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListsFragment extends Fragment {
 
     private static final String TAG = ListsFragment.class.getSimpleName();
 
-    private String[] myDataset = new String[]{
-            "I am single line item 1",
-            "I am single line item 2",
-            "I am single line item 3",
-            "I am single line item 4",
-            "I am single line item 5",
-            "I am single line item 6",
-            "I am single line item 7",
-            "I am single line item 8",
-            "I am single line item 9",
-            "I am single line item 10",
-            "I am single line item 11",
-            "I am single line item 12",
-            "I am single line item 13",
-            "I am single line item 14",
-            "I am single line item 15",
-            "I am single line item 16",
-            "I am single line item 17",
-            "I am single line item 18",
-            "I am single line item 19",
-            "I am single line item 20",
-    };
+    private List<SingleLineListRow> myDataset =new ArrayList<SingleLineListRow>();
 
     @InjectView(R.id.recycler_view) RecyclerView mRecyclerView;
 
@@ -57,8 +42,29 @@ public class ListsFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // Specify an adapter (see also next example)
-        mAdapter = new SingleLineListAdapter(myDataset);
+        myDataset.add(new SingleLineListRow(1, "Single-line item 1", new IconListControl(getActivity(), R.drawable.device_ic_developer_mode), null));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 2", new IconListControl(getActivity(), R.drawable.device_ic_developer_mode), null));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 3", new IconListControl(getActivity(), R.drawable.device_ic_developer_mode), null));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 4"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 5"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 6"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 7"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 8"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 9"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 10"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 11"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 12"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 13"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 14"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 15"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 16"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 17"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 18"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 19"));
+        myDataset.add(new SingleLineListRow(1, "Single-line item 20"));
+
+        // Specify an adapter
+        mAdapter = new MaterialIconListAdapter(myDataset, true, true);
         mRecyclerView.setAdapter(mAdapter);
 
         return view;

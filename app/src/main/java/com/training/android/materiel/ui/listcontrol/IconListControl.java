@@ -1,68 +1,51 @@
 package com.training.android.materiel.ui.listcontrol;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import android.view.ViewStub;
 import com.training.android.materiel.R;
 
 public class IconListControl implements ListControl {
 
-    private static final int ICON_CONTROL_ID = R.id.list_control_icon_material;
-    private static final int ICON_CONTROL_LAYOUT_ID = R.layout.list_control_icon_material;
-    private static final int ICON_CONTROL_LAYOUT_SIZE_ID = R.dimen.material_list_icon_size;
+    public static final int CONTROL_LAYOUT_ID = R.layout.list_control_icon_material;
+    public static final int CONTROL_INFLATED_ID = R.id.list_control_icon_material;
 
-    private int drawableId;
-    private Integer color;
+    private int layoutSize;
+    private Drawable drawable;
 
-    public IconListControl(int drawableId) {
-        this.drawableId = drawableId;
+    public IconListControl(Context context, int drawable) {
+        this.layoutSize = context.getResources().getDimensionPixelSize(R.dimen.material_list_icon_size);
+        if (drawable > 0) {
+            this.drawable = context.getResources().getDrawable(drawable);
+        }
     }
 
-    public IconListControl(int drawableId, Integer color) {
-        this.drawableId = drawableId;
-        this.color = color;
-    }
-
-    public IconListControl(Context context, int drawableId, int colorId) {
-        this.drawableId = drawableId;
-        this.color = context.getResources().getColor(colorId);
-    }
-
-    @Override
-    public int getInflatedId() {
-        return ICON_CONTROL_ID;
+    public Drawable getDrawable() {
+        return drawable;
     }
 
     @Override
     public int getLayoutId() {
-        return ICON_CONTROL_LAYOUT_ID;
+        return CONTROL_LAYOUT_ID;
     }
 
     @Override
-    public int getLayoutSizeId() {
-        return ICON_CONTROL_LAYOUT_SIZE_ID;
-    }
-
-    public int getDrawableId() {
-        return drawableId;
-    }
-
-    public Integer getColor() {
-        return color;
+    public int getInflatedId() {
+        return CONTROL_INFLATED_ID;
     }
 
     @Override
-    public boolean setupView(Context context, View view) {
-        if (view == null) {
-            return false;
+    public boolean inflateStub(ViewStub viewStub) {
+        if (viewStub != null) {
+            viewStub.setLayoutResource(getLayoutId());
+            viewStub.setInflatedId(getInflatedId());
+            ViewGroup.LayoutParams layoutParams = viewStub.getLayoutParams();
+            layoutParams.width = layoutSize;
+            layoutParams.height = layoutSize;
+            viewStub.inflate();
+            return true;
         }
-        Drawable drawable = context.getResources().getDrawable(drawableId);
-        if (color != null) {
-            drawable.mutate().setColorFilter(color, PorterDuff.Mode.SRC_IN);
-        }
-        ((ImageView) view).setImageDrawable(drawable);
-        return true;
+        return false;
     }
 }
