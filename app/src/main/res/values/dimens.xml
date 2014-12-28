@@ -30,7 +30,4 @@
     <dimen name="padding_xlarge">64dp</dimen>
     <dimen name="padding_xxlarge">128dp</dimen>
 
-    <!-- Navigation Drawer -->
-    <dimen name="navdrawer_width">260dp</dimen>
-
 </resources>

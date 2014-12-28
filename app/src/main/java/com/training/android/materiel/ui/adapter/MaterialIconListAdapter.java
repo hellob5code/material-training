@@ -36,7 +36,7 @@ public class MaterialIconListAdapter extends RecyclerView.Adapter<MaterialIconLi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_single_line_material, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.tile_list_single_line_material, parent, false);
 
         final ViewHolder viewHolder = new ViewHolder(view, new ViewHolder.Callbacks() {
             @Override

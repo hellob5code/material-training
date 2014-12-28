@@ -16,6 +16,34 @@
     <string name="navdrawer_item_settings">Settings</string>
     <string name="navdrawer_item_developer_mode">Developer Mode</string>
 
+    <!-- Patterns Activity -->
+    <string name="fragment_patterns_basic_displays">Basic displays</string>
+    <string name="fragment_patterns_basic_1">For time, use uppercase AM or PM without periods, separated from time with a space.</string>
+    <string name="fragment_patterns_basic_2">If a timestamp is within the current day, it’s generally unnecessary to show either “today”, the day or date. Only display the time in “hour:minute AM/PM” format.</string>
+    <string name="fragment_patterns_basic_3">If the day is in the past or future within the current calendar year, display the abbreviated date.</string>
+    <string name="fragment_patterns_basic_4">If the day is in the past or future outside of the current calendar year, display the abbreviated date and year.</string>
+    <string name="fragment_patterns_basic_5">If the date is a range of time, separate with an en-dash without a space on either side.</string>
+    <string name="fragment_patterns_basic_6">If both dates in a range start and end in the current year, omit the year. Otherwise, show the year on both the start and end.</string>
+    <string name="fragment_patterns_basic_7">When a range shares a common AM/PM, append only on the end of the range.</string>
+    <string name="fragment_patterns_basic_8">When listing the time zone, drop the leading 0 for single digits.</string>
+    <string name="fragment_patterns_human_displays">Using human and relative language and approximate time</string>
+    <string name="fragment_patterns_human_1">If the day is yesterday or tomorrow, use those terms</string>
+    <string name="fragment_patterns_human_2">If the day is in the future and within a week, display the unabbreviated day of the week.</string>
+    <string name="fragment_patterns_human_3">If a word alternative helps understanding or describes a time-of-day preset, display that alternative.</string>
+    <string name="fragment_patterns_human_4">If absolute time isn’t necessary for specificity or comparison, you may choose to display approximate relative times.\nDon’t combine units (e.g. “1 hour 32 minutes ago”). Instead, round down to the most recent largest unit (e.g. “1 hour ago”).</string>
+    <string name="fragment_patterns_human_5">Relative language may not always be appropriate, e.g. current date in a clock app, or the specific time of an event or alarm. In these cases, use absolute time.</string>
+    <string name="fragment_patterns_modular_displays">Be modular</string>
+    <string name="fragment_patterns_modular_1">Typically, future settings should append time to a day or date.</string>
+    <string name="fragment_patterns_modular_2">When a past time is necessary, such as a triggered reminder, display both date and time.</string>
+    <string name="fragment_patterns_modular_3">When the day of week is necessary, such as on a calendar invite, display the abbreviated day separated by a comma.</string>
+    <string name="fragment_patterns_modular_4">When it’s an event in the distant past, omit the time.</string>
+    <string name="fragment_patterns_modular_5">Use HH:MM:SS to show the duration of a recording, like audio or video. If hours or seconds don’t apply, then omit them.</string>
+    <string name="fragment_patterns_brief_displays">Be modular</string>
+    <string name="fragment_patterns_brief_1">Always abbreviate months, with single or double digit dates.</string>
+    <string name="fragment_patterns_brief_2">Abbreviate days of the week when combined with a time.</string>
+    <string name="fragment_patterns_brief_3">If real estate is limited (such as with timestamps, labels on graphs, durations, etc.) abbreviate units, using numerical versions and/or by removing the “:00”:</string>
+    <string name="fragment_patterns_brief_4">If truncation of “tomorrow” or “yesterday” happens repeatedly, do not abbreviate. Instead, use the month date format.</string>
+
     <!-- Settings Activity -->
     <string name="title_activity_settings">Settings</string>
 
