@@ -7,14 +7,20 @@
 
     <!-- Navigation Drawer -->
     <string name="navdrawer_group_components">Components</string>
-    <string name="navdrawer_item_bottom_sheets">Bottom sheets</string>
-    <string name="navdrawer_item_lists">Lists</string>
-    <string name="navdrawer_item_buttons">Buttons</string>
+    <string name="navdrawer_child_bottom_sheets">Bottom sheets</string>
+    <string name="navdrawer_child_lists">Lists</string>
+    <string name="navdrawer_child_buttons">Buttons</string>
     <string name="navdrawer_group_patterns">Patterns</string>
-    <string name="navdrawer_item_data_formats">Data formats</string>
-    <string name="navdrawer_item_errors">Errors</string>
+    <string name="navdrawer_child_data_formats">Data formats</string>
+    <string name="navdrawer_child_errors">Errors</string>
     <string name="navdrawer_item_settings">Settings</string>
     <string name="navdrawer_item_developer_mode">Developer Mode</string>
+
+    <!-- Settings Activity -->
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Developer Mode Activity -->
+    <string name="title_activity_developer_mode">Developer Mode</string>
 
     <!-- Accessibility Description -->
     <string name="drawer_close">Close navigation drawer</string>

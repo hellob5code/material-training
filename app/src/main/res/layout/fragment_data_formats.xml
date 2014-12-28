@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/navdrawer_item_data_formats"
+        android:text="@string/navdrawer_child_data_formats"
         android:textAllCaps="true"
         android:textColor="@color/material_text_disabled"
         android:textSize="@dimen/text_size_large" />

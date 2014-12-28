@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="primary">@color/material_blue_grey</color>
+    <color name="primary_dark">@color/material_blue_grey_700</color>
+    <color name="primary_light">@color/material_blue_grey_300</color>
+
+    <color name="accent_1">@color/material_indigo</color>
+    <color name="accent_2">@color/material_red</color>
+
     <color name="navdrawer_background">#ffffff</color>
 
 </resources>

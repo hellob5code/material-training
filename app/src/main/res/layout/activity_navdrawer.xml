@@ -12,7 +12,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.PatterActivity">
+    tools:context=".ui.activity.PatternsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,9 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/colorPrimary"
-            android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+            android:elevation="4dp"
+            android:paddingTop="@dimen/status_bar_size"
             android:popupTheme="@android:style/Theme.Material.Light"
-            android:paddingTop="@dimen/status_bar_size" />
+            android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar" />
 
         <FrameLayout
             android:id="@+id/content"

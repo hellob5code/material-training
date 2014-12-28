@@ -1,11 +1,13 @@
 package com.training.android.materiel.ui.activity;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.training.android.materiel.R;
 import com.training.android.materiel.ui.fragment.DataFormatsFragment;
 import com.training.android.materiel.ui.fragment.ErrorsFragment;
+import com.training.android.materiel.ui.row.ListRow;
 
 public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
 
@@ -15,11 +17,12 @@ public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_ITEM_PATTERNS_DATA_FORMATS_ID);
-        if (id == NAVDRAWER_ITEM_PATTERNS_DATA_FORMATS_ID) {
-            getFragmentManager().beginTransaction().add(R.id.content, new DataFormatsFragment()).commit();
-        } else if (id == NAVDRAWER_ITEM_PATTERNS_ERRORS_ID) {
-            getFragmentManager().beginTransaction().add(R.id.content, new ErrorsFragment()).commit();
+        int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_DATA_FORMATS_ID);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if (id == NAVDRAWER_CHILD_DATA_FORMATS_ID) {
+            ft.add(R.id.content, new DataFormatsFragment()).commit();
+        } else if (id == NAVDRAWER_CHILD_ERRORS_ID) {
+            ft.add(R.id.content, new ErrorsFragment()).commit();
         }
     }
 
@@ -39,12 +42,7 @@ public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
     }
 
     @Override
-    protected int getSelectedNavigationDrawerItemId() {
-        return getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_ITEM_PATTERNS_DATA_FORMATS_ID);
-    }
-
-    @Override
-    protected int getSelectedNavigationDrawerGroupId() {
+    protected int getSelectedNavDrawerGroupId() {
         return NAVDRAWER_GROUP_PATTERNS;
     }
 
@@ -54,13 +52,14 @@ public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(NavDrawerItem item) {
+    protected boolean onNavDrawerItemSelected(ListRow item) {
         int id = item.getId();
-        if (id == NAVDRAWER_ITEM_PATTERNS_DATA_FORMATS_ID) {
-            getFragmentManager().beginTransaction().replace(R.id.content, new DataFormatsFragment()).commit();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if (id == NAVDRAWER_CHILD_DATA_FORMATS_ID) {
+            ft.replace(R.id.content, new DataFormatsFragment()).commit();
             return true;
-        } else if (id == NAVDRAWER_ITEM_PATTERNS_ERRORS_ID) {
-            getFragmentManager().beginTransaction().replace(R.id.content, new ErrorsFragment()).commit();
+        } else if (id == NAVDRAWER_CHILD_ERRORS_ID) {
+            ft.replace(R.id.content, new ErrorsFragment()).commit();
             return true;
         }
         return super.onNavDrawerItemSelected(item);
