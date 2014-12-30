@@ -4,10 +4,12 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import com.training.android.materiel.R;
 import com.training.android.materiel.ui.fragment.BottomSheetsFragment;
 import com.training.android.materiel.ui.fragment.ButtonsFragment;
 import com.training.android.materiel.ui.fragment.ListsFragment;
+import com.training.android.materiel.ui.fragment.TextFieldsFragment;
 import com.training.android.materiel.ui.row.ListRow;
 
 public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
@@ -18,7 +20,7 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_BOTTOM_SHEETS_ID);
+        int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_TEXT_FIELDS_ID);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         if (id == NAVDRAWER_CHILD_BOTTOM_SHEETS_ID) {
             ft.add(R.id.content, new BottomSheetsFragment()).commit();
@@ -26,6 +28,8 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
             ft.add(R.id.content, new ButtonsFragment()).commit();
         } else if (id == NAVDRAWER_CHILD_LISTS_ID) {
             ft.add(R.id.content, new ListsFragment()).commit();
+        } else if (id == NAVDRAWER_CHILD_TEXT_FIELDS_ID) {
+            ft.add(R.id.content, new TextFieldsFragment()).commit();
         }
     }
 
@@ -66,6 +70,9 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
             return true;
         } else if (id == NAVDRAWER_CHILD_LISTS_ID) {
             ft.replace(R.id.content, new ListsFragment()).commit();
+            return true;
+        } else if (id == NAVDRAWER_CHILD_TEXT_FIELDS_ID) {
+            ft.replace(R.id.content, new TextFieldsFragment()).commit();
             return true;
         }
         return super.onNavDrawerItemSelected(item);
