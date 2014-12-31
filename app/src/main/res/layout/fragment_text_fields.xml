@@ -49,6 +49,7 @@
             android:text="Auto-complete text field"/>
 
         <Button
+            android:id="@+id/text_fields_btn_search_filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Search filter"/>

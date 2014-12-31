@@ -27,6 +27,16 @@
             android:name=".ui.activity.DeveloperModeActivity"
             android:label="@string/title_activity_developer_mode"
             android:parentActivityName=".ui.activity.ComponentsActivity"/> <!-- TODO: Set real parent activity. -->
+        <activity
+            android:name=".ui.activity.SearchableActivity"
+            android:label="@string/title_activity_searchable"
+            android:launchMode="singleTop">
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

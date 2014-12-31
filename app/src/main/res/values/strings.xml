@@ -51,6 +51,9 @@
     <!-- Developer Mode Activity -->
     <string name="title_activity_developer_mode">Developer Mode</string>
 
+    <!-- Searchable Activity -->
+    <string name="title_activity_searchable">Searchable Activity</string>
+
     <!-- Accessibility Description -->
     <string name="drawer_close">Close navigation drawer</string>
     <string name="drawer_open">Open navigation drawer</string>
