@@ -11,7 +11,6 @@
         <activity
             android:name=".ui.activity.ComponentsActivity"
             android:theme="@style/Theme.Components.Light.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,10 +21,12 @@
             android:theme="@style/Theme.Patterns.Light.NoActionBar"/>
         <activity
             android:name=".ui.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"/>
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".ui.activity.ComponentsActivity"/> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.DeveloperModeActivity"
-            android:label="@string/title_activity_developer_mode"/>
+            android:label="@string/title_activity_developer_mode"
+            android:parentActivityName=".ui.activity.ComponentsActivity"/> <!-- TODO: Set real parent activity. -->
     </application>
 
 </manifest>
