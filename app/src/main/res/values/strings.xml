@@ -55,6 +55,15 @@
     <!-- Developer Mode Activity -->
     <string name="title_activity_developer_mode">Developer Mode</string>
 
+    <!-- Register Contact Activity -->
+    <string name="title_activity_register_contact">Register Contact Activity</string>
+    <string name="register_contact_hint_name">Full Name</string>
+    <string name="register_contact_hint_phone">Phone number</string>
+    <string name="register_contact_hint_email">Email</string>
+    <string name="register_contact_hint_address">Address</string>
+    <string name="register_contact_hint_ringtone">Ringtone</string>
+    <string name="register_contact_hint_add_note">Add note</string>
+
     <!-- Register Event Activity -->
     <string name="title_activity_register_event">Register Event Activity</string>
     <string name="register_event_hint_event_name">Event name</string>

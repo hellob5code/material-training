@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="@dimen/keyline_1"
+    android:layout_marginStart="@dimen/keyline_1"
+    android:orientation="vertical"
+    tools:context=".ui.activity.RegisterContactActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_size">
+
+        <ImageView
+            android:id="@+id/register_contact_img_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTintMode="src_in"
+            android:src="@drawable/social_ic_person"
+            android:tint="?android:attr/textColorSecondary" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/register_contact_edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2_minus_40dp"
+            android:layout_toEndOf="@+id/register_contact_img_name"
+            android:hint="@string/register_contact_hint_name"
+            app:primaryColor="?android:attr/colorAccent"
+            tools:text="Person Name" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_size">
+
+        <ImageView
+            android:id="@+id/register_contact_img_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTintMode="src_in"
+            android:src="@drawable/communication_ic_call"
+            android:tint="?android:attr/textColorSecondary" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/register_contact_edt_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2_minus_40dp"
+            android:layout_toEndOf="@+id/register_contact_img_phone"
+            android:hint="@string/register_contact_hint_phone"
+            app:primaryColor="?android:attr/colorAccent"
+            tools:text="555-5555-555" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_size">
+
+        <ImageView
+            android:id="@+id/register_contact_img_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTintMode="src_in"
+            android:src="@drawable/communication_ic_email"
+            android:tint="?android:attr/textColorSecondary" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/register_contact_edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2_minus_40dp"
+            android:layout_toEndOf="@+id/register_contact_img_email"
+            android:hint="@string/register_contact_hint_email"
+            app:primaryColor="?android:attr/colorAccent"
+            tools:text="email@mail.com" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_size">
+
+        <ImageView
+            android:id="@+id/register_contact_img_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTintMode="src_in"
+            android:src="@drawable/maps_ic_place"
+            android:tint="?android:attr/textColorSecondary" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/register_contact_edt_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2_minus_40dp"
+            android:layout_toEndOf="@+id/register_contact_img_address"
+            android:hint="@string/register_contact_hint_address"
+            app:primaryColor="?android:attr/colorAccent"
+            tools:text="518 Bacon Drive, Eggs Hills, CA" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_size">
+
+        <ImageView
+            android:id="@+id/register_contact_img_ringtone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTintMode="src_in"
+            android:src="@drawable/av_ic_volume_up"
+            android:tint="?android:attr/textColorSecondary" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/register_contact_edt_ringtone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2_minus_40dp"
+            android:layout_toEndOf="@+id/register_contact_img_ringtone"
+            android:hint="@string/register_contact_hint_ringtone"
+            app:primaryColor="?android:attr/colorAccent"
+            tools:text="Dring" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/touch_target_size">
+
+        <ImageView
+            android:id="@+id/register_contact_img_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTintMode="src_in"
+            android:src="@drawable/content_ic_add"
+            android:tint="?android:attr/textColorSecondary" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/register_contact_edt_add_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2_minus_40dp"
+            android:layout_toEndOf="@+id/register_contact_img_add_note"
+            android:hint="@string/register_contact_hint_add_note"
+            app:primaryColor="?android:attr/colorAccent"
+            tools:text="I am a short note." />
+    </RelativeLayout>
+</LinearLayout>

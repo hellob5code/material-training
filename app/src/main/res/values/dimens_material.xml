@@ -18,6 +18,7 @@
     <dimen name="keyline_2">72dp</dimen>
     <dimen name="keyline_2_minus_12dp">60dp</dimen>
     <dimen name="keyline_2_minus_16dp">56dp</dimen>
+    <dimen name="keyline_2_minus_40dp">32dp</dimen>
     <dimen name="keyline_2_minus_48dp">24dp</dimen>
 
     <!-- List -->

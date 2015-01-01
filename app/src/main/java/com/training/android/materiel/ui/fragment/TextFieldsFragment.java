@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.training.android.materiel.R;
+import com.training.android.materiel.ui.activity.RegisterContactActivity;
 import com.training.android.materiel.ui.activity.RegisterEventActivity;
 import com.training.android.materiel.ui.activity.SearchableActivity;
 
@@ -24,6 +25,11 @@ public class TextFieldsFragment extends Fragment {
     @OnClick(R.id.text_fields_btn_register_event)
     protected void onRegisterEventButtonClicked() {
         startActivity(new Intent(getActivity(), RegisterEventActivity.class));
+    }
+
+    @OnClick(R.id.text_fields_btn_register_contact)
+    protected void onRegisterContactButtonClicked() {
+        startActivity(new Intent(getActivity(), RegisterContactActivity.class));
     }
 
     @OnClick(R.id.text_fields_btn_search_filter)
