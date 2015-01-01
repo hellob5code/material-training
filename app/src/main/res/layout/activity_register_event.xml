@@ -46,7 +46,6 @@
                 android:inputType="none"
                 android:maxLines="1"
                 android:minHeight="@dimen/touch_target_size"
-                android:text="Fri, Feb 10 2014"
                 app:floatingLabel="highlight"
                 app:floatingLabelText="@string/register_event_hint_from" />
 
@@ -60,8 +59,7 @@
                 android:editable="false"
                 android:inputType="none"
                 android:maxLines="1"
-                android:minHeight="@dimen/touch_target_size"
-                android:text="4:30 PM" />
+                android:minHeight="@dimen/touch_target_size" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -79,7 +77,6 @@
                 android:inputType="none"
                 android:maxLines="1"
                 android:minHeight="@dimen/touch_target_size"
-                android:text="Fri, Feb 10 2014"
                 app:floatingLabel="highlight"
                 app:floatingLabelText="@string/register_event_hint_to" />
 
@@ -93,8 +90,7 @@
                 android:editable="false"
                 android:inputType="none"
                 android:maxLines="1"
-                android:minHeight="@dimen/touch_target_size"
-                android:text="5:30 PM" />
+                android:minHeight="@dimen/touch_target_size" />
         </RelativeLayout>
 
         <CheckBox
