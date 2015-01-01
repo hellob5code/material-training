@@ -19,6 +19,12 @@
         <item name="android:colorPrimaryDark">@color/material_orange_700</item>
         <item name="android:colorAccent">@color/material_green</item>
     </style>
+
+    <style name="Theme.Teal.Light" parent="Theme.App.Light">
+        <item name="android:colorPrimary">@color/material_teal</item>
+        <item name="android:colorPrimaryDark">@color/material_teal_700</item>
+        <item name="android:colorAccent">@color/material_light_blue</item>
+    </style>
     
     <style name="Base.Theme.NoActionBar" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
@@ -35,6 +41,12 @@
         <item name="android:colorPrimary">@color/material_orange</item>
         <item name="android:colorPrimaryDark">@color/material_orange_700</item>
         <item name="android:colorAccent">@color/material_green</item>
+    </style>
+
+    <style name="Theme.Teal.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+        <item name="android:colorPrimary">@color/material_teal</item>
+        <item name="android:colorPrimaryDark">@color/material_teal_700</item>
+        <item name="android:colorAccent">@color/material_light_blue</item>
     </style>
 
 </resources>

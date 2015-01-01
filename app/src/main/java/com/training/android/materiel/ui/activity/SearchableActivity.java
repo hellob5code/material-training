@@ -39,7 +39,7 @@ public class SearchableActivity extends Activity {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName())); // Assumes current activity is the searchable activity
         searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
 
-        searchView.setQueryHint(getString(R.string.hint_search, "stuff"));
+        searchView.setQueryHint(getString(R.string.searchable_hint_search, "stuff"));
 
         // Use icon as margin to align search edittext to keyline
         int searchMagIconId = getResources().getIdentifier("android:id/search_mag_icon", null, null);

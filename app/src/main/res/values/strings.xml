@@ -3,9 +3,11 @@
 
     <string name="app_name">Material Training</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="hint_search">Search %1$s</string>
+    <!-- Menu -->
+    <string name="txt_search">Search</string>
+    <string name="txt_settings">Settings</string>
+    <string name="txt_validate">Validate</string>
 
     <!-- Navigation Drawer -->
     <string name="navdrawer_group_components">Components</string>
@@ -53,8 +55,17 @@
     <!-- Developer Mode Activity -->
     <string name="title_activity_developer_mode">Developer Mode</string>
 
+    <!-- Register Event Activity -->
+    <string name="title_activity_register_event">Register Event Activity</string>
+    <string name="register_event_hint_event_name">Event name</string>
+    <string name="register_event_hint_from">From</string>
+    <string name="register_event_hint_location">Location</string>
+    <string name="register_event_hint_to">To</string>
+    <string name="register_event_txt_all_day">All day</string>
+
     <!-- Searchable Activity -->
     <string name="title_activity_searchable">Searchable Activity</string>
+    <string name="searchable_hint_search">Search %1$s</string>
 
     <!-- Accessibility Description -->
     <string name="drawer_close">Close navigation drawer</string>

@@ -6,16 +6,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import com.training.android.materiel.R;
+import com.training.android.materiel.ui.activity.RegisterEventActivity;
 import com.training.android.materiel.ui.activity.SearchableActivity;
 
 public class TextFieldsFragment extends Fragment {
-
-    @InjectView(R.id.text_fields_btn_search_filter) Button btnSearchSilter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -24,8 +21,13 @@ public class TextFieldsFragment extends Fragment {
         return view;
     }
 
+    @OnClick(R.id.text_fields_btn_register_event)
+    protected void onRegisterEventButtonClicked() {
+        startActivity(new Intent(getActivity(), RegisterEventActivity.class));
+    }
+
     @OnClick(R.id.text_fields_btn_search_filter)
-    protected void onButtonClicked(View view) {
+    protected void onSearchFilterButtonClicked() {
         startActivity(new Intent(getActivity(), SearchableActivity.class));
     }
 }

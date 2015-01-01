@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:name=".ui.activity.PatternsActivity"
-            android:theme="@style/Theme.Orange.Light.NoActionBar"/>
+            android:theme="@style/Theme.Orange.Light.NoActionBar" />
         <activity
             android:name=".ui.activity.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -32,12 +32,18 @@
             android:label="@string/title_activity_searchable"
             android:launchMode="singleTop"
             android:theme="@style/Theme.Indigo.Light">
-            <meta-data android:name="android.app.searchable"
+            <meta-data
+                android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activity.RegisterEventActivity"
+            android:label="@string/title_activity_register_event"
+            android:parentActivityName=".ui.activity.ComponentsActivity"
+            android:theme="@style/Theme.Teal.Light" /> <!-- TODO: Set real parent activity. -->
     </application>
 
 </manifest>
