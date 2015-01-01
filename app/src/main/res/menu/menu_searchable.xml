@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.activity.SearchableActivity">
 
-    <item android:id="@+id/search"
-        android:title="search_title"
-        android:icon="@drawable/action_ic_search"
-        android:showAsAction="collapseActionView|always"
-        android:actionViewClass="android.widget.SearchView" />
+    <item
+        android:id="@+id/search"
+        android:actionViewClass="android.widget.SearchView"
+        android:showAsAction="always"
+        android:title="Search" />
 </menu>

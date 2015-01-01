@@ -5,20 +5,33 @@
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary_dark</item>
         <item name="android:colorAccent">@color/accent_1</item>
+        <item name="android:searchViewStyle">@style/Style.SearchView.ActionBar</item>
     </style>
 
-    <style name="Base.Theme.NoActionBar" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-    </style>
-
-    <style name="Theme.Components.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+    <style name="Theme.Indigo.Light" parent="Theme.App.Light">
         <item name="android:colorPrimary">@color/material_indigo</item>
         <item name="android:colorPrimaryDark">@color/material_indigo_700</item>
         <item name="android:colorAccent">@color/material_pink</item>
     </style>
 
-    <style name="Theme.Patterns.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+    <style name="Theme.Orange.Light" parent="Theme.App.Light">
+        <item name="android:colorPrimary">@color/material_orange</item>
+        <item name="android:colorPrimaryDark">@color/material_orange_700</item>
+        <item name="android:colorAccent">@color/material_green</item>
+    </style>
+    
+    <style name="Base.Theme.NoActionBar" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="Theme.Indigo.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+        <item name="android:colorPrimary">@color/material_indigo</item>
+        <item name="android:colorPrimaryDark">@color/material_indigo_700</item>
+        <item name="android:colorAccent">@color/material_pink</item>
+    </style>
+
+    <style name="Theme.Orange.Light.NoActionBar" parent="Base.Theme.NoActionBar">
         <item name="android:colorPrimary">@color/material_orange</item>
         <item name="android:colorPrimaryDark">@color/material_orange_700</item>
         <item name="android:colorAccent">@color/material_green</item>

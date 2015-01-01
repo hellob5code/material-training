@@ -10,7 +10,7 @@
 
         <activity
             android:name=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Components.Light.NoActionBar">
+            android:theme="@style/Theme.Indigo.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:name=".ui.activity.PatternsActivity"
-            android:theme="@style/Theme.Patterns.Light.NoActionBar"/>
+            android:theme="@style/Theme.Orange.Light.NoActionBar"/>
         <activity
             android:name=".ui.activity.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -30,7 +30,8 @@
         <activity
             android:name=".ui.activity.SearchableActivity"
             android:label="@string/title_activity_searchable"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Indigo.Light">
             <meta-data android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
             <intent-filter>

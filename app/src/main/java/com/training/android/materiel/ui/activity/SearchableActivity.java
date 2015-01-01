@@ -1,5 +1,6 @@
 package com.training.android.materiel.ui.activity;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 import com.training.android.materiel.R;
 
@@ -19,6 +22,11 @@ public class SearchableActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchable);
+        ActionBar toolbar = getActionBar();
+        if (toolbar != null) {
+            toolbar.setIcon(R.drawable.action_ic_search);
+            toolbar.setDisplayShowHomeEnabled(true);
+        }
     }
 
     @Override
@@ -28,7 +36,16 @@ public class SearchableActivity extends Activity {
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName())); // Assumes current activity is the searchable activity
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+
+        searchView.setQueryHint(getString(R.string.hint_search, "stuff"));
+
+        // Use icon as margin to align search edittext to keyline
+        int searchMagIconId = getResources().getIdentifier("android:id/search_mag_icon", null, null);
+        ImageView searchMagIcon = (ImageView) searchView.findViewById(searchMagIconId);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) searchMagIcon.getLayoutParams();
+        layoutParams.width = getResources().getDimensionPixelSize(R.dimen.margin_small);
 
         return true;
     }

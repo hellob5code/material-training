@@ -37,6 +37,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navdrawer);
         ButterKnife.inject(this);
+        toolbar.getLayoutParams().height += getResources().getDimensionPixelSize(R.dimen.status_bar_size);
         setActionBar(toolbar);
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
     }

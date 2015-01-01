@@ -7,10 +7,10 @@
     <style name="Base.Theme.NoActionBar" parent="android:Theme.Holo.Light.NoActionBar">
     </style>
 
-    <style name="Theme.Components.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+    <style name="Theme.Indigo.Light.NoActionBar" parent="Base.Theme.NoActionBar">
     </style>
 
-    <style name="Theme.Patterns.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+    <style name="Theme.Orange.Light.NoActionBar" parent="Base.Theme.NoActionBar">
     </style>
 
 </resources>

@@ -5,6 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="hint_search">Search %1$s</string>
+
     <!-- Navigation Drawer -->
     <string name="navdrawer_group_components">Components</string>
     <string name="navdrawer_child_bottom_sheets">Bottom sheets</string>
