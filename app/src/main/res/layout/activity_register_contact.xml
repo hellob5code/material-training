@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/touch_target_size">
+        android:minHeight="@dimen/touch_target_48dp">
 
         <ImageView
             android:id="@+id/register_contact_img_name"
@@ -36,7 +36,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/touch_target_size">
+        android:minHeight="@dimen/touch_target_48dp">
 
         <ImageView
             android:id="@+id/register_contact_img_phone"
@@ -61,7 +61,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/touch_target_size">
+        android:minHeight="@dimen/touch_target_48dp">
 
         <ImageView
             android:id="@+id/register_contact_img_email"
@@ -86,7 +86,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/touch_target_size">
+        android:minHeight="@dimen/touch_target_48dp">
 
         <ImageView
             android:id="@+id/register_contact_img_address"
@@ -111,7 +111,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/touch_target_size">
+        android:minHeight="@dimen/touch_target_48dp">
 
         <ImageView
             android:id="@+id/register_contact_img_ringtone"
@@ -136,7 +136,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/touch_target_size">
+        android:minHeight="@dimen/touch_target_48dp">
 
         <ImageView
             android:id="@+id/register_contact_img_add_note"

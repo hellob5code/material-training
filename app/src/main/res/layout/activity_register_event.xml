@@ -1,111 +1,133 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activity.RegisterEventActivity">
 
-    <LinearLayout
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/register_event_medt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/keyline_1">
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/touch_target_56dp"
+        android:paddingEnd="@dimen/keyline_1"
+        android:paddingStart="@dimen/keyline_1"
+        app:hideUnderline="true"
+        tools:text="email@mail.com" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/register_event_medt_name"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/material_divider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:hint="@string/register_event_hint_event_name"
-            android:minHeight="@dimen/touch_target_size"
-            android:textAppearance="@android:style/TextAppearance.Material.Display1" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/register_event_medt_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:hint="@string/register_event_hint_location"
-            android:minHeight="@dimen/touch_target_size"
-            app:floatingLabel="highlight"
-            app:floatingLabelText="@string/register_event_hint_location" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_small"
-            android:minHeight="@dimen/touch_target_size">
+            android:orientation="vertical"
+            android:padding="@dimen/keyline_1">
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/register_event_medt_from_date"
+                android:id="@+id/register_event_medt_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_toStartOf="@+id/register_event_medt_from_time"
-                android:drawablePadding="@dimen/padding_small"
-                android:editable="false"
-                android:inputType="none"
-                android:maxLines="1"
-                app:floatingLabel="highlight"
-                app:floatingLabelText="@string/register_event_hint_from" />
+                android:layout_marginBottom="@dimen/margin_small"
+                android:hint="@string/register_event_hint_event_name"
+                android:minHeight="@dimen/touch_target_48dp"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1" />
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/register_event_medt_from_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/register_event_medt_from_date"
-                android:layout_alignParentEnd="true"
-                android:drawablePadding="@dimen/padding_small"
-                android:editable="false"
-                android:inputType="none"
-                android:maxLines="1" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/touch_target_size">
-
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/register_event_medt_to_date"
+                android:id="@+id/register_event_medt_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_toStartOf="@+id/register_event_medt_to_time"
-                android:drawablePadding="@dimen/padding_small"
-                android:editable="false"
-                android:inputType="none"
-                android:maxLines="1"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:hint="@string/register_event_hint_location"
+                android:minHeight="@dimen/touch_target_48dp"
                 app:floatingLabel="highlight"
-                app:floatingLabelText="@string/register_event_hint_to" />
+                app:floatingLabelText="@string/register_event_hint_location" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/register_event_medt_from_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_toStartOf="@+id/register_event_medt_from_time"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:editable="false"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    app:floatingLabel="highlight"
+                    app:floatingLabelText="@string/register_event_hint_from" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/register_event_medt_from_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/register_event_medt_from_date"
+                    android:layout_alignParentEnd="true"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:editable="false"
+                    android:inputType="none"
+                    android:maxLines="1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/register_event_medt_to_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_toStartOf="@+id/register_event_medt_to_time"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:editable="false"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    app:floatingLabel="highlight"
+                    app:floatingLabelText="@string/register_event_hint_to" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/register_event_medt_to_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/register_event_medt_to_date"
+                    android:layout_alignParentEnd="true"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:editable="false"
+                    android:inputType="none"
+                    android:maxLines="1" />
+            </RelativeLayout>
+
+            <CheckBox
+                android:id="@+id/register_event_cbx_all_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/touch_target_48dp"
+                android:paddingStart="@dimen/keyline_2_minus_48dp"
+                android:text="@string/register_event_txt_all_day" />
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/register_event_medt_to_time"
-                android:layout_width="wrap_content"
+                android:id="@+id/register_event_medt_timezone"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/register_event_medt_to_date"
-                android:layout_alignParentEnd="true"
                 android:drawablePadding="@dimen/padding_small"
                 android:editable="false"
                 android:inputType="none"
-                android:maxLines="1" />
-        </RelativeLayout>
-
-        <CheckBox
-            android:id="@+id/register_event_cbx_all_day"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/touch_target_size"
-            android:paddingStart="@dimen/keyline_2_minus_48dp"
-            android:text="@string/register_event_txt_all_day" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/register_event_medt_timezone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/padding_small"
-            android:editable="false"
-            android:inputType="none"
-            android:minHeight="@dimen/touch_target_size" />
-    </LinearLayout>
-</ScrollView>
+                android:minHeight="@dimen/touch_target_48dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

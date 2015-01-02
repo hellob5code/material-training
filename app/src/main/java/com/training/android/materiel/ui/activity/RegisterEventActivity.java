@@ -35,6 +35,7 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
     private static final String TAG_TO_DATE_PICKER = "to_date_picker";
     private static final String TAG_TO_TIME_PICKER = "to_time_picker";
 
+    @InjectView(R.id.register_event_medt_email) MaterialEditText medtEmail;
     @InjectView(R.id.register_event_medt_name) MaterialEditText medtName;
     @InjectView(R.id.register_event_medt_location) MaterialEditText medtLocation;
     @InjectView(R.id.register_event_medt_from_date) MaterialEditText medtFromDate;
@@ -71,6 +72,24 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
 
     private void setupAccountViews() {
         // TODO:
+        Drawable arrow;
+        StateListDrawable arrowSelector = new StateListDrawable();
+
+        TypedValue tv = new TypedValue();
+        if (getTheme().resolveAttribute(android.R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
+            int selectedColor = getResources().getColor(tv.resourceId);
+            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
+            arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+            arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
+        }
+        if (getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true) && tv.resourceId > 0) {
+            int secondaryColor = getResources().getColor(tv.resourceId);
+            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
+            arrow.mutate().setColorFilter(secondaryColor, PorterDuff.Mode.SRC_IN);
+            arrowSelector.addState(StateSet.WILD_CARD, arrow);
+        }
+
+        medtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
     }
 
     private void setupDateTimeViews() {
