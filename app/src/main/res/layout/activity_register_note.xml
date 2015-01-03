@@ -11,28 +11,28 @@
         android:id="@+id/register_note_medt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
         android:hint="@string/register_note_hint_title"
-        android:minHeight="@dimen/touch_target_48dp"
-        app:maxCharacters="50"
         app:floatingLabel="highlight"
-        app:floatingLabelText="@string/register_note_hint_title" />
+        app:floatingLabelText="@string/register_note_hint_title"
+        app:maxCharacters="50" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/register_note_medt_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
         android:hint="@string/register_note_hint_description"
-        android:minHeight="@dimen/touch_target_48dp"
-        app:maxCharacters="120"
         app:floatingLabel="highlight"
-        app:floatingLabelText="@string/register_note_hint_description" />
+        app:floatingLabelText="@string/register_note_hint_description"
+        app:maxCharacters="120" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/register_note_medt_extra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
         android:hint="@string/register_note_hint_extra"
-        android:minHeight="@dimen/touch_target_48dp"
         app:floatingLabel="highlight"
         app:floatingLabelText="@string/register_note_hint_extra" />
 </LinearLayout>

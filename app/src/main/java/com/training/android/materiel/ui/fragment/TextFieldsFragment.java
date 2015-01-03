@@ -30,6 +30,16 @@ public class TextFieldsFragment extends Fragment {
         startActivity(new Intent(getActivity(), RegisterContactActivity.class));
     }
 
+    @OnClick(R.id.text_fields_btn_register_application)
+    protected void onRegisterApplicationButtonClicked() {
+        startActivity(new Intent(getActivity(), RegisterApplicationActivity.class));
+    }
+
+    @OnClick(R.id.text_fields_btn_register_application_filled)
+    protected void onRegisterApplicationFilledButtonClicked() {
+        startActivity(new Intent(getActivity(), RegisterApplicationActivity.class));
+    }
+
     @OnClick(R.id.text_fields_btn_compose_email)
     protected void onComposeEmailButtonClicked() {
         startActivity(new Intent(getActivity(), ComposeEmailActivity.class));

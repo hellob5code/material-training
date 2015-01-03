@@ -18,13 +18,10 @@ import com.training.android.materiel.R;
 import com.training.android.materiel.ui.dialog.DatePickerDialogFragment;
 import com.training.android.materiel.ui.dialog.TimePickerDialogFragment;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.util.Calendar;
-import java.util.Set;
-import java.util.TimeZone;
 
 public class RegisterEventActivity extends Activity implements DatePickerDialogFragment.OnDateSetListener, TimePickerDialogFragment.OnTimeSetListener {
 
@@ -65,8 +62,14 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
         }
 
         setupAccountViews();
-        setupDateTimeViews();
+        setupDropdownViews();
         setupTimezoneViews();
+
+        medtFromDate.setText(mDateFormatter.print(mFromDateTime));
+        medtFromTime.setText(mTimeFormatter.print(mFromDateTime));
+
+        medtToDate.setText(mDateFormatter.print(mToDateTime));
+        medtToTime.setText(mTimeFormatter.print(mToDateTime));
     }
 
     private void setupAccountViews() {
@@ -79,7 +82,8 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
             int selectedColor = getResources().getColor(tv.resourceId);
             arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
             arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
+            arrowSelector.addState(new int[]{android.R.attr.state_pressed}, arrow);
+            arrowSelector.addState(new int[]{android.R.attr.state_focused}, arrow);
         }
         if (getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true) && tv.resourceId > 0) {
             int secondaryColor = getResources().getColor(tv.resourceId);
@@ -88,10 +92,10 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
             arrowSelector.addState(StateSet.WILD_CARD, arrow);
         }
 
-        medtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
+        medtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
     }
 
-    private void setupDateTimeViews() {
+    private void setupDropdownViews() {
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
@@ -101,6 +105,7 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
             arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
             arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
             arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
+            arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
         }
         if (getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true) && tv.resourceId > 0) {
             int secondaryColor = getResources().getColor(tv.resourceId);
@@ -109,24 +114,17 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
             arrowSelector.addState(StateSet.WILD_CARD, arrow);
         }
 
-        medtFromDate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
-        medtFromTime.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
-        medtToDate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
-        medtToTime.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
-        medtTimezone.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
+        medtFromDate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        medtFromTime.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        medtToDate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        medtToTime.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        medtTimezone.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
 
-        String dateString;
-        String timeString;
-
-        dateString = mDateFormatter.print(mFromDateTime);
-        medtFromDate.setText(dateString);
-        timeString = mTimeFormatter.print(mFromDateTime);
-        medtFromTime.setText(timeString);
-
-        dateString = mDateFormatter.print(mToDateTime);
-        medtToDate.setText(dateString);
-        timeString = mTimeFormatter.print(mToDateTime);
-        medtToTime.setText(timeString);
+        medtFromDate.setFocusableInTouchMode(false);
+        medtFromTime.setFocusableInTouchMode(false);
+        medtToDate.setFocusableInTouchMode(false);
+        medtToTime.setFocusableInTouchMode(false);
+        medtTimezone.setFocusableInTouchMode(false);
     }
 
     private void setupTimezoneViews() {

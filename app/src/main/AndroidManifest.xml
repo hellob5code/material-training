@@ -45,6 +45,11 @@
             android:label="@string/title_activity_settings"
             android:parentActivityName=".ui.activity.ComponentsActivity" /> <!-- TODO: Set real parent activity. -->
         <activity
+            android:name=".ui.activity.RegisterApplicationActivity"
+            android:label="@string/title_activity_register_application"
+            android:parentActivityName=".ui.activity.ComponentsActivity"
+            android:theme="@style/Theme.Indigo.Light" /> <!-- TODO: Set real parent activity. -->
+        <activity
             android:name=".ui.activity.RegisterContactActivity"
             android:label="@string/title_activity_register_contact"
             android:parentActivityName=".ui.activity.ComponentsActivity"

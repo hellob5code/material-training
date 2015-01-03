@@ -14,6 +14,8 @@
     <!-- Grids, keylines and rhythm -->
     <dimen name="touch_target_48dp">48dp</dimen>
     <dimen name="touch_target_56dp">56dp</dimen>
+    <dimen name="touch_target_72dp">72dp</dimen>
+    <dimen name="touch_target_72dp_minus_16dp">56dp</dimen>
 
     <dimen name="margin_xxsmall">2dp</dimen>
     <dimen name="margin_xsmall">4dp</dimen>

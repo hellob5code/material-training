@@ -1,46 +1,57 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_below="@+id/aaa"
     tools:context=".ui.activity.ComposeEmailActivity">
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/compose_email_medt_from"
-        style="@style/FullwidthTextField"
+    <LinearLayout
+        android:id="@+id/aaa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/compose_email_hint_from"
-        tools:text="email@mail.com" />
+        android:orientation="vertical">
 
-    <include layout="@layout/divider_horizontal" />
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/compose_email_medt_from"
+            style="@style/FullwidthTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/compose_email_hint_from"
+            tools:text="email@mail.com" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/compose_email_medt_to"
-        style="@style/FullwidthTextField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/compose_email_hint_to"
-        tools:text="email@mail.com" />
+        <include layout="@layout/divider_horizontal" />
 
-    <include layout="@layout/divider_horizontal" />
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/compose_email_medt_to"
+            style="@style/FullwidthTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/compose_email_hint_to"
+            tools:text="email@mail.com" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/compose_email_medt_subject"
-        style="@style/FullwidthTextField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/compose_email_hint_subject"
-        tools:text="Et est denique indoctum reprimique." />
+        <include layout="@layout/divider_horizontal" />
 
-    <include layout="@layout/divider_horizontal" />
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/compose_email_medt_subject"
+            style="@style/FullwidthTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/compose_email_hint_subject"
+            tools:text="Et est denique indoctum reprimique." />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/compose_email_medt_message"
-        style="@style/FullwidthTextField"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top"
-        android:hint="@string/compose_email_hint_message"
-        tools:text="Sea tation ignota no, mel et appellantur definitiones. In latine commune salutatus vim, duo hinc verear maiestatis ad. Vim nulla expetendis cu, eu everti facilis singulis cum. Facilis invidunt cum at. In zril quando graeco sed, dicat noster sanctus ad eam." />
-</LinearLayout>
+        <include layout="@layout/divider_horizontal" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/compose_email_medt_message"
+            style="@style/FullwidthTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="@string/compose_email_hint_message"
+            android:paddingBottom="@dimen/padding_small"
+            android:paddingTop="@dimen/padding_small"
+            app:maxCharacters="255"
+            tools:text="Sea tation ignota no, mel et appellantur definitiones. In latine commune salutatus vim, duo hinc verear maiestatis ad. Vim nulla expetendis cu, eu everti facilis singulis cum. Facilis invidunt cum at. In zril quando graeco sed, dicat noster sanctus ad eam." />
+    </LinearLayout>
+</ScrollView>
