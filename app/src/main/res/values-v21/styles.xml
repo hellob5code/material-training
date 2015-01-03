@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Style.SearchView.ActionBar" parent="android:Widget.Material.SearchView">
+    <style name="Style.Material.SearchView.ActionBar" parent="android:Widget.Material.SearchView">
         <!-- Background for the search query section (e.g. EditText) -->
         <item name="android:queryBackground">@android:color/transparent</item>
         <!-- Close button icon -->
@@ -12,6 +12,14 @@
         <item name="android:voiceIcon">@drawable/hardware_ic_keyboard_voice</item>
         <!-- Commit icon shown in the query suggestion row -->
         <item name="android:commitIcon">@drawable/navigation_ic_arrow_forward</item>
+    </style>
+
+    <style name="FullwidthTextField">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">@dimen/touch_target_56dp</item>
+        <item name="android:paddingEnd">@dimen/keyline_1</item>
+        <item name="android:paddingStart">@dimen/keyline_1</item>
+        <item name="hideUnderline">true</item>
     </style>
 
 </resources>

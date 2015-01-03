@@ -5,7 +5,7 @@
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary_dark</item>
         <item name="android:colorAccent">@color/accent_1</item>
-        <item name="android:searchViewStyle">@style/Style.SearchView.ActionBar</item>
+        <item name="android:searchViewStyle">@style/Style.Material.SearchView.ActionBar</item>
     </style>
 
     <style name="Theme.Indigo.Light" parent="Theme.App.Light">
@@ -18,6 +18,12 @@
         <item name="android:colorPrimary">@color/material_orange</item>
         <item name="android:colorPrimaryDark">@color/material_orange_700</item>
         <item name="android:colorAccent">@color/material_green</item>
+    </style>
+
+    <style name="Theme.Pink.Light" parent="Theme.App.Light">
+        <item name="android:colorPrimary">@color/material_pink_700</item>
+        <item name="android:colorPrimaryDark">@color/material_pink_900</item>
+        <item name="android:colorAccent">@color/accent_1</item>
     </style>
 
     <style name="Theme.Teal.Light" parent="Theme.App.Light">
@@ -41,6 +47,12 @@
         <item name="android:colorPrimary">@color/material_orange</item>
         <item name="android:colorPrimaryDark">@color/material_orange_700</item>
         <item name="android:colorAccent">@color/material_green</item>
+    </style>
+
+    <style name="Theme.Pink.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+        <item name="android:colorPrimary">@color/material_pink_700</item>
+        <item name="android:colorPrimaryDark">@color/material_pink_900</item>
+        <item name="android:colorAccent">@color/accent_1</item>
     </style>
 
     <style name="Theme.Teal.Light.NoActionBar" parent="Base.Theme.NoActionBar">

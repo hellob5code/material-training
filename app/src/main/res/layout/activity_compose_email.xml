@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.ComposeEmailActivity">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/compose_email_medt_from"
+        style="@style/FullwidthTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/compose_email_hint_from"
+        tools:text="email@mail.com" />
+
+    <include layout="@layout/divider_horizontal" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/compose_email_medt_to"
+        style="@style/FullwidthTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/compose_email_hint_to"
+        tools:text="email@mail.com" />
+
+    <include layout="@layout/divider_horizontal" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/compose_email_medt_subject"
+        style="@style/FullwidthTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/compose_email_hint_subject"
+        tools:text="Et est denique indoctum reprimique." />
+
+    <include layout="@layout/divider_horizontal" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/compose_email_medt_message"
+        style="@style/FullwidthTextField"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:hint="@string/compose_email_hint_message"
+        tools:text="Sea tation ignota no, mel et appellantur definitiones. In latine commune salutatus vim, duo hinc verear maiestatis ad. Vim nulla expetendis cu, eu everti facilis singulis cum. Facilis invidunt cum at. In zril quando graeco sed, dicat noster sanctus ad eam." />
+</LinearLayout>

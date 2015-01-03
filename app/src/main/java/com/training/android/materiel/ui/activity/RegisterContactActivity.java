@@ -17,7 +17,6 @@ public class RegisterContactActivity extends Activity {
         ActionBar toolbar = getActionBar();
         if (toolbar != null) {
             toolbar.setDisplayShowTitleEnabled(false);
-            toolbar.setDisplayHomeAsUpEnabled(true);
         }
     }
 

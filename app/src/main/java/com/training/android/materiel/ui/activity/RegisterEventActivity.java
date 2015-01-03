@@ -62,7 +62,6 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
         ActionBar toolbar = getActionBar();
         if (toolbar != null) {
             toolbar.setDisplayShowTitleEnabled(false);
-            toolbar.setDisplayHomeAsUpEnabled(true);
         }
 
         setupAccountViews();

@@ -13,10 +13,6 @@ public class DeveloperModeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developer_mode);
-        ActionBar toolbar = getActionBar();
-        if (toolbar != null) {
-            toolbar.setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     @Override

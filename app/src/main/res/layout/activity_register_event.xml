@@ -8,19 +8,12 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/register_event_medt_email"
+        style="@style/FullwidthTextField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/touch_target_56dp"
-        android:paddingEnd="@dimen/keyline_1"
-        android:paddingStart="@dimen/keyline_1"
-        app:hideUnderline="true"
         tools:text="email@mail.com" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/material_divider" />
+    <include layout="@layout/divider_horizontal" />
 
     <ScrollView
         android:layout_width="match_parent"
