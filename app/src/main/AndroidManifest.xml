@@ -54,6 +54,11 @@
             android:label="@string/title_activity_register_event"
             android:parentActivityName=".ui.activity.ComponentsActivity"
             android:theme="@style/Theme.Teal.Light" /> <!-- TODO: Set real parent activity. -->
+        <activity
+            android:name=".ui.activity.RegisterNoteActivity"
+            android:label="@string/title_activity_register_note"
+            android:parentActivityName=".ui.activity.ComponentsActivity"
+            android:theme="@style/Theme.Teal.Light" /> <!-- TODO: Set real parent activity. -->
     </application>
 
 </manifest>

@@ -9,10 +9,7 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.training.android.materiel.R;
-import com.training.android.materiel.ui.activity.ComposeEmailActivity;
-import com.training.android.materiel.ui.activity.RegisterContactActivity;
-import com.training.android.materiel.ui.activity.RegisterEventActivity;
-import com.training.android.materiel.ui.activity.SearchableActivity;
+import com.training.android.materiel.ui.activity.*;
 
 public class TextFieldsFragment extends Fragment {
 
@@ -41,6 +38,11 @@ public class TextFieldsFragment extends Fragment {
     @OnClick(R.id.text_fields_btn_compose_email_no_sender)
     protected void onComposeEmailNoSenderButtonClicked() {
         startActivity(new Intent(getActivity(), ComposeEmailActivity.class));
+    }
+
+    @OnClick(R.id.text_fields_btn_register_note)
+    protected void onRegisterNoteButtonClicked() {
+        startActivity(new Intent(getActivity(), RegisterNoteActivity.class));
     }
 
     @OnClick(R.id.text_fields_btn_search_filter)

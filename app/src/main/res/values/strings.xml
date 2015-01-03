@@ -77,6 +77,12 @@
     <string name="register_event_hint_to">To</string>
     <string name="register_event_txt_all_day">All day</string>
 
+    <!-- Register Note Activity -->
+    <string name="title_activity_register_note">Register Note Activity</string>
+    <string name="register_note_hint_title">Title</string>
+    <string name="register_note_hint_description">Description</string>
+    <string name="register_note_hint_extra">More descriptive text</string>
+
     <!-- Searchable Activity -->
     <string name="title_activity_searchable">Searchable Activity</string>
     <string name="searchable_hint_search">Search %1$s</string>
