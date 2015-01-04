@@ -1,14 +1,16 @@
 package com.training.android.material.ui.activity;
 
-import android.app.*;
+
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.util.StateSet;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import butterknife.*;
@@ -17,13 +19,14 @@ import com.rengwuxian.materialedittext.validation.RegexpValidator;
 import com.training.android.material.R;
 import com.training.android.material.ui.dialog.DatePickerDialogFragment;
 import com.training.android.material.ui.dialog.TimePickerDialogFragment;
+import com.training.android.material.util.ThemeUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.util.Calendar;
 
-public class RegisterEventActivity extends Activity implements DatePickerDialogFragment.OnDateSetListener, TimePickerDialogFragment.OnTimeSetListener {
+public class RegisterEventActivity extends ActionBarActivity implements DatePickerDialogFragment.OnDateSetListener, TimePickerDialogFragment.OnTimeSetListener {
 
     private static final String TAG = RegisterEventActivity.class.getSimpleName();
 
@@ -56,9 +59,10 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
         mTimeFormatter = DateTimeFormat.forPattern("h:mm a");
 
         ButterKnife.inject(this);
-        ActionBar toolbar = getActionBar();
+        ActionBar toolbar = getSupportActionBar();
         if (toolbar != null) {
             toolbar.setDisplayShowTitleEnabled(false);
+            toolbar.setDisplayHomeAsUpEnabled(true);
         }
 
         setupAccountViews();
@@ -77,20 +81,14 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
-        TypedValue tv = new TypedValue();
-        if (getTheme().resolveAttribute(android.R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
-            int selectedColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(new int[]{android.R.attr.state_pressed}, arrow);
-            arrowSelector.addState(new int[]{android.R.attr.state_focused}, arrow);
-        }
-        if (getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true) && tv.resourceId > 0) {
-            int secondaryColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(secondaryColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(StateSet.WILD_CARD, arrow);
-        }
+        int selectedColor = ThemeUtils.obtainPrimaryColor(this);
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
+        arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+        arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
+        arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
+
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
+        arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
         medtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
     }
@@ -99,20 +97,14 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
-        TypedValue tv = new TypedValue();
-        if (getTheme().resolveAttribute(android.R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
-            int selectedColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
-            arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
-        }
-        if (getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true) && tv.resourceId > 0) {
-            int secondaryColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(secondaryColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(StateSet.WILD_CARD, arrow);
-        }
+        int selectedColor = ThemeUtils.obtainPrimaryColor(this);
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
+        arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+        arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
+        arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
+
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
+        arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
         medtFromDate.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
         medtFromTime.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
@@ -167,33 +159,33 @@ public class RegisterEventActivity extends Activity implements DatePickerDialogF
 
     @OnClick(R.id.register_event_medt_from_date)
     protected void onFromDateEditTextClick() {
-        if (getFragmentManager().findFragmentByTag(TAG_FROM_DATE_PICKER) == null) {
+        if (getSupportFragmentManager().findFragmentByTag(TAG_FROM_DATE_PICKER) == null) {
             DialogFragment newFragment = newDatePickerDialogFragment(mFromDateTime);
-            newFragment.show(getFragmentManager(), TAG_FROM_DATE_PICKER);
+            newFragment.show(getSupportFragmentManager(), TAG_FROM_DATE_PICKER);
         }
     }
 
     @OnClick(R.id.register_event_medt_from_time)
     protected void onFromTimeEditTextClick() {
-        if (getFragmentManager().findFragmentByTag(TAG_FROM_TIME_PICKER) == null) {
+        if (getSupportFragmentManager().findFragmentByTag(TAG_FROM_TIME_PICKER) == null) {
             DialogFragment newFragment = newTimePickerDialogFragment(mFromDateTime);
-            newFragment.show(getFragmentManager(), TAG_FROM_TIME_PICKER);
+            newFragment.show(getSupportFragmentManager(), TAG_FROM_TIME_PICKER);
         }
     }
 
     @OnClick(R.id.register_event_medt_to_date)
     protected void onToDateEditTextClick() {
-        if (getFragmentManager().findFragmentByTag(TAG_TO_DATE_PICKER) == null) {
+        if (getSupportFragmentManager().findFragmentByTag(TAG_TO_DATE_PICKER) == null) {
             DialogFragment newFragment = newDatePickerDialogFragment(mToDateTime);
-            newFragment.show(getFragmentManager(), TAG_TO_DATE_PICKER);
+            newFragment.show(getSupportFragmentManager(), TAG_TO_DATE_PICKER);
         }
     }
 
     @OnClick(R.id.register_event_medt_to_time)
     protected void onToTimeEditTextClick() {
-        if (getFragmentManager().findFragmentByTag(TAG_TO_TIME_PICKER) == null) {
+        if (getSupportFragmentManager().findFragmentByTag(TAG_TO_TIME_PICKER) == null) {
             DialogFragment newFragment = newTimePickerDialogFragment(mToDateTime);
-            newFragment.show(getFragmentManager(), TAG_TO_TIME_PICKER);
+            newFragment.show(getSupportFragmentManager(), TAG_TO_TIME_PICKER);
         }
     }
 

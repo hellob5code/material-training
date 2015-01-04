@@ -16,8 +16,8 @@ android {
     buildToolsVersion "21.0.2"
 
     defaultConfig {
-        applicationId "com.training.android.materiel"
-        minSdkVersion 21
+        applicationId "com.training.android.material"
+        minSdkVersion 17
         targetSdkVersion 21
         versionCode 1
         versionName "1.0.0-SNAPSHOT"

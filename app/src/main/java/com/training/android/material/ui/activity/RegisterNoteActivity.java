@@ -1,18 +1,22 @@
 package com.training.android.material.ui.activity;
 
-import android.app.Activity;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.training.android.material.R;
 
-public class RegisterNoteActivity extends Activity {
+public class RegisterNoteActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_note);
+        ActionBar toolbar = getSupportActionBar();
+        if (toolbar != null) {
+            toolbar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override

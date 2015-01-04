@@ -1,14 +1,13 @@
 package com.training.android.material.ui.activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.StateSet;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,9 +20,10 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import com.training.android.material.R;
 import com.training.android.material.model.Contact;
 import com.training.android.material.util.EnumUtils;
+import com.training.android.material.util.ThemeUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
-public class RegisterContactActivity extends Activity {
+public class RegisterContactActivity extends ActionBarActivity {
 
     @InjectView(R.id.register_contact_medt_phone_type) MaterialEditText medtPhoneType;
     @InjectView(R.id.register_contact_medt_email_type) MaterialEditText medtEmailType;
@@ -34,9 +34,10 @@ public class RegisterContactActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_contact);
         ButterKnife.inject(this);
-        ActionBar toolbar = getActionBar();
+        ActionBar toolbar = getSupportActionBar();
         if (toolbar != null) {
             toolbar.setDisplayShowTitleEnabled(false);
+            toolbar.setDisplayHomeAsUpEnabled(true);
         }
 
         setupDropdownViews();
@@ -50,20 +51,14 @@ public class RegisterContactActivity extends Activity {
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
-        TypedValue tv = new TypedValue();
-        if (getTheme().resolveAttribute(android.R.attr.colorAccent, tv, true) && tv.resourceId > 0) {
-            int selectedColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
-            arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
-        }
-        if (getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true) && tv.resourceId > 0) {
-            int secondaryColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(secondaryColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(StateSet.WILD_CARD, arrow);
-        }
+        int selectedColor = ThemeUtils.obtainAccentColor(this);
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
+        arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+        arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
+        arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
+
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
+        arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
         medtPhoneType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
         medtEmailType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);

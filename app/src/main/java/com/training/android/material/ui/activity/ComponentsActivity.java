@@ -4,7 +4,6 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 import com.training.android.material.R;
 import com.training.android.material.ui.fragment.BottomSheetsFragment;
 import com.training.android.material.ui.fragment.ButtonsFragment;

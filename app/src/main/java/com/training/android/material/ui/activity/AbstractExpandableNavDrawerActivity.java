@@ -1,12 +1,12 @@
 package com.training.android.material.ui.activity;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.*;
@@ -25,7 +25,7 @@ import com.training.android.material.ui.row.SingleLineListRow;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractExpandableNavDrawerActivity extends Activity {
+public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActivity {
 
     private static final String TAG = AbstractExpandableNavDrawerActivity.class.getSimpleName();
 
@@ -84,7 +84,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
                 super.onDrawerClosed(view);
                 updateStatusBarOnDrawerSlide(0);
                 invalidateOptionsMenu();
-                getActionBar().setTitle(getNavigationDrawerClosedTitle());
+                getSupportActionBar().setTitle(getNavigationDrawerClosedTitle());
             }
 
             @Override
@@ -92,7 +92,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends Activity {
                 super.onDrawerOpened(drawerView);
                 updateStatusBarOnDrawerSlide(1);
                 invalidateOptionsMenu();
-                getActionBar().setTitle(getNavigationDrawerOpenedTitle());
+                getSupportActionBar().setTitle(getNavigationDrawerOpenedTitle());
             }
 
             @Override

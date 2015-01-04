@@ -3,14 +3,15 @@ package com.training.android.material.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toolbar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.material.BuildConfig;
 import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
 import com.training.android.material.ui.row.ListRow;
+import com.training.android.material.util.ApiUtils;
 
 // TODO: If the list of content in the navigation drawer is very long, the two options can be pinned to the bottom of the navigation drawer on a surface with a higher elevation. This surface is present only while at the top of the list; any other scroll position will immediately result in dismissing the surface and placing the options at the end of the list, in-line with the rest of the list content. The navigation drawer retains its scroll position when closed and reopened.
 public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandableNavDrawerActivity {
@@ -37,8 +38,16 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navdrawer);
         ButterKnife.inject(this);
-        toolbar.getLayoutParams().height += getResources().getDimensionPixelSize(R.dimen.status_bar_size);
-        setActionBar(toolbar);
+
+        if (ApiUtils.isLollipop()) {
+            int statusBarrSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
+            toolbar.getLayoutParams().height += statusBarrSize;
+            toolbar.setPadding(0, statusBarrSize, 0, 0);
+            View navdrawer = findViewById(R.id.navdrawer);
+            navdrawer.setPadding(0, statusBarrSize, 0, 0);
+        }
+        setSupportActionBar(toolbar);
+
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
     }
 

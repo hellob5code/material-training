@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Style.Material.SearchView.ActionBar" parent="android:Widget.Material.SearchView">
+    <style name="FullwidthSearchView" parent="Widget.AppCompat.SearchView">
         <!-- Background for the search query section (e.g. EditText) -->
-        <item name="android:queryBackground">@android:color/transparent</item>
+        <item name="queryBackground">@android:color/transparent</item>
+        <!-- Background for the section containing the action (e.g. voice search) -->
+        <item name="submitBackground">@android:color/transparent</item>
         <!-- Close button icon -->
-        <item name="android:closeIcon">@drawable/navigation_ic_cancel</item>
+        <item name="closeIcon">@drawable/navigation_ic_cancel</item>
         <!-- Search button icon -->
-        <item name="android:searchIcon">@android:color/transparent</item>
+        <item name="searchIcon">@android:color/transparent</item>
         <!-- Voice search button icon -->
-        <item name="android:voiceIcon">@drawable/hardware_ic_keyboard_voice</item>
+        <item name="voiceIcon">@drawable/hardware_ic_keyboard_voice</item>
         <!-- Commit icon shown in the query suggestion row -->
-        <item name="android:commitIcon">@drawable/navigation_ic_arrow_forward</item>
+        <item name="commitIcon">@drawable/navigation_ic_arrow_forward</item>
     </style>
 
     <style name="FullwidthTextField">

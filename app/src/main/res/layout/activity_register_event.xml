@@ -29,7 +29,7 @@
             android:gravity="bottom"
             android:hint="@string/register_event_hint_event_name"
             android:singleLine="true"
-            android:textAppearance="@android:style/TextAppearance.Material.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_event_medt_location"

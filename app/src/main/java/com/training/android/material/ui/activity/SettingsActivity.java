@@ -1,6 +1,5 @@
 package com.training.android.material.ui.activity;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.v4.app.NavUtils;

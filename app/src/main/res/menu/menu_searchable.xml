@@ -1,10 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.activity.SearchableActivity">
 
     <item
         android:id="@+id/search"
-        android:actionViewClass="android.widget.SearchView"
-        android:showAsAction="always"
-        android:title="@string/txt_search" />
+        android:title="@string/txt_search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always" />
 </menu>

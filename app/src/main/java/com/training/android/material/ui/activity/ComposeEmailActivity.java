@@ -1,10 +1,11 @@
 package com.training.android.material.ui.activity;
 
-import android.app.Activity;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.StateSet;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -14,7 +15,7 @@ import butterknife.InjectView;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.training.android.material.R;
 
-public class ComposeEmailActivity extends Activity {
+public class ComposeEmailActivity extends ActionBarActivity {
 
     @InjectView(R.id.compose_email_medt_from) MaterialEditText medtFrom;
 
@@ -23,6 +24,10 @@ public class ComposeEmailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose_email);
         ButterKnife.inject(this);
+        ActionBar toolbar = getSupportActionBar();
+        if (toolbar != null) {
+            toolbar.setDisplayHomeAsUpEnabled(true);
+        }
         setupAccountViews();
     }
 
@@ -32,18 +37,14 @@ public class ComposeEmailActivity extends Activity {
         StateListDrawable arrowSelector = new StateListDrawable();
 
         TypedValue tv = new TypedValue();
-        if (getTheme().resolveAttribute(android.R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
+        if (getTheme().resolveAttribute(R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
             int selectedColor = getResources().getColor(tv.resourceId);
             arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
             arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
             arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
         }
-        if (getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true) && tv.resourceId > 0) {
-            int secondaryColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(secondaryColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(StateSet.WILD_CARD, arrow);
-        }
+        arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
+        arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
         medtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
     }

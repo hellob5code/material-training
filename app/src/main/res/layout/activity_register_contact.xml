@@ -17,9 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:backgroundTintMode="src_in"
-            android:src="@drawable/social_ic_person"
-            android:tint="?android:attr/textColorSecondary" />
+            android:src="@drawable/ic_person_add_grey600_24dp" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_contact_edt_name"
@@ -30,7 +28,7 @@
             android:layout_toEndOf="@+id/register_contact_img_name"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_name"
-            app:primaryColor="?android:attr/colorAccent"
+            app:primaryColor="?attr/colorAccent"
             tools:text="Person Name" />
     </RelativeLayout>
 
@@ -43,9 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:backgroundTintMode="src_in"
-            android:src="@drawable/communication_ic_call"
-            android:tint="?android:attr/textColorSecondary" />
+            android:src="@drawable/ic_call_grey600_24dp" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_contact_medt_phone"
@@ -57,7 +53,7 @@
             android:layout_toStartOf="@+id/register_contact_medt_phone_type"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_phone"
-            app:primaryColor="?android:attr/colorAccent"
+            app:primaryColor="?attr/colorAccent"
             tools:text="555-5555-555" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -69,7 +65,7 @@
             android:gravity="bottom"
             android:maxLines="1"
             android:minWidth="96dp"
-            app:primaryColor="?android:attr/colorAccent" />
+            app:primaryColor="?attr/colorAccent" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -81,9 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:backgroundTintMode="src_in"
-            android:src="@drawable/communication_ic_email"
-            android:tint="?android:attr/textColorSecondary" />
+            android:src="@drawable/ic_email_grey600_24dp" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_contact_medt_email"
@@ -95,7 +89,7 @@
             android:layout_toStartOf="@+id/register_contact_medt_email_type"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_email"
-            app:primaryColor="?android:attr/colorAccent"
+            app:primaryColor="?attr/colorAccent"
             tools:text="email@mail.com" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -107,7 +101,7 @@
             android:gravity="bottom"
             android:maxLines="1"
             android:minWidth="96dp"
-            app:primaryColor="?android:attr/colorAccent" />
+            app:primaryColor="?attr/colorAccent" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -119,9 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:backgroundTintMode="src_in"
-            android:src="@drawable/maps_ic_place"
-            android:tint="?android:attr/textColorSecondary" />
+            android:src="@drawable/ic_place_grey600_24dp"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_contact_medt_address"
@@ -133,7 +125,7 @@
             android:layout_toStartOf="@+id/register_contact_medt_address_type"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_address"
-            app:primaryColor="?android:attr/colorAccent"
+            app:primaryColor="?attr/colorAccent"
             tools:text="518 Bacon Drive, Eggs Hills, CA" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -145,7 +137,7 @@
             android:gravity="bottom"
             android:maxLines="1"
             android:minWidth="96dp"
-            app:primaryColor="?android:attr/colorAccent" />
+            app:primaryColor="?attr/colorAccent" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -157,9 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:backgroundTintMode="src_in"
-            android:src="@drawable/av_ic_volume_up"
-            android:tint="?android:attr/textColorSecondary" />
+            android:src="@drawable/ic_volume_up_grey600_24dp" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_contact_medt_ringtone"
@@ -169,7 +159,7 @@
             android:layout_toEndOf="@+id/register_contact_img_ringtone"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_ringtone"
-            app:primaryColor="?android:attr/colorAccent"
+            app:primaryColor="?attr/colorAccent"
             tools:text="Dring" />
     </RelativeLayout>
 
@@ -182,9 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:backgroundTintMode="src_in"
-            android:src="@drawable/content_ic_add"
-            android:tint="?android:attr/textColorSecondary" />
+            android:src="@drawable/ic_add_grey600_24dp" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_contact_medt_add_note"
@@ -194,7 +182,7 @@
             android:layout_toEndOf="@+id/register_contact_img_add_note"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_add_note"
-            app:primaryColor="?android:attr/colorAccent"
+            app:primaryColor="?attr/colorAccent"
             tools:text="I am a short note." />
     </RelativeLayout>
 </LinearLayout>

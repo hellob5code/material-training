@@ -1,20 +1,23 @@
 package com.training.android.material.ui.activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SearchView;
 import com.training.android.material.R;
 
-public class SearchableActivity extends Activity {
+public class SearchableActivity extends ActionBarActivity {
 
     private static final String TAG = SearchableActivity.class.getSimpleName();
 
@@ -22,10 +25,11 @@ public class SearchableActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchable);
-        ActionBar toolbar = getActionBar();
+        ActionBar toolbar = getSupportActionBar();
         if (toolbar != null) {
             toolbar.setIcon(R.drawable.action_ic_search);
             toolbar.setDisplayShowHomeEnabled(true);
+            toolbar.setDisplayShowTitleEnabled(false);
         }
     }
 
@@ -35,15 +39,21 @@ public class SearchableActivity extends Activity {
 
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName())); // Assumes current activity is the searchable activity
         searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
 
         searchView.setQueryHint(getString(R.string.searchable_hint_search, "stuff"));
 
+        Display display = getWindowManager().getDefaultDisplay();
+        Point displaySize = new Point();
+        display.getSize(displaySize);
+
+        int offset = getResources().getDimensionPixelSize(R.dimen.material_list_icon_size_plus_16dp);
+        searchView.setMaxWidth(displaySize.x - offset);
+
         // Use icon as margin to align search edittext to keyline
-        int searchMagIconId = getResources().getIdentifier("android:id/search_mag_icon", null, null);
-        ImageView searchMagIcon = (ImageView) searchView.findViewById(searchMagIconId);
+        ImageView searchMagIcon = (ImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) searchMagIcon.getLayoutParams();
         layoutParams.width = getResources().getDimensionPixelSize(R.dimen.margin_small);
 
