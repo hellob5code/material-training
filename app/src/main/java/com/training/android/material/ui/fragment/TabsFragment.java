@@ -78,10 +78,20 @@ public class TabsFragment extends Fragment {
         dataset.add(new HeaderCard(Card.TYPE_NONE, "Types of tabs"));
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "Fixed tabs", "Fixed tabs display all tabs concurrently and are best used with content that benefits from quick pivots between tabs, such as switching transportation methods for directions in Google Maps.\n\nThe maximum number of tabs is limited by the view’s width. Fixed tabs have equal width, based on the widest tab label. To navigate between fixed tabs, touch the tab or swipe the content area left or right.",
                 "Example #1",
-                null));
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), FixedTabsActivity.class));
+                        return null;
+                    }
+                }));
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "Scrollable tabs", "Scrollable tabs display a subset of tabs at any given moment, and can contain longer tab labels and a larger number of tabs. They are best used for browsing contexts in touch interfaces when users don’t need to directly compare the tab labels.\n\nTo navigate between scrollable tabs, touch the tab, swipe the tabs left or right, or swipe the content area left or right.",
                 "Example #1",
-                null));
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), ScrollableTabsActivity.class));
+                        return null;
+                    }
+                }));
         return dataset;
     }
 }

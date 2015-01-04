@@ -5,6 +5,12 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/action_search"
+        android:title="@string/txt_search"
+        android:icon="@drawable/action_ic_search"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/action_settings"
         android:title="@string/txt_settings"
         app:showAsAction="never"/>

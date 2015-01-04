@@ -8,6 +8,12 @@
         <item name="searchViewStyle">@style/FullwidthSearchView</item>
     </style>
 
+    <style name="Theme.Cyan.Light" parent="Theme.App.Light">
+        <item name="colorPrimary">@color/material_cyan</item>
+        <item name="colorPrimaryDark">@color/material_cyan_700</item>
+        <item name="colorAccent">@color/material_yellow</item>
+    </style>
+
     <style name="Theme.Indigo.Light" parent="Theme.App.Light">
         <item name="colorPrimary">@color/material_indigo</item>
         <item name="colorPrimaryDark">@color/material_indigo_700</item>
@@ -33,6 +39,12 @@
     </style>
 
     <style name="Base.Theme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="Theme.Cyan.Light.NoActionBar" parent="Base.Theme.NoActionBar">
+        <item name="colorPrimary">@color/material_cyan</item>
+        <item name="colorPrimaryDark">@color/material_cyan_700</item>
+        <item name="colorAccent">@color/material_yellow</item>
     </style>
 
     <style name="Theme.Indigo.Light.NoActionBar" parent="Base.Theme.NoActionBar">
