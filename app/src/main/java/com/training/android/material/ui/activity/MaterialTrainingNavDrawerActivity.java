@@ -24,6 +24,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
     protected static final int NAVDRAWER_CHILD_BOTTOM_SHEETS_ID = 401;
     protected static final int NAVDRAWER_CHILD_BUTTONS_ID = 402;
     protected static final int NAVDRAWER_CHILD_LISTS_ID = 408;
+    protected static final int NAVDRAWER_CHILD_TABS_ID = 417;
     protected static final int NAVDRAWER_CHILD_TEXT_FIELDS_ID = 418;
     protected static final int NAVDRAWER_GROUP_PATTERNS = 500;
     protected static final int NAVDRAWER_CHILD_DATA_FORMATS_ID = 501;
@@ -73,6 +74,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
                 .addChild(NAVDRAWER_CHILD_BOTTOM_SHEETS_ID, getString(R.string.navdrawer_child_bottom_sheets))
                 .addChild(NAVDRAWER_CHILD_BUTTONS_ID, getString(R.string.navdrawer_child_buttons))
                 .addChild(NAVDRAWER_CHILD_LISTS_ID, getString(R.string.navdrawer_child_lists))
+                .addChild(NAVDRAWER_CHILD_TABS_ID, getString(R.string.navdrawer_child_tabs))
                 .addChild(NAVDRAWER_CHILD_TEXT_FIELDS_ID, getString(R.string.navdrawer_child_text_fields));
         addGroup(NAVDRAWER_GROUP_PATTERNS, getString(R.string.navdrawer_group_patterns))
                 .addChild(NAVDRAWER_CHILD_DATA_FORMATS_ID, getString(R.string.navdrawer_child_data_formats))

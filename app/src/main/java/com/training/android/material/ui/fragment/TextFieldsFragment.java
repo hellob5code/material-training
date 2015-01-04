@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.material.R;
 import com.training.android.material.ui.activity.*;
+import com.training.android.material.ui.adapter.MaterialCardAdapter;
 import com.training.android.material.ui.card.*;
 import com.training.android.material.util.ApiUtils;
 
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import static com.training.android.material.ui.card.HeaderCard.TYPE_HEADER;
+import static com.training.android.material.ui.card.HeadlineOneBodyCard.TYPE_HEADLINE_ONE_BODY;
 import static com.training.android.material.ui.card.HeadlineOneBodyThreeButtonCard.TYPE_HEADLINE_ONE_BODY_THREE_BUTTON;
 
 public class TextFieldsFragment extends Fragment {
@@ -52,7 +54,7 @@ public class TextFieldsFragment extends Fragment {
 
         List<Card> dataset = populateDataset();
 
-        mAdapter = new InternalAdapter(dataset);
+        mAdapter = new MaterialCardAdapter(dataset);
         mRecyclerView.setAdapter(mAdapter);
         return view;
     }
@@ -121,11 +123,7 @@ public class TextFieldsFragment extends Fragment {
                     }
                 }));
         dataset.add(new HeaderCard(Card.TYPE_NONE, "Character counter"));
-        dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, null, "Use a character counter in fields where a character restriction is in place.",
-                null,
-                null,
-                null,
-                null));
+        dataset.add(new HeadlineOneBodyCard(Card.TYPE_NONE, null, "Use a character counter in fields where a character restriction is in place."));
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "Single line with character counter", null,
                 "Example #1",
                 "#2",
@@ -172,9 +170,7 @@ public class TextFieldsFragment extends Fragment {
                     }
                 }));
         dataset.add(new HeaderCard(Card.TYPE_NONE, "Auto-complete text field"));
-        dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, null, "Use auto-complete text fields to present real-time suggestions or completions in dropdowns, so users can enter information more accurately and efficiently.",
-                null,
-                null));
+        dataset.add(new HeadlineOneBodyCard(Card.TYPE_NONE, null, "Use auto-complete text fields to present real-time suggestions or completions in dropdowns, so users can enter information more accurately and efficiently."));
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "Full-width auto-complete", null,
                 "Example #1",
                 null));
@@ -187,10 +183,8 @@ public class TextFieldsFragment extends Fragment {
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "In-line auto-complete", null,
                 "Example #1",
                 null));
-        dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, null, "The app bar can act as a text input field. As the user types, the content underneath it is filtered and sorted.",
-                null,
-                null));
         dataset.add(new HeaderCard(Card.TYPE_NONE, "Search filter"));
+        dataset.add(new HeadlineOneBodyCard(Card.TYPE_NONE, null, "The app bar can act as a text input field. As the user types, the content underneath it is filtered and sorted."));
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "Full-width text field in app bar", null,
                 "Example #1",
                 new Callable() {
@@ -200,49 +194,5 @@ public class TextFieldsFragment extends Fragment {
                     }
                 }));
         return dataset;
-    }
-
-    public class InternalAdapter extends RecyclerView.Adapter {
-
-        private List<Card> dataset;
-
-        public InternalAdapter(List<Card> dataset) {
-            this.dataset = dataset;
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return dataset.get(position).getViewType();
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            RecyclerView.ViewHolder viewHolder = null;
-            if (viewType == TYPE_HEADER) {
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_header_material, parent, false);
-                viewHolder = new HeaderCardViewHolder(v);
-            } else if (viewType == TYPE_HEADLINE_ONE_BODY_THREE_BUTTON) {
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_one_body_three_button_material, parent, false);
-                viewHolder = new HeadlineOneBodyThreeButtonCardViewHolder(v);
-            }
-            return viewHolder;
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-            int viewType = getItemViewType(position);
-            if (viewType == TYPE_HEADER) {
-                HeaderCard card = (HeaderCard) dataset.get(position);
-                ((HeaderCardViewHolder) viewHolder).setup(card);
-            } else if (viewType == TYPE_HEADLINE_ONE_BODY_THREE_BUTTON) {
-                HeadlineOneBodyThreeButtonCard card = (HeadlineOneBodyThreeButtonCard) dataset.get(position);
-                ((HeadlineOneBodyThreeButtonCardViewHolder) viewHolder).setup(card);
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return dataset.size();
-        }
     }
 }
