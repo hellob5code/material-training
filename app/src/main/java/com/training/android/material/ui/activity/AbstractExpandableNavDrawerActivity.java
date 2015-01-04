@@ -19,8 +19,8 @@ import android.widget.TextView;
 import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
 import com.training.android.material.ui.listcontrol.ListControl;
-import com.training.android.material.ui.row.ListRow;
-import com.training.android.material.ui.row.SingleLineListRow;
+import com.training.android.material.ui.tile.Tile;
+import com.training.android.material.ui.tile.SingleLineTile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
 
     protected abstract View getContentLayout();
 
-    protected abstract boolean onNavDrawerItemSelected(ListRow item);
+    protected abstract boolean onNavDrawerItemSelected(Tile item);
 
     protected int getSelectedNavDrawerGroupId() {
         return NAVDRAWER_ITEM_INVALID;
@@ -255,7 +255,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         return addGroup(new NavDrawerItem(id, text, primary, secondary));
     }
 
-    protected static class NavDrawerChild extends SingleLineListRow {
+    protected static class NavDrawerChild extends SingleLineTile {
         int parentId = NAVDRAWER_ITEM_INVALID;
 
         public NavDrawerChild(int id, String text) {
@@ -267,7 +267,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         }
     }
 
-    protected static class NavDrawerGroup extends SingleLineListRow {
+    protected static class NavDrawerGroup extends SingleLineTile {
         List<NavDrawerChild> children = new ArrayList<NavDrawerChild>();
 
         public NavDrawerGroup(int id, String text, ListControl primary, ListControl secondary) {

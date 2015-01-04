@@ -14,6 +14,7 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.material.R;
+import com.training.android.material.util.ApiUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
@@ -35,7 +36,7 @@ public class DataFormatsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_data_formats, container, false);
+        View view = inflater.inflate(R.layout.recycler_view, container, false);
         ButterKnife.inject(this, view);
 
         mLayoutManager = new LinearLayoutManager(getActivity());
@@ -45,7 +46,11 @@ public class DataFormatsFragment extends Fragment {
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 if (parent.getChildPosition(view) < 1)
                     return;
-                outRect.top = getResources().getDimensionPixelSize(R.dimen.margin_small);
+                if (ApiUtils.isLollipop()) {
+                    outRect.top = getResources().getDimensionPixelSize(R.dimen.margin_small);
+                } else {
+                    outRect.top = getResources().getDimensionPixelSize(R.dimen.margin_xsmall);
+                }
             }
         });
 

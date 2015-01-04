@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import com.training.android.material.R;
 import com.training.android.material.ui.fragment.DataFormatsFragment;
 import com.training.android.material.ui.fragment.ErrorsFragment;
-import com.training.android.material.ui.row.ListRow;
+import com.training.android.material.ui.tile.Tile;
 
 public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
 
@@ -52,7 +52,7 @@ public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(ListRow item) {
+    protected boolean onNavDrawerItemSelected(Tile item) {
         int id = item.getId();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         if (id == NAVDRAWER_CHILD_DATA_FORMATS_ID) {

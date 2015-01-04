@@ -1,18 +1,18 @@
-package com.training.android.material.ui.row;
+package com.training.android.material.ui.tile;
 
 import com.training.android.material.ui.listcontrol.ListControl;
 
-public class SingleLineListRow extends ListRow {
+public class SingleLineTile extends Tile {
 
     private String text;
     private ListControl primary, secondary;
 
-    public SingleLineListRow(int id, String text) {
+    public SingleLineTile(int id, String text) {
         super(id);
         this.text = text;
     }
 
-    public SingleLineListRow(int id, String text, ListControl primary, ListControl secondary) {
+    public SingleLineTile(int id, String text, ListControl primary, ListControl secondary) {
         super(id);
         this.text = text;
         this.primary = primary;

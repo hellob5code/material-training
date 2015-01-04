@@ -10,21 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
-import com.training.android.material.ui.row.SingleLineListRow;
+import com.training.android.material.ui.tile.SingleLineTile;
 
 import java.util.List;
 
 public class MaterialIconListAdapter extends RecyclerView.Adapter<MaterialIconListAdapter.ViewHolder> {
 
-    private List<SingleLineListRow> mRows;
+    private List<SingleLineTile> mRows;
     private boolean flagStartIndented;
     private boolean flagEndIndented;
 
-    public MaterialIconListAdapter(List<SingleLineListRow> rows) {
+    public MaterialIconListAdapter(List<SingleLineTile> rows) {
         mRows = rows;
     }
 
-    public MaterialIconListAdapter(List<SingleLineListRow> rows, boolean start, boolean end) {
+    public MaterialIconListAdapter(List<SingleLineTile> rows, boolean start, boolean end) {
         mRows = rows;
         flagStartIndented = start;
         flagEndIndented = end;
@@ -73,7 +73,7 @@ public class MaterialIconListAdapter extends RecyclerView.Adapter<MaterialIconLi
      */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        SingleLineListRow row = mRows.get(position);
+        SingleLineTile row = mRows.get(position);
         viewHolder.textView.setText(row.getText());
         if (viewHolder.primaryView != null) {
             if (row.getPrimary() != null) {

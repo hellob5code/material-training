@@ -10,7 +10,7 @@ import butterknife.InjectView;
 import com.training.android.material.BuildConfig;
 import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
-import com.training.android.material.ui.row.ListRow;
+import com.training.android.material.ui.tile.Tile;
 import com.training.android.material.util.ApiUtils;
 
 // TODO: If the list of content in the navigation drawer is very long, the two options can be pinned to the bottom of the navigation drawer on a surface with a higher elevation. This surface is present only while at the top of the list; any other scroll position will immediately result in dismissing the surface and placing the options at the end of the list, in-line with the rest of the list content. The navigation drawer retains its scroll position when closed and reopened.
@@ -85,7 +85,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(ListRow item) {
+    protected boolean onNavDrawerItemSelected(Tile item) {
         int id = item.getId();
         if (id == NAVDRAWER_ITEM_SETTINGS_ID) {
             startActivity(new Intent(this, SettingsActivity.class));

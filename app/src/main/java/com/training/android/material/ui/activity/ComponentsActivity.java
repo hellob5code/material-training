@@ -9,7 +9,7 @@ import com.training.android.material.ui.fragment.BottomSheetsFragment;
 import com.training.android.material.ui.fragment.ButtonsFragment;
 import com.training.android.material.ui.fragment.ListsFragment;
 import com.training.android.material.ui.fragment.TextFieldsFragment;
-import com.training.android.material.ui.row.ListRow;
+import com.training.android.material.ui.tile.Tile;
 
 public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
 
@@ -58,7 +58,7 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(ListRow item) {
+    protected boolean onNavDrawerItemSelected(Tile item) {
         int id = item.getId();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         if (id == NAVDRAWER_CHILD_BOTTOM_SHEETS_ID) {
