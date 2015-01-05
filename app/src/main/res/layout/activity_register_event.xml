@@ -16,9 +16,9 @@
             style="@style/FullwidthTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="email@mail.com" />
+            tools:text="email@mail.com"/>
 
-        <include layout="@layout/divider_horizontal" />
+        <include layout="@layout/divider_horizontal"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_event_medt_name"
@@ -29,8 +29,9 @@
             android:layout_marginTop="@dimen/padding_medium"
             android:gravity="bottom"
             android:hint="@string/register_event_hint_event_name"
+            android:inputType="textCapWords"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_event_medt_location"
@@ -43,7 +44,7 @@
             android:hint="@string/register_event_hint_location"
             android:singleLine="true"
             app:floatingLabel="highlight"
-            app:floatingLabelText="@string/register_event_hint_location" />
+            app:floatingLabelText="@string/register_event_hint_location"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -63,7 +64,7 @@
                 android:gravity="bottom"
                 android:maxLines="1"
                 app:floatingLabel="highlight"
-                app:floatingLabelText="@string/register_event_hint_from" />
+                app:floatingLabelText="@string/register_event_hint_from"/>
 
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/register_event_medt_from_time"
@@ -74,7 +75,7 @@
                 android:drawablePadding="@dimen/padding_small"
                 android:editable="false"
                 android:gravity="bottom"
-                android:maxLines="1" />
+                android:maxLines="1"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -95,7 +96,7 @@
                 android:gravity="bottom"
                 android:maxLines="1"
                 app:floatingLabel="highlight"
-                app:floatingLabelText="@string/register_event_hint_to" />
+                app:floatingLabelText="@string/register_event_hint_to"/>
 
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/register_event_medt_to_time"
@@ -106,7 +107,7 @@
                 android:drawablePadding="@dimen/padding_small"
                 android:editable="false"
                 android:gravity="bottom"
-                android:maxLines="1" />
+                android:maxLines="1"/>
         </RelativeLayout>
 
         <CheckBox
@@ -117,7 +118,7 @@
             android:layout_marginStart="@dimen/keyline_1"
             android:minHeight="@dimen/touch_target_48dp"
             android:paddingStart="@dimen/keyline_2_minus_48dp"
-            android:text="@string/register_event_txt_all_day" />
+            android:text="@string/register_event_txt_all_day"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_event_medt_timezone"
@@ -128,6 +129,6 @@
             android:drawablePadding="@dimen/padding_small"
             android:gravity="bottom"
             app:floatingLabel="highlight"
-            app:floatingLabelText="@string/register_event_hint_timezone" />
+            app:floatingLabelText="@string/register_event_hint_timezone"/>
     </LinearLayout>
 </ScrollView>

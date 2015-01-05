@@ -16,10 +16,12 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:gravity="bottom"
         android:hint="@string/register_application_hint_title"
+        android:inputType="textCapWords"
+        android:nextFocusDown="@+id/register_application_medt_price"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:floatingLabel="highlight"
-        app:floatingLabelText="@string/register_application_hint_title" />
+        app:floatingLabelText="@string/register_application_hint_title"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,9 +36,12 @@
             android:layout_weight="1"
             android:gravity="bottom"
             android:hint="@string/register_application_hint_price"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:nextFocusRight="@+id/register_application_medt_location"
             android:singleLine="true"
             app:floatingLabel="highlight"
-            app:floatingLabelText="@string/register_application_hint_price" />
+            app:floatingLabelText="@string/register_application_hint_price"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/register_application_medt_location"
@@ -48,7 +53,7 @@
             android:hint="@string/register_application_hint_location"
             android:singleLine="true"
             app:floatingLabel="highlight"
-            app:floatingLabelText="@string/register_application_hint_location" />
+            app:floatingLabelText="@string/register_application_hint_location"/>
     </LinearLayout>
 
     <com.rengwuxian.materialedittext.MaterialEditText
@@ -58,7 +63,6 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:gravity="bottom"
         android:hint="@string/register_application_hint_description"
-        android:singleLine="true"
         app:floatingLabel="highlight"
-        app:floatingLabelText="@string/register_application_hint_description" />
+        app:floatingLabelText="@string/register_application_hint_description"/>
 </LinearLayout>

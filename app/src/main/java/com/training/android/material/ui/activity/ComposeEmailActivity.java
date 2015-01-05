@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.training.android.material.R;
+import com.training.android.material.util.ThemeUtils;
 
 public class ComposeEmailActivity extends ActionBarActivity {
 
@@ -36,17 +37,15 @@ public class ComposeEmailActivity extends ActionBarActivity {
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
-        TypedValue tv = new TypedValue();
-        if (getTheme().resolveAttribute(R.attr.colorPrimary, tv, true) && tv.resourceId > 0) {
-            int selectedColor = getResources().getColor(tv.resourceId);
-            arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
-            arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
-            arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
-        }
-        arrow = getResources().getDrawable(R.drawable.navigation_ic_arrow_drop_down);
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
+        arrow.mutate().setColorFilter(ThemeUtils.obtainPrimaryColor(this), PorterDuff.Mode.SRC_ATOP);
+        arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
+        arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
+
+        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
         arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
-        medtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector, null);
+        medtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
     }
 
     @Override

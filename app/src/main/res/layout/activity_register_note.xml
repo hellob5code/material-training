@@ -12,6 +12,7 @@
         android:id="@+id/register_note_medt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:layout_marginTop="@dimen/margin_medium"
         android:hint="@string/register_note_hint_title"
         app:floatingLabel="highlight"

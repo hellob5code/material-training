@@ -12,6 +12,7 @@ import android.util.Log;
 import android.util.StateSet;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import butterknife.*;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.rengwuxian.materialedittext.validation.RegexpValidator;
@@ -80,9 +81,8 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
-        int selectedColor = ThemeUtils.obtainPrimaryColor(this);
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
-        arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+        arrow.mutate().setColorFilter(ThemeUtils.obtainPrimaryColor(this), PorterDuff.Mode.SRC_ATOP);
         arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
         arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
 
@@ -96,9 +96,8 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
-        int selectedColor = ThemeUtils.obtainPrimaryColor(this);
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
-        arrow.mutate().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+        arrow.mutate().setColorFilter(ThemeUtils.obtainPrimaryColor(this), PorterDuff.Mode.SRC_ATOP);
         arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
         arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
 
@@ -134,8 +133,9 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         } else if (id == R.id.action_validate) {
-            if (medtName.validateWith(new RegexpValidator("Cannot be empty!", "\\w+"))) {
-                // TODO: Perform action.
+            if (medtName.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
+                // TODO: Perform action after true validation.
+                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
             }
             return true;
         }

@@ -19,9 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/compose_email_hint_from"
-            tools:text="email@mail.com" />
+            tools:text="email@mail.com"/>
 
-        <include layout="@layout/divider_horizontal" />
+        <include layout="@layout/divider_horizontal"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/compose_email_medt_to"
@@ -29,9 +29,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/compose_email_hint_to"
-            tools:text="email@mail.com" />
+            android:inputType="textWebEmailAddress"
+            tools:text="email@mail.com"/>
 
-        <include layout="@layout/divider_horizontal" />
+        <include layout="@layout/divider_horizontal"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/compose_email_medt_subject"
@@ -39,20 +40,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/compose_email_hint_subject"
-            tools:text="Et est denique indoctum reprimique." />
+            tools:text="Et est denique indoctum reprimique."/>
 
-        <include layout="@layout/divider_horizontal" />
+        <include layout="@layout/divider_horizontal"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/compose_email_medt_message"
             style="@style/FullwidthTextField"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="top"
             android:hint="@string/compose_email_hint_message"
             android:paddingBottom="@dimen/padding_small"
             android:paddingTop="@dimen/padding_small"
             app:maxCharacters="255"
-            tools:text="Sea tation ignota no, mel et appellantur definitiones. In latine commune salutatus vim, duo hinc verear maiestatis ad. Vim nulla expetendis cu, eu everti facilis singulis cum. Facilis invidunt cum at. In zril quando graeco sed, dicat noster sanctus ad eam." />
+            tools:text="Sea tation ignota no, mel et appellantur definitiones. In latine commune salutatus vim, duo hinc verear maiestatis ad. Vim nulla expetendis cu, eu everti facilis singulis cum. Facilis invidunt cum at. In zril quando graeco sed, dicat noster sanctus ad eam."/>
     </LinearLayout>
 </ScrollView>
