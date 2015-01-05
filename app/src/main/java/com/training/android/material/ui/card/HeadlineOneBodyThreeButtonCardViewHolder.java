@@ -12,10 +12,10 @@ import java.util.concurrent.Callable;
 
 public class HeadlineOneBodyThreeButtonCardViewHolder extends HeadlineOneBodyCardViewHolder {
 
-    @InjectView(R.id.button_group) ViewGroup btnGroup;
-    @InjectView(R.id.button1) Button btn1;
-    @InjectView(R.id.button2) Button btn2;
-    @InjectView(R.id.button3) Button btn3;
+    @InjectView(R.id.action_area) ViewGroup actionArea;
+    @InjectView(R.id.button_1) Button btn1;
+    @InjectView(R.id.button_2) Button btn2;
+    @InjectView(R.id.button_3) Button btn3;
 
     public HeadlineOneBodyThreeButtonCardViewHolder(View v) {
         super(v);
@@ -29,7 +29,7 @@ public class HeadlineOneBodyThreeButtonCardViewHolder extends HeadlineOneBodyCar
     protected void setup(String headline, String body1, String button1, String button2, String button3, final Callable action1, final Callable action2, final Callable action3) {
         super.setup(headline, body1);
         if (StringUtils.isNotEmpty(button1)) {
-            btnGroup.setVisibility(View.VISIBLE);
+            actionArea.setVisibility(View.VISIBLE);
             btn1.setText(button1);
             if (action1 != null) {
                 btn1.setEnabled(true);
@@ -49,7 +49,7 @@ public class HeadlineOneBodyThreeButtonCardViewHolder extends HeadlineOneBodyCar
             disableOrHideButton(btn2, button2, action2);
             disableOrHideButton(btn3, button3, action3);
         } else {
-            btnGroup.setVisibility(View.GONE);
+            actionArea.setVisibility(View.GONE);
         }
     }
 

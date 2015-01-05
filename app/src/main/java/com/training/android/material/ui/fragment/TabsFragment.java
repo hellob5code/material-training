@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-import static com.training.android.material.ui.card.HeaderCard.TYPE_HEADER;
-import static com.training.android.material.ui.card.HeadlineOneBodyThreeButtonCard.TYPE_HEADLINE_ONE_BODY_THREE_BUTTON;
-
 public class TabsFragment extends Fragment {
 
     @InjectView(R.id.recycler_view) RecyclerView mRecyclerView;
@@ -62,8 +59,33 @@ public class TabsFragment extends Fragment {
         List<Card> dataset = new ArrayList<Card>();
         dataset.add(new HeaderCard(Card.TYPE_NONE, "Usage"));
         dataset.add(new HeadlineOneBodyCard(Card.TYPE_NONE, null, "A tab provides the affordance for displaying grouped content. A tab label succinctly describes the tab’s associated grouping of content."));
-        dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "Mobile tabs", null,
-                "Example #1",
+        dataset.add(new HeadlineOneBodySixVerticalButtonCard(Card.TYPE_NONE, "Mobile tabs", null,
+                "Extended app bar and tab bar",
+                "Inset search, app bar, and tab bar",
+                "Default app bar and tab bar",
+                "Default app bar and scrollable tab bar",
+                "Text color same as tab indicator",
+                "Tab bar locked on scroll",
+                null,
+                null,
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), FixedTabsActivity.class));
+                        return null;
+                    }
+                },
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), ScrollableTabsActivity.class));
+                        return null;
+                    }
+                },
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), AccentFixedTabsActivity.class));
+                        return null;
+                    }
+                },
                 null));
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "When to use", "Use tabs to organize content at a high level, for example, presenting different sections of a newspaper. Don’t use tabs for carousels or pagination of content. Those use cases involve viewing content, not navigating between groups of content.\n\nFor more detail about using tabs for navigating top-level views, see “Top-level view strategies” in Layout > Structure > UI Regions and Guidance.",
                 "Example #1",

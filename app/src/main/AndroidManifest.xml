@@ -9,8 +9,12 @@
         android:theme="@style/Theme.App.Light">
 
         <activity
+            android:name=".ui.activity.AccentFixedTabsActivity"
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/Theme.Grey50.NoActionBar.TranslucentStatus" />
+        <activity
             android:name=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Indigo.Light.NoActionBar">
+            android:theme="@style/Theme.Indigo.Light.NoActionBar.TranslucentStatus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -27,11 +31,11 @@
             android:parentActivityName=".ui.activity.ComponentsActivity" /> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.FixedTabsActivity"
-            android:label="@string/title_activity_scrollable_tabs"
-            android:theme="@style/Theme.Cyan.Light.NoActionBar" />
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
         <activity
             android:name=".ui.activity.PatternsActivity"
-            android:theme="@style/Theme.Orange.Light.NoActionBar" />
+            android:theme="@style/Theme.Orange.Light.NoActionBar.TranslucentStatus" />
         <activity
             android:name=".ui.activity.SearchableActivity"
             android:label="@string/title_activity_searchable"
@@ -70,8 +74,8 @@
             android:theme="@style/Theme.Teal.Light" /> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.ScrollableTabsActivity"
-            android:label="@string/title_activity_scrollable_tabs"
-            android:theme="@style/Theme.Cyan.Light.NoActionBar" />
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
     </application>
 
 </manifest>

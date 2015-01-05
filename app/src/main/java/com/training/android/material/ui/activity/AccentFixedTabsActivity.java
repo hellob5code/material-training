@@ -16,7 +16,7 @@ import com.training.android.material.ui.adapter.TabsSamplePagerAdapter;
 import com.training.android.material.util.ApiUtils;
 import com.training.android.material.util.ThemeUtils;
 
-public class ScrollableTabsActivity extends ActionBarActivity {
+public class AccentFixedTabsActivity extends ActionBarActivity {
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
     @InjectView(R.id.sliding_tabs) SlidingTabLayout slidingTabLayout;
@@ -25,7 +25,7 @@ public class ScrollableTabsActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabs);
+        setContentView(R.layout.activity_tabs_light);
         ButterKnife.inject(this);
 
         if (ApiUtils.isLollipop()) {
@@ -53,21 +53,18 @@ public class ScrollableTabsActivity extends ActionBarActivity {
         drawerLayout.setDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
-        viewPager.setAdapter(new TabsSamplePagerAdapter(this, new String[]{
-                "No. ONE", "Item Two", "The Third", "Item Fourth", "Fifth", "Sixth", "Seven", "Eight", "NO.NINE", "Ten", "NO.ELEVEN", "Twelfth Item"
-        }));
+        viewPager.setAdapter(new TabsSamplePagerAdapter(this, new String[]{ "No. ONE", "Item Two", "The Third" }));
 
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
-        slidingTabLayout.setCustomTabView(R.layout.tab_indicator_material, android.R.id.text1);
-        slidingTabLayout.setTitleOffset(getResources().getDimensionPixelSize(R.dimen.keyline_2_minus_12dp));
-        slidingTabLayout.setFirstTabOffset(true);
+        slidingTabLayout.setDistributeEvenly(true);
+        slidingTabLayout.setCustomTabView(R.layout.tab_indicator_accent_material, android.R.id.text1);
         slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainAccentColor(this));
         slidingTabLayout.setViewPager(viewPager);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_tabs, menu);
+        getMenuInflater().inflate(R.menu.menu_tabs_light, menu);
         return true;
     }
 }

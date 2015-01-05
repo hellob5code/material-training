@@ -99,8 +99,8 @@
     <!-- Settings Activity -->
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Scrollable Tabs Activity -->
-    <string name="title_activity_scrollable_tabs">Page title</string>
+    <!-- Tabs Activity -->
+    <string name="title_activity_tabs">Page title</string>
 
     <!-- Accessibility Description -->
     <string name="drawer_close">Close navigation drawer</string>

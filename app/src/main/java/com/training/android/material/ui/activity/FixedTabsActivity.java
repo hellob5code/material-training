@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.material.R;
 import com.training.android.material.ui.adapter.TabsSamplePagerAdapter;
+import com.training.android.material.util.ApiUtils;
 import com.training.android.material.util.ThemeUtils;
 
 public class FixedTabsActivity extends ActionBarActivity {
@@ -27,6 +28,13 @@ public class FixedTabsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_tabs);
         ButterKnife.inject(this);
 
+        if (ApiUtils.isLollipop()) {
+            int statusBarrSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
+            toolbar.getLayoutParams().height += statusBarrSize;
+            toolbar.setPadding(0, statusBarrSize, 0, 0);
+            View navdrawer = findViewById(R.id.navdrawer);
+            navdrawer.setPadding(0, statusBarrSize, 0, 0);
+        }
         setSupportActionBar(toolbar);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {

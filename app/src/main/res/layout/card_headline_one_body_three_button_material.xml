@@ -36,7 +36,7 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/button_group"
+            android:id="@+id/action_area"
             android:layout_width="match_parent"
             android:layout_height="@dimen/touch_target_48dp"
             android:gravity="center_vertical">
@@ -44,7 +44,7 @@
             <include layout="@layout/divider_horizontal"/>
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/button_1"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,20 +52,20 @@
                 tools:text="Button #1"/>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_2"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_toEndOf="@+id/button1"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/button_1"
                 android:textAllCaps="true"
                 tools:text="Button #2"/>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/button_3"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_toEndOf="@+id/button2"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/button_2"
                 android:textAllCaps="true"
                 tools:text="Button #3"/>
         </RelativeLayout>

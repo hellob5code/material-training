@@ -8,6 +8,6 @@
     android:paddingLeft="12dp"
     android:paddingRight="12dp"
     android:textAllCaps="true"
-    android:textColor="@color/tab_text_color_material"
+    android:textColor="@color/tab_text_accent_color_material"
     android:textSize="@dimen/text_size_small"
     android:textStyle="bold"/>
