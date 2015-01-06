@@ -86,7 +86,12 @@ public class TabsFragment extends Fragment {
                         return null;
                     }
                 },
-                null));
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), LockedFixedTabsActivity.class));
+                        return null;
+                    }
+                }));
         dataset.add(new HeadlineOneBodyThreeButtonCard(Card.TYPE_NONE, "When to use", "Use tabs to organize content at a high level, for example, presenting different sections of a newspaper. Don’t use tabs for carousels or pagination of content. Those use cases involve viewing content, not navigating between groups of content.\n\nFor more detail about using tabs for navigating top-level views, see “Top-level view strategies” in Layout > Structure > UI Regions and Guidance.",
                 "Example #1",
                 null));

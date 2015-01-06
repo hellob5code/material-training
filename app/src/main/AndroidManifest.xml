@@ -34,6 +34,10 @@
             android:label="@string/title_activity_tabs"
             android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
         <activity
+            android:name=".ui.activity.LockedFixedTabsActivity"
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
+        <activity
             android:name=".ui.activity.PatternsActivity"
             android:theme="@style/Theme.Orange.Light.NoActionBar.TranslucentStatus" />
         <activity
