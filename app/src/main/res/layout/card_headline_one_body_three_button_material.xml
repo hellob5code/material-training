@@ -45,28 +45,25 @@
 
             <Button
                 android:id="@+id/button_1"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAllCaps="true"
                 tools:text="Button #1"/>
 
             <Button
                 android:id="@+id/button_2"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/button_1"
-                android:textAllCaps="true"
                 tools:text="Button #2"/>
 
             <Button
                 android:id="@+id/button_3"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/button_2"
-                android:textAllCaps="true"
                 tools:text="Button #3"/>
         </RelativeLayout>
     </LinearLayout>

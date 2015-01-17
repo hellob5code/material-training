@@ -45,7 +45,7 @@
 
             <Button
                 android:id="@+id/button_1"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"
@@ -63,11 +63,10 @@
 
             <Button
                 android:id="@+id/button_2"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"
-                android:textAllCaps="true"
                 tools:text="Button #2"/>
         </RelativeLayout>
 
@@ -81,7 +80,7 @@
 
             <Button
                 android:id="@+id/button_3"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"
@@ -99,7 +98,7 @@
 
             <Button
                 android:id="@+id/button_4"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"
@@ -117,7 +116,7 @@
 
             <Button
                 android:id="@+id/button_5"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"
@@ -135,7 +134,7 @@
 
             <Button
                 android:id="@+id/button_6"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/ButtonFlat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start|center_vertical"

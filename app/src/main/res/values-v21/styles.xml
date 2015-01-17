@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ButtonRaised.Blue" parent="android:Widget.Material.Button">
+    <style name="ButtonRaised" parent="android:Widget.Material.Button">
+    </style>
+
+    <style name="ButtonRaised.Blue">
         <item name="android:background">@drawable/btn_blue_material</item>
+        <item name="android:textColor">@color/text_color_material_dark</item>
+    </style>
+
+    <style name="ButtonFlat" parent="android:Widget.Material.Button.Borderless">
+    </style>
+
+    <style name="ButtonFlat.Blue" parent="android:Widget.Material.Button.Borderless.Colored">
+        <item name="android:textColor">@color/material_blue</item>
     </style>
 
 </resources>
