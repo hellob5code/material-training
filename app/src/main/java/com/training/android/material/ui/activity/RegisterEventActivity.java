@@ -12,10 +12,9 @@ import android.util.Log;
 import android.util.StateSet;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.EditText;
 import butterknife.*;
-import com.rengwuxian.materialedittext.MaterialEditText;
-import com.rengwuxian.materialedittext.validation.RegexpValidator;
+import android.widget.MaterialEditText;
 import com.training.android.material.R;
 import com.training.android.material.ui.dialog.DatePickerDialogFragment;
 import com.training.android.material.ui.dialog.TimePickerDialogFragment;
@@ -35,7 +34,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
     private static final String TAG_TO_DATE_PICKER = "to_date_picker";
     private static final String TAG_TO_TIME_PICKER = "to_time_picker";
 
-    @InjectView(R.id.register_event_medt_email) MaterialEditText medtEmail;
+    @InjectView(R.id.register_event_medt_email) EditText medtEmail;
     @InjectView(R.id.register_event_medt_name) MaterialEditText medtName;
     @InjectView(R.id.register_event_medt_location) MaterialEditText medtLocation;
     @InjectView(R.id.register_event_medt_from_date) MaterialEditText medtFromDate;
@@ -82,7 +81,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         StateListDrawable arrowSelector = new StateListDrawable();
 
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
-        arrow.mutate().setColorFilter(ThemeUtils.obtainPrimaryColor(this), PorterDuff.Mode.SRC_ATOP);
+        arrow.mutate().setColorFilter(ThemeUtils.obtainColorPrimary(this), PorterDuff.Mode.SRC_ATOP);
         arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
         arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
 
@@ -97,7 +96,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         StateListDrawable arrowSelector = new StateListDrawable();
 
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
-        arrow.mutate().setColorFilter(ThemeUtils.obtainPrimaryColor(this), PorterDuff.Mode.SRC_ATOP);
+        arrow.mutate().setColorFilter(ThemeUtils.obtainColorPrimary(this), PorterDuff.Mode.SRC_ATOP);
         arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
         arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
 
@@ -133,10 +132,10 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         } else if (id == R.id.action_validate) {
-            if (medtName.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
+//            if (medtName.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
                 // TODO: Perform action after true validation.
-                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
-            }
+//                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
+//            }
             return true;
         }
         return super.onOptionsItemSelected(item);

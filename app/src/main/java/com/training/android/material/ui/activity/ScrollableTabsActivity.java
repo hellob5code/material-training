@@ -61,7 +61,7 @@ public class ScrollableTabsActivity extends ActionBarActivity {
         slidingTabLayout.setCustomTabView(R.layout.tab_indicator_material, android.R.id.text1);
         slidingTabLayout.setTitleOffset(getResources().getDimensionPixelSize(R.dimen.keyline_2_minus_12dp));
         slidingTabLayout.setFirstTabOffset(true);
-        slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainAccentColor(this));
+        slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainColorAccent(this));
         slidingTabLayout.setViewPager(viewPager);
     }
 

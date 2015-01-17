@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent_1</item>
         <item name="searchViewStyle">@style/FullwidthSearchView</item>
+        <item name="android:editTextStyle">@style/AppEditText</item>
     </style>
 
     <style name="Theme.Cyan.Light" parent="Theme.App.Light">
@@ -40,10 +41,12 @@
 
 
     <style name="Base.Theme.NoActionBar.TranslucentStatus" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:editTextStyle">@style/AppEditText</item>
     </style>
 
 
     <style name="Base.Theme.Light.NoActionBar.TranslucentStatus" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:editTextStyle">@style/AppEditText</item>
     </style>
 
     <style name="Theme.Grey50.NoActionBar.TranslucentStatus" parent="Base.Theme.Light.NoActionBar.TranslucentStatus">

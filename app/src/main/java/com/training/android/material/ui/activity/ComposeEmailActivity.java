@@ -7,18 +7,17 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.StateSet;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import com.rengwuxian.materialedittext.MaterialEditText;
 import com.training.android.material.R;
 import com.training.android.material.util.ThemeUtils;
 
 public class ComposeEmailActivity extends ActionBarActivity {
 
-    @InjectView(R.id.compose_email_medt_from) MaterialEditText medtFrom;
+    @InjectView(R.id.compose_email_medt_from) EditText medtFrom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class ComposeEmailActivity extends ActionBarActivity {
         StateListDrawable arrowSelector = new StateListDrawable();
 
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
-        arrow.mutate().setColorFilter(ThemeUtils.obtainPrimaryColor(this), PorterDuff.Mode.SRC_ATOP);
+        arrow.mutate().setColorFilter(ThemeUtils.obtainColorPrimary(this), PorterDuff.Mode.SRC_ATOP);
         arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
         arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
 

@@ -4,11 +4,13 @@
     <style name="Base.Theme.NoActionBar.TranslucentStatus" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:editTextStyle">@style/AppEditText</item>
     </style>
 
     <style name="Base.Theme.Light.NoActionBar.TranslucentStatus" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:editTextStyle">@style/AppEditText</item>
     </style>
 
 </resources>

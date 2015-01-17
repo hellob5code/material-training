@@ -67,7 +67,7 @@ public class LockedFixedTabsActivity extends ActionBarActivity implements ViewPa
 
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setCustomTabView(R.layout.tab_indicator_material, android.R.id.text1);
-        slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainAccentColor(this));
+        slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainColorAccent(this));
         slidingTabLayout.setViewPager(viewPager);
         slidingTabLayout.setOnPageChangeListener(this);
 

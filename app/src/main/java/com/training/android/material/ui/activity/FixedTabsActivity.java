@@ -58,7 +58,7 @@ public class FixedTabsActivity extends ActionBarActivity {
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setCustomTabView(R.layout.tab_indicator_material, android.R.id.text1);
-        slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainAccentColor(this));
+        slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainColorAccent(this));
         slidingTabLayout.setViewPager(viewPager);
     }
 

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <EditText
             android:id="@+id/compose_email_medt_from"
             style="@style/FullwidthTextField"
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
 
         <include layout="@layout/divider_horizontal"/>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <EditText
             android:id="@+id/compose_email_medt_to"
             style="@style/FullwidthTextField"
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
 
         <include layout="@layout/divider_horizontal"/>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <EditText
             android:id="@+id/compose_email_medt_subject"
             style="@style/FullwidthTextField"
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
 
         <include layout="@layout/divider_horizontal"/>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <MaterialEditText
             android:id="@+id/compose_email_medt_message"
             style="@style/FullwidthTextField"
             android:layout_width="match_parent"

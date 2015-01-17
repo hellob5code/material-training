@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.OnFocusChange;
-import com.rengwuxian.materialedittext.MaterialEditText;
+import android.widget.MaterialEditText;
 import com.training.android.material.R;
 import com.training.android.material.model.Contact;
 import com.training.android.material.util.EnumUtils;
@@ -28,12 +28,6 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public class RegisterContactActivity extends ActionBarActivity {
 
-    @InjectView(R.id.register_contact_img_name) ImageView imgName;
-    @InjectView(R.id.register_contact_img_phone) ImageView imgPhone;
-    @InjectView(R.id.register_contact_img_email) ImageView imgEmail;
-    @InjectView(R.id.register_contact_img_address) ImageView imgAddress;
-    @InjectView(R.id.register_contact_img_ringtone) ImageView imgRingtone;
-    @InjectView(R.id.register_contact_img_add_note) ImageView imgAddNote;
     @InjectView(R.id.register_contact_medt_phone_type) MaterialEditText medtPhoneType;
     @InjectView(R.id.register_contact_medt_email_type) MaterialEditText medtEmailType;
     @InjectView(R.id.register_contact_medt_address_type) MaterialEditText medtAddressType;
@@ -61,7 +55,7 @@ public class RegisterContactActivity extends ActionBarActivity {
         StateListDrawable arrowSelector = new StateListDrawable();
 
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
-        arrow.setColorFilter(ThemeUtils.obtainAccentColor(this), PorterDuff.Mode.SRC_ATOP);
+        arrow.setColorFilter(ThemeUtils.obtainColorAccent(this), PorterDuff.Mode.SRC_ATOP);
         arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
         arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
 
@@ -94,60 +88,6 @@ public class RegisterContactActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @OnFocusChange(R.id.register_contact_medt_name)
-    protected void onNameEditTextFocusChange(View v) {
-        if (v.isFocused()) {
-            imgName.setColorFilter(ThemeUtils.obtainAccentColor(this));
-        } else {
-            imgName.clearColorFilter();
-        }
-    }
-
-    @OnFocusChange(R.id.register_contact_medt_phone)
-    protected void onPhoneEditTextFocusChange(View v) {
-        if (v.isFocused()) {
-            imgPhone.setColorFilter(ThemeUtils.obtainAccentColor(this));
-        } else {
-            imgPhone.clearColorFilter();
-        }
-    }
-
-    @OnFocusChange(R.id.register_contact_medt_email)
-    protected void onEmailEditTextFocusChange(View v) {
-        if (v.isFocused()) {
-            imgEmail.setColorFilter(ThemeUtils.obtainAccentColor(this));
-        } else {
-            imgEmail.clearColorFilter();
-        }
-    }
-
-    @OnFocusChange(R.id.register_contact_medt_address)
-    protected void onAddressEditTextFocusChange(View v) {
-        if (v.isFocused()) {
-            imgAddress.setColorFilter(ThemeUtils.obtainAccentColor(this));
-        } else {
-            imgAddress.clearColorFilter();
-        }
-    }
-
-    @OnFocusChange(R.id.register_contact_medt_ringtone)
-    protected void onRingtoneEditTextFocusChange(View v) {
-        if (v.isFocused()) {
-            imgRingtone.setColorFilter(ThemeUtils.obtainAccentColor(this));
-        } else {
-            imgRingtone.clearColorFilter();
-        }
-    }
-
-    @OnFocusChange(R.id.register_contact_medt_add_note)
-    protected void onAddNoteEditTextFocusChange(View v) {
-        if (v.isFocused()) {
-            imgAddNote.setColorFilter(ThemeUtils.obtainAccentColor(this));
-        } else {
-            imgAddNote.clearColorFilter();
-        }
     }
 
     @OnClick(R.id.register_contact_medt_phone_type)

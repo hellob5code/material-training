@@ -8,8 +8,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import com.rengwuxian.materialedittext.MaterialEditText;
-import com.rengwuxian.materialedittext.validation.RegexpValidator;
+import android.widget.MaterialEditText;
 import com.training.android.material.R;
 
 public class RegisterApplicationActivity extends ActionBarActivity {
@@ -38,10 +37,10 @@ public class RegisterApplicationActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_validate) {
-            if (medtTitle.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
-                // TODO: Perform action after true validation.
-                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
-            }
+//            if (medtTitle.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
+//                // TODO: Perform action after true validation.
+//                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
+//            }
             return true;
         }
         return super.onOptionsItemSelected(item);
