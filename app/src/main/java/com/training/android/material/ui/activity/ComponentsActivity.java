@@ -17,18 +17,18 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_TABS_ID);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_BUTTONS_ID);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             if (id == NAVDRAWER_CHILD_BOTTOM_SHEETS_ID) {
                 ft.add(R.id.content, new BottomSheetsFragment()).commit();
             } else if (id == NAVDRAWER_CHILD_BUTTONS_ID) {
-                ft.add(R.id.content, new ButtonsFragment()).commit();
+                ft.add(R.id.content, new ButtonsRecyclerFragment()).commit();
             } else if (id == NAVDRAWER_CHILD_LISTS_ID) {
                 ft.add(R.id.content, new ListsFragment()).commit();
             } else if (id == NAVDRAWER_CHILD_TABS_ID) {
-                ft.add(R.id.content, new TabsFragment()).commit();
+                ft.add(R.id.content, new TabsRecyclerFragment()).commit();
             } else if (id == NAVDRAWER_CHILD_TEXT_FIELDS_ID) {
-                ft.add(R.id.content, new TextFieldsFragment()).commit();
+                ft.add(R.id.content, new TextFieldsRecyclerFragment()).commit();
             }
         }
     }
@@ -66,16 +66,16 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
             ft.replace(R.id.content, new BottomSheetsFragment()).commit();
             return true;
         } else if (id == NAVDRAWER_CHILD_BUTTONS_ID) {
-            ft.replace(R.id.content, new ButtonsFragment()).commit();
+            ft.replace(R.id.content, new ButtonsRecyclerFragment()).commit();
             return true;
         } else if (id == NAVDRAWER_CHILD_LISTS_ID) {
             ft.replace(R.id.content, new ListsFragment()).commit();
             return true;
         } else if (id == NAVDRAWER_CHILD_TABS_ID) {
-            ft.replace(R.id.content, new TabsFragment()).commit();
+            ft.replace(R.id.content, new TabsRecyclerFragment()).commit();
             return true;
         } else if (id == NAVDRAWER_CHILD_TEXT_FIELDS_ID) {
-            ft.replace(R.id.content, new TextFieldsFragment()).commit();
+            ft.replace(R.id.content, new TextFieldsRecyclerFragment()).commit();
             return true;
         }
         return super.onNavDrawerItemSelected(item);

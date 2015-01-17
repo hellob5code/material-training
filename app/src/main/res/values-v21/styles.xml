@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ButtonRaised.Blue" parent="android:Widget.Material.Button">
+        <item name="android:background">@drawable/btn_blue_material</item>
+    </style>
+
+</resources>

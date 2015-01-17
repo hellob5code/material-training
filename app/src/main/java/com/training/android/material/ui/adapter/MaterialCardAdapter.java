@@ -13,6 +13,7 @@ import static com.training.android.material.ui.card.HeaderCard.TYPE_HEADER;
 import static com.training.android.material.ui.card.HeadlineOneBodyCard.TYPE_HEADLINE_ONE_BODY;
 import static com.training.android.material.ui.card.HeadlineOneBodySixVerticalButtonCard.TYPE_HEADLINE_ONE_BODY_SIX_VERTICAL_BUTTON;
 import static com.training.android.material.ui.card.HeadlineOneBodyThreeButtonCard.TYPE_HEADLINE_ONE_BODY_THREE_BUTTON;
+import static com.training.android.material.ui.card.RichAreaHeadlineOneBodyCard.TYPE_RICH_AREA_HEADLINE_ONE_BODY;
 
 public class MaterialCardAdapter extends RecyclerView.Adapter {
 
@@ -42,6 +43,9 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
         } else if (viewType == TYPE_HEADLINE_ONE_BODY_SIX_VERTICAL_BUTTON) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_one_body_six_vertical_button_material, parent, false);
             viewHolder = new HeadlineOneBodySixVerticalButtonCardViewHolder(v);
+        } else if (viewType == TYPE_RICH_AREA_HEADLINE_ONE_BODY) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_rich_area_headline_one_body_material, parent, false);
+            viewHolder = new RichAreaHeadlineOneBodyCardViewHolder(v);
         }
         return viewHolder;
     }
@@ -61,6 +65,9 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
         } else if (viewType == TYPE_HEADLINE_ONE_BODY_SIX_VERTICAL_BUTTON) {
             HeadlineOneBodySixVerticalButtonCard card = (HeadlineOneBodySixVerticalButtonCard) dataset.get(position);
             ((HeadlineOneBodySixVerticalButtonCardViewHolder) viewHolder).setup(card);
+        }else if (viewType == TYPE_RICH_AREA_HEADLINE_ONE_BODY) {
+            RichAreaHeadlineOneBodyCard card = (RichAreaHeadlineOneBodyCard) dataset.get(position);
+            ((RichAreaHeadlineOneBodyCardViewHolder) viewHolder).setup(card);
         }
     }
 

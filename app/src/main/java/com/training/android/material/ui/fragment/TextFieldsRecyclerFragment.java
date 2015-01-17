@@ -25,21 +25,13 @@ import static com.training.android.material.ui.card.HeaderCard.TYPE_HEADER;
 import static com.training.android.material.ui.card.HeadlineOneBodyCard.TYPE_HEADLINE_ONE_BODY;
 import static com.training.android.material.ui.card.HeadlineOneBodyThreeButtonCard.TYPE_HEADLINE_ONE_BODY_THREE_BUTTON;
 
-public class TextFieldsFragment extends Fragment {
-
-    @InjectView(R.id.recycler_view) RecyclerView mRecyclerView;
-
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+public class TextFieldsRecyclerFragment extends RecyclerFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.recycler_view, container, false);
-        ButterKnife.inject(this, view);
-
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setLayoutManager(new LinearLayoutManager(getActivity()));
+        getRecyclerView().addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 if (parent.getChildPosition(view) < 1)
@@ -51,12 +43,7 @@ public class TextFieldsFragment extends Fragment {
                 }
             }
         });
-
-        List<Card> dataset = populateDataset();
-
-        mAdapter = new MaterialCardAdapter(dataset);
-        mRecyclerView.setAdapter(mAdapter);
-        return view;
+        setRecyclerAdapter(new MaterialCardAdapter(populateDataset()));
     }
 
     private List<Card> populateDataset() {

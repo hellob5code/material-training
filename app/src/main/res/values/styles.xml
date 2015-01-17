@@ -14,6 +14,10 @@
         <item name="android:background">@color/material_grey_200</item>
     </style>
 
+
+
+
+
     <style name="FullwidthSearchView" parent="Widget.AppCompat.SearchView">
         <!-- Background for the search query section (e.g. EditText) -->
         <item name="queryBackground">@android:color/transparent</item>
@@ -40,6 +44,30 @@
 
     <style name="AppEditText" parent="Widget.AppCompat.EditText">
         <item name="android:textSize">16sp</item>
+    </style>
+
+
+    <!-- Button -->
+    <style name="ButtonRaised" parent="android:Widget.Holo.Button">
+        <item name="android:minWidth">88dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="ButtonRaised.Blue">
+        <item name="android:background">@drawable/btn_blue_material</item>
+    </style>
+
+    <style name="ButtonFlat" parent="android:Widget.Holo.Button.Borderless">
+        <item name="android:minWidth">88dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="ButtonFlat.Blue">
+        <item name="android:textColor">@color/material_blue</item>
     </style>
 
 </resources>

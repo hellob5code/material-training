@@ -1,18 +1,16 @@
 package com.training.android.material.ui.fragment;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import com.training.android.material.R;
-import com.training.android.material.ui.activity.*;
+import com.training.android.material.ui.activity.AccentFixedTabsActivity;
+import com.training.android.material.ui.activity.FixedTabsActivity;
+import com.training.android.material.ui.activity.LockedFixedTabsActivity;
+import com.training.android.material.ui.activity.ScrollableTabsActivity;
 import com.training.android.material.ui.adapter.MaterialCardAdapter;
 import com.training.android.material.ui.card.*;
 import com.training.android.material.util.ApiUtils;
@@ -21,21 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-public class TabsFragment extends Fragment {
-
-    @InjectView(R.id.recycler_view) RecyclerView mRecyclerView;
-
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+public class TabsRecyclerFragment extends RecyclerFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.recycler_view, container, false);
-        ButterKnife.inject(this, view);
-
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setLayoutManager(new LinearLayoutManager(getActivity()));
+        getRecyclerView().addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 if (parent.getChildPosition(view) < 1)
@@ -47,12 +37,7 @@ public class TabsFragment extends Fragment {
                 }
             }
         });
-
-        List<Card> dataset = populateDataset();
-
-        mAdapter = new MaterialCardAdapter(dataset);
-        mRecyclerView.setAdapter(mAdapter);
-        return view;
+        setRecyclerAdapter(new MaterialCardAdapter(populateDataset()));
     }
 
     private List<Card> populateDataset() {
