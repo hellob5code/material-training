@@ -7,10 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.training.android.material.R;
-import com.training.android.material.ui.activity.AccentFixedTabsActivity;
-import com.training.android.material.ui.activity.FixedTabsActivity;
-import com.training.android.material.ui.activity.LockedFixedTabsActivity;
-import com.training.android.material.ui.activity.ScrollableTabsActivity;
+import com.training.android.material.ui.activity.*;
 import com.training.android.material.ui.adapter.MaterialCardAdapter;
 import com.training.android.material.ui.card.*;
 import com.training.android.material.util.ApiUtils;
@@ -50,19 +47,37 @@ public class ButtonsRecyclerFragment extends RecyclerFragment {
                 null));
         dataset.add(new HeadlineOneBodyThreeButtonCard(0, "Buttons inline", "Choose raised or flat buttons depending on your specific layout. Make sure to allow enough padding around flat buttons so the user can easily find them.",
                 "Example #1",
-                null));
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), DummyInlineButtons1Activity.class));
+                        return null;
+                    }
+                }));
         dataset.add(new HeadlineOneBodyThreeButtonCard(0, "Persistent footer buttons", "If your app requires actions to be persistent and readily available to the user, first consider using the floating action button.\n\nIf a floating action button isn’t quite right, but the button still needs to be easy to access, consider persistent footer buttons.\n\nWith the addition of a divider, a persistent footer button can also be used for scrollable dialogs.",
                 "Example #1",
-                "Example #2",
-                null,
-                null));
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), DummyPersistentFooterButtonsActivity.class));
+                        return null;
+                    }
+                }));
         dataset.add(new HeaderCard(0, "Flat & raised buttons"));
-        dataset.add(new HeadlineOneBodyThreeButtonCard(0, "Raised buttons", "Raised buttons emphasize functions that would otherwise get lost on a busy or wide space. They add dimension to mostly flat layouts.",
-                "Example #1",
-                "Example #2",
+        dataset.add(new HeadlineOneBodySixVerticalButtonCard(0, "Raised buttons", "Raised buttons emphasize functions that would otherwise get lost on a busy or wide space. They add dimension to mostly flat layouts.",
+                "Use raised buttons to give more prominence to actions in layouts with a lot of varying content.",
+                "Raised buttons can even help delineate sections of content on a page.",
                 "Example #3",
-                null,
-                null,
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), DummyInlineButtons2Activity.class));
+                        return null;
+                    }
+                },
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), DummyInlineButtons3Activity.class));
+                        return null;
+                    }
+                },
                 null));
         dataset.add(new HeadlineOneBodyThreeButtonCard(0, "Flat buttons", "Use flat buttons for contexts such as toolbars and dialogs to avoid gratuitous layering.",
                 "Example #1",

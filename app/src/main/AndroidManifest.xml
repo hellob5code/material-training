@@ -30,6 +30,22 @@
             android:label="@string/title_activity_developer_mode"
             android:parentActivityName=".ui.activity.ComponentsActivity" /> <!-- TODO: Set real parent activity. -->
         <activity
+            android:name=".ui.activity.DummyInlineButtons1Activity"
+            android:label=""
+            android:theme="@style/Theme.Grey50.Light"/>
+        <activity
+            android:name=".ui.activity.DummyInlineButtons2Activity"
+            android:label=""
+            android:theme="@style/Theme.Grey50.Light"/>
+        <activity
+            android:name=".ui.activity.DummyInlineButtons3Activity"
+            android:label=""
+            android:theme="@style/Theme.Grey50.Light"/>
+        <activity
+            android:name=".ui.activity.DummyPersistentFooterButtonsActivity"
+            android:label=""
+            android:theme="@style/Theme.Grey50.Light"/>
+        <activity
             android:name=".ui.activity.FixedTabsActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />

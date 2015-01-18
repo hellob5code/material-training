@@ -3,4 +3,5 @@
     style="@style/ButtonRaised.Blue"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:translationZ="4dp"
     android:text="Button"/>
