@@ -11,11 +11,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/register_event_medt_email"
-            style="@style/FullwidthTextField"
+        <FullwidthEditText
+            android:id="@+id/register_event_fedt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1"
+            android:layout_marginStart="@dimen/keyline_1"
             tools:text="email@mail.com"/>
 
         <include layout="@layout/divider_horizontal"/>

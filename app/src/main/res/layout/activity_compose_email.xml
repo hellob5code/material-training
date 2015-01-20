@@ -4,56 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@+id/aaa"
     tools:context=".ui.activity.ComposeEmailActivity">
 
     <LinearLayout
-        android:id="@+id/aaa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/compose_email_medt_from"
-            style="@style/FullwidthTextField"
+        <FullwidthEditText
+            android:id="@+id/compose_email_fedt_from"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1"
+            android:layout_marginStart="@dimen/keyline_1"
             android:hint="@string/compose_email_hint_from"
             tools:text="email@mail.com"/>
 
         <include layout="@layout/divider_horizontal"/>
 
-        <EditText
-            android:id="@+id/compose_email_medt_to"
-            style="@style/FullwidthTextField"
+        <FullwidthEditText
+            android:id="@+id/compose_email_fedt_to"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1"
+            android:layout_marginStart="@dimen/keyline_1"
             android:hint="@string/compose_email_hint_to"
             android:inputType="textWebEmailAddress"
             tools:text="email@mail.com"/>
 
         <include layout="@layout/divider_horizontal"/>
 
-        <EditText
-            android:id="@+id/compose_email_medt_subject"
-            style="@style/FullwidthTextField"
+        <FullwidthEditText
+            android:id="@+id/compose_email_fedt_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1"
+            android:layout_marginStart="@dimen/keyline_1"
             android:hint="@string/compose_email_hint_subject"
+            android:singleLine="true"
+            app:maxCharacters="140"
             tools:text="Et est denique indoctum reprimique."/>
 
         <include layout="@layout/divider_horizontal"/>
 
-        <MaterialEditText
-            android:id="@+id/compose_email_medt_message"
-            style="@style/FullwidthTextField"
+        <FullwidthEditText
+            android:id="@+id/compose_email_fedt_message"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/keyline_1"
+            android:layout_marginStart="@dimen/keyline_1"
             android:gravity="top"
             android:hint="@string/compose_email_hint_message"
-            android:paddingBottom="@dimen/padding_small"
-            android:paddingTop="@dimen/padding_small"
             app:maxCharacters="255"
             tools:text="Sea tation ignota no, mel et appellantur definitiones. In latine commune salutatus vim, duo hinc verear maiestatis ad. Vim nulla expetendis cu, eu everti facilis singulis cum. Facilis invidunt cum at. In zril quando graeco sed, dicat noster sanctus ad eam."/>
     </LinearLayout>

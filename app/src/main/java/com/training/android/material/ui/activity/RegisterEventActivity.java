@@ -12,7 +12,7 @@ import android.util.Log;
 import android.util.StateSet;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
+import android.widget.FullwidthEditText;
 import butterknife.*;
 import android.widget.MaterialEditText;
 import com.training.android.material.R;
@@ -34,7 +34,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
     private static final String TAG_TO_DATE_PICKER = "to_date_picker";
     private static final String TAG_TO_TIME_PICKER = "to_time_picker";
 
-    @InjectView(R.id.register_event_medt_email) EditText medtEmail;
+    @InjectView(R.id.register_event_fedt_email) FullwidthEditText fedtEmail;
     @InjectView(R.id.register_event_medt_name) MaterialEditText medtName;
     @InjectView(R.id.register_event_medt_location) MaterialEditText medtLocation;
     @InjectView(R.id.register_event_medt_from_date) MaterialEditText medtFromDate;
@@ -88,7 +88,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
         arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
-        medtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        fedtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
     }
 
     private void setupDropdownViews() {

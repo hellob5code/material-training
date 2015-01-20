@@ -10,6 +10,7 @@ import android.util.StateSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.FullwidthEditText;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.material.R;
@@ -17,7 +18,7 @@ import com.training.android.material.util.ThemeUtils;
 
 public class ComposeEmailActivity extends ActionBarActivity {
 
-    @InjectView(R.id.compose_email_medt_from) EditText medtFrom;
+    @InjectView(R.id.compose_email_fedt_from) FullwidthEditText fedtFrom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class ComposeEmailActivity extends ActionBarActivity {
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
         arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
-        medtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        fedtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
     }
 
     @Override
