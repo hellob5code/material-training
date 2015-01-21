@@ -1,10 +1,11 @@
-package com.training.android.materiel.model;
+package com.training.android.material.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Application implements Parcelable {
 
+    private int id;
     private String title;
     private String formattedPrice;
     private String formattedLocation;

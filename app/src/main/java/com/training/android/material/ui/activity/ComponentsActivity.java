@@ -17,7 +17,7 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_BUTTONS_ID);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_BOTTOM_SHEETS_ID);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             if (id == NAVDRAWER_CHILD_BOTTOM_SHEETS_ID) {
                 ft.add(R.id.content, new BottomSheetsFragment()).commit();

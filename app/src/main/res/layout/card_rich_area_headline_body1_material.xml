@@ -9,6 +9,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="96dp"
+            android:background="#ffdddddd">
+
+            <ViewStub
+                android:id="@+id/stub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,48 +36,16 @@
                 tools:text="Fugit audiam has et"/>
 
             <Space
-                android:id="@+id/space_headline_body1"
+                android:id="@+id/space_headline_body"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_medium"/>
 
             <TextView
-                android:id="@+id/body1"
+                android:id="@+id/body"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Lorem ipsum dolor sit amet, mei an detraxit moderatius. Eos ex modo utroque, an mei eros aliquam. Eu pro volutpat vulputate conceptam, suas eirmod eleifend ei his, modo argumentum vis ne. Cu falli platonem conclusionemque per, pro debet ornatus adipiscing ad. Te etiam definitionem est."/>
         </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/action_area"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/touch_target_48dp"
-            android:gravity="center_vertical">
-
-            <include layout="@layout/divider_horizontal"/>
-
-            <Button
-                android:id="@+id/button_1"
-                style="@style/ButtonFlat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Button #1"/>
-
-            <Button
-                android:id="@+id/button_2"
-                style="@style/ButtonFlat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/button_1"
-                tools:text="Button #2"/>
-
-            <Button
-                android:id="@+id/button_3"
-                style="@style/ButtonFlat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/button_2"
-                tools:text="Button #3"/>
-        </RelativeLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

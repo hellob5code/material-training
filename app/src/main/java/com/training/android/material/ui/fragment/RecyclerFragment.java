@@ -1,29 +1,12 @@
 package com.training.android.material.ui.fragment;
 
 import android.app.Fragment;
-import android.app.ListFragment;
-import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import com.training.android.material.R;
-import com.training.android.material.ui.activity.*;
-import com.training.android.material.ui.adapter.MaterialCardAdapter;
-import com.training.android.material.ui.card.Card;
-import com.training.android.material.ui.card.HeaderCard;
-import com.training.android.material.ui.card.HeadlineOneBodyCard;
-import com.training.android.material.ui.card.HeadlineOneBodyThreeButtonCard;
-import com.training.android.material.util.ApiUtils;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
 
 public class RecyclerFragment extends Fragment {
 

@@ -18,12 +18,12 @@
             tools:text="Fugit audiam has et"/>
 
         <Space
-            android:id="@+id/space_headline_body1"
+            android:id="@+id/space_headline_body"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_medium"/>
 
         <TextView
-            android:id="@+id/body1"
+            android:id="@+id/body"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
