@@ -29,6 +29,8 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
 
     private static final String TAG = AbstractExpandableNavDrawerActivity.class.getSimpleName();
 
+    protected static final String KEY_SELECTED_NAVDRAWER_ITEM_ID = "selected_navdrawer_item_id";
+
     protected abstract DrawerLayout getDrawerLayout();
 
     protected abstract View getContentLayout();
@@ -75,6 +77,18 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         super.onPostCreate(savedInstanceState);
         setupNavigationDrawer();
         fadeInContent(NAVDRAWER_ITEM_INVALID); // Always fade
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_SELECTED_NAVDRAWER_ITEM_ID, mSelectedNavDrawerItemId);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mSelectedNavDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVDRAWER_ITEM_ID, NAVDRAWER_ITEM_INVALID);
     }
 
     private void setupNavigationDrawer() {
