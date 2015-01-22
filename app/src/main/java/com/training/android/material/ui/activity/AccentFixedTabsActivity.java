@@ -1,5 +1,6 @@
 package com.training.android.material.ui.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.SlidingTabLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -19,6 +21,7 @@ import com.training.android.material.util.ThemeUtils;
 public class AccentFixedTabsActivity extends ActionBarActivity {
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
+    @InjectView(R.id.navdrawer) View navdrawer;
     @InjectView(R.id.sliding_tabs) SlidingTabLayout slidingTabLayout;
     @InjectView(R.id.view_pager) ViewPager viewPager;
 
@@ -32,9 +35,19 @@ public class AccentFixedTabsActivity extends ActionBarActivity {
             int statusBarrSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
             toolbar.getLayoutParams().height += statusBarrSize;
             toolbar.setPadding(0, statusBarrSize, 0, 0);
-            View navdrawer = findViewById(R.id.navdrawer);
             navdrawer.setPadding(0, statusBarrSize, 0, 0);
         }
+        navdrawer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    navdrawer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    navdrawer.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+                navdrawer.getLayoutParams().width = Math.max(navdrawer.getLayoutParams().width, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width));
+            }
+        });
         setSupportActionBar(toolbar);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {

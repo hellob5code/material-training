@@ -26,6 +26,9 @@
     <dimen name="material_list_icon_size_plus_16dp">40dp</dimen>
     <dimen name="material_avatar_list_item_min_size">56dp</dimen>
 
+    <!-- Navigation Drawer -->
+    <dimen name="navdrawer_max_width">280dp</dimen>
+
     <!-- Button -->
     <!-- Elevation when button is pressed -->
     <dimen name="button_elevation_material">1dp</dimen>
