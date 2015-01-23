@@ -1,6 +1,5 @@
 package com.training.android.material.ui.activity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +17,7 @@ import com.training.android.material.R;
 import com.training.android.material.ui.adapter.LockedTabsSamplePagerAdapter;
 import com.training.android.material.util.ApiUtils;
 import com.training.android.material.util.ThemeUtils;
+import com.training.android.material.util.ViewUtils;
 
 public class LockedFixedTabsActivity extends ActionBarActivity implements ViewPager.OnPageChangeListener, LockedTabsSamplePagerAdapter.Callbacks {
 
@@ -43,17 +43,7 @@ public class LockedFixedTabsActivity extends ActionBarActivity implements ViewPa
             toolbar.setPadding(0, statusBarrSize, 0, 0);
             navdrawer.setPadding(0, statusBarrSize, 0, 0);
         }
-        navdrawer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    navdrawer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                } else {
-                    navdrawer.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                }
-                navdrawer.getLayoutParams().width = Math.max(navdrawer.getLayoutParams().width, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width));
-            }
-        });
+        ViewUtils.setMaxWidth(navdrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {

@@ -1,39 +1,23 @@
 package com.training.android.material.ui.fragment;
 
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import com.training.android.material.R;
 import com.training.android.material.ui.adapter.MaterialCardAdapter;
-import com.training.android.material.ui.card.*;
-import com.training.android.material.util.ApiUtils;
+import com.training.android.material.ui.card.Card;
+import com.training.android.material.ui.card.HeaderCard;
+import com.training.android.material.ui.card.HeadlineBodyCard;
+import com.training.android.material.ui.card.HeadlineBodyThreeButtonCard;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.training.android.material.ui.card.Card.TYPE_ACCENT_HEADLINE_BODY_2;
 import static com.training.android.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_2;
 
-public class BottomSheetsFragment extends RecyclerFragment {
+public class BottomSheetsFragment extends CardFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setLayoutManager(new LinearLayoutManager(getActivity()));
-        getRecyclerView().addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (parent.getChildPosition(view) < 1)
-                    return;
-                if (ApiUtils.isLollipop()) {
-                    outRect.top = getResources().getDimensionPixelSize(R.dimen.margin_small);
-                } else {
-                    outRect.top = getResources().getDimensionPixelSize(R.dimen.margin_xsmall);
-                }
-            }
-        });
         setRecyclerAdapter(new MaterialCardAdapter(populateDataset()));
     }
 

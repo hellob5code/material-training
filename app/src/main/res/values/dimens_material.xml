@@ -21,13 +21,16 @@
     <dimen name="keyline_2_minus_40dp">32dp</dimen>
     <dimen name="keyline_2_minus_48dp">24dp</dimen>
 
+    <!-- Card -->
+    <dimen name="card_max_width_material">700dp</dimen>
+
     <!-- List -->
-    <dimen name="material_list_icon_size">24dp</dimen>
-    <dimen name="material_list_icon_size_plus_16dp">40dp</dimen>
-    <dimen name="material_avatar_list_item_min_size">56dp</dimen>
+    <dimen name="list_icon_size_material">24dp</dimen>
+    <dimen name="list_icon_size_plus_16dp_material">40dp</dimen>
+    <dimen name="avatar_list_item_min_size_material">56dp</dimen>
 
     <!-- Navigation Drawer -->
-    <dimen name="navdrawer_max_width">280dp</dimen>
+    <dimen name="navdrawer_max_width_material">280dp</dimen>
 
     <!-- Button -->
     <!-- Elevation when button is pressed -->

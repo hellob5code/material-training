@@ -425,7 +425,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
                 }
                 if (setupListControl(group.getSecondary(), (ViewStub) view.findViewById(R.id.secondary_stub))) {
                     ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
-                    layoutParams.setMarginEnd(getResources().getDimensionPixelSize(R.dimen.material_list_icon_size_plus_16dp));
+                    layoutParams.setMarginEnd(getResources().getDimensionPixelSize(R.dimen.list_icon_size_plus_16dp_material));
                 }
             }
 

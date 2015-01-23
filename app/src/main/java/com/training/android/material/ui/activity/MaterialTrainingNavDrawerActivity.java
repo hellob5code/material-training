@@ -1,12 +1,12 @@
 package com.training.android.material.ui.activity;
 
 import android.content.Intent;
-import android.os.Build;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.material.BuildConfig;
@@ -14,6 +14,7 @@ import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
 import com.training.android.material.ui.tile.Tile;
 import com.training.android.material.util.ApiUtils;
+import com.training.android.material.util.ViewUtils;
 
 // TODO: If the list of content in the navigation drawer is very long, the two options can be pinned to the bottom of the navigation drawer on a surface with a higher elevation. This surface is present only while at the top of the list; any other scroll position will immediately result in dismissing the surface and placing the options at the end of the list, in-line with the rest of the list content. The navigation drawer retains its scroll position when closed and reopened.
 public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandableNavDrawerActivity {
@@ -49,17 +50,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
             toolbar.setPadding(0, statusBarrSize, 0, 0);
             navdrawer.setPadding(0, statusBarrSize, 0, 0);
         }
-        navdrawer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    navdrawer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                } else {
-                    navdrawer.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                }
-                navdrawer.getLayoutParams().width = Math.max(navdrawer.getLayoutParams().width, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width));
-            }
-        });
+        ViewUtils.setMaxWidth(navdrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
 
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);

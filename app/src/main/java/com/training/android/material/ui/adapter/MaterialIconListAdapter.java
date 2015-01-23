@@ -61,7 +61,7 @@ public class MaterialIconListAdapter extends RecyclerView.Adapter<MaterialIconLi
         }
         if (flagEndIndented) {
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) viewHolder.textView.getLayoutParams();
-            layoutParams.setMarginEnd(context.getResources().getDimensionPixelSize(R.dimen.material_list_icon_size_plus_16dp));
+            layoutParams.setMarginEnd(context.getResources().getDimensionPixelSize(R.dimen.list_icon_size_plus_16dp_material));
         }
 
         return viewHolder;

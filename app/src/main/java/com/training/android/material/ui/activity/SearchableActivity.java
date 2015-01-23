@@ -49,7 +49,7 @@ public class SearchableActivity extends ActionBarActivity {
         Point displaySize = new Point();
         display.getSize(displaySize);
 
-        int offset = getResources().getDimensionPixelSize(R.dimen.material_list_icon_size_plus_16dp);
+        int offset = getResources().getDimensionPixelSize(R.dimen.list_icon_size_plus_16dp_material);
         searchView.setMaxWidth(displaySize.x - offset);
 
         // Use icon as margin to align search edittext to keyline
