@@ -1,7 +1,9 @@
 package com.training.android.material.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.training.android.material.ui.activity.AaaActivity;
 import com.training.android.material.ui.adapter.MaterialCardAdapter;
 import com.training.android.material.ui.card.Card;
 import com.training.android.material.ui.card.HeaderCard;
@@ -10,6 +12,7 @@ import com.training.android.material.ui.card.HeadlineBodyThreeButtonCard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import static com.training.android.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_2;
 
@@ -31,7 +34,12 @@ public class BottomSheetsFragment extends CardFragment {
                 "Example #1",
                 "Example #2",
                 "Example #3",
-                null,
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), AaaActivity.class));
+                        return null;
+                    }
+                },
                 null,
                 null));
         dataset.add(new HeaderCard(0, "Behavior"));

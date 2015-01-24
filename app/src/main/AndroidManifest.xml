@@ -96,6 +96,11 @@
             android:name=".ui.activity.ScrollableTabsActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
+
+        <activity
+            android:name=".ui.activity.AaaActivity"
+            android:label=""
+            android:theme="@style/Theme.Grey50.Light"/>
     </application>
 
 </manifest>
