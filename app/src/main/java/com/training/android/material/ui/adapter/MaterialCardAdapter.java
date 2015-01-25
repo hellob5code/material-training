@@ -30,27 +30,42 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder = null;
-        if (viewType == TYPE_SUBHEADER) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_subheader_material, parent, false);
-            viewHolder = new SubheaderCard.ViewHolder(v);
-        } else if (viewType == TYPE_HEADLINE_BODY_1) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_material, parent, false);
-            viewHolder = new HeadlineBodyCard.ViewHolder(v);
-        } else if (viewType == TYPE_HEADLINE_BODY_1_THREE_BUTTON) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_three_button_material, parent, false);
-            viewHolder = new HeadlineBodyThreeButtonCard.ViewHolder(v);
-        } else if (viewType == TYPE_HEADLINE_BODY_1_SIX_VERTICAL_BUTTON) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_six_vertical_button_material, parent, false);
-            viewHolder = new HeadlineBodySixVerticalButtonCard.ViewHolder(v);
-        } else if (viewType == TYPE_PRIMARY_HEADLINE_BODY_2) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_primary_headline_body2_material, parent, false);
-            viewHolder = new HeadlineBodyCard.ViewHolder(v);
-        } else if (viewType == TYPE_ACCENT_HEADLINE_BODY_2) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_accent_headline_body2_material, parent, false);
-            viewHolder = new HeadlineBodyCard.ViewHolder(v);
-        } else if (viewType == TYPE_RICH_AREA_HEADLINE_BODY_1) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_rich_area_headline_body1_material, parent, false);
-            viewHolder = new RichAreaHeadlineBodyCard.ViewHolder(v);
+        switch (viewType) {
+            case TYPE_SUBHEADER: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_subheader_material, parent, false);
+                viewHolder = new SubheaderCard.ViewHolder(v);
+                break;
+            }
+            case TYPE_HEADLINE_BODY_1: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_material, parent, false);
+                viewHolder = new HeadlineBodyCard.ViewHolder(v);
+                break;
+            }
+            case TYPE_HEADLINE_BODY_1_THREE_BUTTON: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_three_button_material, parent, false);
+                viewHolder = new HeadlineBodyThreeButtonCard.ViewHolder(v);
+                break;
+            }
+            case TYPE_HEADLINE_BODY_1_SIX_VERTICAL_BUTTON: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_six_vertical_button_material, parent, false);
+                viewHolder = new HeadlineBodySixVerticalButtonCard.ViewHolder(v);
+                break;
+            }
+            case TYPE_PRIMARY_HEADLINE_BODY_2: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_primary_headline_body2_material, parent, false);
+                viewHolder = new HeadlineBodyCard.ViewHolder(v);
+                break;
+            }
+            case TYPE_ACCENT_HEADLINE_BODY_2: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_accent_headline_body2_material, parent, false);
+                viewHolder = new HeadlineBodyCard.ViewHolder(v);
+                break;
+            }
+            case TYPE_RICH_AREA_HEADLINE_BODY_1: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_rich_area_headline_body1_material, parent, false);
+                viewHolder = new RichAreaHeadlineBodyCard.ViewHolder(v);
+                break;
+            }
         }
         return viewHolder;
     }

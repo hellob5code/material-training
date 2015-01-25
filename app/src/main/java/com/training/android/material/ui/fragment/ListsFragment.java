@@ -12,6 +12,7 @@ import butterknife.InjectView;
 import com.training.android.material.R;
 import com.training.android.material.ui.adapter.MaterialListAdapter;
 import com.training.android.material.ui.listcontrol.IconListControl;
+import com.training.android.material.ui.tile.DividerListTile;
 import com.training.android.material.ui.tile.SingleLineListTile;
 import com.training.android.material.ui.tile.SubheaderTile;
 import com.training.android.material.ui.tile.Tile;
@@ -58,6 +59,7 @@ public class ListsFragment extends Fragment {
         myDataset.add(new SingleLineListTile(1, "Single-line item 11"));
         myDataset.add(new SingleLineListTile(1, "Single-line item 12"));
         myDataset.add(new SingleLineListTile(1, "Single-line item 13"));
+        myDataset.add(new DividerListTile());
         myDataset.add(new SingleLineListTile(1, "Single-line item 14"));
         myDataset.add(new SingleLineListTile(1, "Single-line item 15"));
         myDataset.add(new SingleLineListTile(1, "Single-line item 16"));

@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/list_divider_material"
+<!-- Outer layout to work around margin being ignored in layoutParams height -->
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/divider"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!-- Second layout to work around layoutParams being ignored by listView -->
-    <FrameLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
         android:layout_marginBottom="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/material_divider" />
-    </FrameLayout>
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@color/material_divider"/>
 </FrameLayout>
-

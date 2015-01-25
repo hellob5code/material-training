@@ -16,6 +16,7 @@ import butterknife.OnClick;
 import com.training.android.material.R;
 import com.training.android.material.ui.adapter.MaterialListAdapter;
 import com.training.android.material.ui.listcontrol.IconListControl;
+import com.training.android.material.ui.tile.DividerListTile;
 import com.training.android.material.ui.tile.SingleLineListTile;
 import com.training.android.material.ui.tile.SubheaderTile;
 import com.training.android.material.ui.tile.Tile;
@@ -52,7 +53,7 @@ public class MyFilesActivity extends ActionBarActivity {
         myDataset.add(new SingleLineListTile(0, "Document", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
         myDataset.add(new SingleLineListTile(0, "Spreadsheet", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
         myDataset.add(new SingleLineListTile(0, "Folder", new IconListControl(this, R.drawable.ic_folder_grey600_24dp), null));
-
+        myDataset.add(new DividerListTile());
         myDataset.add(new SingleLineListTile(0, "Upload photos or videos", new IconListControl(this, R.drawable.ic_cloud_upload_grey600_24dp), null));
         myDataset.add(new SingleLineListTile(0, "Use Camera", new IconListControl(this, R.drawable.ic_camera_alt_grey600_24dp), null));
 

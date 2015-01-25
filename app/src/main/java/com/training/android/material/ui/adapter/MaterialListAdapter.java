@@ -5,12 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.training.android.material.R;
+import com.training.android.material.ui.tile.DividerListTile;
 import com.training.android.material.ui.tile.SingleLineListTile;
 import com.training.android.material.ui.tile.SubheaderTile;
 import com.training.android.material.ui.tile.Tile;
 
 import java.util.List;
 
+import static com.training.android.material.ui.tile.Tile.TYPE_LIST_DIVIDER;
 import static com.training.android.material.ui.tile.Tile.TYPE_LIST_SINGLE_LINE;
 import static com.training.android.material.ui.tile.Tile.TYPE_SUBHEADER;
 
@@ -43,12 +45,22 @@ public class MaterialListAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder = null;
-        if (viewType == TYPE_SUBHEADER) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tile_subheader_material, parent, false);
-            viewHolder = new SubheaderTile.ViewHolder(v);
-        } else if (viewType == TYPE_LIST_SINGLE_LINE) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tile_list_single_line_material, parent, false);
-            viewHolder = new SingleLineListTile.ViewHolder(v);
+        switch (viewType) {
+            case TYPE_SUBHEADER: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tile_subheader_material, parent, false);
+                viewHolder = new SubheaderTile.ViewHolder(v);
+                break;
+            }
+            case TYPE_LIST_DIVIDER: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tile_list_divider_material, parent, false);
+                viewHolder = new DividerListTile.ViewHolder(v);
+                break;
+            }
+            case TYPE_LIST_SINGLE_LINE: {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tile_list_single_line_material, parent, false);
+                viewHolder = new SingleLineListTile.ViewHolder(v);
+                break;
+            }
         }
 
 //        View view = LayoutInflater.from(context).inflate(R.layout.tile_list_single_line_material, parent, false);
@@ -71,16 +83,6 @@ public class MaterialListAdapter extends RecyclerView.Adapter {
 //        });
 
         ((Tile.TileHolder) viewHolder).createView(parent.getContext(), flagStartIndented, flagEndIndented);
-
-//        Context context = parent.getContext();
-//        if (flagStartIndented) {
-//            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) viewHolder.tvText1.getLayoutParams();
-//            layoutParams.setMarginStart(context.getResources().getDimensionPixelSize(R.dimen.keyline_2_minus_16dp));
-//        }
-//        if (flagEndIndented) {
-//            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) viewHolder.tvText1.getLayoutParams();
-//            layoutParams.setMarginEnd(context.getResources().getDimensionPixelSize(R.dimen.list_icon_size_plus_16dp_material));
-//        }
 
         return viewHolder;
     }
