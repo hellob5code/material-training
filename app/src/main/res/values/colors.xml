@@ -8,6 +8,8 @@
     <color name="accent_1">@color/material_indigo</color>
     <color name="accent_2">@color/material_red</color>
 
-    <color name="navdrawer_background">#ffffff</color>
+    <color name="drive_blue">#3d83f9</color>
+    <color name="drive_red">#db4437</color>
+    <color name="drive_green">#0f9d58</color>
 
 </resources>

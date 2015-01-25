@@ -400,9 +400,9 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
 
             // Bind the content
             if (group.getId() == NAVDRAWER_DIVIDER) {
-                view.setBackgroundResource(R.color.navdrawer_background);
+                view.setBackgroundResource(android.R.color.white);
             } else if (group.getId() == NAVDRAWER_SUBHEADER) {
-                view.setBackgroundResource(R.color.navdrawer_background);
+                view.setBackgroundResource(android.R.color.white);
                 if (mNavDrawerItems.indexOf(group) == 0) {
                     view.findViewById(R.id.divider).setVisibility(View.GONE);
                 }

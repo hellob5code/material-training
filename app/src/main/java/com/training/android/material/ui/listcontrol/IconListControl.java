@@ -14,6 +14,11 @@ public class IconListControl implements ListControl {
     private int layoutSize;
     private Drawable drawable;
 
+    public IconListControl(Context context, Drawable drawable) {
+        this.layoutSize = context.getResources().getDimensionPixelSize(R.dimen.list_icon_size_material);
+        this.drawable = drawable;
+    }
+
     public IconListControl(Context context, int drawable) {
         this.layoutSize = context.getResources().getDimensionPixelSize(R.dimen.list_icon_size_material);
         if (drawable > 0) {

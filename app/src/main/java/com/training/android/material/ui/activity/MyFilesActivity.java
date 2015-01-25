@@ -1,5 +1,8 @@
 package com.training.android.material.ui.activity;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -20,6 +23,7 @@ import com.training.android.material.ui.tile.DividerListTile;
 import com.training.android.material.ui.tile.SingleLineListTile;
 import com.training.android.material.ui.tile.SubheaderTile;
 import com.training.android.material.ui.tile.Tile;
+import com.training.android.material.util.ThemeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +53,15 @@ public class MyFilesActivity extends ActionBarActivity {
         recycler.setLayoutManager(layoutManager);
         recycler.setHasFixedSize(true);
 
+        Drawable drawable;
+
         myDataset.add(new SubheaderTile(0, "Create"));
-        myDataset.add(new SingleLineListTile(0, "Document", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
-        myDataset.add(new SingleLineListTile(0, "Spreadsheet", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
+        drawable = getResources().getDrawable(R.drawable.ic_image_grey600_24dp);
+        drawable.mutate().setColorFilter(getResources().getColor(R.color.drive_blue), PorterDuff.Mode.SRC_ATOP);
+        myDataset.add(new SingleLineListTile(0, "Document", new IconListControl(this, drawable), null));
+        drawable = getResources().getDrawable(R.drawable.ic_image_grey600_24dp);
+        drawable.mutate().setColorFilter(getResources().getColor(R.color.drive_green), PorterDuff.Mode.SRC_ATOP);
+        myDataset.add(new SingleLineListTile(0, "Spreadsheet", new IconListControl(this, drawable), null));
         myDataset.add(new SingleLineListTile(0, "Folder", new IconListControl(this, R.drawable.ic_folder_grey600_24dp), null));
         myDataset.add(new DividerListTile());
         myDataset.add(new SingleLineListTile(0, "Upload photos or videos", new IconListControl(this, R.drawable.ic_cloud_upload_grey600_24dp), null));
