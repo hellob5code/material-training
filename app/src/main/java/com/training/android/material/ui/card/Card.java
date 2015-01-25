@@ -2,7 +2,7 @@ package com.training.android.material.ui.card;
 
 public abstract class Card {
 
-    public static final int TYPE_HEADER = 1;
+    public static final int TYPE_SUBHEADER = 1;
     public static final int TYPE_HEADLINE_BODY_1 = 2;
     public static final int TYPE_HEADLINE_BODY_1_SIX_VERTICAL_BUTTON = 3;
     public static final int TYPE_HEADLINE_BODY_1_THREE_BUTTON = 4;
@@ -13,7 +13,7 @@ public abstract class Card {
     protected int id;
     protected int viewType;
 
-    protected Card(int id, int viewType) {
+    public Card(int id, int viewType) {
         this.id = id;
         this.viewType = viewType;
     }
@@ -24,5 +24,10 @@ public abstract class Card {
 
     public int getViewType() {
         return viewType;
+    }
+
+    public interface CardHolder {
+
+        public void bindView(Card card, int position);
     }
 }

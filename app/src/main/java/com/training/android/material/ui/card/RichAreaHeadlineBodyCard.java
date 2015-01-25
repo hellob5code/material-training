@@ -31,6 +31,10 @@ public class RichAreaHeadlineBodyCard extends HeadlineBodyCard {
         return body1;
     }
 
+    /**
+     * Provide a reference to the views for each data item. Complex data items may need more than one view per item, and
+     * you provide access to all the views for a data item in a view holder.
+     */
     public static class ViewHolder extends HeadlineBodyCard.ViewHolder {
 
         @InjectView(R.id.stub) ViewStub stubRichArea;
@@ -40,12 +44,14 @@ public class RichAreaHeadlineBodyCard extends HeadlineBodyCard {
             ButterKnife.inject(this, v);
         }
 
-        public void setup(RichAreaHeadlineBodyCard card) {
-            setup(card.getRichAreaLayoutId(), card.getHeadline(), card.getBody1());
+        @Override
+        public void bindView(Card card, int position) {
+            RichAreaHeadlineBodyCard c = (RichAreaHeadlineBodyCard) card;
+            bindView(c.getRichAreaLayoutId(), c.getHeadline(), c.getBody1());
         }
 
-        protected void setup(int richAreaLayoutId, String headline, String body1) {
-            super.setup(headline, body1);
+        protected void bindView(int richAreaLayoutId, String headline, String body1) {
+            super.bindView(headline, body1);
             if (stubRichArea != null) {
                 stubRichArea.setLayoutResource(richAreaLayoutId);
                 stubRichArea.inflate();

@@ -20,7 +20,7 @@ import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
 import com.training.android.material.ui.listcontrol.ListControl;
 import com.training.android.material.ui.tile.Tile;
-import com.training.android.material.ui.tile.SingleLineTile;
+import com.training.android.material.ui.tile.SingleLineListTile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -269,7 +269,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         return addGroup(new NavDrawerItem(id, text, primary, secondary));
     }
 
-    protected static class NavDrawerChild extends SingleLineTile {
+    protected static class NavDrawerChild extends SingleLineListTile {
         int parentId = NAVDRAWER_ITEM_INVALID;
 
         public NavDrawerChild(int id, String text) {
@@ -281,7 +281,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         }
     }
 
-    protected static class NavDrawerGroup extends SingleLineTile {
+    protected static class NavDrawerGroup extends SingleLineListTile {
         List<NavDrawerChild> children = new ArrayList<NavDrawerChild>();
 
         public NavDrawerGroup(int id, String text, ListControl primary, ListControl secondary) {
@@ -360,7 +360,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
             View view = getLayoutInflater().inflate(layoutToInflate, container, false);
 
             // Bind the content
-            TextView textView = (TextView) view.findViewById(R.id.text);
+            TextView textView = (TextView) view.findViewById(R.id.tv_text);
             textView.setText(child.getText());
 
             return view;
@@ -390,7 +390,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
             if (group.getId() == NAVDRAWER_DIVIDER) {
                 layoutToInflate = R.layout.tile_list_divider_material;
             } else if (group.getId() == NAVDRAWER_SUBHEADER) {
-                layoutToInflate = R.layout.tile_list_subheader_material;
+                layoutToInflate = R.layout.tile_subheader_material;
             } else {
                 layoutToInflate = R.layout.tile_navdrawer_single_line_material;
             }
@@ -406,11 +406,11 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
                 if (mNavDrawerItems.indexOf(group) == 0) {
                     view.findViewById(R.id.divider).setVisibility(View.GONE);
                 }
-                TextView textView = (TextView) view.findViewById(R.id.text);
+                TextView textView = (TextView) view.findViewById(R.id.tv_text);
                 textView.setText(group.getText());
                 textView.setTextColor(getResources().getColor(R.color.material_text_secondary));
             } else {
-                TextView textView = (TextView) view.findViewById(R.id.text);
+                TextView textView = (TextView) view.findViewById(R.id.tv_text);
                 textView.setText(group.getText());
                 if (group.isItem()) {
                     textView.setTextColor(getResources().getColor(R.color.material_navdrawer_text));
@@ -419,11 +419,11 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
                     textView.setTypeface(textView.getTypeface(), Typeface.BOLD);
                 }
 
-                if (setupListControl(group.getPrimary(), (ViewStub) view.findViewById(R.id.primary_stub))) {
+                if (setupListControl(group.getPrimary(), (ViewStub) view.findViewById(R.id.stub_primary))) {
                     ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
                     layoutParams.setMarginStart(getResources().getDimensionPixelSize(R.dimen.keyline_2_minus_16dp));
                 }
-                if (setupListControl(group.getSecondary(), (ViewStub) view.findViewById(R.id.secondary_stub))) {
+                if (setupListControl(group.getSecondary(), (ViewStub) view.findViewById(R.id.stub_secondary))) {
                     ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
                     layoutParams.setMarginEnd(getResources().getDimensionPixelSize(R.dimen.list_icon_size_plus_16dp_material));
                 }

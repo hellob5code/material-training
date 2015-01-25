@@ -28,7 +28,7 @@ public class ButtonsRecyclerFragment extends CardFragment {
     private List<Card> populateDataset() {
         List<Card> dataset = new ArrayList<Card>();
         dataset.add(new HeadlineBodyCard(0, TYPE_PRIMARY_HEADLINE_BODY_2, "Buttons", "A button consists of text and/or an image that clearly communicates what action will occur when the user touches it.  There are three types of main buttons:\n\n\u2022 Floating action button: a circular button made of paper that lifts and emits ink reactions on press.\n\u2022 Raised button: a typically rectangular button made of paper that lifts and emits ink reactions on press.\n\u2022 Flat button: a button made of ink that emits ink reactions on press but does not lift.\nIn addition, fully saturated icons in your design generally always denote affordances.\n\nButtons should be designed in accordance with your app’s color theme."));
-        dataset.add(new HeaderCard(0, "Usage"));
+        dataset.add(new SubheaderCard(0, "Usage"));
         dataset.add(new RichAreaHeadlineBodyCard(0, R.layout.btn_raised, "Raised button", null));
         dataset.add(new RichAreaHeadlineBodyCard(0, R.layout.btn_flat, "Flat button", null));
         dataset.add(new HeadlineBodyCard(0, "Choosing button style", "Choosing a button style depends on the primacy of the button, the number of containers on screen, and the overall layout of the screen.\n\nFirst, look at the button’s function: is it important and ubiquitous enough to be a floating action button?\n\nNext, choose raised or flat dimensionality depending on the container it will be in and how many z-space layers you have on screen. There should not be layers upon layers upon layers of objects on the screen.\n\nFinally, look at your specific layout. You should primarily use one type of button per container. Only mix button types when you have a good reason to, such as emphasizing an important function."));
@@ -51,7 +51,7 @@ public class ButtonsRecyclerFragment extends CardFragment {
                         return null;
                     }
                 }));
-        dataset.add(new HeaderCard(0, "Flat & raised buttons"));
+        dataset.add(new SubheaderCard(0, "Flat & raised buttons"));
         dataset.add(new HeadlineBodySixVerticalButtonCard(0, "Raised buttons", "Raised buttons emphasize functions that would otherwise get lost on a busy or wide space. They add dimension to mostly flat layouts.",
                 "Use raised buttons to give more prominence to actions in layouts with a lot of varying content.",
                 "Raised buttons can even help delineate sections of content on a page.",
@@ -88,7 +88,7 @@ public class ButtonsRecyclerFragment extends CardFragment {
         dataset.add(new HeadlineBodyThreeButtonCard(0, "A note on accessibility", "To ensure usability for people with disabilities, make sure that your buttons have a height of 36dp, but that the touchable target has a minimum height of 48dp.",
                 "Example #1",
                 null));
-        dataset.add(new HeaderCard(0, "Floating action button"));
+        dataset.add(new SubheaderCard(0, "Floating action button"));
         dataset.add(new HeadlineBodyThreeButtonCard(0, "Floating action button", "Floating action buttons are used for a special type of promoted action. They are distinguished by a circled icon floating above the UI and have special motion behaviors related to morphing, launching, and the transferring anchor point.\n\nFloating action buttons come in two sizes: the default, which should be used in most cases, and the mini, which should only be used to create visual continuity with other elements on the screen.\n\nThe floating action button should be placed 16dp min from the edge on mobile and 24dp min on tablet/desktop",
                 "Example #1",
                 "Example #2",

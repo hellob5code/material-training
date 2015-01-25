@@ -31,10 +31,14 @@ public class HeadlineBodyCard extends Card {
         return body1;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    /**
+     * Provide a reference to the views for each data item. Complex data items may need more than one view per item, and
+     * you provide access to all the views for a data item in a view holder.
+     */
+    public static class ViewHolder extends RecyclerView.ViewHolder implements CardHolder {
 
-        @InjectView(R.id.headline) TextView tvHeadline;
-        @InjectView(R.id.body) TextView tvBody1;
+        @InjectView(R.id.tv_headline) TextView tvHeadline;
+        @InjectView(R.id.tv_body) TextView tvBody1;
         @InjectView(R.id.space_headline_body) Space spaceHeadlineBody1;
 
         public ViewHolder(View v) {
@@ -42,11 +46,13 @@ public class HeadlineBodyCard extends Card {
             ButterKnife.inject(this, v);
         }
 
-        public void setup(HeadlineBodyCard card) {
-            setup(card.getHeadline(), card.getBody1());
+        @Override
+        public void bindView(Card card, int position) {
+            HeadlineBodyCard c = (HeadlineBodyCard) card;
+            bindView(c.getHeadline(), c.getBody1());
         }
 
-        protected void setup(String headline, String body1) {
+        protected void bindView(String headline, String body1) {
             // Hide headline view if text empty
             if (StringUtils.isNotEmpty(headline)) {
                 tvHeadline.setVisibility(View.VISIBLE);

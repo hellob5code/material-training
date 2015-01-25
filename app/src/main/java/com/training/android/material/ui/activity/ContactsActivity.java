@@ -14,9 +14,10 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import com.training.android.material.R;
-import com.training.android.material.ui.adapter.MaterialIconListAdapter;
+import com.training.android.material.ui.adapter.MaterialListAdapter;
 import com.training.android.material.ui.listcontrol.IconListControl;
-import com.training.android.material.ui.tile.SingleLineTile;
+import com.training.android.material.ui.tile.SingleLineListTile;
+import com.training.android.material.ui.tile.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class ContactsActivity extends ActionBarActivity {
     @InjectView(R.id.sheet) View sheet;
     @InjectView(R.id.recycler) RecyclerView recycler;
 
-    private List<SingleLineTile> myDataset =new ArrayList<SingleLineTile>();
+    private List<Tile> myDataset = new ArrayList<Tile>();
 
     private float mLastTouchY;
 
@@ -44,12 +45,12 @@ public class ContactsActivity extends ActionBarActivity {
         recycler.setLayoutManager(layoutManager);
         recycler.setHasFixedSize(true);
 
-        myDataset.add(new SingleLineTile(0, "Share", new IconListControl(this, R.drawable.ic_share_grey600_24dp), null));
-        myDataset.add(new SingleLineTile(0, "Upload", new IconListControl(this, R.drawable.ic_cloud_upload_grey600_24dp), null));
-        myDataset.add(new SingleLineTile(0, "Copy", new IconListControl(this, R.drawable.ic_content_copy_grey600_24dp), null));
-        myDataset.add(new SingleLineTile(0, "Print this page", new IconListControl(this, R.drawable.ic_local_print_shop_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Share", new IconListControl(this, R.drawable.ic_share_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Upload", new IconListControl(this, R.drawable.ic_cloud_upload_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Copy", new IconListControl(this, R.drawable.ic_content_copy_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Print this page", new IconListControl(this, R.drawable.ic_local_print_shop_grey600_24dp), null));
 
-        RecyclerView.Adapter adapter = new MaterialIconListAdapter(myDataset, true, false);
+        RecyclerView.Adapter adapter = new MaterialListAdapter(myDataset, true, false);
         recycler.setAdapter(adapter);
         recycler.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override

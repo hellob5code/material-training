@@ -14,9 +14,11 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import com.training.android.material.R;
-import com.training.android.material.ui.adapter.MaterialIconListAdapter;
+import com.training.android.material.ui.adapter.MaterialListAdapter;
 import com.training.android.material.ui.listcontrol.IconListControl;
-import com.training.android.material.ui.tile.SingleLineTile;
+import com.training.android.material.ui.tile.SingleLineListTile;
+import com.training.android.material.ui.tile.SubheaderTile;
+import com.training.android.material.ui.tile.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,7 @@ public class MyFilesActivity extends ActionBarActivity {
 //    @InjectView(R.id.panelHeader) View panelHeader;
     @InjectView(R.id.recycler) RecyclerView recycler;
 
-    private List<SingleLineTile> myDataset =new ArrayList<SingleLineTile>();
+    private List<Tile> myDataset = new ArrayList<Tile>();
 
     private float mLastTouchY;
 
@@ -46,14 +48,15 @@ public class MyFilesActivity extends ActionBarActivity {
         recycler.setLayoutManager(layoutManager);
         recycler.setHasFixedSize(true);
 
-        myDataset.add(new SingleLineTile(0, "Document", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
-        myDataset.add(new SingleLineTile(0, "Spreadsheet", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
-        myDataset.add(new SingleLineTile(0, "Folder", new IconListControl(this, R.drawable.ic_folder_grey600_24dp), null));
+        myDataset.add(new SubheaderTile(0, "Create"));
+        myDataset.add(new SingleLineListTile(0, "Document", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Spreadsheet", new IconListControl(this, R.drawable.ic_image_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Folder", new IconListControl(this, R.drawable.ic_folder_grey600_24dp), null));
 
-        myDataset.add(new SingleLineTile(0, "Upload photos or videos", new IconListControl(this, R.drawable.ic_cloud_upload_grey600_24dp), null));
-        myDataset.add(new SingleLineTile(0, "Use Camera", new IconListControl(this, R.drawable.ic_camera_alt_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Upload photos or videos", new IconListControl(this, R.drawable.ic_cloud_upload_grey600_24dp), null));
+        myDataset.add(new SingleLineListTile(0, "Use Camera", new IconListControl(this, R.drawable.ic_camera_alt_grey600_24dp), null));
 
-        RecyclerView.Adapter adapter = new MaterialIconListAdapter(myDataset, true, false);
+        RecyclerView.Adapter adapter = new MaterialListAdapter(myDataset, true, false);
         recycler.setAdapter(adapter);
         recycler.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
@@ -106,6 +109,8 @@ public class MyFilesActivity extends ActionBarActivity {
                 slidingPanel.setFullPanelHeight(childrenHeight);
             }
         });
+
+//        slidingPanel.setPanelHeaderView(recycler.getChildAt(0));
     }
 
     @OnClick(R.id.btn)

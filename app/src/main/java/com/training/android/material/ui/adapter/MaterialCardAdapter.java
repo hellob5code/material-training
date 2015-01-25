@@ -24,12 +24,15 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
         return dataset.get(position).getViewType();
     }
 
+    /**
+     * Create new views (invoked by the layout manager). Set the view's size, margins, paddings and layout parameters.
+     */
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder = null;
-        if (viewType == TYPE_HEADER) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_header_material, parent, false);
-            viewHolder = new HeaderCard.ViewHolder(v);
+        if (viewType == TYPE_SUBHEADER) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_subheader_material, parent, false);
+            viewHolder = new SubheaderCard.ViewHolder(v);
         } else if (viewType == TYPE_HEADLINE_BODY_1) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_material, parent, false);
             viewHolder = new HeadlineBodyCard.ViewHolder(v);
@@ -52,27 +55,14 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
         return viewHolder;
     }
 
+    /**
+     * Replace the contents of a view (invoked by the layout manager). Get element from your dataset at this position
+     * and replace the contents of the view with that element.
+     */
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        int viewType = getItemViewType(position);
-        if (viewType == TYPE_HEADER) {
-            HeaderCard card = (HeaderCard) dataset.get(position);
-            ((HeaderCard.ViewHolder) viewHolder).setup(card);
-        } else if (viewType == TYPE_HEADLINE_BODY_1
-                || viewType == TYPE_PRIMARY_HEADLINE_BODY_2
-                || viewType == TYPE_ACCENT_HEADLINE_BODY_2) {
-            HeadlineBodyCard card = (HeadlineBodyCard) dataset.get(position);
-            ((HeadlineBodyCard.ViewHolder) viewHolder).setup(card);
-        } else if (viewType == TYPE_HEADLINE_BODY_1_THREE_BUTTON) {
-            HeadlineBodyThreeButtonCard card = (HeadlineBodyThreeButtonCard) dataset.get(position);
-            ((HeadlineBodyThreeButtonCard.ViewHolder) viewHolder).setup(card);
-        } else if (viewType == TYPE_HEADLINE_BODY_1_SIX_VERTICAL_BUTTON) {
-            HeadlineBodySixVerticalButtonCard card = (HeadlineBodySixVerticalButtonCard) dataset.get(position);
-            ((HeadlineBodySixVerticalButtonCard.ViewHolder) viewHolder).setup(card);
-        }else if (viewType == TYPE_RICH_AREA_HEADLINE_BODY_1) {
-            RichAreaHeadlineBodyCard card = (RichAreaHeadlineBodyCard) dataset.get(position);
-            ((RichAreaHeadlineBodyCard.ViewHolder) viewHolder).setup(card);
-        }
+        Card card = dataset.get(position);
+        ((Card.CardHolder) viewHolder).bindView(card, position);
     }
 
     @Override

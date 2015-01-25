@@ -2,32 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_height="wrap_content"
     android:background="?android:selectableItemBackground"
     android:paddingLeft="@dimen/keyline_1"
     android:paddingRight="@dimen/keyline_1">
 
     <ViewStub
-        android:id="@+id/primary_stub"
+        android:id="@+id/stub_primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true" />
 
     <ViewStub
-        android:id="@+id/secondary_stub"
+        android:id="@+id/stub_secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true" />
 
-    <TextView
-        android:id="@+id/text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textSize="@dimen/text_size_normal"
-        tools:text="Single-line item" />
+        android:paddingBottom="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium">
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_normal"
+            tools:text="Single-line item"/>
+    </LinearLayout>
 </RelativeLayout>

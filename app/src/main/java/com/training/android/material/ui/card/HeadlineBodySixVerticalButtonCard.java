@@ -103,6 +103,10 @@ public class HeadlineBodySixVerticalButtonCard extends HeadlineBodyCard {
         return action6;
     }
 
+    /**
+     * Provide a reference to the views for each data item. Complex data items may need more than one view per item, and
+     * you provide access to all the views for a data item in a view holder.
+     */
     public static class ViewHolder extends HeadlineBodyCard.ViewHolder {
 
         @InjectView(R.id.action_area_1) ViewGroup actionArea1;
@@ -123,12 +127,14 @@ public class HeadlineBodySixVerticalButtonCard extends HeadlineBodyCard {
             ButterKnife.inject(this, v);
         }
 
-        public void setup(HeadlineBodySixVerticalButtonCard card) {
-            setup(card.getHeadline(), card.getBody1(), card.getButton1(), card.getButton2(), card.getButton3(), card.getButton4(), card.getButton5(), card.getButton6(), card.getAction1(), card.getAction2(), card.getAction3(), card.getAction4(), card.getAction5(), card.getAction6());
+        @Override
+        public void bindView(Card card, int position) {
+            HeadlineBodySixVerticalButtonCard c = (HeadlineBodySixVerticalButtonCard) card;
+            bindView(c.getHeadline(), c.getBody1(), c.getButton1(), c.getButton2(), c.getButton3(), c.getButton4(), c.getButton5(), c.getButton6(), c.getAction1(), c.getAction2(), c.getAction3(), c.getAction4(), c.getAction5(), c.getAction6());
         }
 
-        protected void setup(String headline, String body1, String button1, String button2, String button3, String button4, String button5, String button6, final Callable action1, final Callable action2, final Callable action3, final Callable action4, final Callable action5, final Callable action6) {
-            super.setup(headline, body1);
+        protected void bindView(String headline, String body1, String button1, String button2, String button3, String button4, String button5, String button6, final Callable action1, final Callable action2, final Callable action3, final Callable action4, final Callable action5, final Callable action6) {
+            super.bindView(headline, body1);
             disableOrHideButton(actionArea1, btn1, button1, action1);
             disableOrHideButton(actionArea2, btn2, button2, action2);
             disableOrHideButton(actionArea3, btn3, button3, action3);

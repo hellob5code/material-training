@@ -24,7 +24,7 @@ public class TabsRecyclerFragment extends CardFragment {
 
     private List<Card> populateDataset() {
         List<Card> dataset = new ArrayList<Card>();
-        dataset.add(new HeaderCard(0, "Usage"));
+        dataset.add(new SubheaderCard(0, "Usage"));
         dataset.add(new HeadlineBodyCard(0, null, "A tab provides the affordance for displaying grouped content. A tab label succinctly describes the tab’s associated grouping of content."));
         dataset.add(new HeadlineBodySixVerticalButtonCard(0, "Mobile tabs", null,
                 "Extended app bar and tab bar",
@@ -67,9 +67,9 @@ public class TabsRecyclerFragment extends CardFragment {
                 "Example #2",
                 null,
                 null));
-        dataset.add(new HeaderCard(0, "Content"));
+        dataset.add(new SubheaderCard(0, "Content"));
         dataset.add(new HeadlineBodyCard(0, null, "Content presented in tabs can vary widely, even between tabs. For example, different years within a tabbed portfolio or different types of settings.\n\nAll content within a set of tabs should be related under a larger organizing principle (for example, Settings or Directions), with each tab’s content mutually exclusive of the others'.\n\nTab labels should provide meaningful distinctions that logically organize associated content.\n\nTab labels may be icons or text and must not be truncated.\n\nAvoid the need for cross-tab comparison of content; significant cross-tab comparison may indicate the content would benefit from a different organization or presentation."));
-        dataset.add(new HeaderCard(0, "Types of tabs"));
+        dataset.add(new SubheaderCard(0, "Types of tabs"));
         dataset.add(new HeadlineBodyThreeButtonCard(0, "Fixed tabs", "Fixed tabs display all tabs concurrently and are best used with content that benefits from quick pivots between tabs, such as switching transportation methods for directions in Google Maps.\n\nThe maximum number of tabs is limited by the view’s width. Fixed tabs have equal width, based on the widest tab label. To navigate between fixed tabs, touch the tab or swipe the content area left or right.",
                 "Example #1",
                 new Callable() {

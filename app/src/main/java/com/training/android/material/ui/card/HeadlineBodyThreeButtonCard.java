@@ -61,6 +61,10 @@ public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
         return action3;
     }
 
+    /**
+     * Provide a reference to the views for each data item. Complex data items may need more than one view per item, and
+     * you provide access to all the views for a data item in a view holder.
+     */
     public static class ViewHolder extends HeadlineBodyCard.ViewHolder {
 
         @InjectView(R.id.action_area) ViewGroup actionArea;
@@ -73,12 +77,14 @@ public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
             ButterKnife.inject(this, v);
         }
 
-        public void setup(HeadlineBodyThreeButtonCard card) {
-            setup(card.getHeadline(), card.getBody1(), card.getButton1(), card.getButton2(), card.getButton3(), card.getAction1(), card.getAction2(), card.getAction3());
+        @Override
+        public void bindView(Card card, int position) {
+            HeadlineBodyThreeButtonCard c = (HeadlineBodyThreeButtonCard) card;
+            bindView(c.getHeadline(), c.getBody1(), c.getButton1(), c.getButton2(), c.getButton3(), c.getAction1(), c.getAction2(), c.getAction3());
         }
 
-        protected void setup(String headline, String body1, String button1, String button2, String button3, final Callable action1, final Callable action2, final Callable action3) {
-            super.setup(headline, body1);
+        protected void bindView(String headline, String body1, String button1, String button2, String button3, final Callable action1, final Callable action2, final Callable action3) {
+            super.bindView(headline, body1);
             if (StringUtils.isNotEmpty(button1)) {
                 actionArea.setVisibility(View.VISIBLE);
                 btn1.setText(button1);

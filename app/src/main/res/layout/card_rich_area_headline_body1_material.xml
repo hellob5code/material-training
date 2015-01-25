@@ -29,7 +29,7 @@
             android:padding="@dimen/margin_medium">
 
             <TextView
-                android:id="@+id/headline"
+                android:id="@+id/tv_headline"
                 style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 android:layout_height="@dimen/margin_medium"/>
 
             <TextView
-                android:id="@+id/body"
+                android:id="@+id/tv_body"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
