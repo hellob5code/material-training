@@ -45,9 +45,7 @@ public class MyFilesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_my_files);
         ButterKnife.inject(this);
         slidingPanel.setPanelView(sheet);
-//        slidingPanel.setPanelHeaderView(panelHeader);
         slidingPanel.enableIntermediateState(false);
-        slidingPanel.enableSmallState(false);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recycler.setLayoutManager(layoutManager);
@@ -118,10 +116,9 @@ public class MyFilesActivity extends ActionBarActivity {
                     childrenHeight += recycler.getChildAt(i).getHeight();
                 }
                 slidingPanel.setFullPanelHeight(childrenHeight);
+                slidingPanel.setPanelHeaderView(recycler.getChildAt(0));
             }
         });
-
-//        slidingPanel.setPanelHeaderView(recycler.getChildAt(0));
     }
 
     @OnClick(R.id.btn)
