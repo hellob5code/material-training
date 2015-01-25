@@ -28,7 +28,7 @@ import static android.text.format.DateUtils.*;
 
 public class DataFormatsFragment extends Fragment {
 
-    @InjectView(R.id.recycler_view)
+    @InjectView(R.id.recycler)
     RecyclerView mRecyclerView;
 
     private RecyclerView.Adapter mAdapter;

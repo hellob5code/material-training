@@ -23,7 +23,7 @@ public class ListsFragment extends Fragment {
 
     private List<SingleLineTile> myDataset =new ArrayList<SingleLineTile>();
 
-    @InjectView(R.id.recycler_view) RecyclerView mRecyclerView;
+    @InjectView(R.id.recycler) RecyclerView mRecyclerView;
 
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;

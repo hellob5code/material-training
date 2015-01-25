@@ -9,7 +9,6 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.Scroller;
 import com.training.android.material.R;
 
-
 public class Slider implements Runnable {
 
 	private static final String TAG = Slider.class.getSimpleName();
@@ -29,15 +28,15 @@ public class Slider implements Runnable {
 	public static final Interpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator();
 	public static final Interpolator DECELERATE_INTERPOLATOR = new DecelerateInterpolator();
 
+	public Slider(Context context, View scrollingView, View parent) {
+		this(context, scrollingView, parent, DECELERATE_INTERPOLATOR);
+	}
+
 	public Slider(Context context, View scrollingView, View parent, Interpolator interpolator) {
 		this.context = context;
 		this.scrollingView = scrollingView;
 		this.parent = parent;
 		scroller = new Scroller(context, interpolator);
-	}
-
-	public Slider(Context context, View scrollingView, View parent) {
-		this(context, scrollingView, parent, DECELERATE_INTERPOLATOR);
 	}
 
 	public synchronized void start(int initialY, int toY) {
@@ -63,7 +62,7 @@ public class Slider implements Runnable {
 			parent.invalidate();
 		}
 
-		Log.d(TAG, "Offset " + scrollingView.toString() + " of " + offset + "px");
+		Log.d(TAG, "Delta " + scrollingView.toString() + " of " + offset + "px");
 
 		if (more) {
 			scrollingView.postDelayed(this, ANIMATION_REFRESH_INTERVAL);

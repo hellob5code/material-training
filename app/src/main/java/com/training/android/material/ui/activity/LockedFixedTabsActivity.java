@@ -1,5 +1,6 @@
 package com.training.android.material.ui.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -38,14 +39,14 @@ public class LockedFixedTabsActivity extends ActionBarActivity implements ViewPa
         ButterKnife.inject(this);
 
         if (ApiUtils.isLollipop()) {
-            int statusBarrSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
-            toolbar.getLayoutParams().height += statusBarrSize;
-            toolbar.setPadding(0, statusBarrSize, 0, 0);
-            navdrawer.setPadding(0, statusBarrSize, 0, 0);
+            int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
+            toolbar.getLayoutParams().height += statusBarSize;
+            toolbar.setPadding(0, statusBarSize, 0, 0);
+            navdrawer.setPadding(0, statusBarSize, 0, 0);
         }
         ViewUtils.setMaxWidth(navdrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
             @Override
             public void onDrawerClosed(View view) {
@@ -76,6 +77,11 @@ public class LockedFixedTabsActivity extends ActionBarActivity implements ViewPa
         drawerLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    drawerLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    drawerLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
                 mCurrentObservableScrollView = mAdapter.getScrollView(0);
                 mCurrentPlaceholderView = mAdapter.getStickyPlaceholderView(0);
                 onScrollChanged(mCurrentObservableScrollView.getScrollY());

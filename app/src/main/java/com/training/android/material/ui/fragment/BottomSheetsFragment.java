@@ -3,7 +3,8 @@ package com.training.android.material.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.training.android.material.ui.activity.AaaActivity;
+import com.training.android.material.ui.activity.ContactsActivity;
+import com.training.android.material.ui.activity.MyFilesActivity;
 import com.training.android.material.ui.adapter.MaterialCardAdapter;
 import com.training.android.material.ui.card.Card;
 import com.training.android.material.ui.card.HeaderCard;
@@ -36,11 +37,16 @@ public class BottomSheetsFragment extends CardFragment {
                 "Example #3",
                 new Callable() {
                     public Void call() {
-                        startActivity(new Intent(getActivity(), AaaActivity.class));
+                        startActivity(new Intent(getActivity(), ContactsActivity.class));
                         return null;
                     }
                 },
-                null,
+                new Callable() {
+                    public Void call() {
+                        startActivity(new Intent(getActivity(), MyFilesActivity.class));
+                        return null;
+                    }
+                },
                 null));
         dataset.add(new HeaderCard(0, "Behavior"));
         dataset.add(new HeadlineBodyCard(0, null, "When a bottom sheet is displayed, it should animate upwards from the bottom edge of the screen. The previous content dims to give the user context for where they just were and the modal nature of the choice. Tapping on the dimmed area dismisses the sheet, as does swiping down on the sheet.\n\nIf the sheet contains more actions that can fit in the initial display, the sheet is scrollable. Scrolling should also pull up the sheet container and eventually cover the entire screen.\n\nWhen the action sheet covers the entire screen, add a dismiss button to the header, on the left side of the title."));

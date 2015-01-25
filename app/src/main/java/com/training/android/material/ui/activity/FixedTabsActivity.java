@@ -31,10 +31,10 @@ public class FixedTabsActivity extends ActionBarActivity {
         ButterKnife.inject(this);
 
         if (ApiUtils.isLollipop()) {
-            int statusBarrSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
-            toolbar.getLayoutParams().height += statusBarrSize;
-            toolbar.setPadding(0, statusBarrSize, 0, 0);
-            navdrawer.setPadding(0, statusBarrSize, 0, 0);
+            int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
+            toolbar.getLayoutParams().height += statusBarSize;
+            toolbar.setPadding(0, statusBarSize, 0, 0);
+            navdrawer.setPadding(0, statusBarSize, 0, 0);
         }
         ViewUtils.setMaxWidth(navdrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);

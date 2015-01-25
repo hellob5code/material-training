@@ -98,7 +98,12 @@
             android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
 
         <activity
-            android:name=".ui.activity.AaaActivity"
+            android:name=".ui.activity.ContactsActivity"
+            android:label=""
+            android:theme="@style/Theme.Grey50.Light"/>
+
+        <activity
+            android:name=".ui.activity.MyFilesActivity"
             android:label=""
             android:theme="@style/Theme.Grey50.Light"/>
     </application>
