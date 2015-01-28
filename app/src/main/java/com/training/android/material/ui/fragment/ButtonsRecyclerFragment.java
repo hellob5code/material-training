@@ -76,7 +76,7 @@ public class ButtonsRecyclerFragment extends CardFragment {
                 null,
                 null,
                 null));
-        dataset.add(new HeadlineBodySixVerticalButtonCard(0, "Flat and raised button states", "Button states for mocks:\n\nRaised buttons behave like a piece of material resting on another sheet – they lift and color on press.\nFlat buttons are printed on the material. They do not lift but fill with color on press.\nWhen representing button states in mocks, use graphic rings to represent the focus states.",
+        dataset.add(new HeadlineBodySixVerticalButtonCard(0, "Flat and raised button states", "Button states for mocks:\n\n\u2022 Raised buttons behave like a piece of material resting on another sheet – they lift and color on press.\n\u2022 Flat buttons are printed on the material. They do not lift but fill with color on press.\nWhen representing button states in mocks, use graphic rings to represent the focus states.",
                 "Flat Light/Light theme",
                 "Flat Dark/Dark theme",
                 "Raised Light/Light theme",

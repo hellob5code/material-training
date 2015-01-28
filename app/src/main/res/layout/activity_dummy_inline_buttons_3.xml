@@ -20,14 +20,14 @@
             <ImageView
                 android:layout_width="@dimen/list_icon_size_material"
                 android:layout_height="@dimen/list_icon_size_material"
-                android:background="@color/material_grey_600"
-                android:layout_marginStart="@dimen/keyline_1"/>
+                android:layout_marginStart="@dimen/keyline_1"
+                android:background="@color/material_grey_600"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_2"
                 android:layout_marginEnd="@dimen/keyline_1"
+                android:layout_marginStart="@dimen/keyline_2"
                 android:divider="@drawable/space_small"
                 android:orientation="vertical"
                 android:showDividers="middle">
@@ -97,14 +97,14 @@
             <ImageView
                 android:layout_width="@dimen/list_icon_size_material"
                 android:layout_height="@dimen/list_icon_size_material"
-                android:background="@color/material_grey_600"
-                android:layout_marginStart="@dimen/keyline_1"/>
+                android:layout_marginStart="@dimen/keyline_1"
+                android:background="@color/material_grey_600"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_2"
                 android:layout_marginEnd="@dimen/keyline_1"
+                android:layout_marginStart="@dimen/keyline_2"
                 android:divider="@drawable/space_small"
                 android:orientation="vertical"
                 android:showDividers="middle">
@@ -157,14 +157,14 @@
             <ImageView
                 android:layout_width="@dimen/list_icon_size_material"
                 android:layout_height="@dimen/list_icon_size_material"
-                android:background="@color/material_grey_600"
-                android:layout_marginStart="@dimen/keyline_1"/>
+                android:layout_marginStart="@dimen/keyline_1"
+                android:background="@color/material_grey_600"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_2"
                 android:layout_marginEnd="@dimen/keyline_1"
+                android:layout_marginStart="@dimen/keyline_2"
                 android:divider="@drawable/space_small"
                 android:orientation="vertical"
                 android:showDividers="middle">
@@ -217,14 +217,14 @@
             <ImageView
                 android:layout_width="@dimen/list_icon_size_material"
                 android:layout_height="@dimen/list_icon_size_material"
-                android:background="@color/material_grey_600"
-                android:layout_marginStart="@dimen/keyline_1"/>
+                android:layout_marginStart="@dimen/keyline_1"
+                android:background="@color/material_grey_600"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_2"
                 android:layout_marginEnd="@dimen/keyline_1"
+                android:layout_marginStart="@dimen/keyline_2"
                 android:divider="@drawable/space_small"
                 android:orientation="vertical"
                 android:showDividers="middle">

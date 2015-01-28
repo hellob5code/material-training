@@ -12,22 +12,22 @@ import java.util.concurrent.Callable;
 
 public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
 
-    protected String button1, button2, button3;
+    protected CharSequence button1, button2, button3;
     protected Callable action1, action2, action3;
 
-    public HeadlineBodyThreeButtonCard(int id, String headline, String body1, String button1, Callable action1) {
+    public HeadlineBodyThreeButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, Callable action1) {
         this(id, headline, body1, button1, null, null, action1, null, null);
     }
 
-    public HeadlineBodyThreeButtonCard(int id, String headline, String body1, String button1, String button2, Callable action1, Callable action2) {
+    public HeadlineBodyThreeButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, Callable action1, Callable action2) {
         this(id, headline, body1, button1, button2, null, action1, action2, null);
     }
 
-    public HeadlineBodyThreeButtonCard(int id, String headline, String body1, String button1, String button2, String button3, Callable action1, Callable action2, Callable action3) {
+    public HeadlineBodyThreeButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
         this(id, TYPE_HEADLINE_BODY_1_THREE_BUTTON, headline, body1, button1, button2, button3, action1, action2, action3);
     }
 
-    public HeadlineBodyThreeButtonCard(int id, int viewType, String headline, String body1, String button1, String button2, String button3, Callable action1, Callable action2, Callable action3) {
+    public HeadlineBodyThreeButtonCard(int id, int viewType, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
         super(id, viewType, headline, body1);
         this.button1 = button1;
         this.button2 = button2;
@@ -37,15 +37,15 @@ public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
         this.action3 = action3;
     }
 
-    public String getButton1() {
+    public CharSequence getButton1() {
         return button1;
     }
 
-    public String getButton2() {
+    public CharSequence getButton2() {
         return button2;
     }
 
-    public String getButton3() {
+    public CharSequence getButton3() {
         return button3;
     }
 
@@ -83,7 +83,7 @@ public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
             bindView(c.getHeadline(), c.getBody1(), c.getButton1(), c.getButton2(), c.getButton3(), c.getAction1(), c.getAction2(), c.getAction3());
         }
 
-        protected void bindView(String headline, String body1, String button1, String button2, String button3, final Callable action1, final Callable action2, final Callable action3) {
+        protected void bindView(CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, final Callable action1, final Callable action2, final Callable action3) {
             super.bindView(headline, body1);
             if (StringUtils.isNotEmpty(button1)) {
                 actionArea.setVisibility(View.VISIBLE);
@@ -110,7 +110,7 @@ public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
             }
         }
 
-        private void disableOrHideButton(Button btn, String button, final Callable action) {
+        private void disableOrHideButton(Button btn, CharSequence button, final Callable action) {
             if (StringUtils.isNotEmpty(button)) {
                 btn.setVisibility(View.VISIBLE);
                 btn.setText(button);

@@ -22,7 +22,7 @@
             android:src="@drawable/ic_person_add_grey600_24dp"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_name"
+            android:id="@+id/register_contact_edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -48,13 +48,13 @@
             android:src="@drawable/ic_call_grey600_24dp"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_phone"
+            android:id="@+id/register_contact_edt_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"
             android:layout_toEndOf="@+id/register_contact_img_phone"
-            android:layout_toStartOf="@+id/register_contact_medt_phone_type"
+            android:layout_toStartOf="@+id/register_contact_edt_phone_type"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_phone"
             android:inputType="phone"
@@ -63,7 +63,7 @@
             tools:text="555-5555-555"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_phone_type"
+            android:id="@+id/register_contact_edt_phone_type"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/touch_target_48dp"
             android:layout_alignParentEnd="true"
@@ -85,13 +85,13 @@
             android:src="@drawable/ic_email_grey600_24dp"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_email"
+            android:id="@+id/register_contact_edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"
             android:layout_toEndOf="@+id/register_contact_img_email"
-            android:layout_toStartOf="@+id/register_contact_medt_email_type"
+            android:layout_toStartOf="@+id/register_contact_edt_email_type"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_email"
             android:inputType="textWebEmailAddress"
@@ -100,7 +100,7 @@
             tools:text="email@mail.com"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_email_type"
+            android:id="@+id/register_contact_edt_email_type"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/touch_target_48dp"
             android:layout_alignParentEnd="true"
@@ -122,13 +122,13 @@
             android:src="@drawable/ic_place_grey600_24dp"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_address"
+            android:id="@+id/register_contact_edt_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"
             android:layout_toEndOf="@+id/register_contact_img_address"
-            android:layout_toStartOf="@+id/register_contact_medt_address_type"
+            android:layout_toStartOf="@+id/register_contact_edt_address_type"
             android:gravity="bottom"
             android:hint="@string/register_contact_hint_address"
             android:inputType="textPostalAddress"
@@ -137,7 +137,7 @@
             tools:text="518 Bacon Drive, Eggs Hills, CA"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_address_type"
+            android:id="@+id/register_contact_edt_address_type"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/touch_target_48dp"
             android:layout_alignParentEnd="true"
@@ -159,7 +159,7 @@
             android:src="@drawable/ic_volume_up_grey600_24dp"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_ringtone"
+            android:id="@+id/register_contact_edt_ringtone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"
@@ -183,7 +183,7 @@
             android:src="@drawable/ic_add_grey600_24dp"/>
 
         <MaterialEditText
-            android:id="@+id/register_contact_medt_add_note"
+            android:id="@+id/register_contact_edt_add_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"

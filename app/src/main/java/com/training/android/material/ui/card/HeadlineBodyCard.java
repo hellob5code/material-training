@@ -11,23 +11,23 @@ import org.apache.commons.lang3.StringUtils;
 
 public class HeadlineBodyCard extends Card {
 
-    protected String headline, body1;
+    protected CharSequence headline, body1;
 
-    public HeadlineBodyCard(int id, String headline, String body1) {
+    public HeadlineBodyCard(int id, CharSequence headline, CharSequence body1) {
         this(id, TYPE_HEADLINE_BODY_1, headline, body1);
     }
 
-    public HeadlineBodyCard(int id, int viewType, String headline, String body1) {
+    public HeadlineBodyCard(int id, int viewType, CharSequence headline, CharSequence body1) {
         super(id, viewType);
         this.headline = headline;
         this.body1 = body1;
     }
 
-    public String getHeadline() {
+    public CharSequence getHeadline() {
         return headline;
     }
 
-    public String getBody1() {
+    public CharSequence getBody1() {
         return body1;
     }
 
@@ -52,7 +52,7 @@ public class HeadlineBodyCard extends Card {
             bindView(c.getHeadline(), c.getBody1());
         }
 
-        protected void bindView(String headline, String body1) {
+        protected void bindView(CharSequence headline, CharSequence body1) {
             // Hide headline view if text empty
             if (StringUtils.isNotEmpty(headline)) {
                 tvHeadline.setVisibility(View.VISIBLE);
@@ -68,7 +68,9 @@ public class HeadlineBodyCard extends Card {
                 tvBody1.setVisibility(View.GONE);
             }
 
-            if (tvHeadline.getVisibility() == View.GONE || tvBody1.getVisibility() == View.GONE) {
+            if (tvHeadline.getVisibility() == View.VISIBLE && tvBody1.getVisibility() == View.VISIBLE) {
+                spaceHeadlineBody1.setVisibility(View.VISIBLE);
+            } else {
                 spaceHeadlineBody1.setVisibility(View.GONE);
             }
         }

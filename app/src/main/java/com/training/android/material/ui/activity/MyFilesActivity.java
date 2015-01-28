@@ -1,6 +1,5 @@
 package com.training.android.material.ui.activity;
 
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -23,17 +22,15 @@ import com.training.android.material.ui.tile.DividerListTile;
 import com.training.android.material.ui.tile.SingleLineListTile;
 import com.training.android.material.ui.tile.SubheaderTile;
 import com.training.android.material.ui.tile.Tile;
-import com.training.android.material.util.ThemeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MyFilesActivity extends ActionBarActivity {
 
-    @InjectView(R.id.sliding_panel) SlidingPanelLayout slidingPanel;
-    @InjectView(R.id.sheet) View sheet;
-//    @InjectView(R.id.panelHeader) View panelHeader;
-    @InjectView(R.id.recycler) RecyclerView recycler;
+    @InjectView(R.id.my_files_sliding_panel) SlidingPanelLayout slidingPanel;
+    @InjectView(R.id.my_files_sheet) View sheet;
+    @InjectView(R.id.my_files_recycler) RecyclerView recycler;
 
     private List<Tile> myDataset = new ArrayList<Tile>();
 
@@ -52,7 +49,6 @@ public class MyFilesActivity extends ActionBarActivity {
         recycler.setHasFixedSize(true);
 
         Drawable drawable;
-
         myDataset.add(new SubheaderTile(0, "Create"));
         drawable = getResources().getDrawable(R.drawable.ic_image_grey600_24dp);
         drawable.mutate().setColorFilter(getResources().getColor(R.color.drive_blue), PorterDuff.Mode.SRC_ATOP);
@@ -121,7 +117,7 @@ public class MyFilesActivity extends ActionBarActivity {
         });
     }
 
-    @OnClick(R.id.btn)
+    @OnClick(R.id.my_files_btn)
     protected void btnClicked() {
         SlidingPanelState state = slidingPanel.getState();
 

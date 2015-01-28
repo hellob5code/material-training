@@ -50,6 +50,8 @@ public class BottomSheetsFragment extends CardFragment {
                 null));
         dataset.add(new SubheaderCard(0, "Behavior"));
         dataset.add(new HeadlineBodyCard(0, null, "When a bottom sheet is displayed, it should animate upwards from the bottom edge of the screen. The previous content dims to give the user context for where they just were and the modal nature of the choice. Tapping on the dimmed area dismisses the sheet, as does swiping down on the sheet.\n\nIf the sheet contains more actions that can fit in the initial display, the sheet is scrollable. Scrolling should also pull up the sheet container and eventually cover the entire screen.\n\nWhen the action sheet covers the entire screen, add a dismiss button to the header, on the left side of the title."));
+        dataset.add(new SubheaderCard(0, "Specs"));
+        dataset.add(new HeadlineBodyCard(0, null, "The following font, color specs and redlines are provided for mobile apps.\n\nFont and color:\n\n\u2022 Text: Roboto Regular 16sp,  #000 87%\n\u2022 Title (optional): Roboto Regular 16sp, #000 54%\n\u2022 Default bottom sheet background fill: #FFF\n\u2022 Overlay shield fill: #000 20%"));
         return dataset;
     }
 }

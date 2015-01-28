@@ -28,9 +28,9 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public class RegisterContactActivity extends ActionBarActivity {
 
-    @InjectView(R.id.register_contact_medt_phone_type) MaterialEditText medtPhoneType;
-    @InjectView(R.id.register_contact_medt_email_type) MaterialEditText medtEmailType;
-    @InjectView(R.id.register_contact_medt_address_type) MaterialEditText medtAddressType;
+    @InjectView(R.id.register_contact_edt_phone_type) MaterialEditText edtPhoneType;
+    @InjectView(R.id.register_contact_edt_email_type) MaterialEditText edtEmailType;
+    @InjectView(R.id.register_contact_edt_address_type) MaterialEditText edtAddressType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +45,9 @@ public class RegisterContactActivity extends ActionBarActivity {
 
         setupDropdownViews();
 
-        medtPhoneType.setText(WordUtils.capitalizeFully(Contact.PhoneType.MOBILE.toString()));
-        medtEmailType.setText(WordUtils.capitalizeFully(Contact.EmailType.HOME.toString()));
-        medtAddressType.setText(WordUtils.capitalizeFully(Contact.AddressType.HOME.name()));
+        edtPhoneType.setText(WordUtils.capitalizeFully(Contact.PhoneType.MOBILE.toString()));
+        edtEmailType.setText(WordUtils.capitalizeFully(Contact.EmailType.HOME.toString()));
+        edtAddressType.setText(WordUtils.capitalizeFully(Contact.AddressType.HOME.name()));
     }
 
     private void setupDropdownViews() {
@@ -62,13 +62,13 @@ public class RegisterContactActivity extends ActionBarActivity {
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
         arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
-        medtPhoneType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
-        medtEmailType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
-        medtAddressType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        edtPhoneType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        edtEmailType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        edtAddressType.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
 
-        medtPhoneType.setFocusableInTouchMode(false);
-        medtEmailType.setFocusableInTouchMode(false);
-        medtAddressType.setFocusableInTouchMode(false);
+        edtPhoneType.setFocusableInTouchMode(false);
+        edtEmailType.setFocusableInTouchMode(false);
+        edtAddressType.setFocusableInTouchMode(false);
     }
 
     @Override
@@ -90,17 +90,17 @@ public class RegisterContactActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick(R.id.register_contact_medt_phone_type)
+    @OnClick(R.id.register_contact_edt_phone_type)
     protected void onPhoneTypeEditTextClick(View v) {
         makePopup((TextView) v, EnumUtils.capitalizedFullyNames(Contact.PhoneType.class)).show();
     }
 
-    @OnClick(R.id.register_contact_medt_email_type)
+    @OnClick(R.id.register_contact_edt_email_type)
     protected void onEmailTypeEditTextClick(View v) {
         makePopup((TextView) v, EnumUtils.capitalizedFullyNames(Contact.EmailType.class)).show();
     }
 
-    @OnClick(R.id.register_contact_medt_address_type)
+    @OnClick(R.id.register_contact_edt_address_type)
     protected void onAddressTypeEditTextClick(View v) {
         makePopup((TextView) v, EnumUtils.capitalizedFullyNames(Contact.AddressType.class)).show();
     }

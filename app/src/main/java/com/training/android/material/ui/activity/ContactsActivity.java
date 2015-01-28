@@ -24,9 +24,9 @@ import java.util.List;
 
 public class ContactsActivity extends ActionBarActivity {
 
-    @InjectView(R.id.sliding_panel) SlidingPanelLayout slidingPanel;
-    @InjectView(R.id.sheet) View sheet;
-    @InjectView(R.id.recycler) RecyclerView recycler;
+    @InjectView(R.id.contacts_sliding_panel) SlidingPanelLayout slidingPanel;
+    @InjectView(R.id.contacts_sheet) View sheet;
+    @InjectView(R.id.contacts_recycler) RecyclerView recycler;
 
     private List<Tile> myDataset = new ArrayList<Tile>();
 
@@ -105,7 +105,7 @@ public class ContactsActivity extends ActionBarActivity {
         });
     }
 
-    @OnClick(R.id.btn)
+    @OnClick(R.id.contacts_btn)
     protected void btnClicked() {
         SlidingPanelState state = slidingPanel.getState();
 

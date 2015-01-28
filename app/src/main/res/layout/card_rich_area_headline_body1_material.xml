@@ -12,8 +12,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="96dp"
-            android:background="#ffdddddd">
+            android:background="#ffdddddd"
+            android:minHeight="96dp">
 
             <ViewStub
                 android:id="@+id/stub"

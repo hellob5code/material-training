@@ -9,7 +9,7 @@
     tools:context=".ui.activity.RegisterNoteActivity">
 
     <MaterialEditText
-        android:id="@+id/register_note_medt_title"
+        android:id="@+id/register_note_edt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/register_note_hint_title"
@@ -19,7 +19,7 @@
         app:maxCharacters="50"/>
 
     <MaterialEditText
-        android:id="@+id/register_note_medt_description"
+        android:id="@+id/register_note_edt_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/register_note_hint_description"
@@ -28,7 +28,7 @@
         app:maxCharacters="120"/>
 
     <MaterialEditText
-        android:id="@+id/register_note_medt_extra"
+        android:id="@+id/register_note_edt_extra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/register_note_hint_extra"

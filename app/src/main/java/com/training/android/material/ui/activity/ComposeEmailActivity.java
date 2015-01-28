@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.StateSet;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.FullwidthEditText;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -18,7 +18,7 @@ import com.training.android.material.util.ThemeUtils;
 
 public class ComposeEmailActivity extends ActionBarActivity {
 
-    @InjectView(R.id.compose_email_fedt_from) FullwidthEditText fedtFrom;
+    @InjectView(R.id.compose_email_edt_from) FullwidthEditText edtFrom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,12 @@ public class ComposeEmailActivity extends ActionBarActivity {
         arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
         arrowSelector.addState(StateSet.WILD_CARD, arrow);
 
-        fedtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+        edtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
+
+        // Adjust padding due to drawable bounds
+        edtFrom.setBasePadding(0, 0, 0, 0);
+        int dimen_16dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
+        edtFrom.setPadding(0, dimen_16dp, 0, dimen_16dp);
     }
 
     @Override

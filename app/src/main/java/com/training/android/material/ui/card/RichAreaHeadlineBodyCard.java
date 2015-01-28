@@ -23,14 +23,6 @@ public class RichAreaHeadlineBodyCard extends HeadlineBodyCard {
         return richAreaLayoutId;
     }
 
-    public String getHeadline() {
-        return headline;
-    }
-
-    public String getBody1() {
-        return body1;
-    }
-
     /**
      * Provide a reference to the views for each data item. Complex data items may need more than one view per item, and
      * you provide access to all the views for a data item in a view holder.
@@ -50,7 +42,7 @@ public class RichAreaHeadlineBodyCard extends HeadlineBodyCard {
             bindView(c.getRichAreaLayoutId(), c.getHeadline(), c.getBody1());
         }
 
-        protected void bindView(int richAreaLayoutId, String headline, String body1) {
+        protected void bindView(int richAreaLayoutId, CharSequence headline, CharSequence body1) {
             super.bindView(headline, body1);
             if (stubRichArea != null) {
                 stubRichArea.setLayoutResource(richAreaLayoutId);

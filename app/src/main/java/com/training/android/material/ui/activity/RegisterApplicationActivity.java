@@ -13,8 +13,8 @@ import com.training.android.material.R;
 
 public class RegisterApplicationActivity extends ActionBarActivity {
 
-    @InjectView(R.id.register_application_medt_title) MaterialEditText medtTitle;
-    @InjectView(R.id.register_application_medt_price) MaterialEditText medtPrice;
+    @InjectView(R.id.register_application_edt_title) MaterialEditText edtTitle;
+    @InjectView(R.id.register_application_edt_price) MaterialEditText edtPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class RegisterApplicationActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_validate) {
-//            if (medtTitle.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
+//            if (edtTitle.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
 //                // TODO: Perform action after true validation.
 //                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
 //            }

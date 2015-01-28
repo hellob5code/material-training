@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <FullwidthEditText
-            android:id="@+id/register_event_fedt_email"
+            android:id="@+id/register_event_edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/keyline_1"
@@ -22,7 +22,7 @@
         <include layout="@layout/divider_horizontal"/>
 
         <MaterialEditText
-            android:id="@+id/register_event_medt_name"
+            android:id="@+id/register_event_edt_name"
             style="@style/TextAppearance.AppCompat.Display1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             app:materialEditTextColor="?attr/colorPrimary"/>
 
         <MaterialEditText
-            android:id="@+id/register_event_medt_location"
+            android:id="@+id/register_event_edt_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/keyline_1"
@@ -52,11 +52,11 @@
             android:layout_marginStart="@dimen/keyline_1">
 
             <MaterialEditText
-                android:id="@+id/register_event_medt_from_date"
+                android:id="@+id/register_event_edt_from_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_toStartOf="@+id/register_event_medt_from_time"
+                android:layout_toStartOf="@+id/register_event_edt_from_time"
                 android:drawablePadding="@dimen/padding_small"
                 android:editable="false"
                 android:hint="@string/register_event_hint_from"
@@ -65,7 +65,7 @@
                 app:materialEditTextColor="?attr/colorPrimary"/>
 
             <MaterialEditText
-                android:id="@+id/register_event_medt_from_time"
+                android:id="@+id/register_event_edt_from_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -83,11 +83,11 @@
             android:layout_marginStart="@dimen/keyline_1">
 
             <MaterialEditText
-                android:id="@+id/register_event_medt_to_date"
+                android:id="@+id/register_event_edt_to_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_medium"
-                android:layout_toStartOf="@+id/register_event_medt_to_time"
+                android:layout_toStartOf="@+id/register_event_edt_to_time"
                 android:drawablePadding="@dimen/padding_small"
                 android:editable="false"
                 android:hint="@string/register_event_hint_to"
@@ -96,7 +96,7 @@
                 app:materialEditTextColor="?attr/colorPrimary"/>
 
             <MaterialEditText
-                android:id="@+id/register_event_medt_to_time"
+                android:id="@+id/register_event_edt_to_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -118,7 +118,7 @@
             android:text="@string/register_event_txt_all_day"/>
 
         <MaterialEditText
-            android:id="@+id/register_event_medt_timezone"
+            android:id="@+id/register_event_edt_timezone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/keyline_1"

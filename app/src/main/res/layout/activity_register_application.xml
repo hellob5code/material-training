@@ -10,14 +10,14 @@
     tools:context=".ui.activity.RegisterApplicationActivity">
 
     <MaterialEditText
-        android:id="@+id/register_application_medt_title"
+        android:id="@+id/register_application_edt_title"
         style="@style/TextAppearance.AppCompat.Display1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
         android:hint="@string/register_application_hint_title"
         android:inputType="textCapWords"
-        android:nextFocusDown="@+id/register_application_medt_price"
+        android:nextFocusDown="@+id/register_application_edt_price"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:floatingLabel="true"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content">
 
         <MaterialEditText
-            android:id="@+id/register_application_medt_price"
+            android:id="@+id/register_application_edt_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_medium"
@@ -37,13 +37,13 @@
             android:hint="@string/register_application_hint_price"
             android:imeOptions="actionNext"
             android:inputType="numberDecimal"
-            android:nextFocusRight="@+id/register_application_medt_location"
+            android:nextFocusRight="@+id/register_application_edt_location"
             android:singleLine="true"
             app:floatingLabel="true"
             app:materialEditTextColor="?attr/colorPrimary"/>
 
         <MaterialEditText
-            android:id="@+id/register_application_medt_location"
+            android:id="@+id/register_application_edt_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -55,7 +55,7 @@
     </LinearLayout>
 
     <MaterialEditText
-        android:id="@+id/register_application_medt_description"
+        android:id="@+id/register_application_edt_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
