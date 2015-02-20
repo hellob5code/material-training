@@ -13,7 +13,9 @@ import android.util.StateSet;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.FullwidthEditText;
+import android.widget.Toast;
 import butterknife.*;
 import android.widget.MaterialEditText;
 import com.training.android.material.R;
@@ -92,9 +94,8 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         edtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
 
         // Adjust padding due to drawable bounds
-        edtEmail.setBasePadding(0, 0, 0, 0);
         int dimen_16dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
-        edtEmail.setPadding(0, dimen_16dp, 0, dimen_16dp);
+        edtEmail.setBasePadding(0, dimen_16dp, 0, dimen_16dp);
     }
 
     private void setupDropdownViews() {
@@ -138,13 +139,26 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         if (id == android.R.id.home) {
             NavUtils.navigateUpFromSameTask(this);
         } else if (id == R.id.action_validate) {
-//            if (edtName.validateWith(new RegexpValidator("Cannot be empty!", "^\\w+( \\w+)*$"))) {
+            boolean canProceed = true;
+            if (edtName.length() == 0) {
+                edtName.setError("Cannot be empty!");
+                canProceed = false;
+            } else {
+                edtName.setError(null);
+            }
+
+            if (canProceed) {
                 // TODO: Perform action after true validation.
-//                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
-//            }
+                Toast.makeText(this, "Added!", Toast.LENGTH_SHORT).show();
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @OnTextChanged(R.id.register_event_edt_name)
+    void onTextChanged(CharSequence text) {
+        edtName.setError(null);
     }
 
     @Override

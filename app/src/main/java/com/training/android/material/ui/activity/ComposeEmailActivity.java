@@ -48,9 +48,8 @@ public class ComposeEmailActivity extends ActionBarActivity {
         edtFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
 
         // Adjust padding due to drawable bounds
-        edtFrom.setBasePadding(0, 0, 0, 0);
         int dimen_16dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
-        edtFrom.setPadding(0, dimen_16dp, 0, dimen_16dp);
+        edtFrom.setBasePadding(0, dimen_16dp, 0, dimen_16dp);
     }
 
     @Override
