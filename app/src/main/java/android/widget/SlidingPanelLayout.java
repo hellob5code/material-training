@@ -3,6 +3,8 @@ package android.widget;
 import static android.widget.Slider.DECELERATE_INTERPOLATOR;
 import static android.widget.Slider.OVERSHOOT_INTERPOLATOR;
 
+import android.graphics.Canvas;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 
 import android.content.Context;
@@ -53,14 +55,22 @@ public class SlidingPanelLayout extends FrameLayout {
 
 	public SlidingPanelLayout(Context context) {
 		super(context);
+		init();
 	}
 
 	public SlidingPanelLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		init();
 	}
 
 	public SlidingPanelLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
+		init();
+	}
+
+	private void init() {
+		setBackground(new ColorDrawable(0xaa000000));
+		getBackground().setAlpha(0);
 	}
 
 	public void setPanelView(View panelView) {
@@ -90,6 +100,24 @@ public class SlidingPanelLayout extends FrameLayout {
 	}
 
 	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// Tapping on the dimmed area dismisses the panel
+		if (state != SlidingPanelState.CLOSED) {
+			switch (event.getAction() & MotionEvent.ACTION_MASK) {
+				case MotionEvent.ACTION_UP:
+					onActionUp();
+					break;
+			}
+			return true;
+		}
+		return super.onTouchEvent(event);
+	}
+
+	private void onActionUp() {
+		changeSlidingPanelState(SlidingPanelState.CLOSED);
+	}
+
+	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		super.onLayout(changed, l, t, r, b);
 		Log.d(TAG, "onLayout(changed=" + changed + "l=" + l + "t=" + t + "r=" + r + "b=" + b + ")");
@@ -97,15 +125,31 @@ public class SlidingPanelLayout extends FrameLayout {
 		movePanelVertically(getPanelTopPosition() - panel.getTop());
 	}
 
+	@Override
+	protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
+
+		// Dim the background
+		if (panel.getTop() >= getClosedPanelTopPosition()) {
+			getBackground().setAlpha(0);
+		} else {
+			getBackground().setAlpha(map(panel.getTop(), getClosedPanelTopPosition(), getFullPanelTopPosition(), 0, 255));
+		}
+	}
+
+	private int map(int x, int inMin, int inMax, int outMin, int outMax) {
+		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+	}
+
 	public SlidingPanelState getState() {
 		return state;
 	}
 
 	private int getFullPanelTopPosition() {
-		if (fullHeight > 0) {
+		if ((getHeight() - fullHeight) > this.getTop()) {
 			return getHeight() - fullHeight;
 		} else {
-			return 0;
+			return this.getTop();
 		}
 	}
 
@@ -143,30 +187,30 @@ public class SlidingPanelLayout extends FrameLayout {
 	public boolean onTouchPanel(MotionEvent event) {
 		switch (event.getAction() & MotionEvent.ACTION_MASK) {
 			case MotionEvent.ACTION_DOWN:
-				onActionDown(event);
+				onPanelActionDown(event);
 				break;
 			case MotionEvent.ACTION_MOVE:
-				onActionMove(event);
+				onPanelActionMove(event);
 				invalidate();
 				break;
 			case MotionEvent.ACTION_UP:
-				onActionUp();
+				onPanelActionUp();
 				break;
 		}
 
 		return true;
 	}
 
-	private void onActionDown(MotionEvent event) {
+	private void onPanelActionDown(MotionEvent event) {
 		yOnFirstTouch = event.getRawY();
 		yOnLastTouch = yOnFirstTouch;
 	}
 
-	private void onActionMove(MotionEvent event) {
+	private void onPanelActionMove(MotionEvent event) {
 		float currentYTouch = event.getRawY();
 		int offsetSinceLastTouch = (int) (currentYTouch - yOnLastTouch);
 
-		Log.d(TAG, "onActionMove(lastYTouch=" + yOnLastTouch + ", currentYTouch=" + currentYTouch + ")");
+		Log.d(TAG, "onPanelActionMove(lastYTouch=" + yOnLastTouch + ", currentYTouch=" + currentYTouch + ")");
 
 		final int panelTopPositionAfterMoving = panel.getTop() + offsetSinceLastTouch;
 		// Test if the panel will not be above the screen after moving
@@ -203,7 +247,7 @@ public class SlidingPanelLayout extends FrameLayout {
 		}
 	}
 
-	private void onActionUp() {
+	private void onPanelActionUp() {
 		if (Math.abs(yOnFirstTouch - yOnLastTouch) < SWIPE_MIN_DISTANCE) {
 			// On Click
 			onPanelClick();

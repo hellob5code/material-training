@@ -1,6 +1,5 @@
-<SlidingPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/contacts_sliding_panel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.ContactsActivity">
@@ -10,25 +9,32 @@
         style="@style/ButtonRaised.Blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerInParent="true"
         android:text="Action"/>
 
-    <LinearLayout
-        android:id="@+id/contacts_sheet"
+    <SlidingPanelLayout
+        android:id="@+id/contacts_sliding_panel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/divider_horizontal"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/contacts_recycler"
+        <LinearLayout
+            android:id="@+id/contacts_sheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:paddingBottom="@dimen/padding_small"
-            android:paddingTop="@dimen/padding_small"
-            android:scrollbars="vertical"/>
-    </LinearLayout>
-</SlidingPanelLayout>
+            android:elevation="2dp"
+            android:orientation="vertical">
+
+            <include layout="@layout/divider_horizontal"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/contacts_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:paddingBottom="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_small"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"/>
+        </LinearLayout>
+    </SlidingPanelLayout>
+</RelativeLayout>

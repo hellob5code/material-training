@@ -13,13 +13,14 @@
             android:label="@string/title_activity_tabs"
             android:theme="@style/Theme.Grey50.NoActionBar.TranslucentStatus" />
         <activity
+            android:name=".ui.activity.AnimationActivity"
+            android:theme="@style/Theme.Purple.Light.NoActionBar.TranslucentStatus"/>
+        <activity
+            android:name=".ui.activity.ContactsActivity"
+            android:theme="@style/Theme.Grey50.Light"/>
+        <activity
             android:name=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Indigo.Light.NoActionBar.TranslucentStatus">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.Indigo.Light.NoActionBar.TranslucentStatus"/>
         <activity
             android:name=".ui.activity.ComposeEmailActivity"
             android:label="@string/title_activity_compose_email"
@@ -31,47 +32,41 @@
             android:parentActivityName=".ui.activity.ComponentsActivity" /> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.DummyInlineButtons1Activity"
-            android:label=""
             android:theme="@style/Theme.Grey50.Light"/>
         <activity
             android:name=".ui.activity.DummyInlineButtons2Activity"
-            android:label=""
             android:theme="@style/Theme.Grey50.Light"/>
         <activity
             android:name=".ui.activity.DummyInlineButtons3Activity"
-            android:label=""
             android:theme="@style/Theme.Grey50.Light"/>
         <activity
             android:name=".ui.activity.DummyPersistentFooterButtonsActivity"
-            android:label=""
             android:theme="@style/Theme.Grey50.Light"/>
         <activity
             android:name=".ui.activity.FixedTabsActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
         <activity
+            android:name=".ui.activity.LayoutActivity"
+            android:theme="@style/Theme.Pink.Light.NoActionBar.TranslucentStatus"/>
+        <activity
             android:name=".ui.activity.LockedFixedTabsActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
         <activity
-            android:name=".ui.activity.PatternsActivity"
-            android:theme="@style/Theme.Orange.Light.NoActionBar.TranslucentStatus" />
-        <activity
-            android:name=".ui.activity.SearchableActivity"
-            android:label="@string/title_activity_searchable"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.Indigo.Light">
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+            android:name=".ui.activity.MaterialDesignActivity"
+            android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".ui.activity.ComponentsActivity" /> <!-- TODO: Set real parent activity. -->
+            android:name=".ui.activity.MyFilesActivity"
+            android:theme="@style/Theme.Grey50.Light"/>
+        <activity
+            android:name=".ui.activity.PatternsActivity"
+            android:theme="@style/Theme.Orange.Light.NoActionBar.TranslucentStatus" />
         <activity
             android:name=".ui.activity.RegisterApplicationActivity"
             android:label="@string/title_activity_register_application"
@@ -93,19 +88,40 @@
             android:parentActivityName=".ui.activity.ComponentsActivity"
             android:theme="@style/Theme.Teal.Light" /> <!-- TODO: Set real parent activity. -->
         <activity
+            android:name=".ui.activity.ResourcesActivity"
+            android:theme="@style/Theme.LightBlue.Light.NoActionBar.TranslucentStatus"/>
+        <activity
             android:name=".ui.activity.ScrollableTabsActivity"
             android:label="@string/title_activity_tabs"
             android:theme="@style/Theme.Cyan.Light.NoActionBar.TranslucentStatus" />
-
         <activity
-            android:name=".ui.activity.ContactsActivity"
-            android:label=""
-            android:theme="@style/Theme.Grey50.Light"/>
-
+            android:name=".ui.activity.SearchableActivity"
+            android:label="@string/title_activity_searchable"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Indigo.Light">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".ui.activity.MyFilesActivity"
-            android:label=""
-            android:theme="@style/Theme.Grey50.Light"/>
+            android:name=".ui.activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".ui.activity.ComponentsActivity" /> <!-- TODO: Set real parent activity. -->
+        <activity
+            android:name=".ui.activity.StyleActivity"
+            android:theme="@style/Theme.Teal.Light.NoActionBar.TranslucentStatus"/>
+        <activity
+            android:name=".ui.activity.UsabilityActivity"
+            android:theme="@style/Theme.BlueGrey.Light.NoActionBar.TranslucentStatus"/>
+        <activity
+            android:name=".ui.activity.WhatIsMaterialActivity"
+            android:theme="@style/Theme.LightBlue.Light.NoActionBar.TranslucentStatus"/>
+        <activity
+            android:name=".ui.activity.WhatsNewActivity"
+            android:theme="@style/Theme.LightBlue.Light.NoActionBar.TranslucentStatus"/>
     </application>
 
 </manifest>

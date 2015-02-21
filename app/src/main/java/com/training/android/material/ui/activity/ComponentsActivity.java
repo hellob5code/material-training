@@ -1,5 +1,6 @@
 package com.training.android.material.ui.activity;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,42 +16,16 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_BOTTOM_SHEETS_ID);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, -1);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            if (id == NAVDRAWER_CHILD_BOTTOM_SHEETS_ID) {
-                ft.add(R.id.content, new BottomSheetsFragment()).commit();
-            } else if (id == NAVDRAWER_CHILD_BUTTONS_ID) {
-                ft.add(R.id.content, new ButtonsRecyclerFragment()).commit();
-            } else if (id == NAVDRAWER_CHILD_LISTS_ID) {
-                ft.add(R.id.content, new ListsFragment()).commit();
-            } else if (id == NAVDRAWER_CHILD_TABS_ID) {
-                ft.add(R.id.content, new TabsRecyclerFragment()).commit();
-            } else if (id == NAVDRAWER_CHILD_TEXT_FIELDS_ID) {
-                ft.add(R.id.content, new TextFieldsRecyclerFragment()).commit();
-            }
+            ft.add(R.id.content, getSelectedFragment(id)).commit();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected int getSelectedNavDrawerGroupId() {
-        return NAVDRAWER_GROUP_COMPONENTS;
+        return NAVDRAWER_GROUP_COMPONENTS_ID;
     }
 
     @Override
@@ -61,23 +36,56 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
     @Override
     protected boolean onNavDrawerItemSelected(Tile item) {
         int id = item.getId();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        if (id == NAVDRAWER_CHILD_BOTTOM_SHEETS_ID) {
-            ft.replace(R.id.content, new BottomSheetsFragment()).commit();
-            return true;
-        } else if (id == NAVDRAWER_CHILD_BUTTONS_ID) {
-            ft.replace(R.id.content, new ButtonsRecyclerFragment()).commit();
-            return true;
-        } else if (id == NAVDRAWER_CHILD_LISTS_ID) {
-            ft.replace(R.id.content, new ListsFragment()).commit();
-            return true;
-        } else if (id == NAVDRAWER_CHILD_TABS_ID) {
-            ft.replace(R.id.content, new TabsRecyclerFragment()).commit();
-            return true;
-        } else if (id == NAVDRAWER_CHILD_TEXT_FIELDS_ID) {
-            ft.replace(R.id.content, new TextFieldsRecyclerFragment()).commit();
+        if (getSelectedFragment(id) != null) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.content, getSelectedFragment(id)).commit();
             return true;
         }
         return super.onNavDrawerItemSelected(item);
+    }
+
+    private Fragment getSelectedFragment(int id) {
+        switch (id) {
+            case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
+                return new BottomSheetsFragment();
+            case NAVDRAWER_CHILD_BUTTONS_ID:
+                return new ButtonsRecyclerFragment();
+            case NAVDRAWER_CHILD_CARDS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_CHIPS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_DIALOGS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_DIVIDERS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_GRIDS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_LISTS_ID:
+                return new ListsFragment();
+            case NAVDRAWER_CHILD_LIST_CONTROLS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_MENUS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_PICKERS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_SLIDERS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_SUBHEADERS_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_SWITCHES_ID:
+                return new DummyFragment();
+            case NAVDRAWER_CHILD_TABS_ID:
+                return new TabsRecyclerFragment();
+            case NAVDRAWER_CHILD_TEXT_FIELDS_ID:
+                return new TextFieldsRecyclerFragment();
+            case NAVDRAWER_CHILD_TOOLTIPS_ID:
+                return new DummyFragment();
+            default:
+                return null;
+        }
     }
 }

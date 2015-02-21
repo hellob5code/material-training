@@ -11,15 +11,14 @@ import com.training.android.material.ui.fragment.DummyFragment;
 import com.training.android.material.ui.fragment.ErrorsFragment;
 import com.training.android.material.ui.tile.Tile;
 
-public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
+public class AnimationActivity extends MaterialTrainingNavDrawerActivity {
 
-    private static final String TAG = PatternsActivity.class.getSimpleName();
+    private static final String TAG = AnimationActivity.class.getSimpleName();
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_DATA_FORMATS_ID);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.content, getSelectedFragment(id)).commit();
         }
@@ -27,12 +26,12 @@ public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
 
     @Override
     protected int getSelectedNavDrawerGroupId() {
-        return NAVDRAWER_GROUP_PATTERNS_ID;
+        return NAVDRAWER_GROUP_ANIMATION_ID;
     }
 
     @Override
     protected String getNavigationDrawerClosedTitle() {
-        return getString(R.string.navdrawer_group_patterns);
+        return getString(R.string.navdrawer_group_animation);
     }
 
     @Override
@@ -48,25 +47,13 @@ public class PatternsActivity extends MaterialTrainingNavDrawerActivity {
 
     private Fragment getSelectedFragment(int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_DATA_FORMATS_ID:
-                return new DataFormatsFragment();
-            case NAVDRAWER_CHILD_ERRORS_ID:
-                return new ErrorsFragment();
-            case NAVDRAWER_CHILD_GESTURES_ID:
+            case NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID:
                 return new DummyFragment();
-            case NAVDRAWER_CHILD_LOADING_IMAGES_ID:
+            case NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID:
                 return new DummyFragment();
-            case NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID:
+            case NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID:
                 return new DummyFragment();
-            case NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID:
-                return new DummyFragment();
-            case NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID:
-                return new DummyFragment();
-            case NAVDRAWER_CHILD_SEARCH_ID:
-                return new DummyFragment();
-            case NAVDRAWER_CHILD_SELECTION_ID:
-                return new DummyFragment();
-            case NAVDRAWER_CHILD_SETTINGS_ID:
+            case NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID:
                 return new DummyFragment();
             default:
                 return null;

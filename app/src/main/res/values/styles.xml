@@ -24,13 +24,13 @@
         <!-- Background for the section containing the action (e.g. voice search) -->
         <item name="submitBackground">@android:color/transparent</item>
         <!-- Close button icon -->
-        <item name="closeIcon">@drawable/navigation_ic_cancel</item>
+        <item name="closeIcon">@drawable/ic_navigation_cancel</item>
         <!-- Search button icon -->
         <item name="searchIcon">@android:color/transparent</item>
         <!-- Voice search button icon -->
-        <item name="voiceIcon">@drawable/hardware_ic_keyboard_voice</item>
+        <item name="voiceIcon">@drawable/ic_hardware_keyboard_voice</item>
         <!-- Commit icon shown in the query suggestion row -->
-        <item name="commitIcon">@drawable/navigation_ic_arrow_forward</item>
+        <item name="commitIcon">@drawable/ic_navigation_arrow_forward</item>
     </style>
 
     <style name="AppEditText" parent="Widget.AppCompat.EditText">

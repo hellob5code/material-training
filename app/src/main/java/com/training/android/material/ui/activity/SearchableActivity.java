@@ -27,7 +27,7 @@ public class SearchableActivity extends ActionBarActivity {
         setContentView(R.layout.activity_searchable);
         ActionBar toolbar = getSupportActionBar();
         if (toolbar != null) {
-            toolbar.setIcon(R.drawable.action_ic_search);
+            toolbar.setIcon(R.drawable.ic_action_search);
             toolbar.setDisplayShowHomeEnabled(true);
             toolbar.setDisplayShowTitleEnabled(false);
         }

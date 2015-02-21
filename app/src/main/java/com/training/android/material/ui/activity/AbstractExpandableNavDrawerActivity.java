@@ -76,7 +76,12 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         setupNavigationDrawer();
-        fadeInContent(NAVDRAWER_ITEM_INVALID); // Always fade
+        fadeInContent(NAVDRAWER_ITEM_INVALID); // Always fade in
+        if (getDrawerLayout().isDrawerOpen(Gravity.START)) {
+            getSupportActionBar().setTitle(getNavigationDrawerOpenedTitle());
+        } else {
+            getSupportActionBar().setTitle(getNavigationDrawerClosedTitle());
+        }
     }
 
     @Override

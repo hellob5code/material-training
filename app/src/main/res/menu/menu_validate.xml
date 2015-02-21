@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/action_validate"
-        android:icon="@drawable/navigation_ic_check"
+        android:icon="@drawable/ic_navigation_check"
         android:title="@string/txt_validate"
         app:showAsAction="always" />
 </menu>
