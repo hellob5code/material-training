@@ -86,7 +86,6 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     protected static final int NAVDRAWER_ITEM_DEV_MODE_ID =                  1001;
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
-    @InjectView(R.id.navdrawer) View navdrawer;
     @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
     @InjectView(R.id.content) View content;
     @InjectView(R.id.navdrawer_items) ExpandableListView navdrawerItems;
@@ -101,9 +100,9 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
             int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
             toolbar.getLayoutParams().height += statusBarSize;
             toolbar.setPadding(0, statusBarSize, 0, 0);
-            navdrawer.setPadding(0, statusBarSize, 0, 0);
+            navdrawerItems.setPadding(0, navdrawerItems.getPaddingTop() + statusBarSize, 0, 0);
         }
-        ViewUtils.setMaxWidth(navdrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
+        ViewUtils.setMaxWidth(navdrawerItems, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
 
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);

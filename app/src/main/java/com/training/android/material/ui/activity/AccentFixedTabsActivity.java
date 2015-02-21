@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.SlidingTabLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -20,7 +21,7 @@ import com.training.android.material.util.ViewUtils;
 public class AccentFixedTabsActivity extends ActionBarActivity {
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
-    @InjectView(R.id.navdrawer) View navdrawer;
+    @InjectView(R.id.navdrawer_items) ExpandableListView navdrawerItems;
     @InjectView(R.id.sliding_tabs) SlidingTabLayout slidingTabLayout;
     @InjectView(R.id.view_pager) ViewPager viewPager;
 
@@ -34,9 +35,9 @@ public class AccentFixedTabsActivity extends ActionBarActivity {
             int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
             toolbar.getLayoutParams().height += statusBarSize;
             toolbar.setPadding(0, statusBarSize, 0, 0);
-            navdrawer.setPadding(0, statusBarSize, 0, 0);
+            navdrawerItems.setPadding(0, navdrawerItems.getPaddingTop() + statusBarSize, 0, 0);
         }
-        ViewUtils.setMaxWidth(navdrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
+        ViewUtils.setMaxWidth(navdrawerItems, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
