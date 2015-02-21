@@ -3,13 +3,11 @@ package com.training.android.material.ui.activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import com.training.android.material.R;
 import com.training.android.material.ui.fragment.*;
 import com.training.android.material.ui.tile.Tile;
 
-public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
+public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity {
 
     private static final String TAG = ComponentsActivity.class.getSimpleName();
 
@@ -17,14 +15,14 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, -1);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, -1);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.content, getSelectedFragment(id)).commit();
         }
     }
 
     @Override
-    protected int getSelectedNavDrawerGroupId() {
+    protected int getSelectedNavigationDrawerGroupId() {
         return NAVDRAWER_GROUP_COMPONENTS_ID;
     }
 
@@ -34,14 +32,14 @@ public class ComponentsActivity extends MaterialTrainingNavDrawerActivity {
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(Tile item) {
+    protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
         if (getSelectedFragment(id) != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.content, getSelectedFragment(id)).commit();
             return true;
         }
-        return super.onNavDrawerItemSelected(item);
+        return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {

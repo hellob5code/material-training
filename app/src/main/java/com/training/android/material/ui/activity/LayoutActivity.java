@@ -7,7 +7,7 @@ import com.training.android.material.R;
 import com.training.android.material.ui.fragment.DummyFragment;
 import com.training.android.material.ui.tile.Tile;
 
-public class LayoutActivity extends MaterialTrainingNavDrawerActivity {
+public class LayoutActivity extends MaterialTrainingNavigationDrawerActivity {
 
     private static final String TAG = LayoutActivity.class.getSimpleName();
 
@@ -15,14 +15,14 @@ public class LayoutActivity extends MaterialTrainingNavDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, -1);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_PRINCIPLES_ID);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.content, getSelectedFragment(id)).commit();
         }
     }
 
     @Override
-    protected int getSelectedNavDrawerGroupId() {
+    protected int getSelectedNavigationDrawerGroupId() {
         return NAVDRAWER_GROUP_LAYOUT_ID;
     }
 
@@ -32,14 +32,14 @@ public class LayoutActivity extends MaterialTrainingNavDrawerActivity {
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(Tile item) {
+    protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
         if (getSelectedFragment(id) != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.content, getSelectedFragment(id)).commit();
             return true;
         }
-        return super.onNavDrawerItemSelected(item);
+        return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {

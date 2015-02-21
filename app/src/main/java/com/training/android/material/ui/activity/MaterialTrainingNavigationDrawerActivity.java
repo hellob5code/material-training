@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ExpandableListView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.training.android.material.BuildConfig;
@@ -15,11 +16,9 @@ import com.training.android.material.util.ApiUtils;
 import com.training.android.material.util.ViewUtils;
 
 // TODO: If the list of content in the navigation drawer is very long, the two options can be pinned to the bottom of the navigation drawer on a surface with a higher elevation. This surface is present only while at the top of the list; any other scroll position will immediately result in dismissing the surface and placing the options at the end of the list, in-line with the rest of the list content. The navigation drawer retains its scroll position when closed and reopened.
-public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandableNavDrawerActivity {
+public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractExpandableNavigationDrawerActivity {
 
-    private static final String TAG = MaterialTrainingNavDrawerActivity.class.getSimpleName();
-
-    protected static final String EXTRA_SELECTED_CHILD_ID = "selected_child_id";
+    private static final String TAG = MaterialTrainingNavigationDrawerActivity.class.getSimpleName();
 
     protected static final int NAVDRAWER_GROUP_MATERIAL_DESIGN_ID =             0;
     protected static final int NAVDRAWER_CHILD_INTRODUCTION_ID =                1;
@@ -88,6 +87,9 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
     @InjectView(R.id.navdrawer) View navdrawer;
+    @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
+    @InjectView(R.id.content) View content;
+    @InjectView(R.id.navdrawer_items) ExpandableListView navdrawerItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,12 +111,17 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
 
     @Override
     public DrawerLayout getDrawerLayout() {
-        return (DrawerLayout) findViewById(R.id.drawer_layout);
+        return drawerLayout;
     }
 
     @Override
     public View getContentLayout() {
-        return findViewById(R.id.content);
+        return content;
+    }
+
+    @Override
+    protected ExpandableListView getDrawerItemsLayout() {
+        return navdrawerItems;
     }
 
     @Override
@@ -123,8 +130,8 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
     }
 
     @Override
-    protected void populateNavDrawer() {
-        super.populateNavDrawer();
+    protected void populateNavigationDrawer() {
+        super.populateNavigationDrawer();
         addGroup(NAVDRAWER_GROUP_MATERIAL_DESIGN_ID, getString(R.string.navdrawer_group_material_design))
                 .addChild(NAVDRAWER_CHILD_INTRODUCTION_ID, getString(R.string.navdrawer_child_introduction));
         addGroup(NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID, getString(R.string.navdrawer_group_what_is_material))
@@ -195,7 +202,7 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(Tile item) {
+    protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
         // Clic on item
         switch (id) {
@@ -207,37 +214,37 @@ public abstract class MaterialTrainingNavDrawerActivity extends AbstractExpandab
                 return true;
             default:
                 // Clic on a child of another group
-                int parentId = ((NavDrawerChild) item).getParentId();
+                int parentId = ((NavigationDrawerChild) item).getParentId();
                 switch (parentId) {
                     case NAVDRAWER_GROUP_MATERIAL_DESIGN_ID:
-                        startActivity(new Intent(this, MaterialDesignActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, MaterialDesignActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID:
-                        startActivity(new Intent(this, WhatIsMaterialActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, WhatIsMaterialActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_ANIMATION_ID:
-                        startActivity(new Intent(this, AnimationActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, AnimationActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_STYLE_ID:
-                        startActivity(new Intent(this, StyleActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, StyleActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_LAYOUT_ID:
-                        startActivity(new Intent(this, LayoutActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, LayoutActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_COMPONENTS_ID:
-                        startActivity(new Intent(this, ComponentsActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, ComponentsActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_PATTERNS_ID:
-                        startActivity(new Intent(this, PatternsActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, PatternsActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_USABILITY_ID:
-                        startActivity(new Intent(this, UsabilityActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, UsabilityActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_RESOURCES_ID:
-                        startActivity(new Intent(this, ResourcesActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, ResourcesActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                     case NAVDRAWER_GROUP_WHATS_NEW_ID:
-                        startActivity(new Intent(this, WhatsNewActivity.class).putExtra(EXTRA_SELECTED_CHILD_ID, id));
+                        startActivity(new Intent(this, WhatsNewActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
                         break;
                 }
                 finish();

@@ -12,37 +12,38 @@ import android.util.Log;
 import android.view.*;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.*;
 import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
 import com.training.android.material.ui.listcontrol.ListControl;
 import com.training.android.material.ui.tile.Tile;
 import com.training.android.material.ui.tile.SingleLineListTile;
+import com.training.android.material.util.ThemeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActivity {
+public abstract class AbstractExpandableNavigationDrawerActivity extends ActionBarActivity {
 
-    private static final String TAG = AbstractExpandableNavDrawerActivity.class.getSimpleName();
+    private static final String TAG = AbstractExpandableNavigationDrawerActivity.class.getSimpleName();
 
-    protected static final String KEY_SELECTED_NAVDRAWER_ITEM_ID = "selected_navdrawer_item_id";
+    protected static final String EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID = "extra_selected_navigation_drawer_child_id";
+    protected static final String KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID = "key_selected_navigation_drawer_child_id";
 
     protected abstract DrawerLayout getDrawerLayout();
 
     protected abstract View getContentLayout();
 
-    protected abstract boolean onNavDrawerItemSelected(Tile item);
+    protected abstract ExpandableListView getDrawerItemsLayout();
 
-    protected int getSelectedNavDrawerGroupId() {
+    protected abstract boolean goToNavigationDrawerItem(Tile item);
+
+    protected int getSelectedNavigationDrawerGroupId() {
         return NAVDRAWER_ITEM_INVALID;
     }
 
     /**
-     * Returns the navigation drawer (opened) title that corresponds to this Activity. Subclasses of {@link AbstractExpandableNavDrawerActivity}
+     * Returns the navigation drawer (opened) title that corresponds to this Activity. Subclasses of {@link AbstractExpandableNavigationDrawerActivity}
      * should override this to indicate the corresponding drawer item.
      */
     protected String getNavigationDrawerOpenedTitle() {
@@ -50,7 +51,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
     }
 
     /**
-     * Returns the navigation drawer (closed) title that corresponds to this Activity. Subclasses of {@link AbstractExpandableNavDrawerActivity}
+     * Returns the navigation drawer (closed) title that corresponds to this Activity. Subclasses of {@link AbstractExpandableNavigationDrawerActivity}
      * should override this to indicate the corresponding drawer item.
      */
     protected String getNavigationDrawerClosedTitle() {
@@ -58,7 +59,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
     }
 
     /** Delay to launch nav drawer item, to allow close animation to play */
-    private static final int NAVDRAWER_LAUNCH_DELAY = 200;
+    private static final int NAVIGATION_DRAWER_LAUNCH_DELAY = 200;
 
     /** Fade in and fade out durations for the main content when switching between different Activities of the app through the Nav Drawer */
     protected static final int CONTENT_FADE_OUT_DURATION = 200;
@@ -68,9 +69,17 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
     protected static final int NAVDRAWER_DIVIDER = -2;
     protected static final int NAVDRAWER_SUBHEADER = -3;
 
-    protected ActionBarDrawerToggle mDrawerToggle;
-    private ArrayList<NavDrawerGroup> mNavDrawerItems = new ArrayList<NavDrawerGroup>();
-    private int mSelectedNavDrawerItemId = NAVDRAWER_ITEM_INVALID;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private ArrayList<NavigationDrawerGroup> mNavigationDrawerItems = new ArrayList<NavigationDrawerGroup>();
+    private int mSelectedNavigationDrawerItemId = NAVDRAWER_ITEM_INVALID;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState == null) {
+            mSelectedNavigationDrawerItemId = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_ITEM_INVALID);
+        }
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -87,13 +96,13 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY_SELECTED_NAVDRAWER_ITEM_ID, mSelectedNavDrawerItemId);
+        outState.putInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, mSelectedNavigationDrawerItemId);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mSelectedNavDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVDRAWER_ITEM_ID, NAVDRAWER_ITEM_INVALID);
+        mSelectedNavigationDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_ITEM_INVALID);
     }
 
     private void setupNavigationDrawer() {
@@ -123,79 +132,78 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         getDrawerLayout().setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        populateNavDrawer();
-        createNavDrawerItems();
+        populateNavigationDrawer();
+        createNavigationDrawerItems();
     }
 
     /**
-     * Updates the status bar color according to the navigation drawer slide offset. Subclasses of {@link AbstractExpandableNavDrawerActivity}
+     * Updates the status bar color according to the navigation drawer slide offset. Subclasses of {@link AbstractExpandableNavigationDrawerActivity}
      * should override this.
      */
     protected void updateStatusBarOnDrawerSlide(float slideOffset) {
     }
 
     /**
-     * Populates the navigation drawer. Subclasses of {@link AbstractExpandableNavDrawerActivity} should override this.
+     * Populates the navigation drawer. Subclasses of {@link AbstractExpandableNavigationDrawerActivity} should override this.
      */
-    protected void populateNavDrawer() {
-        mNavDrawerItems.clear();
+    protected void populateNavigationDrawer() {
+        mNavigationDrawerItems.clear();
     }
 
-    protected void createNavDrawerItems() {
-        final ExpandableListView container = (ExpandableListView) findViewById(R.id.navdrawer_items);
-
-        final NavDrawerExpandableListAdapter adapter = new NavDrawerExpandableListAdapter(mNavDrawerItems);
-        container.setAdapter(adapter);
-        container.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+    protected void createNavigationDrawerItems() {
+        final NavigationDrawerExpandableListAdapter adapter = new NavigationDrawerExpandableListAdapter(mNavigationDrawerItems);
+        getDrawerItemsLayout().setAdapter(adapter);
+        getDrawerItemsLayout().setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 if (id == NAVDRAWER_ITEM_INVALID || id == NAVDRAWER_DIVIDER || id == NAVDRAWER_SUBHEADER) {
                     return false;
                 } else {
-                    onNavDrawerItemClicked(adapter.getGroup(groupPosition));
+                    onNavigationDrawerItemClicked(adapter.getGroup(groupPosition));
                 }
-                if (container.isGroupExpanded(groupPosition)) {
-                    container.collapseGroup(groupPosition);
+                if (getDrawerItemsLayout().isGroupExpanded(groupPosition)) {
+                    getDrawerItemsLayout().collapseGroup(groupPosition);
                 } else {
-                    container.expandGroup(groupPosition, true);
+                    getDrawerItemsLayout().expandGroup(groupPosition, true);
                 }
                 return true;
             }
         });
-        container.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+        getDrawerItemsLayout().setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                onNavDrawerItemClicked(adapter.getChild(groupPosition, childPosition));
+                onNavigationDrawerItemClicked(adapter.getChild(groupPosition, childPosition));
                 return true;
             }
         });
 
         // Expand the selected group
-        int selectedGroupIndex = adapter.getGroupIndex(getSelectedNavDrawerGroupId());
+        int selectedGroupIndex = adapter.getGroupIndex(getSelectedNavigationDrawerGroupId());
         if (selectedGroupIndex != -1) {
-            container.expandGroup(selectedGroupIndex);
+            getDrawerItemsLayout().expandGroup(selectedGroupIndex);
         }
     }
 
-    private void onNavDrawerItemClicked(final NavDrawerGroup group) {
+    private void onNavigationDrawerItemClicked(final NavigationDrawerGroup group) {
         if (group.isItem()) {
-            onNavDrawerItemSelected(group);
+            goToNavigationDrawerItem(group);
             getDrawerLayout().closeDrawer(Gravity.START);
         }
     }
 
-    private void onNavDrawerItemClicked(final NavDrawerChild child) {
+    private void onNavigationDrawerItemClicked(final NavigationDrawerChild child) {
         // Perform action after a short delay to allow the close animation to play
-        if (child.getId() != mSelectedNavDrawerItemId) {
+        if (child.getId() != mSelectedNavigationDrawerItemId) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mSelectedNavDrawerItemId = child.getId();
-                    if (onNavDrawerItemSelected(child)) {
+                    mSelectedNavigationDrawerItemId = child.getId();
+                    if (goToNavigationDrawerItem(child)) {
                         fadeInContent(child.getId());
+                        getDrawerItemsLayout().invalidateViews();
                     }
                 }
-            }, NAVDRAWER_LAUNCH_DELAY);
+            }, NAVIGATION_DRAWER_LAUNCH_DELAY);
             fadeOutContent(child.getId());
         }
         getDrawerLayout().closeDrawer(Gravity.START);
@@ -224,7 +232,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
     }
 
     /**
-     * Subclasses of {@link AbstractExpandableNavDrawerActivity} should override this and return true to skip fading the content in and out.
+     * Subclasses of {@link AbstractExpandableNavigationDrawerActivity} should override this and return true to skip fading the content in and out.
      */
     protected boolean skipFade(int itemId) {
         return false;
@@ -249,35 +257,39 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         getDrawerLayout().closeDrawer(Gravity.START);
     }
 
-    private NavDrawerGroup addGroup(NavDrawerGroup group) {
-        mNavDrawerItems.add(group);
+    public void setSelectedNavigationDrawerItemId(int selectedNavigationDrawerItemId) {
+        this.mSelectedNavigationDrawerItemId = selectedNavigationDrawerItemId;
+    }
+
+    private NavigationDrawerGroup addGroup(NavigationDrawerGroup group) {
+        mNavigationDrawerItems.add(group);
         return group;
     }
 
-    protected NavDrawerGroup addDivider() {
-        return addGroup(new NavDrawerGroup(NAVDRAWER_DIVIDER, null, null, null));
+    protected NavigationDrawerGroup addDivider() {
+        return addGroup(new NavigationDrawerGroup(NAVDRAWER_DIVIDER, null, null, null));
     }
 
-    protected NavDrawerGroup addSubheader(String text) {
-        return addGroup(new NavDrawerGroup(NAVDRAWER_SUBHEADER, text, null, null));
+    protected NavigationDrawerGroup addSubheader(String text) {
+        return addGroup(new NavigationDrawerGroup(NAVDRAWER_SUBHEADER, text, null, null));
     }
 
-    protected NavDrawerGroup addGroup(int id, String text) {
-        return addGroup(new NavDrawerGroup(id, text, null, null));
+    protected NavigationDrawerGroup addGroup(int id, String text) {
+        return addGroup(new NavigationDrawerGroup(id, text, null, null));
     }
 
-    protected NavDrawerGroup addItem(int id, String text) {
-        return addGroup(new NavDrawerItem(id, text, null, null));
+    protected NavigationDrawerGroup addItem(int id, String text) {
+        return addGroup(new NavigationDrawerItem(id, text, null, null));
     }
 
-    protected NavDrawerGroup addItem(int id, String text, ListControl primary, ListControl secondary) {
-        return addGroup(new NavDrawerItem(id, text, primary, secondary));
+    protected NavigationDrawerGroup addItem(int id, String text, ListControl primary, ListControl secondary) {
+        return addGroup(new NavigationDrawerItem(id, text, primary, secondary));
     }
 
-    protected static class NavDrawerChild extends SingleLineListTile {
+    protected static class NavigationDrawerChild extends SingleLineListTile {
         int parentId = NAVDRAWER_ITEM_INVALID;
 
-        public NavDrawerChild(int id, String text) {
+        public NavigationDrawerChild(int id, String text) {
             super(id, text);
         }
 
@@ -286,10 +298,10 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         }
     }
 
-    protected static class NavDrawerGroup extends SingleLineListTile {
-        List<NavDrawerChild> children = new ArrayList<NavDrawerChild>();
+    protected static class NavigationDrawerGroup extends SingleLineListTile {
+        List<NavigationDrawerChild> children = new ArrayList<NavigationDrawerChild>();
 
-        public NavDrawerGroup(int id, String text, ListControl primary, ListControl secondary) {
+        public NavigationDrawerGroup(int id, String text, ListControl primary, ListControl secondary) {
             super(id, text, primary, secondary);
         }
 
@@ -297,24 +309,24 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
             return false;
         }
 
-        public List<NavDrawerChild> getChildren() {
+        public List<NavigationDrawerChild> getChildren() {
             return children;
         }
 
-        private NavDrawerGroup addChild(NavDrawerChild child) {
+        private NavigationDrawerGroup addChild(NavigationDrawerChild child) {
             child.parentId = id;
             children.add(child);
             return this;
         }
 
-        protected NavDrawerGroup addChild(int id, String text) {
-            return addChild(new NavDrawerChild(id, text));
+        protected NavigationDrawerGroup addChild(int id, String text) {
+            return addChild(new NavigationDrawerChild(id, text));
         }
     }
 
-    protected static class NavDrawerItem extends NavDrawerGroup {
+    protected static class NavigationDrawerItem extends NavigationDrawerGroup {
 
-        public NavDrawerItem(int id, String text, ListControl primary, ListControl secondary) {
+        public NavigationDrawerItem(int id, String text, ListControl primary, ListControl secondary) {
             super(id, text, primary, secondary);
         }
 
@@ -324,11 +336,11 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         }
     }
 
-    private class NavDrawerExpandableListAdapter extends BaseExpandableListAdapter {
+    private class NavigationDrawerExpandableListAdapter extends BaseExpandableListAdapter {
 
-        private List<NavDrawerGroup> items;
+        private List<NavigationDrawerGroup> items;
 
-        private NavDrawerExpandableListAdapter(List<NavDrawerGroup> items) {
+        private NavigationDrawerExpandableListAdapter(List<NavigationDrawerGroup> items) {
             this.items = items;
         }
 
@@ -338,8 +350,8 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         }
 
         @Override
-        public NavDrawerChild getChild(int groupPosition, int childPosition) {
-            NavDrawerGroup group = getGroup(groupPosition);
+        public NavigationDrawerChild getChild(int groupPosition, int childPosition) {
+            NavigationDrawerGroup group = getGroup(groupPosition);
             if (group.children != null && !group.children.isEmpty()) {
                 return group.children.get(childPosition);
             }
@@ -356,7 +368,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
 
         @Override
         public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup container) {
-            NavDrawerChild child = getChild(groupPosition, childPosition);
+            NavigationDrawerChild child = getChild(groupPosition, childPosition);
 
             // Select layout to inflate
             int layoutToInflate = R.layout.tile_navdrawer_child_material;
@@ -367,6 +379,9 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
             // Bind the content
             TextView textView = (TextView) view.findViewById(R.id.tv_text);
             textView.setText(child.getText());
+            if (mSelectedNavigationDrawerItemId == getChildId(groupPosition, childPosition)) {
+                textView.setTextColor(ThemeUtils.obtainColorPrimary(AbstractExpandableNavigationDrawerActivity.this));
+            }
 
             return view;
         }
@@ -377,18 +392,18 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
         }
 
         @Override
-        public NavDrawerGroup getGroup(int groupPosition) {
+        public NavigationDrawerGroup getGroup(int groupPosition) {
             return items.get(groupPosition);
         }
 
         @Override
         public long getGroupId(int groupPosition) {
-            return items.get(groupPosition).getId();
+            return getGroup(groupPosition).getId();
         }
 
         @Override
         public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup container) {
-            final NavDrawerGroup group = getGroup(groupPosition);
+            final NavigationDrawerGroup group = getGroup(groupPosition);
 
             // Select layout to inflate
             int layoutToInflate;
@@ -408,7 +423,7 @@ public abstract class AbstractExpandableNavDrawerActivity extends ActionBarActiv
                 view.setBackgroundResource(android.R.color.white);
             } else if (group.getId() == NAVDRAWER_SUBHEADER) {
                 view.setBackgroundResource(android.R.color.white);
-                if (mNavDrawerItems.indexOf(group) == 0) {
+                if (mNavigationDrawerItems.indexOf(group) == 0) {
                     view.findViewById(R.id.divider).setVisibility(View.GONE);
                 }
                 TextView textView = (TextView) view.findViewById(R.id.tv_text);

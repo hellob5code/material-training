@@ -3,30 +3,27 @@ package com.training.android.material.ui.activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import com.training.android.material.R;
-import com.training.android.material.ui.fragment.DataFormatsFragment;
 import com.training.android.material.ui.fragment.DummyFragment;
-import com.training.android.material.ui.fragment.ErrorsFragment;
 import com.training.android.material.ui.tile.Tile;
 
-public class MaterialDesignActivity extends MaterialTrainingNavDrawerActivity {
+public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActivity {
 
     private static final String TAG = MaterialDesignActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setSelectedNavigationDrawerItemId(NAVDRAWER_CHILD_INTRODUCTION_ID);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_CHILD_ID, NAVDRAWER_CHILD_INTRODUCTION_ID);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_INTRODUCTION_ID);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.content, getSelectedFragment(id)).commit();
         }
     }
 
     @Override
-    protected int getSelectedNavDrawerGroupId() {
+    protected int getSelectedNavigationDrawerGroupId() {
         return NAVDRAWER_GROUP_MATERIAL_DESIGN_ID;
     }
 
@@ -36,14 +33,14 @@ public class MaterialDesignActivity extends MaterialTrainingNavDrawerActivity {
     }
 
     @Override
-    protected boolean onNavDrawerItemSelected(Tile item) {
+    protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
         if (getSelectedFragment(id) != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.content, getSelectedFragment(id)).commit();
             return true;
         }
-        return super.onNavDrawerItemSelected(item);
+        return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {
