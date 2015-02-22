@@ -25,7 +25,7 @@
             android:name=".ui.activity.ComposeEmailActivity"
             android:label="@string/title_activity_compose_email"
             android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Pink.Light"/> <!-- TODO: Set real parent activity. -->
+            android:theme="@style/Theme.Pink.Light.DarkActionBar"/> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.DeveloperModeActivity"
             android:label="@string/title_activity_developer_mode"
@@ -71,22 +71,22 @@
             android:name=".ui.activity.RegisterApplicationActivity"
             android:label="@string/title_activity_register_application"
             android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Indigo.Light" /> <!-- TODO: Set real parent activity. -->
+            android:theme="@style/Theme.Indigo.Light.DarkActionBar" /> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.RegisterContactActivity"
             android:label="@string/title_activity_register_contact"
             android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Indigo.Light" /> <!-- TODO: Set real parent activity. -->
+            android:theme="@style/Theme.Indigo.Light.DarkActionBar" /> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.RegisterEventActivity"
             android:label="@string/title_activity_register_event"
             android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Teal.Light" /> <!-- TODO: Set real parent activity. -->
+            android:theme="@style/Theme.Teal.Light.DarkActionBar" /> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.RegisterNoteActivity"
             android:label="@string/title_activity_register_note"
             android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Teal.Light" /> <!-- TODO: Set real parent activity. -->
+            android:theme="@style/Theme.Teal.Light.DarkActionBar" /> <!-- TODO: Set real parent activity. -->
         <activity
             android:name=".ui.activity.ResourcesActivity"
             android:theme="@style/Theme.LightBlue.Light.NoActionBar.TranslucentStatus"/>
@@ -98,7 +98,7 @@
             android:name=".ui.activity.SearchableActivity"
             android:label="@string/title_activity_searchable"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.Indigo.Light">
+            android:theme="@style/Theme.Indigo.Light.DarkActionBar">
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -113,6 +113,9 @@
         <activity
             android:name=".ui.activity.StyleActivity"
             android:theme="@style/Theme.Teal.Light.NoActionBar.TranslucentStatus"/>
+        <activity
+            android:name=".ui.activity.SystemIconsActivity"
+            android:theme="@style/Theme.Grey50.Light"/>
         <activity
             android:name=".ui.activity.UsabilityActivity"
             android:theme="@style/Theme.BlueGrey.Light.NoActionBar.TranslucentStatus"/>

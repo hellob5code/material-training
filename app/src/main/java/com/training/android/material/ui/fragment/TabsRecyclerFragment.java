@@ -19,7 +19,7 @@ public class TabsRecyclerFragment extends CardFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setRecyclerAdapter(new MaterialCardAdapter(populateDataset()));
+        setRecyclerAdapter(new MaterialCardAdapter(getActivity(), populateDataset()));
     }
 
     private List<Card> populateDataset() {

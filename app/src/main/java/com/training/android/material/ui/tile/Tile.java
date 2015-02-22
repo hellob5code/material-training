@@ -11,6 +11,8 @@ public abstract class Tile {
     public static final int TYPE_LIST_TWO_LINE = 3;
     public static final int TYPE_LIST_THREE_LINE = 4;
 
+    public static final int TYPE_GRID_ICON_TEXT = 100;
+
     protected int id;
     protected int viewType;
 
@@ -29,8 +31,8 @@ public abstract class Tile {
 
     public interface TileHolder {
 
-        public void createView(Context context, boolean startIndented, boolean endIndented);
+        void createView(Context context, boolean startIndented, boolean endIndented);
 
-        public void bindView(Tile tile, int position);
+        void bindView(Tile tile, int position);
     }
 }

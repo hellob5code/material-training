@@ -1,31 +1,13 @@
 package com.training.android.material.ui.fragment;
 
-import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import com.training.android.material.R;
-import com.training.android.material.ui.activity.ContactsActivity;
-import com.training.android.material.ui.activity.MyFilesActivity;
 import com.training.android.material.ui.adapter.MaterialCardAdapter;
-import com.training.android.material.ui.adapter.MaterialListAdapter;
 import com.training.android.material.ui.card.*;
-import com.training.android.material.ui.listcontrol.IconListControl;
-import com.training.android.material.ui.tile.DividerListTile;
-import com.training.android.material.ui.tile.SingleLineListTile;
-import com.training.android.material.ui.tile.SubheaderTile;
-import com.training.android.material.ui.tile.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import static com.training.android.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_2;
 
@@ -34,7 +16,7 @@ public class ListsFragment extends CardFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setRecyclerAdapter(new MaterialCardAdapter(populateDataset()));
+        setRecyclerAdapter(new MaterialCardAdapter(getActivity(), populateDataset()));
     }
 
     private List<Card> populateDataset() {
