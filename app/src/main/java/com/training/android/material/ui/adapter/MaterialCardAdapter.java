@@ -80,12 +80,10 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
             }
         }
 
-//        View card = v.findViewById(R.id.card);
-//        if (card != null && sreenWidth > maxCardWdth) {
-//            card.getLayoutParams().width = maxCardWdth;
-//        }
         if (sreenWidth > maxCardWdth) {
-            v.getLayoutParams().width = maxCardWdth;
+            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) v.getLayoutParams();
+            params.width = maxCardWdth;
+            params.setMarginStart((sreenWidth - maxCardWdth) / 2 - parent.getPaddingStart()); // Add margin to center card // TODO: Find less hacky way to center.
         }
 
         return viewHolder;
