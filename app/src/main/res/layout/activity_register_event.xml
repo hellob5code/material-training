@@ -32,7 +32,7 @@
             android:hint="@string/register_event_hint_event_name"
             android:inputType="textCapWords"
             android:singleLine="true"
-            app:materialEditTextColor="?attr/colorPrimary"/>
+            app:backgroundColor="?attr/colorPrimary"/>
 
         <MaterialEditText
             android:id="@+id/register_event_edt_location"
@@ -43,7 +43,7 @@
             android:hint="@string/register_event_hint_location"
             android:singleLine="true"
             app:floatingLabel="true"
-            app:materialEditTextColor="?attr/colorPrimary"/>
+            app:backgroundColor="?attr/colorPrimary"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                 android:hint="@string/register_event_hint_from"
                 android:maxLines="1"
                 app:floatingLabel="true"
-                app:materialEditTextColor="?attr/colorPrimary"/>
+                app:backgroundColor="?attr/colorPrimary"/>
 
             <MaterialEditText
                 android:id="@+id/register_event_edt_from_time"
@@ -73,7 +73,7 @@
                 android:drawablePadding="@dimen/padding_small"
                 android:editable="false"
                 android:maxLines="1"
-                app:materialEditTextColor="?attr/colorPrimary"/>
+                app:backgroundColor="?attr/colorPrimary"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -93,7 +93,7 @@
                 android:hint="@string/register_event_hint_to"
                 android:maxLines="1"
                 app:floatingLabel="true"
-                app:materialEditTextColor="?attr/colorPrimary"/>
+                app:backgroundColor="?attr/colorPrimary"/>
 
             <MaterialEditText
                 android:id="@+id/register_event_edt_to_time"
@@ -104,7 +104,7 @@
                 android:drawablePadding="@dimen/padding_small"
                 android:editable="false"
                 android:maxLines="1"
-                app:materialEditTextColor="?attr/colorPrimary"/>
+                app:backgroundColor="?attr/colorPrimary"/>
         </RelativeLayout>
 
         <CheckBox
@@ -126,6 +126,6 @@
             android:drawablePadding="@dimen/padding_small"
             android:hint="@string/register_event_hint_timezone"
             app:floatingLabel="true"
-            app:materialEditTextColor="?attr/colorPrimary"/>
+            app:backgroundColor="?attr/colorPrimary"/>
     </LinearLayout>
 </ScrollView>

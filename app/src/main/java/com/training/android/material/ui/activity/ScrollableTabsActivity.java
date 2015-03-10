@@ -21,7 +21,7 @@ import com.training.android.material.util.ViewUtils;
 public class ScrollableTabsActivity extends ActionBarActivity {
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
-    @InjectView(R.id.navdrawer_items) ExpandableListView navdrawerItems;
+    @InjectView(R.id.navigation_drawer) ExpandableListView navdrawerItems;
     @InjectView(R.id.sliding_tabs) SlidingTabLayout slidingTabLayout;
     @InjectView(R.id.view_pager) ViewPager viewPager;
 

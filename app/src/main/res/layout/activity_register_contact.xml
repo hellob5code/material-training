@@ -50,7 +50,7 @@
         <MaterialEditText
             android:id="@+id/register_contact_edt_phone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/touch_target_48dp"
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"
             android:layout_toEndOf="@+id/register_contact_img_phone"
@@ -68,7 +68,6 @@
             android:layout_height="@dimen/touch_target_48dp"
             android:layout_alignParentEnd="true"
             android:editable="false"
-            android:gravity="bottom"
             android:maxLines="1"
             android:minWidth="96dp"/>
     </RelativeLayout>
@@ -87,7 +86,7 @@
         <MaterialEditText
             android:id="@+id/register_contact_edt_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/touch_target_48dp"
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"
             android:layout_toEndOf="@+id/register_contact_img_email"
@@ -105,7 +104,6 @@
             android:layout_height="@dimen/touch_target_48dp"
             android:layout_alignParentEnd="true"
             android:editable="false"
-            android:gravity="bottom"
             android:maxLines="1"
             android:minWidth="96dp"/>
     </RelativeLayout>
@@ -124,7 +122,7 @@
         <MaterialEditText
             android:id="@+id/register_contact_edt_address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/touch_target_48dp"
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_marginStart="@dimen/keyline_2_minus_40dp"
             android:layout_toEndOf="@+id/register_contact_img_address"
@@ -142,7 +140,6 @@
             android:layout_height="@dimen/touch_target_48dp"
             android:layout_alignParentEnd="true"
             android:editable="false"
-            android:gravity="bottom"
             android:maxLines="1"
             android:minWidth="96dp"/>
     </RelativeLayout>

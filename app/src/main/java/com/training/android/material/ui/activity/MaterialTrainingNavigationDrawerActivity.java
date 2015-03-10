@@ -15,7 +15,6 @@ import com.training.android.material.ui.tile.Tile;
 import com.training.android.material.util.ApiUtils;
 import com.training.android.material.util.ViewUtils;
 
-// TODO: If the list of content in the navigation drawer is very long, the two options can be pinned to the bottom of the navigation drawer on a surface with a higher elevation. This surface is present only while at the top of the list; any other scroll position will immediately result in dismissing the surface and placing the options at the end of the list, in-line with the rest of the list content. The navigation drawer retains its scroll position when closed and reopened.
 public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractExpandableNavigationDrawerActivity {
 
     private static final String TAG = MaterialTrainingNavigationDrawerActivity.class.getSimpleName();
@@ -88,7 +87,7 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     @InjectView(R.id.toolbar) Toolbar toolbar;
     @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
     @InjectView(R.id.content) View content;
-    @InjectView(R.id.navdrawer_items) ExpandableListView navdrawerItems;
+    @InjectView(R.id.navigation_drawer) ExpandableListView navigationDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,9 +99,9 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
             int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
             toolbar.getLayoutParams().height += statusBarSize;
             toolbar.setPadding(0, statusBarSize, 0, 0);
-            navdrawerItems.setPadding(0, navdrawerItems.getPaddingTop() + statusBarSize, 0, 0);
+            navigationDrawer.setPadding(0, navigationDrawer.getPaddingTop() + statusBarSize, 0, 0);
         }
-        ViewUtils.setMaxWidth(navdrawerItems, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
+        ViewUtils.setMaxWidth(navigationDrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
 
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
@@ -114,13 +113,13 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     }
 
     @Override
-    public View getContentLayout() {
+    public View getContent() {
         return content;
     }
 
     @Override
-    protected ExpandableListView getDrawerItemsLayout() {
-        return navdrawerItems;
+    protected ExpandableListView getNavigationDrawer() {
+        return navigationDrawer;
     }
 
     @Override

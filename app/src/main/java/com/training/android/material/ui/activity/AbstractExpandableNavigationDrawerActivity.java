@@ -32,9 +32,9 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
 
     protected abstract DrawerLayout getDrawerLayout();
 
-    protected abstract View getContentLayout();
+    protected abstract View getContent();
 
-    protected abstract ExpandableListView getDrawerItemsLayout();
+    protected abstract ExpandableListView getNavigationDrawer();
 
     protected abstract boolean goToNavigationDrawerItem(Tile item);
 
@@ -74,6 +74,18 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     private int mSelectedNavigationDrawerItemId = NAVDRAWER_ITEM_INVALID;
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, mSelectedNavigationDrawerItemId);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mSelectedNavigationDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_ITEM_INVALID);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
@@ -84,25 +96,17 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        setupActionBar();
         setupNavigationDrawer();
         fadeInContent(NAVDRAWER_ITEM_INVALID); // Always fade in
+    }
+
+    private void setupActionBar() {
         if (getDrawerLayout().isDrawerOpen(Gravity.START)) {
             getSupportActionBar().setTitle(getNavigationDrawerOpenedTitle());
         } else {
             getSupportActionBar().setTitle(getNavigationDrawerClosedTitle());
         }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, mSelectedNavigationDrawerItemId);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        mSelectedNavigationDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_ITEM_INVALID);
     }
 
     private void setupNavigationDrawer() {
@@ -152,8 +156,8 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
 
     protected void createNavigationDrawerItems() {
         final NavigationDrawerExpandableListAdapter adapter = new NavigationDrawerExpandableListAdapter(mNavigationDrawerItems);
-        getDrawerItemsLayout().setAdapter(adapter);
-        getDrawerItemsLayout().setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+        getNavigationDrawer().setAdapter(adapter);
+        getNavigationDrawer().setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 if (id == NAVDRAWER_ITEM_INVALID || id == NAVDRAWER_DIVIDER || id == NAVDRAWER_SUBHEADER) {
@@ -161,15 +165,16 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
                 } else {
                     onNavigationDrawerItemClicked(adapter.getGroup(groupPosition));
                 }
-                if (getDrawerItemsLayout().isGroupExpanded(groupPosition)) {
-                    getDrawerItemsLayout().collapseGroup(groupPosition);
+
+                if (getNavigationDrawer().isGroupExpanded(groupPosition)) {
+                    getNavigationDrawer().collapseGroup(groupPosition);
                 } else {
-                    getDrawerItemsLayout().expandGroup(groupPosition, true);
+                    getNavigationDrawer().expandGroup(groupPosition, true);
                 }
                 return true;
             }
         });
-        getDrawerItemsLayout().setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+        getNavigationDrawer().setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 onNavigationDrawerItemClicked(adapter.getChild(groupPosition, childPosition));
@@ -180,7 +185,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         // Expand the selected group
         int selectedGroupIndex = adapter.getGroupIndex(getSelectedNavigationDrawerGroupId());
         if (selectedGroupIndex != -1) {
-            getDrawerItemsLayout().expandGroup(selectedGroupIndex);
+            getNavigationDrawer().expandGroup(selectedGroupIndex);
         }
     }
 
@@ -200,7 +205,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
                     mSelectedNavigationDrawerItemId = child.getId();
                     if (goToNavigationDrawerItem(child)) {
                         fadeInContent(child.getId());
-                        getDrawerItemsLayout().invalidateViews();
+                        getNavigationDrawer().invalidateViews();
                     }
                 }
             }, NAVIGATION_DRAWER_LAUNCH_DELAY);
@@ -211,22 +216,22 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
 
     private void fadeInContent(int itemId) {
         if (!skipFade(itemId)) {
-            if (getContentLayout() != null) {
-                getContentLayout().setAlpha(0);
-                getContentLayout().animate().setInterpolator(new DecelerateInterpolator()).alpha(1).setDuration(CONTENT_FADE_IN_DURATION);
+            if (getContent() != null) {
+                getContent().setAlpha(0);
+                getContent().animate().setInterpolator(new DecelerateInterpolator()).alpha(1).setDuration(CONTENT_FADE_IN_DURATION);
             } else {
-                Log.e(TAG, "No content view to fade in, implement getContentLayout() to initialize it.");
+                Log.e(TAG, "No content view to fade in, implement getContent() to initialize it.");
             }
         }
     }
 
     private void fadeOutContent(int itemId) {
         if (!skipFade(itemId)) {
-            if (getContentLayout() != null) {
-                getContentLayout().setAlpha(1);
-                getContentLayout().animate().setInterpolator(new AccelerateInterpolator()).alpha(0).setDuration(CONTENT_FADE_OUT_DURATION);
+            if (getContent() != null) {
+                getContent().setAlpha(1);
+                getContent().animate().setInterpolator(new AccelerateInterpolator()).alpha(0).setDuration(CONTENT_FADE_OUT_DURATION);
             } else {
-                Log.e(TAG, "No content view to fade out, implement getContentLayout() to initialize it.");
+                Log.e(TAG, "No content view to fade out, implement getContent() to initialize it.");
             }
         }
     }

@@ -15,7 +15,7 @@
         android:hint="@string/register_note_hint_title"
         android:singleLine="true"
         app:floatingLabel="true"
-        app:materialEditTextColor="?attr/colorPrimary"
+        app:backgroundColor="?attr/colorPrimary"
         app:maxCharacters="50"/>
 
     <MaterialEditText
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/register_note_hint_description"
         app:floatingLabel="true"
-        app:materialEditTextColor="?attr/colorPrimary"
+        app:backgroundColor="?attr/colorPrimary"
         app:maxCharacters="120"/>
 
     <MaterialEditText
@@ -33,5 +33,5 @@
         android:layout_height="wrap_content"
         android:hint="@string/register_note_hint_extra"
         app:floatingLabel="true"
-        app:materialEditTextColor="?attr/colorPrimary"/>
+        app:backgroundColor="?attr/colorPrimary"/>
 </LinearLayout>

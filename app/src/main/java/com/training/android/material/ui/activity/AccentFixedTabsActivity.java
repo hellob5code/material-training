@@ -21,8 +21,9 @@ import com.training.android.material.util.ViewUtils;
 public class AccentFixedTabsActivity extends ActionBarActivity {
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
-    @InjectView(R.id.navdrawer_items) ExpandableListView navdrawerItems;
-    @InjectView(R.id.sliding_tabs) SlidingTabLayout slidingTabLayout;
+    @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
+    @InjectView(R.id.navigation_drawer) ExpandableListView navigationDrawer;
+    @InjectView(R.id.sliding_tabs) SlidingTabLayout slidingTabs;
     @InjectView(R.id.view_pager) ViewPager viewPager;
 
     @Override
@@ -35,11 +36,11 @@ public class AccentFixedTabsActivity extends ActionBarActivity {
             int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
             toolbar.getLayoutParams().height += statusBarSize;
             toolbar.setPadding(0, statusBarSize, 0, 0);
-            navdrawerItems.setPadding(0, navdrawerItems.getPaddingTop() + statusBarSize, 0, 0);
+            navigationDrawer.setPadding(0, navigationDrawer.getPaddingTop() + statusBarSize, 0, 0);
         }
-        ViewUtils.setMaxWidth(navdrawerItems, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
+        ViewUtils.setMaxWidth(navigationDrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
             @Override
             public void onDrawerClosed(View view) {
@@ -58,11 +59,10 @@ public class AccentFixedTabsActivity extends ActionBarActivity {
 
         viewPager.setAdapter(new TabsSamplePagerAdapter(this, new String[]{ "No. ONE", "Item Two", "The Third" }));
 
-        slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
-        slidingTabLayout.setDistributeEvenly(true);
-        slidingTabLayout.setCustomTabView(R.layout.tab_indicator_accent_material, android.R.id.text1);
-        slidingTabLayout.setSelectedIndicatorColors(ThemeUtils.obtainColorAccent(this));
-        slidingTabLayout.setViewPager(viewPager);
+        slidingTabs.setDistributeEvenly(true);
+        slidingTabs.setCustomTabView(R.layout.tab_indicator_accent_material, android.R.id.text1);
+        slidingTabs.setSelectedIndicatorColors(ThemeUtils.obtainColorAccent(this));
+        slidingTabs.setViewPager(viewPager);
     }
 
     @Override

@@ -21,7 +21,7 @@
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:floatingLabel="true"
-        app:materialEditTextColor="?attr/colorPrimary"/>
+        app:backgroundColor="?attr/colorPrimary"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:nextFocusRight="@+id/register_application_edt_location"
             android:singleLine="true"
             app:floatingLabel="true"
-            app:materialEditTextColor="?attr/colorPrimary"/>
+            app:backgroundColor="?attr/colorPrimary"/>
 
         <MaterialEditText
             android:id="@+id/register_application_edt_location"
@@ -51,7 +51,7 @@
             android:hint="@string/register_application_hint_location"
             android:singleLine="true"
             app:floatingLabel="true"
-            app:materialEditTextColor="?attr/colorPrimary"/>
+            app:backgroundColor="?attr/colorPrimary"/>
     </LinearLayout>
 
     <MaterialEditText
@@ -61,5 +61,5 @@
         android:gravity="bottom"
         android:hint="@string/register_application_hint_description"
         app:floatingLabel="true"
-        app:materialEditTextColor="?attr/colorPrimary"/>
+        app:backgroundColor="?attr/colorPrimary"/>
 </LinearLayout>
