@@ -4,7 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
-import com.training.android.material.ui.fragment.DummyFragment;
+import com.training.android.material.ui.fragment.*;
 import com.training.android.material.ui.tile.Tile;
 
 public class AnimationActivity extends MaterialTrainingNavigationDrawerActivity {
@@ -44,13 +44,13 @@ public class AnimationActivity extends MaterialTrainingNavigationDrawerActivity 
     private Fragment getSelectedFragment(int id) {
         switch (id) {
             case NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID:
-                return new DummyFragment();
+                return new AuthenticMotionCardFragment();
             case NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID:
-                return new DummyFragment();
+                return new ResponsiveInteractionCardFragment();
             case NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID:
-                return new DummyFragment();
+                return new MeaningfulTransitionsCardFragment();
             case NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID:
-                return new DummyFragment();
+                return new DelightfulDetailsCardFragment();
             default:
                 return null;
         }

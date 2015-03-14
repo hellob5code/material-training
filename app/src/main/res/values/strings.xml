@@ -110,10 +110,28 @@
     <string name="fragment_material_properties">Material properties</string>
     <string name="fragment_material_properties_txt">Material has certain immutable characteristics and inherent behaviors. Understanding these qualities will help you manipulate material in a way that’s consistent with the vision of material design.</string>
 
-    <!-- Material Properties Fragment -->
+    <!-- Objects In 3D Space Fragment -->
     <string name="fragment_objects_in_3d_space">Objects in 3D space</string>
     <string name="fragment_objects_in_3d_space_txt">There are parallels between organizing objects in the physical world and arranging objects in space in material design. In the physical world, objects can be stacked or affixed to one another, but cannot pass through one another. The objects cast shadows and reflect light.
         \n\nThese qualities apply to objects in material design and help create a spatial model that can be consistently applied across apps in ways that are familiar to users.
+    </string>
+
+    <!-- Authentic Motion Fragment -->
+    <string name="fragment_authentic_motion">Authentic motion</string>
+    <string name="fragment_authentic_motion_txt">Perceiving an object’s tangible form helps us understand how to manipulate it. Observing an object’s motion tells us whether it is light or heavy, flexible or rigid, small or large. Motion in the world of material design is not only beautiful, it builds meaning about the spatial relationships, functionality, and intention of the system.</string>
+
+    <!-- Authentic Motion Fragment -->
+    <string name="fragment_responsive_interaction">Responsive interaction</string>
+    <string name="fragment_responsive_interaction_txt">Responsive interaction builds trust with the user and engages them. When a user interacts with an app and beautiful yet perfectly logical things happen, the user feels satisfied—even delighted. The interaction is thoughtful and purposeful, not random, and can be gently whimsical but never distracting. It encourages deeper exploration of an app. What will happen if I touch this? And then this?</string>
+
+    <!-- Meaningful Transitions Fragment -->
+    <string name="fragment_meaningful_transitions">Meaningful transitions</string>
+    <string name="fragment_meaningful_transitions_txt">Sometimes, it is difficult for a user to know where to look or understand how an element got from point A to point B. Carefully choreographed motion design can effectively guide the user’s attention and focus through multiple steps of a process or procedure, avoid confusion when layouts change or elements are rearranged, and improve the overall beauty of the experience. Motion design should serve a functional purpose.</string>
+
+    <!-- Delightful Details Fragment -->
+    <string name="fragment_delightful_details">Delightful details</string>
+    <string name="fragment_delightful_details_txt">Animation can exist within all components of an app and at all scales, from finely detailed icons to key transitions and actions. All elements work together to construct a seamless experience and a beautiful, functional app.
+        \n\nThe most basic use of animation is in transitions, but an app can truly delight a user when animation is used in ways beyond the obvious. A menu icon that becomes an arrow or playback controls that smoothly change from one to the other serve dual functions: to inform the user and to imbue your app with a moment of wonder and a sense of superb craftsmanship. Users do notice such small details.
     </string>
 
     <!-- Text Fields Fragment -->
