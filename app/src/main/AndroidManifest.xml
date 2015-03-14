@@ -115,7 +115,8 @@
             android:theme="@style/Theme.Teal.Light.NoActionBar.TranslucentStatus"/>
         <activity
             android:name=".ui.activity.SystemIconsActivity"
-            android:theme="@style/Theme.Grey50.Light"/>
+            android:theme="@style/Theme.Grey50.Light"
+            android:parentActivityName=".ui.activity.StyleActivity"/>
         <activity
             android:name=".ui.activity.UsabilityActivity"
             android:theme="@style/Theme.BlueGrey.Light.NoActionBar.TranslucentStatus"/>

@@ -152,6 +152,19 @@
     <!-- Typography Fragment -->
     <string name="fragment_typography">Typography</string>
 
+    <!-- Principles Fragment -->
+    <string name="fragment_principles">Principles</string>
+    <string name="fragment_principles_txt">Material design uses fundamental tools that have come from the world of print design, like baseline grids and a common set of structural grids that work across various pages. The layout is designed to scale across different screen sizes and will help facilitate UI development and ultimately help you create scalable apps.
+        \n\nThe layout guidelines also encourage apps to have a consistent look and feel by using the same visual elements, structural grids, and general spacing rules across platforms and screen sizes. Structural and visual consistency creates an environment for the user that is recognizable across products, which provides users with a high level of familiarity and comfort.
+        \n\nBefore delving into layout details, consider the rules of how the material behaves and how it is crafted.
+    </string>
+
+    <!-- Metrics And Keylines Fragment -->
+    <string name="fragment_metrics_and_keylines">Metrics &amp; keylines</string>
+
+    <!-- Structure Fragment -->
+    <string name="fragment_structure">Structure</string>
+
     <!-- Text Fields Fragment -->
     <string name="fragment_text_fields">Text fields</string>
     <string name="fragment_text_fields_description">Text fields allow the user to input text. They can be single line, with or without scrolling, or multi-line, and can have an icon. Touching a text field places the cursor and automatically displays the keyboard. In addition to typing, text fields allow for a variety of other tasks, such as text selection (cut, copy, paste) and data lookup via auto-completion. See Patterns > Selection for text selection design.\n\nThe type of text field determines what kind of characters are allowed inside the field and may prompt the virtual keyboard to optimize its layout for frequently used characters. Common types for which you should optimize include number, text, email address, phone number, person’s name, username, URL, street address, credit card number, PIN, and search query.</string>

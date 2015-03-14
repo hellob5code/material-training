@@ -5,6 +5,9 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
 import com.training.android.material.ui.fragment.DummyFragment;
+import com.training.android.material.ui.fragment.MetricsAndKeylinesCardFragment;
+import com.training.android.material.ui.fragment.PrinciplesCardFragment;
+import com.training.android.material.ui.fragment.StructureCardFragment;
 import com.training.android.material.ui.tile.Tile;
 
 public class LayoutActivity extends MaterialTrainingNavigationDrawerActivity {
@@ -45,11 +48,11 @@ public class LayoutActivity extends MaterialTrainingNavigationDrawerActivity {
     private Fragment getSelectedFragment(int id) {
         switch (id) {
             case NAVDRAWER_CHILD_PRINCIPLES_ID:
-                return new DummyFragment();
+                return new PrinciplesCardFragment();
             case NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID:
-                return new DummyFragment();
+                return new MetricsAndKeylinesCardFragment();
             case NAVDRAWER_CHILD_STRUCTURE_ID:
-                return new DummyFragment();
+                return new StructureCardFragment();
             default:
                 return null;
         }

@@ -1,6 +1,7 @@
 package com.training.android.material.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +25,11 @@ public class SystemIconsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_icons);
         ButterKnife.inject(this);
+
+        ActionBar toolbar = getSupportActionBar();
+        if (toolbar != null) {
+            toolbar.setDisplayHomeAsUpEnabled(true);
+        }
 
         final List<Tile> dataset = populateDataset();
         GridLayoutManager layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.grid_cell));
