@@ -4,8 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
-import com.training.android.material.ui.fragment.DummyFragment;
-import com.training.android.material.ui.fragment.IntroductionFragment;
+import com.training.android.material.ui.fragment.IntroductionCardFragment;
 import com.training.android.material.ui.tile.Tile;
 
 public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActivity {
@@ -47,7 +46,7 @@ public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActi
     private Fragment getSelectedFragment(int id) {
         switch (id) {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
-                return new IntroductionFragment();
+                return new IntroductionCardFragment();
             default:
                 return null;
         }

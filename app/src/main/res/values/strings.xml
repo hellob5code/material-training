@@ -78,7 +78,7 @@
 
     <!-- Introduction Fragment -->
     <string name="fragment_introduction">Introduction</string>
-    <string name="fragment_introduction_description">We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. This spec is a living document that will be updated as we continue to develop the tenets and specifics of material design.</string>
+    <string name="fragment_introduction_txt">We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. This spec is a living document that will be updated as we continue to develop the tenets and specifics of material design.</string>
     <string name="fragment_introduction_goals">Goals</string>
     <string name="fragment_introduction_goals_txt">Create a visual language that synthesizes classic principles of good design with the innovation and possibility of technology and science.
         \n\nDevelop a single underlying system that allows for a unified experience across platforms and device sizes. Mobile precepts are fundamental, but touch, voice, mouse, and keyboard are all ﬁrst-class input methods.
@@ -95,6 +95,25 @@
         \n\nMotion respects and reinforces the user as the prime mover. Primary user actions are inflection points that initiate motion, transforming the whole design.
         \n\nAll action takes place in a single environment. Objects are presented to the user without breaking the continuity of experience even as they transform and reorganize.
         \n\nMotion is meaningful and appropriate, serving to focus attention and maintain continuity. Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.
+    </string>
+
+    <!-- Environment Fragment -->
+    <string name="fragment_environment">Environment</string>
+    <string name="fragment_environment_3d_world">3D world</string>
+    <string name="fragment_environment_3d_world_txt">The material environment is a 3D space, which means all objects have x, y, and z dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the positive z-axis extending towards the viewer. Every sheet of material occupies a single position along the z-axis and has a standard 1dp thickness.</string>
+    <string name="fragment_environment_light_and_shadow">Light and shadow</string>
+    <string name="fragment_environment_light_and_shadow_txt">Within the material environment, virtual lights illuminate the scene and allow objects to cast shadows. A key light creates directional shadows, while an ambient light creates consistent, soft shadows from all angles.
+        \n\nAll shadows in the material environment are cast by these two light sources. Shadows are the absence of light resulting from the occlusion of these light sources by sheets of material at various positions along the z-axis.
+    </string>
+
+    <!-- Material Properties Fragment -->
+    <string name="fragment_material_properties">Material properties</string>
+    <string name="fragment_material_properties_txt">Material has certain immutable characteristics and inherent behaviors. Understanding these qualities will help you manipulate material in a way that’s consistent with the vision of material design.</string>
+
+    <!-- Material Properties Fragment -->
+    <string name="fragment_objects_in_3d_space">Objects in 3D space</string>
+    <string name="fragment_objects_in_3d_space_txt">There are parallels between organizing objects in the physical world and arranging objects in space in material design. In the physical world, objects can be stacked or affixed to one another, but cannot pass through one another. The objects cast shadows and reflect light.
+        \n\nThese qualities apply to objects in material design and help create a spatial model that can be consistently applied across apps in ways that are familiar to users.
     </string>
 
     <!-- Text Fields Fragment -->

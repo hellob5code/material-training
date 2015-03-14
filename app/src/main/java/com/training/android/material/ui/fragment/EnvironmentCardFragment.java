@@ -12,7 +12,7 @@ import java.util.List;
 
 import static com.training.android.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_2;
 
-public class IntroductionFragment extends CardFragment {
+public class EnvironmentCardFragment extends CardFragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -22,9 +22,9 @@ public class IntroductionFragment extends CardFragment {
 
     private List<Card> populateDataset() {
         List<Card> dataset = new ArrayList<Card>();
-        dataset.add(new HeadlineBodyCard(0, TYPE_PRIMARY_HEADLINE_BODY_2, getString(R.string.fragment_introduction), getString(R.string.fragment_introduction_description)));
-        dataset.add(new HeadlineBodyCard(0, getString(R.string.fragment_introduction_goals), getString(R.string.fragment_introduction_goals_txt)));
-        dataset.add(new HeadlineBodyCard(0, getString(R.string.fragment_introduction_principles), getText(R.string.fragment_introduction_principles_txt)));
+        dataset.add(new HeadlineBodyCard(0, TYPE_PRIMARY_HEADLINE_BODY_2, getString(R.string.fragment_environment), null));
+        dataset.add(new HeadlineBodyCard(0, getString(R.string.fragment_environment_3d_world), getString(R.string.fragment_environment_3d_world_txt)));
+        dataset.add(new HeadlineBodyCard(0, getString(R.string.fragment_environment_light_and_shadow), getString(R.string.fragment_environment_light_and_shadow_txt)));
         return dataset;
     }
 }

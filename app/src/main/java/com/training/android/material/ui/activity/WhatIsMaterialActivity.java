@@ -5,6 +5,9 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
 import com.training.android.material.ui.fragment.DummyFragment;
+import com.training.android.material.ui.fragment.EnvironmentCardFragment;
+import com.training.android.material.ui.fragment.MaterialPropertiesCardFragment;
+import com.training.android.material.ui.fragment.ObjectsIn3dSpaceCardFragment;
 import com.training.android.material.ui.tile.Tile;
 
 public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActivity {
@@ -45,11 +48,11 @@ public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActi
     private Fragment getSelectedFragment(int id) {
         switch (id) {
             case NAVDRAWER_CHILD_ENVIRONMENT_ID:
-                return new DummyFragment();
+                return new EnvironmentCardFragment();
             case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
-                return new DummyFragment();
+                return new MaterialPropertiesCardFragment();
             case NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID:
-                return new DummyFragment();
+                return new ObjectsIn3dSpaceCardFragment();
             default:
                 return null;
         }
