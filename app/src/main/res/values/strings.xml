@@ -76,6 +76,38 @@
     <string name="navdrawer_item_settings">Settings</string>
     <string name="navdrawer_item_developer_mode">Developer Mode</string>
 
+    <!-- Introduction Fragment -->
+    <string name="fragment_introduction">Introduction</string>
+    <string name="fragment_introduction_description">We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. This spec is a living document that will be updated as we continue to develop the tenets and specifics of material design.</string>
+    <string name="fragment_introduction_goals">Goals</string>
+    <string name="fragment_introduction_goals_txt">Create a visual language that synthesizes classic principles of good design with the innovation and possibility of technology and science.
+        \n\nDevelop a single underlying system that allows for a unified experience across platforms and device sizes. Mobile precepts are fundamental, but touch, voice, mouse, and keyboard are all ﬁrst-class input methods.
+    </string>
+    <string name="fragment_introduction_principles">Principles</string>
+    <string name="fragment_introduction_principles_txt"><b>Material is the metaphor</b>
+        \n\nA material metaphor is the unifying theory of a rationalized space and a system of motion. The material is grounded in tactile reality, inspired by the study of paper and ink, yet technologically advanced and open to imagination and magic.
+        \n\nSurfaces and edges of the material provide visual cues that are grounded in reality. The use of familiar tactile attributes helps users quickly understand affordances. Yet the flexibility of the material creates new affordances that supercede those in the physical world, without breaking the rules of physics.
+        \n\nThe fundamentals of light, surface, and movement are key to conveying how objects move, interact, and exist in space and in relation to each other. Realistic lighting shows seams, divides space, and indicates moving parts.
+        \n\n<b>Bold, graphic, intentional</b>
+        \n\nThe foundational elements of print-based design—typography, grids, space, scale, color, and use of imagery—guide visual treatments. These elements do far more than please the eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge-to-edge imagery, large-scale typography, and intentional white space create a bold and graphic interface that immerse the user in the experience.
+        \n\nAn emphasis on user actions makes core functionality immediately apparent and provides waypoints for the user.
+        \n\n<b>Motion provides meaning</b>
+        \n\nMotion respects and reinforces the user as the prime mover. Primary user actions are inflection points that initiate motion, transforming the whole design.
+        \n\nAll action takes place in a single environment. Objects are presented to the user without breaking the continuity of experience even as they transform and reorganize.
+        \n\nMotion is meaningful and appropriate, serving to focus attention and maintain continuity. Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.
+    </string>
+
+    <!-- Text Fields Fragment -->
+    <string name="fragment_text_fields">Text fields</string>
+    <string name="fragment_text_fields_description">Text fields allow the user to input text. They can be single line, with or without scrolling, or multi-line, and can have an icon. Touching a text field places the cursor and automatically displays the keyboard. In addition to typing, text fields allow for a variety of other tasks, such as text selection (cut, copy, paste) and data lookup via auto-completion. See Patterns > Selection for text selection design.\n\nThe type of text field determines what kind of characters are allowed inside the field and may prompt the virtual keyboard to optimize its layout for frequently used characters. Common types for which you should optimize include number, text, email address, phone number, person’s name, username, URL, street address, credit card number, PIN, and search query.</string>
+    <string name="fragment_text_fields_single_line_text_field">Single-line text field</string>
+    <string name="fragment_text_fields_floating_labels">Floating labels</string>
+    <string name="fragment_text_fields_multi_line_text_field">Multi-line text field</string>
+    <string name="fragment_text_fields_full_width_text_field">Full-width text field</string>
+    <string name="fragment_text_fields_character_counter">Character counter</string>
+    <string name="fragment_text_fields_auto_complete_text_field">Auto-complete text field</string>
+    <string name="fragment_text_fields_search_filter">Search filter</string>
+
     <!-- Compose Email Activity -->
     <string name="title_activity_compose_email">Compose</string>
     <string name="compose_email_hint_from">From</string>
