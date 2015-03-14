@@ -79,7 +79,7 @@ public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity
             case NAVDRAWER_CHILD_TABS_ID:
                 return new TabsRecyclerFragment();
             case NAVDRAWER_CHILD_TEXT_FIELDS_ID:
-                return new TextFieldsRecyclerFragment();
+                return new TextFieldsCardFragment();
             case NAVDRAWER_CHILD_TOOLTIPS_ID:
                 return new DummyFragment();
             default:

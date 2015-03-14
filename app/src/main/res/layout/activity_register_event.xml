@@ -11,10 +11,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <FullwidthEditText
-            android:id="@+id/register_event_edt_email"
+        <Spinner
+            android:id="@+id/register_event_spi_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="@dimen/touch_target_56dp"
             android:layout_marginEnd="@dimen/keyline_1"
             android:layout_marginStart="@dimen/keyline_1"
             tools:text="email@mail.com"/>
@@ -32,6 +33,7 @@
             android:hint="@string/register_event_hint_event_name"
             android:inputType="textCapWords"
             android:singleLine="true"
+            app:floatingLabel="true"
             app:backgroundColor="?attr/colorPrimary"/>
 
         <MaterialEditText

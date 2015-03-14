@@ -1,5 +1,6 @@
 package com.training.android.material.ui.activity;
 
+import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -8,6 +9,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.StateSet;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +30,7 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public class RegisterContactActivity extends ActionBarActivity {
 
+    @InjectView(R.id.register_contact_img_photo) ImageView imgPhoto;
     @InjectView(R.id.register_contact_edt_phone_type) MaterialEditText edtPhoneType;
     @InjectView(R.id.register_contact_edt_email_type) MaterialEditText edtEmailType;
     @InjectView(R.id.register_contact_edt_address_type) MaterialEditText edtAddressType;
@@ -43,11 +46,19 @@ public class RegisterContactActivity extends ActionBarActivity {
             toolbar.setDisplayHomeAsUpEnabled(true);
         }
 
+        setupPhotoView();
         setupDropdownViews();
 
         edtPhoneType.setText(WordUtils.capitalizeFully(Contact.PhoneType.MOBILE.toString()));
         edtEmailType.setText(WordUtils.capitalizeFully(Contact.EmailType.HOME.toString()));
         edtAddressType.setText(WordUtils.capitalizeFully(Contact.AddressType.HOME.name()));
+    }
+
+    private void setupPhotoView() {
+        Display display = getWindowManager().getDefaultDisplay();
+        Point displaySize = new Point();
+        display.getSize(displaySize);
+        imgPhoto.getLayoutParams().height = (int) (displaySize.x / 1.77f);
     }
 
     private void setupDropdownViews() {
@@ -91,17 +102,17 @@ public class RegisterContactActivity extends ActionBarActivity {
     }
 
     @OnClick(R.id.register_contact_edt_phone_type)
-    protected void onPhoneTypeEditTextClick(View v) {
+    protected void onPhoneTypeEditTextClicked(View v) {
         makePopup((TextView) v, EnumUtils.capitalizedFullyNames(Contact.PhoneType.class)).show();
     }
 
     @OnClick(R.id.register_contact_edt_email_type)
-    protected void onEmailTypeEditTextClick(View v) {
+    protected void onEmailTypeEditTextClicked(View v) {
         makePopup((TextView) v, EnumUtils.capitalizedFullyNames(Contact.EmailType.class)).show();
     }
 
     @OnClick(R.id.register_contact_edt_address_type)
-    protected void onAddressTypeEditTextClick(View v) {
+    protected void onAddressTypeEditTextClicked(View v) {
         makePopup((TextView) v, EnumUtils.capitalizedFullyNames(Contact.AddressType.class)).show();
     }
 

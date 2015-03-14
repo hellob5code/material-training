@@ -13,8 +13,8 @@ import android.util.StateSet;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.FullwidthEditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import butterknife.*;
 import android.widget.MaterialEditText;
@@ -37,7 +37,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
     private static final String TAG_TO_DATE_PICKER = "to_date_picker";
     private static final String TAG_TO_TIME_PICKER = "to_time_picker";
 
-    @InjectView(R.id.register_event_edt_email) FullwidthEditText edtEmail;
+    @InjectView(R.id.register_event_spi_email) Spinner spiEmail;
     @InjectView(R.id.register_event_edt_name) MaterialEditText edtName;
     @InjectView(R.id.register_event_edt_location) MaterialEditText edtLocation;
     @InjectView(R.id.register_event_edt_from_date) MaterialEditText edtFromDate;
@@ -46,19 +46,19 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
     @InjectView(R.id.register_event_edt_to_time) MaterialEditText edtToTime;
     @InjectView(R.id.register_event_edt_timezone) MaterialEditText edtTimezone;
 
-    private DateTimeFormatter mDateFormatter;
-    private DateTimeFormatter mTimeFormatter;
+    private DateTimeFormatter dateFormatter;
+    private DateTimeFormatter timeFormatter;
 
-    private DateTime mFromDateTime = new DateTime();
-    private DateTime mToDateTime = new DateTime().plusHours(1);
+    private DateTime fromDateTime = new DateTime();
+    private DateTime toDateTime = new DateTime().plusHours(1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_event);
 
-        mDateFormatter = DateTimeFormat.forPattern("E, MMM d y");
-        mTimeFormatter = DateTimeFormat.forPattern("h:mm a");
+        dateFormatter = DateTimeFormat.forPattern("E, MMM d y");
+        timeFormatter = DateTimeFormat.forPattern("h:mm a");
 
         ButterKnife.inject(this);
         ActionBar toolbar = getSupportActionBar();
@@ -67,35 +67,19 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
             toolbar.setDisplayHomeAsUpEnabled(true);
         }
 
-        setupAccountViews();
+        setupAccountView();
         setupDropdownViews();
-        setupTimezoneViews();
+        setupTimezoneView();
 
-        edtFromDate.setText(mDateFormatter.print(mFromDateTime));
-        edtFromTime.setText(mTimeFormatter.print(mFromDateTime));
+        edtFromDate.setText(dateFormatter.print(fromDateTime));
+        edtFromTime.setText(timeFormatter.print(fromDateTime));
 
-        edtToDate.setText(mDateFormatter.print(mToDateTime));
-        edtToTime.setText(mTimeFormatter.print(mToDateTime));
+        edtToDate.setText(dateFormatter.print(toDateTime));
+        edtToTime.setText(timeFormatter.print(toDateTime));
     }
 
-    private void setupAccountViews() {
+    private void setupAccountView() {
         // TODO:
-        Drawable arrow;
-        StateListDrawable arrowSelector = new StateListDrawable();
-
-        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_black_24dp);
-        arrow.mutate().setColorFilter(ThemeUtils.obtainColorPrimary(this), PorterDuff.Mode.SRC_ATOP);
-        arrowSelector.addState(new int[]{ android.R.attr.state_pressed }, arrow);
-        arrowSelector.addState(new int[]{ android.R.attr.state_focused }, arrow);
-
-        arrow = getResources().getDrawable(R.drawable.ic_arrow_drop_down_grey600_24dp);
-        arrowSelector.addState(StateSet.WILD_CARD, arrow);
-
-        edtEmail.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, arrowSelector.getConstantState().newDrawable(), null);
-
-        // Adjust padding due to drawable bounds
-        int dimen_16dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
-        edtEmail.setBasePadding(0, dimen_16dp, 0, dimen_16dp);
     }
 
     private void setupDropdownViews() {
@@ -123,7 +107,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         edtTimezone.setFocusableInTouchMode(false);
     }
 
-    private void setupTimezoneViews() {
+    private void setupTimezoneView() {
         // TODO:
     }
 
@@ -164,45 +148,45 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable("from_datetime", mFromDateTime);
-        outState.putSerializable("to_datetime", mToDateTime);
+        outState.putSerializable("from_datetime", fromDateTime);
+        outState.putSerializable("to_datetime", toDateTime);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mFromDateTime = (DateTime) savedInstanceState.getSerializable("from_datetime");
-        mToDateTime = (DateTime) savedInstanceState.getSerializable("to_datetime");
+        fromDateTime = (DateTime) savedInstanceState.getSerializable("from_datetime");
+        toDateTime = (DateTime) savedInstanceState.getSerializable("to_datetime");
     }
 
     @OnClick(R.id.register_event_edt_from_date)
-    protected void onFromDateEditTextClick() {
+    protected void onFromDateEditTextClicked() {
         if (getSupportFragmentManager().findFragmentByTag(TAG_FROM_DATE_PICKER) == null) {
-            DialogFragment newFragment = newDatePickerDialogFragment(mFromDateTime);
+            DialogFragment newFragment = newDatePickerDialogFragment(fromDateTime);
             newFragment.show(getSupportFragmentManager(), TAG_FROM_DATE_PICKER);
         }
     }
 
     @OnClick(R.id.register_event_edt_from_time)
-    protected void onFromTimeEditTextClick() {
+    protected void onFromTimeEditTextClicked() {
         if (getSupportFragmentManager().findFragmentByTag(TAG_FROM_TIME_PICKER) == null) {
-            DialogFragment newFragment = newTimePickerDialogFragment(mFromDateTime);
+            DialogFragment newFragment = newTimePickerDialogFragment(fromDateTime);
             newFragment.show(getSupportFragmentManager(), TAG_FROM_TIME_PICKER);
         }
     }
 
     @OnClick(R.id.register_event_edt_to_date)
-    protected void onToDateEditTextClick() {
+    protected void onToDateEditTextClicked() {
         if (getSupportFragmentManager().findFragmentByTag(TAG_TO_DATE_PICKER) == null) {
-            DialogFragment newFragment = newDatePickerDialogFragment(mToDateTime);
+            DialogFragment newFragment = newDatePickerDialogFragment(toDateTime);
             newFragment.show(getSupportFragmentManager(), TAG_TO_DATE_PICKER);
         }
     }
 
     @OnClick(R.id.register_event_edt_to_time)
-    protected void onToTimeEditTextClick() {
+    protected void onToTimeEditTextClicked() {
         if (getSupportFragmentManager().findFragmentByTag(TAG_TO_TIME_PICKER) == null) {
-            DialogFragment newFragment = newTimePickerDialogFragment(mToDateTime);
+            DialogFragment newFragment = newTimePickerDialogFragment(toDateTime);
             newFragment.show(getSupportFragmentManager(), TAG_TO_TIME_PICKER);
         }
     }
@@ -235,21 +219,21 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
     }
 
     @OnClick(R.id.register_event_edt_timezone)
-    protected void onTimezoneEditTextClick() {
+    protected void onTimezoneEditTextClicked() {
         Log.d(TAG, "register_event_edt_timezone");
     }
 
     @Override
     public void onDateSet(DatePickerDialogFragment fragment, int year, int monthOfYear, int dayOfMonth) {
         Object tag = fragment.getTag();
-        String dateString = mDateFormatter.print(new DateTime(year, monthOfYear + 1, dayOfMonth, 0, 0, 0));
+        String dateString = dateFormatter.print(new DateTime(year, monthOfYear + 1, dayOfMonth, 0, 0, 0));
 
         if (tag.equals(TAG_FROM_DATE_PICKER)) {
-            mFromDateTime = copyDate(mFromDateTime, year, monthOfYear, dayOfMonth);
+            fromDateTime = copyDate(fromDateTime, year, monthOfYear, dayOfMonth);
             edtFromDate.setText(dateString);
 
         } else if (tag.equals(TAG_TO_DATE_PICKER)) {
-            mToDateTime = copyDate(mToDateTime, year, monthOfYear, dayOfMonth);
+            toDateTime = copyDate(toDateTime, year, monthOfYear, dayOfMonth);
             edtToDate.setText(dateString);
         }
     }
@@ -257,14 +241,14 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
     @Override
     public void onTimeSet(TimePickerDialogFragment fragment, int hourOfDay, int minute) {
         Object tag = fragment.getTag();
-        String timeString = mTimeFormatter.print(new DateTime(0, 1, 1, hourOfDay, minute, 0));
+        String timeString = timeFormatter.print(new DateTime(0, 1, 1, hourOfDay, minute, 0));
 
         if (tag.equals(TAG_FROM_TIME_PICKER)) {
-            mFromDateTime = copyTime(mFromDateTime, hourOfDay, minute);
+            fromDateTime = copyTime(fromDateTime, hourOfDay, minute);
             edtFromTime.setText(timeString);
 
         } else if (tag.equals(TAG_TO_TIME_PICKER)) {
-            mToDateTime = copyTime(mToDateTime, hourOfDay, minute);
+            toDateTime = copyTime(toDateTime, hourOfDay, minute);
             edtToTime.setText(timeString);
         }
     }

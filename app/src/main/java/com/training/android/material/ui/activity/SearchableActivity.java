@@ -40,8 +40,10 @@ public class SearchableActivity extends ActionBarActivity {
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName())); // Assumes current activity is the searchable activity
-        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        // Do not iconify the widget; expand it by default
+        searchView.setIconifiedByDefault(false);
 
         searchView.setQueryHint(getString(R.string.searchable_hint_search, "stuff"));
 
