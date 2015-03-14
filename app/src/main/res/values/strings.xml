@@ -134,6 +134,24 @@
         \n\nThe most basic use of animation is in transitions, but an app can truly delight a user when animation is used in ways beyond the obvious. A menu icon that becomes an arrow or playback controls that smoothly change from one to the other serve dual functions: to inform the user and to imbue your app with a moment of wonder and a sense of superb craftsmanship. Users do notice such small details.
     </string>
 
+    <!-- Color Fragment -->
+    <string name="fragment_color">Color</string>
+    <string name="fragment_color_txt">Color is inspired by bold color statements juxtaposed with muted environments, taking cues from contemporary architecture, road signs, pavement marking tape, and sports courts. Emphasize bold shadows and highlights. Introduce unexpected and vibrant colors.</string>
+
+    <!-- Icons Fragment -->
+    <string name="fragment_icons">Icons</string>
+    <string name="fragment_icons_product_icons">Product icons</string>
+    <string name="fragment_icons_system_icons">System icons</string>
+
+    <!-- Imagery Fragment -->
+    <string name="fragment_imagery">Imagery</string>
+    <string name="fragment_imagery_txt">Imagery is more than decoration. It’s a powerful tool to help you communicate and differentiate your product. Bold, graphic, and intentional imagery helps to engage the user.
+        \n\nWhether the mood is subdued and muted or bright and colorful, the following principles and best practices can help you successfully incorporate imagery and bring your apps to life, no matter what the visual brand.
+    </string>
+
+    <!-- Typography Fragment -->
+    <string name="fragment_typography">Typography</string>
+
     <!-- Text Fields Fragment -->
     <string name="fragment_text_fields">Text fields</string>
     <string name="fragment_text_fields_description">Text fields allow the user to input text. They can be single line, with or without scrolling, or multi-line, and can have an icon. Touching a text field places the cursor and automatically displays the keyboard. In addition to typing, text fields allow for a variety of other tasks, such as text selection (cut, copy, paste) and data lookup via auto-completion. See Patterns > Selection for text selection design.\n\nThe type of text field determines what kind of characters are allowed inside the field and may prompt the virtual keyboard to optimize its layout for frequently used characters. Common types for which you should optimize include number, text, email address, phone number, person’s name, username, URL, street address, credit card number, PIN, and search query.</string>

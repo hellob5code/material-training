@@ -4,8 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
-import com.training.android.material.ui.fragment.DummyFragment;
-import com.training.android.material.ui.fragment.IconsFragment;
+import com.training.android.material.ui.fragment.*;
 import com.training.android.material.ui.tile.Tile;
 
 public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
@@ -45,13 +44,13 @@ public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
     private Fragment getSelectedFragment(int id) {
         switch (id) {
             case NAVDRAWER_CHILD_COLOR_ID:
-                return new DummyFragment();
+                return new ColorCardFragment();
             case NAVDRAWER_CHILD_ICONS_ID:
-                return new IconsFragment();
+                return new IconsCardFragment();
             case NAVDRAWER_CHILD_IMAGERY_ID:
-                return new DummyFragment();
+                return new ImageryCardFragment();
             case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
-                return new DummyFragment();
+                return new TypographyCardFragment();
             default:
                 return null;
         }
