@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
+import com.training.android.material.persistence.preference.AppPrefs;
 import com.training.android.material.ui.fragment.DataFormatsFragment;
 import com.training.android.material.ui.fragment.DummyFragment;
 import com.training.android.material.ui.fragment.ErrorsFragment;
@@ -36,40 +37,55 @@ public class PatternsActivity extends MaterialTrainingNavigationDrawerActivity {
     @Override
     protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
-        if (getSelectedFragment(id) != null) {
+        Fragment fragment = getSelectedFragment(id);
+        if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, getSelectedFragment(id)).commit();
+            ft.replace(R.id.content, fragment).commit();
             return true;
         }
         return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {
+        Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_DATA_FORMATS_ID:
-                return new DataFormatsFragment();
+                fragment = new DataFormatsFragment();
+                break;
             case NAVDRAWER_CHILD_ERRORS_ID:
-                return new ErrorsFragment();
+                fragment = new ErrorsFragment();
+                break;
             case NAVDRAWER_CHILD_GESTURES_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_LOADING_IMAGES_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SEARCH_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SELECTION_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SETTINGS_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID:
-                return new DummyFragment();
-            default:
-                return null;
+                fragment = new DummyFragment();
+                break;
         }
+        if (fragment != null) {
+            AppPrefs.putLastVisitedChildId(this, id);
+        }
+        return fragment;
     }
 }

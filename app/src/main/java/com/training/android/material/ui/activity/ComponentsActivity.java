@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
+import com.training.android.material.persistence.preference.AppPrefs;
 import com.training.android.material.ui.fragment.*;
 import com.training.android.material.ui.tile.Tile;
 
@@ -34,56 +35,79 @@ public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity
     @Override
     protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
-        if (getSelectedFragment(id) != null) {
+        Fragment fragment = getSelectedFragment(id);
+        if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, getSelectedFragment(id)).commit();
+            ft.replace(R.id.content, fragment).commit();
             return true;
         }
         return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {
+        Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
-                return new BottomSheetsFragment();
+                fragment =  new BottomSheetsFragment();
+                break;
             case NAVDRAWER_CHILD_BUTTONS_ID:
-                return new ButtonsRecyclerFragment();
+                fragment =  new ButtonsRecyclerFragment();
+                break;
             case NAVDRAWER_CHILD_CARDS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_CHIPS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_DIALOGS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_DIVIDERS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_GRIDS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_LISTS_ID:
-                return new ListsFragment();
+                fragment =  new ListsFragment();
+                break;
             case NAVDRAWER_CHILD_LIST_CONTROLS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_MENUS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_PICKERS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SLIDERS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SUBHEADERS_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_SWITCHES_ID:
-                return new DummyFragment();
+                fragment =  new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_TABS_ID:
-                return new TabsRecyclerFragment();
+                fragment =  new TabsRecyclerFragment();
+                break;
             case NAVDRAWER_CHILD_TEXT_FIELDS_ID:
-                return new TextFieldsCardFragment();
+                fragment =  new TextFieldsCardFragment();
+                break;
             case NAVDRAWER_CHILD_TOOLTIPS_ID:
-                return new DummyFragment();
-            default:
-                return null;
+                fragment = new DummyFragment();
+                break;
         }
+        if (fragment != null) {
+            AppPrefs.putLastVisitedChildId(this, id);
+        }
+        return fragment;
     }
 }

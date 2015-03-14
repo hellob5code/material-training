@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
+import com.training.android.material.persistence.preference.AppPrefs;
 import com.training.android.material.ui.fragment.DummyFragment;
 import com.training.android.material.ui.tile.Tile;
 
@@ -34,26 +35,34 @@ public class ResourcesActivity extends MaterialTrainingNavigationDrawerActivity 
     @Override
     protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
-        if (getSelectedFragment(id) != null) {
+        Fragment fragment = getSelectedFragment(id);
+        if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, getSelectedFragment(id)).commit();
+            ft.replace(R.id.content, fragment).commit();
             return true;
         }
         return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {
+        Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_COLOR_PALETTES_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_LAYOUT_TEMPLATES_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_ROBOTO_AND_NOTO_FONTS_ID:
-                return new DummyFragment();
+                fragment = new DummyFragment();
+                break;
             case NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID:
-                return new DummyFragment();
-            default:
-                return null;
+                fragment = new DummyFragment();
+                break;
         }
+        if (fragment != null) {
+            AppPrefs.putLastVisitedChildId(this, id);
+        }
+        return fragment;
     }
 }

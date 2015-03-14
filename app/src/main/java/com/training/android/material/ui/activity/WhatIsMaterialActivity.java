@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
+import com.training.android.material.persistence.preference.AppPrefs;
 import com.training.android.material.ui.fragment.DummyFragment;
 import com.training.android.material.ui.fragment.EnvironmentCardFragment;
 import com.training.android.material.ui.fragment.MaterialPropertiesCardFragment;
@@ -37,24 +38,31 @@ public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActi
     @Override
     protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
-        if (getSelectedFragment(id) != null) {
+        Fragment fragment = getSelectedFragment(id);
+        if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, getSelectedFragment(id)).commit();
+            ft.replace(R.id.content, fragment).commit();
             return true;
         }
         return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {
+        Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_ENVIRONMENT_ID:
-                return new EnvironmentCardFragment();
+                fragment = new EnvironmentCardFragment();
+                break;
             case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
-                return new MaterialPropertiesCardFragment();
+                fragment = new MaterialPropertiesCardFragment();
+                break;
             case NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID:
-                return new ObjectsIn3dSpaceCardFragment();
-            default:
-                return null;
+                fragment = new ObjectsIn3dSpaceCardFragment();
+                break;
         }
+        if (fragment != null) {
+            AppPrefs.putLastVisitedChildId(this, id);
+        }
+        return fragment;
     }
 }

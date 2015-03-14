@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
+import com.training.android.material.persistence.preference.AppPrefs;
 import com.training.android.material.ui.fragment.IntroductionCardFragment;
 import com.training.android.material.ui.tile.Tile;
 
@@ -14,7 +15,6 @@ public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setSelectedNavigationDrawerItemId(NAVDRAWER_CHILD_INTRODUCTION_ID);
         if (savedInstanceState == null) {
             int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_INTRODUCTION_ID);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -35,20 +35,25 @@ public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActi
     @Override
     protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
-        if (getSelectedFragment(id) != null) {
+        Fragment fragment = getSelectedFragment(id);
+        if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, getSelectedFragment(id)).commit();
+            ft.replace(R.id.content, fragment).commit();
             return true;
         }
         return super.goToNavigationDrawerItem(item);
     }
 
     private Fragment getSelectedFragment(int id) {
+        Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
-                return new IntroductionCardFragment();
-            default:
-                return null;
+                fragment = new IntroductionCardFragment();
+                break;
         }
+        if (fragment != null) {
+            AppPrefs.putLastVisitedChildId(this, id);
+        }
+        return fragment;
     }
 }
