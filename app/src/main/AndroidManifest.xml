@@ -119,6 +119,7 @@
         <activity
             android:name=".ui.activity.SystemIconsActivity"
             android:theme="@style/Theme.Grey50.Light"
+            android:label="@string/title_activity_system_icons"
             android:parentActivityName=".ui.activity.StyleActivity"/>
         <activity
             android:name=".ui.activity.UsabilityActivity"

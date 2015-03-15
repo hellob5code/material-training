@@ -423,6 +423,9 @@
     <!-- Settings Activity -->
     <string name="title_activity_settings">Settings</string>
 
+    <!-- System Icons Activity -->
+    <string name="title_activity_system_icons">System icons</string>
+
     <!-- Tabs Activity -->
     <string name="title_activity_tabs">Page title</string>
 
