@@ -48,61 +48,61 @@ public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity
         Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
-                fragment =  new BottomSheetsFragment();
+                fragment = new BottomSheetsCardFragment();
                 break;
             case NAVDRAWER_CHILD_BUTTONS_ID:
-                fragment =  new ButtonsRecyclerFragment();
+                fragment = new ButtonsCardFragment();
                 break;
             case NAVDRAWER_CHILD_CARDS_ID:
-                fragment =  new DummyFragment();
+                fragment = new CardsCardFragment();
                 break;
             case NAVDRAWER_CHILD_CHIPS_ID:
-                fragment =  new DummyFragment();
+                fragment = new ChipsCardFragment();
                 break;
             case NAVDRAWER_CHILD_DIALOGS_ID:
-                fragment =  new DummyFragment();
+                fragment = new DialogsCardFragment();
                 break;
             case NAVDRAWER_CHILD_DIVIDERS_ID:
-                fragment =  new DummyFragment();
+                fragment = new DividersCardFragment();
                 break;
             case NAVDRAWER_CHILD_GRIDS_ID:
-                fragment =  new DummyFragment();
+                fragment = new GridsCardFragment();
                 break;
             case NAVDRAWER_CHILD_LISTS_ID:
-                fragment =  new ListsFragment();
+                fragment = new ListsCardFragment();
                 break;
             case NAVDRAWER_CHILD_LIST_CONTROLS_ID:
-                fragment =  new DummyFragment();
+                fragment = new ListControlsCardFragment();
                 break;
             case NAVDRAWER_CHILD_MENUS_ID:
-                fragment =  new DummyFragment();
+                fragment = new MenusCardFragment();
                 break;
             case NAVDRAWER_CHILD_PICKERS_ID:
-                fragment =  new DummyFragment();
+                fragment = new PickersCardFragment();
                 break;
             case NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID:
-                fragment =  new DummyFragment();
+                fragment = new ProgressAndActivityCardFragment();
                 break;
             case NAVDRAWER_CHILD_SLIDERS_ID:
-                fragment =  new DummyFragment();
+                fragment = new SlidersCardFragment();
                 break;
             case NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID:
-                fragment =  new DummyFragment();
+                fragment = new SnackbarsAndToastsCardFragment();
                 break;
             case NAVDRAWER_CHILD_SUBHEADERS_ID:
-                fragment =  new DummyFragment();
+                fragment = new SubheadersCardFragment();
                 break;
             case NAVDRAWER_CHILD_SWITCHES_ID:
-                fragment =  new DummyFragment();
+                fragment = new SwitchesCardFragment();
                 break;
             case NAVDRAWER_CHILD_TABS_ID:
-                fragment =  new TabsRecyclerFragment();
+                fragment = new TabsCardFragment();
                 break;
             case NAVDRAWER_CHILD_TEXT_FIELDS_ID:
-                fragment =  new TextFieldsCardFragment();
+                fragment = new TextFieldsCardFragment();
                 break;
             case NAVDRAWER_CHILD_TOOLTIPS_ID:
-                fragment = new DummyFragment();
+                fragment = new TooltipsCardFragment();
                 break;
         }
         if (fragment != null) {

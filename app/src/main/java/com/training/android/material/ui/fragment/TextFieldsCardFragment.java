@@ -24,7 +24,7 @@ public class TextFieldsCardFragment extends CardFragment {
 
     private List<Card> populateDataset() {
         List<Card> dataset = new ArrayList<Card>();
-        dataset.add(new HeadlineBodyCard(0, TYPE_PRIMARY_HEADLINE_BODY_2, getString(R.string.fragment_text_fields), getString(R.string.fragment_text_fields_description)));
+        dataset.add(new HeadlineBodyCard(0, TYPE_PRIMARY_HEADLINE_BODY_2, getString(R.string.fragment_text_fields), getString(R.string.fragment_text_fields_txt)));
         dataset.add(new HeadlineBodyThreeButtonCard(0, getString(R.string.fragment_text_fields_single_line_text_field), null,
                 "Example #1",
                 "#2",
