@@ -48,10 +48,10 @@ public class UsabilityActivity extends MaterialTrainingNavigationDrawerActivity 
         Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
-                fragment = new DummyFragment();
+                fragment = new AccessibilityCardFragment();
                 break;
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
-                fragment = new DummyFragment();
+                fragment = new BidirectionalityCardFragment();
                 break;
         }
         if (fragment != null) {
