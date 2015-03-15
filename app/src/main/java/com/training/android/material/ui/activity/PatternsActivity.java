@@ -5,9 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
 import com.training.android.material.persistence.preference.AppPrefs;
-import com.training.android.material.ui.fragment.DataFormatsFragment;
-import com.training.android.material.ui.fragment.DummyFragment;
-import com.training.android.material.ui.fragment.ErrorsFragment;
+import com.training.android.material.ui.fragment.*;
 import com.training.android.material.ui.tile.Tile;
 
 public class PatternsActivity extends MaterialTrainingNavigationDrawerActivity {
@@ -50,37 +48,37 @@ public class PatternsActivity extends MaterialTrainingNavigationDrawerActivity {
         Fragment fragment = null;
         switch (id) {
             case NAVDRAWER_CHILD_DATA_FORMATS_ID:
-                fragment = new DataFormatsFragment();
+                fragment = new DataFormatsCardFragment();
                 break;
             case NAVDRAWER_CHILD_ERRORS_ID:
-                fragment = new ErrorsFragment();
+                fragment = new ErrorsCardFragment();
                 break;
             case NAVDRAWER_CHILD_GESTURES_ID:
-                fragment = new DummyFragment();
+                fragment = new GesturesCardFragment();
                 break;
             case NAVDRAWER_CHILD_LOADING_IMAGES_ID:
-                fragment = new DummyFragment();
+                fragment = new LoadingImagesCardFragment();
                 break;
             case NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID:
-                fragment = new DummyFragment();
+                fragment = new NavigationDrawerCardFragment();
                 break;
             case NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID:
-                fragment = new DummyFragment();
+                fragment = new NavigationalTransitionsCardFragment();
                 break;
             case NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID:
-                fragment = new DummyFragment();
+                fragment = new ScrollingTechniquesCardFragment();
                 break;
             case NAVDRAWER_CHILD_SEARCH_ID:
-                fragment = new DummyFragment();
+                fragment = new SearchCardFragment();
                 break;
             case NAVDRAWER_CHILD_SELECTION_ID:
-                fragment = new DummyFragment();
+                fragment = new SelectionCardFragment();
                 break;
             case NAVDRAWER_CHILD_SETTINGS_ID:
-                fragment = new DummyFragment();
+                fragment = new SettingsCardFragment();
                 break;
             case NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID:
-                fragment = new DummyFragment();
+                fragment = new SwipeToRefreshCardFragment();
                 break;
         }
         if (fragment != null) {
