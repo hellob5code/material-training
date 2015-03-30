@@ -180,6 +180,12 @@
         \n\nIn addition, fully saturated icons in your design generally always denote affordances.
         \n\nButtons should be designed in accordance with your app’s color theme.
     </string>
+    <string name="fragment_buttons_buttons_in_dialogs">Buttons in dialogs</string>
+    <string name="fragment_buttons_buttons_inline">Buttons inline</string>
+    <string name="fragment_buttons_persistent_footer_buttons">Persistent footer buttons</string>
+    <string name="fragment_buttons_raised_buttons">Raised buttons</string>
+    <string name="fragment_buttons_flat_buttons">Flat buttons</string>
+    <string name="fragment_buttons_floating_action_button">Floating action button</string>
 
     <!-- Cards Fragment -->
     <string name="fragment_cards">Cards</string>
