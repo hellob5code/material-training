@@ -1,15 +1,5 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.14.2'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.14.1'
-    }
-}
-
 apply plugin: 'com.android.application'
-apply plugin: 'robolectric'
+apply plugin: 'org.robolectric'
 
 android {
     compileSdkVersion 21
