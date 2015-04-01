@@ -16,7 +16,7 @@ public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, -1);
+            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_BOTTOM_SHEETS_ID);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.content, getSelectedFragment(id)).commit();
         }

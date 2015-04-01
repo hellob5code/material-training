@@ -1,0 +1,34 @@
+package com.training.android.material.matcher;
+
+import android.support.test.espresso.matcher.BoundedMatcher;
+import com.training.android.material.ui.tile.NavigationDrawerChild;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+
+import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
+import static org.hamcrest.Matchers.equalTo;
+
+public class CustomMatchers {
+
+    public static Matcher<Object> withNavigationDrawerChildText(String expectedText) {
+        checkNotNull(expectedText);
+        return withNavigationDrawerChildText(equalTo(expectedText));
+    }
+
+    public static Matcher<Object> withNavigationDrawerChildText(final Matcher<String> itemTextMatcher) {
+        checkNotNull(itemTextMatcher);
+        return new BoundedMatcher<Object, NavigationDrawerChild>(NavigationDrawerChild.class) {
+            @Override
+            public boolean matchesSafely(NavigationDrawerChild child) {
+                return itemTextMatcher.matches(child.getText());
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("(text is equals to ");
+                itemTextMatcher.describeTo(description);
+                description.appendText(")");
+            }
+        };
+    }
+}

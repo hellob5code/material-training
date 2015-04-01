@@ -16,8 +16,7 @@ import android.widget.*;
 import com.training.android.material.R;
 import com.training.android.material.ui.listcontrol.IconListControl;
 import com.training.android.material.ui.listcontrol.ListControl;
-import com.training.android.material.ui.tile.Tile;
-import com.training.android.material.ui.tile.SingleLineListTile;
+import com.training.android.material.ui.tile.*;
 import com.training.android.material.util.ThemeUtils;
 
 import java.util.ArrayList;
@@ -102,6 +101,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     }
 
     private void setupActionBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getDrawerLayout().isDrawerOpen(Gravity.START)) {
             getSupportActionBar().setTitle(getNavigationDrawerOpenedTitle());
         } else {
@@ -287,61 +287,6 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         return addGroup(new NavigationDrawerItem(id, text, primary, secondary));
     }
 
-    protected static class NavigationDrawerChild extends SingleLineListTile {
-        int parentId = NAVDRAWER_ITEM_INVALID;
-
-        public NavigationDrawerChild(int id, String text) {
-            super(id, text);
-        }
-
-        public NavigationDrawerChild(int parentId, int id, String text) {
-            super(id, text);
-            this.parentId = parentId;
-        }
-
-        public int getParentId() {
-            return parentId;
-        }
-    }
-
-    protected static class NavigationDrawerGroup extends SingleLineListTile {
-        List<NavigationDrawerChild> children = new ArrayList<NavigationDrawerChild>();
-
-        public NavigationDrawerGroup(int id, String text, ListControl primary, ListControl secondary) {
-            super(id, text, primary, secondary);
-        }
-
-        public boolean isItem() {
-            return false;
-        }
-
-        public List<NavigationDrawerChild> getChildren() {
-            return children;
-        }
-
-        private NavigationDrawerGroup addChild(NavigationDrawerChild child) {
-            child.parentId = id;
-            children.add(child);
-            return this;
-        }
-
-        protected NavigationDrawerGroup addChild(int id, String text) {
-            return addChild(new NavigationDrawerChild(id, text));
-        }
-    }
-
-    protected static class NavigationDrawerItem extends NavigationDrawerGroup {
-
-        public NavigationDrawerItem(int id, String text, ListControl primary, ListControl secondary) {
-            super(id, text, primary, secondary);
-        }
-
-        @Override
-        public boolean isItem() {
-            return true;
-        }
-    }
-
     private class NavigationDrawerExpandableListAdapter extends BaseExpandableListAdapter {
 
         private List<NavigationDrawerGroup> items;
@@ -352,14 +297,14 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
 
         @Override
         public int getChildrenCount(int groupPosition) {
-            return items.get(groupPosition).children.size();
+            return items.get(groupPosition).getChildren().size();
         }
 
         @Override
         public NavigationDrawerChild getChild(int groupPosition, int childPosition) {
             NavigationDrawerGroup group = getGroup(groupPosition);
-            if (group.children != null && !group.children.isEmpty()) {
-                return group.children.get(childPosition);
+            if (group.getChildren() != null && !group.getChildren().isEmpty()) {
+                return group.getChildren().get(childPosition);
             }
             return null;
         }

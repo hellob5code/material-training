@@ -2,6 +2,7 @@ package com.training.android.material.ui.activity;
 
 import android.os.Bundle;
 import com.training.android.material.persistence.preference.AppPrefs;
+import com.training.android.material.ui.tile.NavigationDrawerChild;
 
 public class MainActivity extends MaterialTrainingNavigationDrawerActivity {
 
