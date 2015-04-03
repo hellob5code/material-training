@@ -1,12 +1,10 @@
 package com.training.android.material.ui.activity;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
-import com.training.android.material.persistence.preference.AppPrefs;
-import com.training.android.material.ui.fragment.*;
-import com.training.android.material.ui.tile.Tile;
+import com.training.android.material.ui.fragment.AccessibilityCardFragment;
+import com.training.android.material.ui.fragment.BidirectionalityCardFragment;
 
 public class UsabilityActivity extends MaterialTrainingNavigationDrawerActivity {
 
@@ -16,9 +14,7 @@ public class UsabilityActivity extends MaterialTrainingNavigationDrawerActivity 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_ACCESSIBILITY_ID);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(R.id.content, getSelectedFragment(id)).commit();
+            setupContent(NAVDRAWER_CHILD_ACCESSIBILITY_ID);
         }
     }
 
@@ -33,30 +29,14 @@ public class UsabilityActivity extends MaterialTrainingNavigationDrawerActivity 
     }
 
     @Override
-    protected boolean goToNavigationDrawerItem(Tile item) {
-        int id = item.getId();
-        Fragment fragment = getSelectedFragment(id);
-        if (fragment != null) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, fragment).commit();
-            return true;
-        }
-        return super.goToNavigationDrawerItem(item);
-    }
-
-    private Fragment getSelectedFragment(int id) {
-        Fragment fragment = null;
-        switch (id) {
+    protected Fragment getSelectedFragment(int navdrawerItemId) {
+        switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
-                fragment = new AccessibilityCardFragment();
-                break;
+                return new AccessibilityCardFragment();
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
-                fragment = new BidirectionalityCardFragment();
-                break;
+                return new BidirectionalityCardFragment();
+            default:
+                return super.getSelectedFragment(navdrawerItemId);
         }
-        if (fragment != null) {
-            AppPrefs.putLastVisitedChildId(this, id);
-        }
-        return fragment;
     }
 }

@@ -1,15 +1,11 @@
 package com.training.android.material.ui.activity;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
-import com.training.android.material.persistence.preference.AppPrefs;
-import com.training.android.material.ui.fragment.DummyFragment;
 import com.training.android.material.ui.fragment.EnvironmentCardFragment;
 import com.training.android.material.ui.fragment.MaterialPropertiesCardFragment;
 import com.training.android.material.ui.fragment.ObjectsIn3dSpaceCardFragment;
-import com.training.android.material.ui.tile.Tile;
 
 public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActivity {
 
@@ -19,9 +15,7 @@ public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_ENVIRONMENT_ID);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(R.id.content, getSelectedFragment(id)).commit();
+            setupContent(NAVDRAWER_CHILD_ENVIRONMENT_ID);
         }
     }
 
@@ -36,33 +30,16 @@ public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActi
     }
 
     @Override
-    protected boolean goToNavigationDrawerItem(Tile item) {
-        int id = item.getId();
-        Fragment fragment = getSelectedFragment(id);
-        if (fragment != null) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, fragment).commit();
-            return true;
-        }
-        return super.goToNavigationDrawerItem(item);
-    }
-
-    private Fragment getSelectedFragment(int id) {
-        Fragment fragment = null;
-        switch (id) {
+    protected Fragment getSelectedFragment(int navdrawerItemId) {
+        switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_ENVIRONMENT_ID:
-                fragment = new EnvironmentCardFragment();
-                break;
+                return new EnvironmentCardFragment();
             case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
-                fragment = new MaterialPropertiesCardFragment();
-                break;
+                return new MaterialPropertiesCardFragment();
             case NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID:
-                fragment = new ObjectsIn3dSpaceCardFragment();
-                break;
+                return new ObjectsIn3dSpaceCardFragment();
+            default:
+                return super.getSelectedFragment(navdrawerItemId);
         }
-        if (fragment != null) {
-            AppPrefs.putLastVisitedChildId(this, id);
-        }
-        return fragment;
     }
 }

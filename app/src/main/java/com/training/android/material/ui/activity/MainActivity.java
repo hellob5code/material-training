@@ -4,6 +4,9 @@ import android.os.Bundle;
 import com.training.android.material.persistence.preference.AppPrefs;
 import com.training.android.material.ui.tile.NavigationDrawerChild;
 
+/**
+ * Launcher Activity used to forward to the default screen or the last visited screen.
+ */
 public class MainActivity extends MaterialTrainingNavigationDrawerActivity {
 
     @Override

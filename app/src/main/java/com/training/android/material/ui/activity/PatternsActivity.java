@@ -16,9 +16,7 @@ public class PatternsActivity extends MaterialTrainingNavigationDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_DATA_FORMATS_ID);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(R.id.content, getSelectedFragment(id)).commit();
+            setupContent(NAVDRAWER_CHILD_DATA_FORMATS_ID);
         }
     }
 
@@ -33,57 +31,32 @@ public class PatternsActivity extends MaterialTrainingNavigationDrawerActivity {
     }
 
     @Override
-    protected boolean goToNavigationDrawerItem(Tile item) {
-        int id = item.getId();
-        Fragment fragment = getSelectedFragment(id);
-        if (fragment != null) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, fragment).commit();
-            return true;
-        }
-        return super.goToNavigationDrawerItem(item);
-    }
-
-    private Fragment getSelectedFragment(int id) {
-        Fragment fragment = null;
-        switch (id) {
+    protected Fragment getSelectedFragment(int navdrawerItemId) {
+        switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_DATA_FORMATS_ID:
-                fragment = new DataFormatsCardFragment();
-                break;
+                return new DataFormatsCardFragment();
             case NAVDRAWER_CHILD_ERRORS_ID:
-                fragment = new ErrorsCardFragment();
-                break;
+                return new ErrorsCardFragment();
             case NAVDRAWER_CHILD_GESTURES_ID:
-                fragment = new GesturesCardFragment();
-                break;
+                return new GesturesCardFragment();
             case NAVDRAWER_CHILD_LOADING_IMAGES_ID:
-                fragment = new LoadingImagesCardFragment();
-                break;
+                return new LoadingImagesCardFragment();
             case NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID:
-                fragment = new NavigationDrawerCardFragment();
-                break;
+                return new NavigationDrawerCardFragment();
             case NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID:
-                fragment = new NavigationalTransitionsCardFragment();
-                break;
+                return new NavigationalTransitionsCardFragment();
             case NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID:
-                fragment = new ScrollingTechniquesCardFragment();
-                break;
+                return new ScrollingTechniquesCardFragment();
             case NAVDRAWER_CHILD_SEARCH_ID:
-                fragment = new SearchCardFragment();
-                break;
+                return new SearchCardFragment();
             case NAVDRAWER_CHILD_SELECTION_ID:
-                fragment = new SelectionCardFragment();
-                break;
+                return new SelectionCardFragment();
             case NAVDRAWER_CHILD_SETTINGS_ID:
-                fragment = new SettingsCardFragment();
-                break;
+                return new SettingsCardFragment();
             case NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID:
-                fragment = new SwipeToRefreshCardFragment();
-                break;
+                return new SwipeToRefreshCardFragment();
+            default:
+                return super.getSelectedFragment(navdrawerItemId);
         }
-        if (fragment != null) {
-            AppPrefs.putLastVisitedChildId(this, id);
-        }
-        return fragment;
     }
 }

@@ -1,12 +1,12 @@
 package com.training.android.material.ui.activity;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
-import com.training.android.material.persistence.preference.AppPrefs;
-import com.training.android.material.ui.fragment.*;
-import com.training.android.material.ui.tile.Tile;
+import com.training.android.material.ui.fragment.ColorCardFragment;
+import com.training.android.material.ui.fragment.IconsCardFragment;
+import com.training.android.material.ui.fragment.ImageryCardFragment;
+import com.training.android.material.ui.fragment.TypographyCardFragment;
 
 public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
 
@@ -16,9 +16,7 @@ public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_COLOR_ID);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(R.id.content, getSelectedFragment(id)).commit();
+            setupContent(NAVDRAWER_CHILD_COLOR_ID);
         }
     }
 
@@ -33,36 +31,18 @@ public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
     }
 
     @Override
-    protected boolean goToNavigationDrawerItem(Tile item) {
-        int id = item.getId();
-        Fragment fragment = getSelectedFragment(id);
-        if (fragment != null) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, fragment).commit();
-            return true;
-        }
-        return super.goToNavigationDrawerItem(item);
-    }
-
-    private Fragment getSelectedFragment(int id) {
-        Fragment fragment = null;
-        switch (id) {
+    protected Fragment getSelectedFragment(int navdrawerItemId) {
+        switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_COLOR_ID:
-                fragment = new ColorCardFragment();
-                break;
+                return new ColorCardFragment();
             case NAVDRAWER_CHILD_ICONS_ID:
-                fragment = new IconsCardFragment();
-                break;
+                return new IconsCardFragment();
             case NAVDRAWER_CHILD_IMAGERY_ID:
-                fragment = new ImageryCardFragment();
-                break;
+                return new ImageryCardFragment();
             case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
-                fragment = new TypographyCardFragment();
-                break;
+                return new TypographyCardFragment();
+            default:
+                return super.getSelectedFragment(navdrawerItemId);
         }
-        if (fragment != null) {
-            AppPrefs.putLastVisitedChildId(this, id);
-        }
-        return fragment;
     }
 }

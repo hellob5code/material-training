@@ -1,5 +1,7 @@
 package com.training.android.material.ui.activity;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -204,7 +206,8 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     @Override
     protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
-        // Click on item
+
+        // Click on an item
         switch (id) {
             case NAVDRAWER_ITEM_SETTINGS_ID:
                 startActivity(new Intent(this, SettingsActivity.class));
@@ -213,9 +216,19 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
                 startActivity(new Intent(this, DeveloperModeActivity.class));
                 return true;
             default:
-                // Click on a child of another group
                 int parentId = ((NavigationDrawerChild) item).getParentId();
-                AppPrefs.putLastVisitedGroupId(this, parentId);
+
+                // Click on a child
+                Fragment fragment = getSelectedFragment(id);
+                if (fragment != null) {
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.content, fragment).commit();
+                    AppPrefs.putLastVisitedChildId(this, id);
+                    AppPrefs.putLastVisitedGroupId(this, parentId);
+                    return true;
+                }
+
+                // Click on a child of another group
                 switch (parentId) {
                     case NAVDRAWER_GROUP_MATERIAL_DESIGN_ID:
                         startActivity(new Intent(this, MaterialDesignActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
@@ -250,6 +263,19 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
                 }
                 finish();
                 return false;
+        }
+    }
+
+    protected Fragment getSelectedFragment(int navdrawerItemId) {
+        return null;
+    }
+
+    protected void setupContent(int defaultNavdrawerItemId) {
+        int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, defaultNavdrawerItemId);
+        Fragment fragment = getSelectedFragment(id);
+        if (fragment != null) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.add(R.id.content, fragment).commit();
         }
     }
 }

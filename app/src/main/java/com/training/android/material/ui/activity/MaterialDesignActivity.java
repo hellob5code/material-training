@@ -16,9 +16,7 @@ public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_INTRODUCTION_ID);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(R.id.content, getSelectedFragment(id)).commit();
+            setupContent(NAVDRAWER_CHILD_INTRODUCTION_ID);
         }
     }
 
@@ -33,27 +31,12 @@ public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActi
     }
 
     @Override
-    protected boolean goToNavigationDrawerItem(Tile item) {
-        int id = item.getId();
-        Fragment fragment = getSelectedFragment(id);
-        if (fragment != null) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, fragment).commit();
-            return true;
-        }
-        return super.goToNavigationDrawerItem(item);
-    }
-
-    private Fragment getSelectedFragment(int id) {
-        Fragment fragment = null;
-        switch (id) {
+    protected Fragment getSelectedFragment(int navdrawerItemId) {
+        switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
-                fragment = new IntroductionCardFragment();
-                break;
+                return new IntroductionCardFragment();
+            default:
+                return super.getSelectedFragment(navdrawerItemId);
         }
-        if (fragment != null) {
-            AppPrefs.putLastVisitedChildId(this, id);
-        }
-        return fragment;
     }
 }

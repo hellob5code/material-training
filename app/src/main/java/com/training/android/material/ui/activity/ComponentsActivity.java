@@ -1,12 +1,9 @@
 package com.training.android.material.ui.activity;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import com.training.android.material.R;
-import com.training.android.material.persistence.preference.AppPrefs;
 import com.training.android.material.ui.fragment.*;
-import com.training.android.material.ui.tile.Tile;
 
 public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity {
 
@@ -16,9 +13,7 @@ public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_CHILD_BOTTOM_SHEETS_ID);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(R.id.content, getSelectedFragment(id)).commit();
+            setupContent(NAVDRAWER_CHILD_BOTTOM_SHEETS_ID);
         }
     }
 
@@ -33,81 +28,48 @@ public class ComponentsActivity extends MaterialTrainingNavigationDrawerActivity
     }
 
     @Override
-    protected boolean goToNavigationDrawerItem(Tile item) {
-        int id = item.getId();
-        Fragment fragment = getSelectedFragment(id);
-        if (fragment != null) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content, fragment).commit();
-            return true;
-        }
-        return super.goToNavigationDrawerItem(item);
-    }
-
-    private Fragment getSelectedFragment(int id) {
-        Fragment fragment = null;
-        switch (id) {
+    protected  Fragment getSelectedFragment(int navdrawerItemId) {
+        switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
-                fragment = new BottomSheetsCardFragment();
-                break;
+                return new BottomSheetsCardFragment();
             case NAVDRAWER_CHILD_BUTTONS_ID:
-                fragment = new ButtonsCardFragment();
-                break;
+                return new ButtonsCardFragment();
             case NAVDRAWER_CHILD_CARDS_ID:
-                fragment = new CardsCardFragment();
-                break;
+                return new CardsCardFragment();
             case NAVDRAWER_CHILD_CHIPS_ID:
-                fragment = new ChipsCardFragment();
-                break;
+                return new ChipsCardFragment();
             case NAVDRAWER_CHILD_DIALOGS_ID:
-                fragment = new DialogsCardFragment();
-                break;
+                return new DialogsCardFragment();
             case NAVDRAWER_CHILD_DIVIDERS_ID:
-                fragment = new DividersCardFragment();
-                break;
+                return new DividersCardFragment();
             case NAVDRAWER_CHILD_GRIDS_ID:
-                fragment = new GridsCardFragment();
-                break;
+                return new GridsCardFragment();
             case NAVDRAWER_CHILD_LISTS_ID:
-                fragment = new ListsCardFragment();
-                break;
+                return new ListsCardFragment();
             case NAVDRAWER_CHILD_LIST_CONTROLS_ID:
-                fragment = new ListControlsCardFragment();
-                break;
+                return new ListControlsCardFragment();
             case NAVDRAWER_CHILD_MENUS_ID:
-                fragment = new MenusCardFragment();
-                break;
+                return new MenusCardFragment();
             case NAVDRAWER_CHILD_PICKERS_ID:
-                fragment = new PickersCardFragment();
-                break;
+                return new PickersCardFragment();
             case NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID:
-                fragment = new ProgressAndActivityCardFragment();
-                break;
+                return new ProgressAndActivityCardFragment();
             case NAVDRAWER_CHILD_SLIDERS_ID:
-                fragment = new SlidersCardFragment();
-                break;
+                return new SlidersCardFragment();
             case NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID:
-                fragment = new SnackbarsAndToastsCardFragment();
-                break;
+                return new SnackbarsAndToastsCardFragment();
             case NAVDRAWER_CHILD_SUBHEADERS_ID:
-                fragment = new SubheadersCardFragment();
-                break;
+                return new SubheadersCardFragment();
             case NAVDRAWER_CHILD_SWITCHES_ID:
-                fragment = new SwitchesCardFragment();
-                break;
+                return new SwitchesCardFragment();
             case NAVDRAWER_CHILD_TABS_ID:
-                fragment = new TabsCardFragment();
-                break;
+                return new TabsCardFragment();
             case NAVDRAWER_CHILD_TEXT_FIELDS_ID:
-                fragment = new TextFieldsCardFragment();
-                break;
+                return new TextFieldsCardFragment();
             case NAVDRAWER_CHILD_TOOLTIPS_ID:
-                fragment = new TooltipsCardFragment();
-                break;
+                return new TooltipsCardFragment();
+            default:
+                return super.getSelectedFragment(navdrawerItemId);
         }
-        if (fragment != null) {
-            AppPrefs.putLastVisitedChildId(this, id);
-        }
-        return fragment;
     }
 }
