@@ -41,7 +41,7 @@ public class AccentFixedTabsActivity extends ActionBarActivity {
         ViewUtils.setMaxWidth(navigationDrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
 
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.content_descr_drawer_open, R.string.content_descr_drawer_close) {
             @Override
             public void onDrawerClosed(View view) {
             }

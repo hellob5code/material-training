@@ -216,17 +216,17 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
                 startActivity(new Intent(this, DeveloperModeActivity.class));
                 return true;
             default:
-                int parentId = ((NavigationDrawerChild) item).getParentId();
-
                 // Click on a child
                 Fragment fragment = getSelectedFragment(id);
                 if (fragment != null) {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.content, fragment).commit();
                     AppPrefs.putLastVisitedChildId(this, id);
-                    AppPrefs.putLastVisitedGroupId(this, parentId);
                     return true;
                 }
+
+                int parentId = ((NavigationDrawerChild) item).getParentId();
+                AppPrefs.putLastVisitedGroupId(this, parentId);
 
                 // Click on a child of another group
                 switch (parentId) {
@@ -276,6 +276,7 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.add(R.id.content, fragment).commit();
+            AppPrefs.putLastVisitedChildId(this, id);
         }
     }
 }

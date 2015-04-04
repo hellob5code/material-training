@@ -110,7 +110,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     }
 
     private void setupNavigationDrawer() {
-        drawerToggle = new ActionBarDrawerToggle(this, getDrawerLayout(), R.string.drawer_open, R.string.drawer_close) {
+        drawerToggle = new ActionBarDrawerToggle(this, getDrawerLayout(), R.string.content_descr_drawer_open, R.string.content_descr_drawer_close) {
             @Override
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);

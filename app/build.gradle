@@ -77,5 +77,6 @@ dependencies {
     compile 'joda-time:joda-time:2.6'
     compile 'org.apache.commons:commons-lang3:3.3.2'
     compile 'com.jakewharton:butterknife:6.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'fr.erictruong:materialedittext:1.0.0-SNAPSHOT'
 }

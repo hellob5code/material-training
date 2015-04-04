@@ -15,12 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <AspectRatioImageView
                 android:id="@+id/register_contact_img_photo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/primary_material_light"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                app:aspectRatioEnabled="true"
+                app:aspectRatio="@dimen/ratio_16_9_inverse"/>
 
             <include layout="@layout/divider_horizontal"
                 android:layout_width="match_parent"

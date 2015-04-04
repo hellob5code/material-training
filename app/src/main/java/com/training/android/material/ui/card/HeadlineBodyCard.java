@@ -1,11 +1,13 @@
 package com.training.android.material.ui.card;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Space;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.Optional;
 import com.training.android.material.R;
 import org.apache.commons.lang3.StringUtils;
 
@@ -39,9 +41,9 @@ public class HeadlineBodyCard extends Card {
 
         @InjectView(R.id.tv_headline) TextView tvHeadline;
         @InjectView(R.id.tv_body) TextView tvBody1;
-        @InjectView(R.id.space_headline_body) Space spaceHeadlineBody1;
+        @Optional @InjectView(R.id.space_headline_body) Space spaceHeadlineBody1;
 
-        public ViewHolder(View v) {
+        public ViewHolder(CardView v) {
             super(v);
             ButterKnife.inject(this, v);
         }
@@ -68,10 +70,12 @@ public class HeadlineBodyCard extends Card {
                 tvBody1.setVisibility(View.GONE);
             }
 
-            if (tvHeadline.getVisibility() == View.VISIBLE && tvBody1.getVisibility() == View.VISIBLE) {
-                spaceHeadlineBody1.setVisibility(View.VISIBLE);
-            } else {
-                spaceHeadlineBody1.setVisibility(View.GONE);
+            if (spaceHeadlineBody1 != null) {
+                if (tvHeadline.getVisibility() == View.VISIBLE && tvBody1.getVisibility() == View.VISIBLE) {
+                    spaceHeadlineBody1.setVisibility(View.VISIBLE);
+                } else {
+                    spaceHeadlineBody1.setVisibility(View.GONE);
+                }
             }
         }
     }

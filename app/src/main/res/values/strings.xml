@@ -438,7 +438,8 @@
     <string name="title_activity_tabs">Page title</string>
 
     <!-- Accessibility Description -->
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="drawer_open">Open navigation drawer</string>
+    <string name="content_descr_drawer_close">Close navigation drawer</string>
+    <string name="content_descr_drawer_open">Open navigation drawer</string>
+    <string name="content_descr_rich_media">Rich media</string>
 
 </resources>

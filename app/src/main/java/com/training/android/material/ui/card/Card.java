@@ -9,6 +9,7 @@ public abstract class Card {
     public static final int TYPE_PRIMARY_HEADLINE_BODY_2 = 5;
     public static final int TYPE_ACCENT_HEADLINE_BODY_2 = 6;
     public static final int TYPE_RICH_AREA_HEADLINE_BODY_1 = 7;
+    public static final int TYPE_RICH_IMAGE_HEADLINE_BODY_1 = 8;
 
     protected int id;
     protected int viewType;
@@ -28,6 +29,6 @@ public abstract class Card {
 
     public interface CardHolder {
 
-        public void bindView(Card card, int position);
+        void bindView(Card card, int position);
     }
 }

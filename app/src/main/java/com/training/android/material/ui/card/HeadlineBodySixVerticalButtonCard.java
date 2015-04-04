@@ -1,5 +1,6 @@
 package com.training.android.material.ui.card;
 
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -122,7 +123,7 @@ public class HeadlineBodySixVerticalButtonCard extends HeadlineBodyCard {
         @InjectView(R.id.button_5) Button btn5;
         @InjectView(R.id.button_6) Button btn6;
 
-        public ViewHolder(View v) {
+        public ViewHolder(CardView v) {
             super(v);
             ButterKnife.inject(this, v);
         }

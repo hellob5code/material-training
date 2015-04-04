@@ -1,6 +1,5 @@
 package com.training.android.material.ui.activity;
 
-import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -9,19 +8,13 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.StateSet;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import butterknife.OnFocusChange;
-import android.widget.MaterialEditText;
 import com.training.android.material.R;
 import com.training.android.material.model.Contact;
 import com.training.android.material.util.EnumUtils;
@@ -55,10 +48,7 @@ public class RegisterContactActivity extends ActionBarActivity {
     }
 
     private void setupPhotoView() {
-        Display display = getWindowManager().getDefaultDisplay();
-        Point displaySize = new Point();
-        display.getSize(displaySize);
-        imgPhoto.getLayoutParams().height = (int) (displaySize.x / 1.77f);
+        // TODO
     }
 
     private void setupDropdownViews() {
