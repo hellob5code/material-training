@@ -55,7 +55,6 @@ public class RichImageHeadlineBodyCard extends HeadlineBodyCard {
 
         protected void bindView(final int resourceId, CharSequence headline, CharSequence body1) {
             super.bindView(headline, body1);
-
             itemView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                 @Override
                 public void onGlobalLayout() {
@@ -82,4 +81,3 @@ public class RichImageHeadlineBodyCard extends HeadlineBodyCard {
         }
     }
 }
-

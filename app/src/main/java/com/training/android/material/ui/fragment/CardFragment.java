@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.training.android.material.R;
-import com.training.android.material.ui.card.SubheaderCard;
 import com.training.android.material.util.ApiUtils;
 
 import static com.training.android.material.ui.card.Card.TYPE_SUBHEADER;
@@ -20,12 +19,12 @@ public class CardFragment extends RecyclerFragment {
         getRecyclerView().addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (parent.getChildPosition(view) < 1) {
+                if (parent.getChildLayoutPosition(view) < 1) {
                     outRect.set(0, 0, 0, 0);
                     return;
                 }
-                if (parent.getAdapter().getItemViewType(parent.getChildPosition(view)) == TYPE_SUBHEADER
-                        || parent.getAdapter().getItemViewType(parent.getChildPosition(view) - 1) == TYPE_SUBHEADER) {
+                if (parent.getAdapter().getItemViewType(parent.getChildLayoutPosition(view)) == TYPE_SUBHEADER
+                        || parent.getAdapter().getItemViewType(parent.getChildLayoutPosition(view) - 1) == TYPE_SUBHEADER) {
                     outRect.set(0, 0, 0, 0);
                     return;
                 }

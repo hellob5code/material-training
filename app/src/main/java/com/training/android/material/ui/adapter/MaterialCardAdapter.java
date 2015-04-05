@@ -74,6 +74,10 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
                 v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_rich_image_headline_body1_material, parent, false);
                 viewHolder = new RichImageHeadlineBodyCard.ViewHolder(v);
                 break;
+            case TYPE_HEADLINE_RICH_HORIZONTAL_RECYCLER_VIEW_BODY_1:
+                v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_rich_horizontal_recycler_view_body1_material, parent, false);
+                viewHolder = new HeadlineRichHorizontalRecyclerViewBodyCard.ViewHolder(v);
+                break;
             default:
                 throw new IllegalStateException("The card viewType=" + viewType + " is not handled by this Adapter");
         }
