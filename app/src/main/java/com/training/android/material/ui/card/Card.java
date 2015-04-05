@@ -11,6 +11,7 @@ public abstract class Card {
     public static final int TYPE_RICH_AREA_HEADLINE_BODY_1 = 7;
     public static final int TYPE_RICH_IMAGE_HEADLINE_BODY_1 = 8;
     public static final int TYPE_HEADLINE_RICH_HORIZONTAL_RECYCLER_VIEW_BODY_1 = 9;
+    public static final int TYPE_HEADLINE_RICH_IMAGE_BODY_1 = 10;
 
     protected int id;
     protected int viewType;

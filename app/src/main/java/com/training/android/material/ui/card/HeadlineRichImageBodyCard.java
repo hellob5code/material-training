@@ -10,15 +10,15 @@ import butterknife.InjectView;
 import com.squareup.picasso.Picasso;
 import com.training.android.material.R;
 
-public class RichImageHeadlineBodyCard extends HeadlineBodyCard {
+public class HeadlineRichImageBodyCard extends HeadlineBodyCard {
 
     protected int resourceId;
 
-    public RichImageHeadlineBodyCard(int id, int resourceId, CharSequence headline, CharSequence body1) {
-        this(id, TYPE_RICH_IMAGE_HEADLINE_BODY_1, resourceId, headline, body1);
+    public HeadlineRichImageBodyCard(int id, int resourceId, CharSequence headline, CharSequence body1) {
+        this(id, TYPE_HEADLINE_RICH_IMAGE_BODY_1, resourceId, headline, body1);
     }
 
-    public RichImageHeadlineBodyCard(int id, int viewType, int resourceId, CharSequence headline, CharSequence body1) {
+    public HeadlineRichImageBodyCard(int id, int viewType, int resourceId, CharSequence headline, CharSequence body1) {
         super(id, viewType, headline, body1);
         this.resourceId = resourceId;
     }
@@ -44,7 +44,7 @@ public class RichImageHeadlineBodyCard extends HeadlineBodyCard {
 
         @Override
         public void bindView(Card card, int position) {
-            RichImageHeadlineBodyCard c = (RichImageHeadlineBodyCard) card;
+            HeadlineRichImageBodyCard c = (HeadlineRichImageBodyCard) card;
             bindView(c.getDrawableId(), c.getHeadline(), c.getBody1());
         }
 
