@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
-import android.widget.Scroller;
-import com.training.android.material.R;
 
 public class Slider implements Runnable {
 

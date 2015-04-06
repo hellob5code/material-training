@@ -4,7 +4,7 @@ package android.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import com.training.android.material.R;
+import fr.erictruong.training.material.R;
 
 /** Maintains an aspect ratio based on either width or height. Disabled by default. */
 public class AspectRatioImageView extends ImageView {

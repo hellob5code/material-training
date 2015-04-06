@@ -23,7 +23,7 @@
 
     <!-- Card -->
     <dimen name="card_max_width_material">700dp</dimen>
-    <dimen name="card_rich_media_height_material">256dp</dimen>
+    <dimen name="card_rich_media_height_material">172dp</dimen>
 
     <!-- List -->
     <dimen name="list_icon_size_material">24dp</dimen>

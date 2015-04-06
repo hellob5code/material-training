@@ -7,7 +7,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.training.android.material"
+        applicationId "fr.erictruong.training.material.app"
         minSdkVersion 17
         targetSdkVersion 22
         versionCode 1
