@@ -270,7 +270,7 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         return null;
     }
 
-    protected void setupContent(int defaultNavdrawerItemId) {
+    protected void setUpContent(int defaultNavdrawerItemId) {
         int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, defaultNavdrawerItemId);
         Fragment fragment = getSelectedFragment(id);
         if (fragment != null) {

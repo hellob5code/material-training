@@ -65,9 +65,9 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
             toolbar.setDisplayHomeAsUpEnabled(true);
         }
 
-        setupAccountView();
-        setupDropdownViews();
-        setupTimezoneView();
+        setUpAccountView();
+        setUpDropdownViews();
+        setUpTimezoneView();
 
         edtFromDate.setText(dateFormatter.print(fromDateTime));
         edtFromTime.setText(timeFormatter.print(fromDateTime));
@@ -76,11 +76,11 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         edtToTime.setText(timeFormatter.print(toDateTime));
     }
 
-    private void setupAccountView() {
+    private void setUpAccountView() {
         // TODO:
     }
 
-    private void setupDropdownViews() {
+    private void setUpDropdownViews() {
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
@@ -105,7 +105,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
         edtTimezone.setFocusableInTouchMode(false);
     }
 
-    private void setupTimezoneView() {
+    private void setUpTimezoneView() {
         // TODO:
     }
 

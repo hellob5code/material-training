@@ -13,7 +13,7 @@ public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            setupContent(NAVDRAWER_CHILD_INTRODUCTION_ID);
+            setUpContent(NAVDRAWER_CHILD_INTRODUCTION_ID);
         }
     }
 

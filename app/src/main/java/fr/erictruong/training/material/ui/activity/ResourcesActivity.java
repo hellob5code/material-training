@@ -13,7 +13,7 @@ public class ResourcesActivity extends MaterialTrainingNavigationDrawerActivity 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            setupContent(NAVDRAWER_CHILD_COLOR_PALETTES_ID);
+            setUpContent(NAVDRAWER_CHILD_COLOR_PALETTES_ID);
         }
     }
 

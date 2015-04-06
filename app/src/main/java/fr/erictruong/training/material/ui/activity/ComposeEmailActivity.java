@@ -29,10 +29,10 @@ public class ComposeEmailActivity extends ActionBarActivity {
         if (toolbar != null) {
             toolbar.setDisplayHomeAsUpEnabled(true);
         }
-        setupAccountViews();
+        setUpAccountViews();
     }
 
-    private void setupAccountViews() {
+    private void setUpAccountViews() {
         // TODO:
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();

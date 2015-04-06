@@ -98,12 +98,12 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        setupActionBar();
-        setupNavigationDrawer();
+        setUpActionBar();
+        setUpNavigationDrawer();
         fadeInContent(NAVDRAWER_ITEM_INVALID); // Always fade in
     }
 
-    private void setupActionBar() {
+    private void setUpActionBar() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getDrawerLayout().isDrawerOpen(Gravity.START)) {
             getSupportActionBar().setTitle(getNavigationDrawerOpenedTitle());
@@ -112,7 +112,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         }
     }
 
-    private void setupNavigationDrawer() {
+    private void setUpNavigationDrawer() {
         drawerToggle = new ActionBarDrawerToggle(this, getDrawerLayout(), R.string.content_descr_drawer_open, R.string.content_descr_drawer_close) {
             @Override
             public void onDrawerClosed(View view) {
@@ -393,11 +393,11 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
                     textView.setTypeface(textView.getTypeface(), Typeface.BOLD);
                 }
 
-                if (setupListControl(group.getPrimary(), (ViewStub) view.findViewById(R.id.stub_primary))) {
+                if (setUpListControl(group.getPrimary(), (ViewStub) view.findViewById(R.id.stub_primary))) {
                     ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
                     layoutParams.setMarginStart(getResources().getDimensionPixelSize(R.dimen.keyline_2_minus_16dp));
                 }
-                if (setupListControl(group.getSecondary(), (ViewStub) view.findViewById(R.id.stub_secondary))) {
+                if (setUpListControl(group.getSecondary(), (ViewStub) view.findViewById(R.id.stub_secondary))) {
                     ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
                     layoutParams.setMarginEnd(getResources().getDimensionPixelSize(R.dimen.list_icon_size_plus_16dp_material));
                 }
@@ -406,7 +406,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
             return view;
         }
 
-        private boolean setupListControl(final ListControl control, ViewStub stub) {
+        private boolean setUpListControl(final ListControl control, ViewStub stub) {
             stub.setOnInflateListener(new ViewStub.OnInflateListener() {
                 @Override
                 public void onInflate(ViewStub stub, View inflated) {

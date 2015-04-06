@@ -39,19 +39,19 @@ public class RegisterContactActivity extends ActionBarActivity {
             toolbar.setDisplayHomeAsUpEnabled(true);
         }
 
-        setupPhotoView();
-        setupDropdownViews();
+        setUpPhotoView();
+        setUpDropdownViews();
 
         edtPhoneType.setText(WordUtils.capitalizeFully(Contact.PhoneType.MOBILE.toString()));
         edtEmailType.setText(WordUtils.capitalizeFully(Contact.EmailType.HOME.toString()));
         edtAddressType.setText(WordUtils.capitalizeFully(Contact.AddressType.HOME.name()));
     }
 
-    private void setupPhotoView() {
+    private void setUpPhotoView() {
         // TODO
     }
 
-    private void setupDropdownViews() {
+    private void setUpDropdownViews() {
         Drawable arrow;
         StateListDrawable arrowSelector = new StateListDrawable();
 
