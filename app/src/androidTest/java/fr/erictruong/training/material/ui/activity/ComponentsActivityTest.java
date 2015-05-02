@@ -2,7 +2,6 @@ package fr.erictruong.training.material.ui.activity;
 
 import com.squareup.spoon.Spoon;
 import fr.erictruong.training.material.R;
-import fr.erictruong.training.material.ui.activity.ComponentsActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -42,6 +41,15 @@ public class ComponentsActivityTest extends NavigationDrawerActivityTest<Compone
         Spoon.screenshot(activity, "drawer_opened");
     }
 
+    public void testShowButtonsFloatingActionButtonFragment() {
+        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_buttons_floating_action_button));
+        Spoon.screenshot(activity, "initial_state");
+
+        openDrawer(R.id.drawer_layout);
+        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
+        Spoon.screenshot(activity, "drawer_opened");
+    }
+
     public void testShowCardsFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_cards));
         Spoon.screenshot(activity, "initial_state");
@@ -53,6 +61,15 @@ public class ComponentsActivityTest extends NavigationDrawerActivityTest<Compone
 
     public void testShowChipsFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_chips));
+        Spoon.screenshot(activity, "initial_state");
+
+        openDrawer(R.id.drawer_layout);
+        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
+        Spoon.screenshot(activity, "drawer_opened");
+    }
+
+    public void testShowDataTablesFragment() {
+        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_data_tables));
         Spoon.screenshot(activity, "initial_state");
 
         openDrawer(R.id.drawer_layout);
@@ -78,8 +95,8 @@ public class ComponentsActivityTest extends NavigationDrawerActivityTest<Compone
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowGridsFragment() {
-        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_grids));
+    public void testShowGridListsFragment() {
+        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_grid_lists));
         Spoon.screenshot(activity, "initial_state");
 
         openDrawer(R.id.drawer_layout);
@@ -97,7 +114,7 @@ public class ComponentsActivityTest extends NavigationDrawerActivityTest<Compone
     }
 
     public void testShowListControlsFragment() {
-        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_list_controls));
+        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_lists_controls));
         Spoon.screenshot(activity, "initial_state");
 
         openDrawer(R.id.drawer_layout);
@@ -132,6 +149,15 @@ public class ComponentsActivityTest extends NavigationDrawerActivityTest<Compone
         Spoon.screenshot(activity, "drawer_opened");
     }
 
+    public void testShowSelectionControlsFragment() {
+        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_selection_controls));
+        Spoon.screenshot(activity, "initial_state");
+
+        openDrawer(R.id.drawer_layout);
+        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
+        Spoon.screenshot(activity, "drawer_opened");
+    }
+
     public void testShowSlidersFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_sliders));
         Spoon.screenshot(activity, "initial_state");
@@ -159,15 +185,6 @@ public class ComponentsActivityTest extends NavigationDrawerActivityTest<Compone
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowSwitchesFragment() {
-        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_switches));
-        Spoon.screenshot(activity, "initial_state");
-
-        openDrawer(R.id.drawer_layout);
-        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
-        Spoon.screenshot(activity, "drawer_opened");
-    }
-
     public void testShowTabsFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_tabs));
         Spoon.screenshot(activity, "initial_state");
@@ -179,6 +196,15 @@ public class ComponentsActivityTest extends NavigationDrawerActivityTest<Compone
 
     public void testShowTextFieldsFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_text_fields));
+        Spoon.screenshot(activity, "initial_state");
+
+        openDrawer(R.id.drawer_layout);
+        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
+        Spoon.screenshot(activity, "drawer_opened");
+    }
+
+    public void testShowToolbarsFragment() {
+        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_toolbars));
         Spoon.screenshot(activity, "initial_state");
 
         openDrawer(R.id.drawer_layout);

@@ -19,6 +19,7 @@ import android.widget.MaterialEditText;
 import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.ui.dialog.DatePickerDialogFragment;
 import fr.erictruong.training.material.ui.dialog.TimePickerDialogFragment;
+import fr.erictruong.training.material.util.LogUtils;
 import fr.erictruong.training.material.util.ThemeUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -218,7 +219,7 @@ public class RegisterEventActivity extends ActionBarActivity implements DatePick
 
     @OnClick(R.id.register_event_edt_timezone)
     protected void onTimezoneEditTextClicked() {
-        Log.d(TAG, "register_event_edt_timezone");
+        LogUtils.d(getClass(), "register_event_edt_timezone");
     }
 
     @Override

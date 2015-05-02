@@ -1,22 +1,13 @@
 package fr.erictruong.training.material.ui.activity;
 
 import android.app.Fragment;
-import android.os.Bundle;
 import fr.erictruong.training.material.R;
-import fr.erictruong.training.material.ui.fragment.AccessibilityCardFragment;
-import fr.erictruong.training.material.ui.fragment.BidirectionalityCardFragment;
+import fr.erictruong.training.material.ui.fragment.AccessibilityFragment;
+import fr.erictruong.training.material.ui.fragment.BidirectionalityFragment;
 
 public class UsabilityActivity extends MaterialTrainingNavigationDrawerActivity {
 
     private static final String TAG = UsabilityActivity.class.getSimpleName();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-            setUpContent(NAVDRAWER_CHILD_ACCESSIBILITY_ID);
-        }
-    }
 
     @Override
     protected int getSelectedNavigationDrawerGroupId() {
@@ -29,14 +20,19 @@ public class UsabilityActivity extends MaterialTrainingNavigationDrawerActivity 
     }
 
     @Override
+    protected int getDefaultSelectedFragment() {
+        return NAVDRAWER_CHILD_ACCESSIBILITY_ID;
+    }
+
+    @Override
     protected Fragment getSelectedFragment(int navdrawerItemId) {
         switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
-                return new AccessibilityCardFragment();
+                return new AccessibilityFragment();
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
-                return new BidirectionalityCardFragment();
+                return new BidirectionalityFragment();
             default:
-                return super.getSelectedFragment(navdrawerItemId);
+                return null;
         }
     }
 }

@@ -29,29 +29,34 @@
     <string name="navdrawer_child_typography">Typography</string>
     <string name="navdrawer_group_layout">Layout</string>
     <string name="navdrawer_child_principles">Principles</string>
+    <string name="navdrawer_child_units_and_measurements">Units and measurements</string>
     <string name="navdrawer_child_metrics_and_keylines">Metrics &amp; keylines</string>
     <string name="navdrawer_child_structure">Structure</string>
     <string name="navdrawer_group_components">Components</string>
     <string name="navdrawer_child_bottom_sheets">Bottom sheets</string>
     <string name="navdrawer_child_buttons">Buttons</string>
+    <string name="navdrawer_child_buttons_floating_action_button">Buttons: Floating Action Button</string>
     <string name="navdrawer_child_cards">Cards</string>
     <string name="navdrawer_child_chips">Chips</string>
+    <string name="navdrawer_child_data_tables">Data tables</string>
     <string name="navdrawer_child_dialogs">Dialogs</string>
     <string name="navdrawer_child_dividers">Dividers</string>
-    <string name="navdrawer_child_grids">Grids</string>
+    <string name="navdrawer_child_grid_lists">Grid Lists</string>
     <string name="navdrawer_child_lists">Lists</string>
-    <string name="navdrawer_child_list_controls">List controls</string>
+    <string name="navdrawer_child_lists_controls">Lists: Controls</string>
     <string name="navdrawer_child_menus">Menus</string>
     <string name="navdrawer_child_pickers">Pickers</string>
     <string name="navdrawer_child_progress_and_activity">Progress &amp; activity</string>
+    <string name="navdrawer_child_selection_controls">Selection controls</string>
     <string name="navdrawer_child_sliders">Sliders</string>
     <string name="navdrawer_child_snackbars_and_toasts">Snackbars &amp; toasts</string>
     <string name="navdrawer_child_subheaders">Subheaders</string>
-    <string name="navdrawer_child_switches">Switches</string>
     <string name="navdrawer_child_tabs">Tabs</string>
     <string name="navdrawer_child_text_fields">Text fields</string>
+    <string name="navdrawer_child_toolbars">Toolbars</string>
     <string name="navdrawer_child_tooltips">Tooltips</string>
     <string name="navdrawer_group_patterns">Patterns</string>
+    <string name="navdrawer_child_app_structure">App structure</string>
     <string name="navdrawer_child_data_formats">Data formats</string>
     <string name="navdrawer_child_errors">Errors</string>
     <string name="navdrawer_child_gestures">Gestures</string>
@@ -110,23 +115,23 @@
     <string name="fragment_material_properties">Material properties</string>
     <string name="fragment_material_properties_txt">Material has certain immutable characteristics and inherent behaviors. Understanding these qualities will help you manipulate material in a way that’s consistent with the vision of material design.</string>
 
-    <!-- Objects In 3D Space Fragment -->
+    <!-- Objects in 3D Space Fragment -->
     <string name="fragment_objects_in_3d_space">Objects in 3D space</string>
-    <string name="fragment_objects_in_3d_space_txt">There are parallels between organizing objects in the physical world and arranging objects in space in material design. In the physical world, objects can be stacked or affixed to one another, but cannot pass through one another. The objects cast shadows and reflect light.
-        \n\nThese qualities apply to objects in material design and help create a spatial model that can be consistently applied across apps in ways that are familiar to users.
+    <string name="fragment_objects_in_3d_space_txt">Objects in material design possess similar qualities to objects in the physical world. In the physical world, objects can be stacked or affixed to one another, but cannot pass through one another. Objects cast shadows and reflect light.
+        \n\nThese qualities form a spatial model that is familiar to users and can be applied consistently across apps.
     </string>
 
     <!-- Authentic Motion Fragment -->
     <string name="fragment_authentic_motion">Authentic motion</string>
-    <string name="fragment_authentic_motion_txt">Perceiving an object’s tangible form helps us understand how to manipulate it. Observing an object’s motion tells us whether it is light or heavy, flexible or rigid, small or large. Motion in the world of material design is not only beautiful, it builds meaning about the spatial relationships, functionality, and intention of the system.</string>
+    <string name="fragment_authentic_motion_txt">Just as the shape of an object indicates how it might behave, watching an object move demonstrates whether it’s light or heavy, flexible or rigid, small or large. In the world of material design, motion describes spatial relationships, functionality, and intention with beauty and fluidity.</string>
 
     <!-- Authentic Motion Fragment -->
     <string name="fragment_responsive_interaction">Responsive interaction</string>
-    <string name="fragment_responsive_interaction_txt">Responsive interaction builds trust with the user and engages them. When a user interacts with an app and beautiful yet perfectly logical things happen, the user feels satisfied—even delighted. The interaction is thoughtful and purposeful, not random, and can be gently whimsical but never distracting. It encourages deeper exploration of an app. What will happen if I touch this? And then this?</string>
+    <string name="fragment_responsive_interaction_txt">Apps that practice responsive interaction produce timely, logical, and delightful screen reactions for their users. Each interaction is thoughtful, perhaps whimsical, but never distracting. Responsive interaction encourages deeper exploration of an app. What will happen if I touch this screen? And then this icon?</string>
 
     <!-- Meaningful Transitions Fragment -->
     <string name="fragment_meaningful_transitions">Meaningful transitions</string>
-    <string name="fragment_meaningful_transitions_txt">Sometimes, it is difficult for a user to know where to look or understand how an element got from point A to point B. Carefully choreographed motion design can effectively guide the user’s attention and focus through multiple steps of a process or procedure, avoid confusion when layouts change or elements are rearranged, and improve the overall beauty of the experience. Motion design should serve a functional purpose.</string>
+    <string name="fragment_meaningful_transitions_txt">Motion design can effectively guide the user’s attention in ways that both inform and delight. Use motion to smoothly transport users between navigational contexts, explain changes in the arrangement of elements on a screen, and reinforce element hierarchy.</string>
 
     <!-- Delightful Details Fragment -->
     <string name="fragment_delightful_details">Delightful details</string>
@@ -136,7 +141,7 @@
 
     <!-- Color Fragment -->
     <string name="fragment_color">Color</string>
-    <string name="fragment_color_txt">Color is inspired by bold color statements juxtaposed with muted environments, taking cues from contemporary architecture, road signs, pavement marking tape, and sports courts. Emphasize bold shadows and highlights. Introduce unexpected and vibrant colors.</string>
+    <string name="fragment_color_txt">Color in material design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights. Material takes cues from contemporary architecture, road signs, pavement marking tape, and athletic courts. Color should be unexpected and vibrant.</string>
 
     <!-- Icons Fragment -->
     <string name="fragment_icons">Icons</string>
@@ -151,15 +156,19 @@
 
     <!-- Typography Fragment -->
     <string name="fragment_typography">Typography</string>
+    <string name="fragment_typography_txt">Since the Ice Cream Sandwich release, Roboto has been the standard typeface on Android. Since Froyo, Noto has been the standard typeface on Android for all languages not covered by Roboto. Noto is also the standard typeface for all languages on Chrome OS.</string>
 
     <!-- Principles Fragment -->
     <string name="fragment_principles">Principles</string>
-    <string name="fragment_principles_txt">Material design uses fundamental tools that have come from the world of print design, like baseline grids and a common set of structural grids that work across various pages. The layout is designed to scale across different screen sizes and will help facilitate UI development and ultimately help you create scalable apps.
-        \n\nThe layout guidelines also encourage apps to have a consistent look and feel by using the same visual elements, structural grids, and general spacing rules across platforms and screen sizes. Structural and visual consistency creates an environment for the user that is recognizable across products, which provides users with a high level of familiarity and comfort.
-        \n\nBefore delving into layout details, consider the rules of how the material behaves and how it is crafted.
+    <string name="fragment_principles_txt">Material design is guided by print-based design elements—such as typography, grids, space, scale, color, and imagery—to create hierarchy, meaning, and focus that immerse one in the experience. Material design adopts tools from the field of print design, like baseline grids and structural templates, that repeat across various pages. These layouts scale to fit any screen size, which simplifies the process of creating scalable apps.
+        \n\nThese layouts encourage consistency by repeating visual elements, structural grids, and spacing across platforms and screen sizes. This consistency creates a familiar experience for users across environments.
     </string>
 
-    <!-- Metrics And Keylines Fragment -->
+    <!-- Units and Measurements Fragment -->
+    <string name="fragment_units_and_measurements">Units &amp; measurements</string>
+    <string name="fragment_units_and_measurements_txt">Some units have different meanings in different contexts. This chapter discusses the usage of device-independent pixels, scaleable pixels, as well as concepts like pixel density.</string>
+
+    <!-- Metrics and Keylines Fragment -->
     <string name="fragment_metrics_and_keylines">Metrics &amp; keylines</string>
 
     <!-- Structure Fragment -->
@@ -167,42 +176,48 @@
 
     <!-- Bottom Sheets Fragment -->
     <string name="fragment_bottom_sheets">Bottom sheets</string>
-    <string name="fragment_bottom_sheets_txt">One way to present a set of actions to a user is with a bottom sheet, a sheet of paper that slides up from the bottom edge of the screen. Bottom sheets offer flexibility in the display of clear and simple actions that do not need explanation.</string>
+    <string name="fragment_bottom_sheets_txt">A bottom sheet is a sheet of paper that slides up from the bottom edge of the screen and presents a set of clear and simple actions.</string>
     <string name="fragment_bottom_sheets_list_style">List-style</string>
     <string name="fragment_bottom_sheets_grid_style">Grid-style</string>
 
     <!-- Buttons Fragment -->
     <string name="fragment_buttons">Buttons</string>
-    <string name="fragment_buttons_txt">A button consists of text and/or an image that clearly communicates what action will occur when the user touches it. There are three types of main buttons:
-        \n\n• Floating action button: a circular button made of paper that lifts and emits ink reactions on press.
-        \n• Raised button: a typically rectangular button made of paper that lifts and emits ink reactions on press.
-        \n• Flat button: a button made of ink that emits ink reactions on press but does not lift.
-        \n\nIn addition, fully saturated icons in your design generally always denote affordances.
-        \n\nButtons should be designed in accordance with your app’s color theme.
-    </string>
+    <string name="fragment_buttons_txt">A button clearly communicates what action will occur when the user touches it. It consists of text, an image, or both, designed in accordance with your app’s color theme.</string>
     <string name="fragment_buttons_buttons_in_dialogs">Buttons in dialogs</string>
     <string name="fragment_buttons_buttons_inline">Buttons inline</string>
     <string name="fragment_buttons_persistent_footer_buttons">Persistent footer buttons</string>
     <string name="fragment_buttons_raised_buttons">Raised buttons</string>
     <string name="fragment_buttons_flat_buttons">Flat buttons</string>
-    <string name="fragment_buttons_floating_action_button">Floating action button</string>
+
+    <!-- Buttons Floating Action Button Fragment -->
+    <string name="fragment_buttons_floating_action_button">Buttons: Floating Action Button</string>
 
     <!-- Cards Fragment -->
     <string name="fragment_cards">Cards</string>
-    <string name="fragment_cards_txt">A card is a piece of paper that contains unique related data; for example, a photo, text, and link all about a single subject. Cards are typically an entry point to more complex and detailed information.
-        \n\nCards have a constant width and variable height. The maximum height is limited to what can fit within a single view on a platform, but it can temporarily expand as needed (for example, to display a comment field). Cards do not flip to reveal information on their back.
+    <string name="fragment_cards_txt">A card is a piece of paper with unique related data that serves as an entry point to more detailed information. For example, a card could contain a photo, text, and a link about a single subject.
+        \n\nCards have a constant width and variable height. The maximum height is limited to the height of the available space on a platform, but it can temporarily expand (for example, to display a comment field). Cards do not flip over to reveal information on the back.
     </string>
 
     <!-- Chips Fragment -->
     <string name="fragment_chips">Chips</string>
-    <string name="fragment_chips_txt">Chips are small blocks that represent a complex entity, such as a calendar event or contact. They can contain a photo, short title string (truncated if necessary), and other brief information. Chips are easily manipulated through drag and drop. Touching them invokes the full entity view in a card or full screen view or invokes a menu of options related to that chip’s entity.
-        \n\nAnimations invoking and invoked from chips should resize the chip material between entity views for element persistence.
+    <string name="fragment_chips_txt">Chips represent complex entities in small blocks, such as a contact. They can contain a photo, short title string, and brief information.
+        \n\nChips are manipulated through drag-and-drop. Touching them invokes the full view in a card or full screen view or invokes a menu of options related to that chip’s entity.
+        \n\nAnimations invoked from chips should resize responsively across views for element persistence.
+    </string>
+
+    <!-- Data Tables Fragment -->
+    <string name="fragment_data_tables">Data tables</string>
+    <string name="fragment_data_tables_txt">Data tables are used to present raw data sets, and usually appear in desktop enterprise products.
+        \n\nData sets may include:
+        \n\n• Three or more columns of data
+        \n• A corresponding visualization
+        \n• The ability for users to query and manipulate data at scale
     </string>
 
     <!-- Dialogs Fragment -->
     <string name="fragment_dialogs">Dialogs</string>
-    <string name="fragment_dialogs_txt">Dialogs inform users about critical information, require users to make decisions, or encapsulate multiple tasks within a discrete process. Use dialogs sparingly because they are interruptive in nature—their sudden appearance forces users to stop their current task and refocus on the dialog content. Not every choice, setting, or detail warrants such interruption and prominence.
-        \n\nAlternatives to dialogs include simple menus or inline expansion within the current content area. Both approaches present information or options while maintaining the current context and are less disruptive.
+    <string name="fragment_dialogs_txt">Dialogs inform users about critical information, require users to make decisions, or encapsulate multiple tasks within a discrete process. Use dialogs sparingly because they are interruptive in nature. Their sudden appearance forces users to stop their current task and refocus on the dialog content. Not every choice, setting, or detail warrants interruption and prominence.
+        \n\nAlternatives to dialogs include menus or inline expansion within the current content area. Both approaches present non-interruptive options while maintaining the current context.
     </string>
 
     <!-- Dividers Fragment -->
@@ -217,9 +232,9 @@
     <string name="fragment_lists">Lists</string>
     <string name="fragment_lists_txt">Lists present multiple line items in a vertical arrangement as a single continuous element.</string>
 
-    <!-- List Controls Fragment -->
-    <string name="fragment_list_controls">List controls</string>
-    <string name="fragment_list_controls_txt">List controls are icons that appear to the left or right of the list text. They indicate the state of a list item, information about a list item, or serve as an action related to the list item. Leave-behinds are list controls, which are revealed only upon swipe.</string>
+    <!-- Lists Controls Fragment -->
+    <string name="fragment_lists_controls">Lists: Controls</string>
+    <string name="fragment_lists_controls_txt">List controls are icons that appear to the left or right of the list text. They indicate the state of a list item, information about a list item, or serve as an action related to the list item. Leave-behinds are list controls, which are revealed only upon swipe.</string>
 
     <!-- Menus Fragment -->
     <string name="fragment_menus">Menus</string>
@@ -227,24 +242,28 @@
 
     <!-- Pickers Fragment -->
     <string name="fragment_pickers">Pickers</string>
-    <string name="fragment_pickers_txt">Pickers provide a simple way to select a single value from a set. Ready-to-use date and time pickers are included.
-        \n\nEach picker is a dialog with a set of controls for entering the parts of the date (month, day, year) or time (hour, minute, AM/PM). Using these in your app helps ensure that a user\'s specification of a date or time input is valid and formatted correctly. The format of a time and date picker adjusts automatically to the locale, i.e. month-day-year in the US and day-month-year in other regions.
-        \n\nPickers can be used inline on a form, but on mobile their relatively large footprint is best suited for display in a dialog. For inline display, consider using more compact controls such as text fields or dropdown menus.
+    <string name="fragment_pickers_txt">Pickers provide a simple way to select a single value from a set.
+        \n\nEach picker is a dialog with a set of controls for entering the units of the date (month, day, year) or time (hour, minute, AM/PM). Using these components in your app helps ensure that a user\'s specification of a date or time input is valid and formatted correctly. The format of a time and date picker adjusts automatically to the locale, i.e. month-day-year in the US and day-month-year in other regions.
+        \n\nOn mobile, pickers are best suited for display in a dialog. For inline display, such as on a form, consider using compact controls such as text fields or dropdown menus.
     </string>
 
-    <!-- Progress And Activity Fragment -->
+    <!-- Progress and Activity Fragment -->
     <string name="fragment_progress_and_activity">Progress &amp; activity</string>
     <string name="fragment_progress_and_activity_txt">Make loading content in your app as delightful and painless as possible by minimizing the amount of visual change a user sees before they can view and interact with content. Each operation should only be represented by one activity indicator—for example, one refresh operation should not display both a refresh bar and an activity circle.</string>
+
+    <!-- Selection Controls Fragment -->
+    <string name="fragment_selection_controls">Selection controls</string>
+    <string name="fragment_selection_controls_txt">Selection controls allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches.</string>
 
     <!-- Sliders Fragment -->
     <string name="fragment_sliders">Sliders</string>
     <string name="fragment_sliders_txt">Sliders let users select a value from a continuous or discrete range of values by moving the slider thumb. The smallest value is to the left, the largest to the right. Sliders can have icons to the left and right of the bar that reflect the value intensity. The interactive nature of the slider makes it a great choice for settings that reflect intensity levels, such as volume, brightness, or color saturation.</string>
 
-    <!-- Snackbars And Toasts Fragment -->
+    <!-- Snackbars and Toasts Fragment -->
     <string name="fragment_snackbars_and_toasts">Snackbars &amp; toasts</string>
-    <string name="fragment_snackbars_and_toasts_txt">Snackbars provide lightweight feedback about an operation. They show a brief message at the bottom of the screen on mobile and lower left on desktop. Snackbars appear above all other elements on screen. Snackbars can contain an action.
-        \n\nThey automatically disappear after a timeout or after user interaction elsewhere on the screen, particularly after interactions that summon a new surface or activity. Snackbars can be swiped off screen. They do not block input on the screens on which they appear. Show only one snackbar on screen at a time.
-        \n\nAndroid also provides a capsule-shaped toast, primarily used for system messaging. Toasts are similar to snackbars but do not contain actions and cannot be swiped off screen.
+    <string name="fragment_snackbars_and_toasts_txt">Snackbars provide lightweight feedback about an operation. They show a brief message at the bottom of the screen. Snackbars appear above most elements on screen, are equal in elevation to the floating action button, and lower in elevation to dialogs, bottom sheets, and navigation drawers. Snackbars can contain an action.
+        \n\nSnackbars animate upwards from the bottom edge of the screen. They automatically disappear after a timeout or after user interaction elsewhere on the screen, particularly after interactions that summon a new surface or activity. Snackbars can be swiped off screen. They do not block input on the screens on which they appear. Show only one snackbar on screen at a time.
+        \n\nAndroid also provides a toast, primarily used for system messaging. Toasts are similar to snackbars but do not contain actions and cannot be swiped off screen.
     </string>
 
     <!-- Subheaders Fragment -->
@@ -252,10 +271,6 @@
     <string name="fragment_subheaders_txt">Subheaders are special list tiles that delineate distinct sections of a list or grid list and are typically related to the current filtering or sorting criteria. Subheader tiles are either displayed inline with tiles or can be associated with content, for example, in an adjacent column.
         \n\nUpon scrolling, subheaders remain pinned to the top of the screen until pushed on or off screen by the next subheader.
     </string>
-
-    <!-- Switches Fragment -->
-    <string name="fragment_switches">Switches</string>
-    <string name="fragment_switches_txt">Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches.</string>
 
     <!-- Tabs Fragment -->
     <string name="fragment_tabs">Tabs</string>
@@ -274,28 +289,45 @@
     <string name="fragment_text_fields_auto_complete_text_field">Auto-complete text field</string>
     <string name="fragment_text_fields_search_filter">Search filter</string>
 
+    <!-- Toolbars Fragment -->
+    <string name="fragment_toolbars">Toolbars</string>
+
     <!-- Tooltips Fragment -->
     <string name="fragment_tooltips">Tooltips</string>
-    <string name="fragment_tooltips_txt">Tooltips are labels that appear on hover and focus when the user hovers over an element with the cursor, focuses on an element using a keyboard (usually through the tab key), or, in a touch UI, upon touch (without releasing). They contain textual identification for the element in question. They may also contain brief helper text regarding the function of the element. Nothing within the label can take focus.</string>
+    <string name="fragment_tooltips_txt">Tooltips are labels that appear on hover and focus when the user hovers over an element with the cursor, focuses on an element using a keyboard (usually through the tab key), or upon touch (without releasing) in a touch UI. They contain textual identification for the element in question. They may also contain brief helper text regarding the function of the element. The label itself cannot receive input focus.</string>
+
+    <!-- App Structure Fragment -->
+    <string name="fragment_app_structure">App structure</string>
+    <string name="fragment_app_structure_txt">Your app\'s structure is informed by the content and tasks you want to surface for your users. For example, your app could:
+        \n\n• Focus on a single activity (such as a calculator or game)
+        \n• Contain limited navigation (such as a phone dialer with favorites and contacts)
+        \n• Contain complex data views and deep navigation (such as a mail app with folders)
+    </string>
 
     <!-- Data Formats Fragment -->
     <string name="fragment_data_formats">Data formats</string>
-    <string name="fragment_data_formats_txt">Display data such as date &amp; time in a consistent and user-friendly way. Present the information concisely and avoid unnecessary redundancy.</string>
+    <string name="fragment_data_formats_txt">These guidelines apply to US English content only.
+        \n\nThe libraries used to generate date and time formats for other languages may differ.
+    </string>
 
     <!-- Errors Fragment -->
     <string name="fragment_errors">Errors</string>
-    <string name="fragment_errors_txt">Errors are instances where an app fails to complete what is expected. Errors happen when:
-        \n\n• The app does not understand user input.
-        \n• The system or app fails.
-        \n• A user intends to run incompatible operations concurrently.
-        \n\nTry to prevent errors through good design. Make your app understand the user, rather than making the user have to understand the app. When an error occurs, communicate clearly about what is happening and how a user can quickly resolve it. Save and preserve as much state as possible, especially when the user has input content.
-        \n\nAs with all feedback, prioritize which messages are most important, communicate through content states to avoid extraneous elements on screen, and be consistent with screen placements within and across form factors.
+    <string name="fragment_errors_txt">Errors occur when an app fails to complete what is expected. Errors happen when:
+        \n\n• The app does not understand user input
+        \n• The system or app fails
+        \n• A user intends to run incompatible operations concurrently
+        \n\nMinimize errors by designing apps that make it easy for users to input information flexibly. Apps should accept common data formats use affordances to improve user understanding.
+        \n\nWhen an error occurs:
+        \n\n• Clearly communicate what is happening
+        \n• Describe how a user can resolve it
+        \n• Preserve as much user-entered input as possible
     </string>
 
     <!-- Gestures Fragment -->
     <string name="fragment_gestures">Gestures</string>
-    <string name="fragment_gestures_txt">Gestures are divided into Touch Mechanics (what your fingers do on the screen) and Touch Activities (context-specific results of specific gestures in the user interface). A single touch mechanic (touch) may have multiple results depending on context (tap, cancel, enable/disable lights out), and a single touch activity (zoom in) may be achieved through multiple touch mechanics (pinch open, double touch, double-touch drag, etc.)
+    <string name="fragment_gestures_txt">Gestures are divided into <b>Touch Mechanics</b> (what your fingers do on the screen) and <b>Touch Activities</b> (context-specific results of specific gestures in the user interface). A single touch mechanic (touch) may have multiple results depending on context (tap, cancel, enable/disable lights out), and a single touch activity (zoom in) may be achieved through multiple touch mechanics (pinch open, double touch, double-touch drag, etc.)
         \n\nNote that Drag, Swipe, and Fling gesture activities are covered in more detail in their own section due to their highly contextual results.
+        \n\nThe information in this section is for mobile-only.
     </string>
 
     <!-- Loading Images Fragment -->
@@ -319,18 +351,19 @@
 
     <!-- Selection Fragment -->
     <string name="fragment_selection">Selection</string>
-    <string name="fragment_selection_txt">A long-press (a touch or mousedown that’s held in the same position for a moment) is the global gesture to select data. On touch devices, a two-finger touch may also be used to trigger selection.
-        \n\nUsing checkboxes (or custom analogs) to initiate selection is an explicit anti-pattern for mobile. For desktop, checkboxes may be used, with the following guidelines:
+    <string name="fragment_selection_txt">A <b>long-press</b> (a touch or mousedown that’s held in the same position for a moment) is the global gesture to select data. On touch devices, a two-finger touch may also be used to trigger selection.
+        \n\nThe use of checkboxes (or custom analogs) to initiate selection is not encouraged on mobile. For desktop, checkboxes may be used, with the following guidelines:
         \n\n• Avoid persistently displaying checkboxes as part of each item.
         \n• When hovering on an item, display a single checkbox for that item.
         \n• After an item has been selected, display checkboxes for all remaining items in that set.
-        \n\nThe use of checkboxes in contexts such as task lists or checklists where checking an item indicates completion, rather than selection, is entirely appropriate.
+        \n\nUsing checkboxes in contexts such as task lists or checklists, to checking an item indicates completion, rather than selection, is entirely appropriate.
     </string>
 
     <!-- Settings Fragment -->
     <string name="fragment_settings">Settings</string>
+    <string name="fragment_settings_txt">Application settings let users indicate their preferences for how an app should behave. They grant the user a sense of control over apps and services in one consolidated location.</string>
 
-    <!-- Swipe To Refresh Fragment -->
+    <!-- Swipe to Refresh Fragment -->
     <string name="fragment_swipe_to_refresh">Swipe to refresh</string>
 
     <!-- Accessibility Fragment -->
@@ -349,8 +382,9 @@
 
     <!-- Bidirectionality Fragment -->
     <string name="fragment_bidirectionality">Bidirectionality</string>
-    <string name="fragment_bidirectionality_txt">A well-designed app supports <i>bidirectionality</i>, which means that it can be localized easily for language scripts that are written and read from right-to-left (RTL) or left-to-right (LTR). RTL scripts include Arabic, Hebrew, and Persian.
-        \n\nBidirectionality affects not only text but also layout and iconography.
+    <string name="fragment_bidirectionality_txt">A well-designed app can be easily localized for language scripts that are written and read from left-to-right (LTR), such as English, and for <i>bidirectional</i> language scripts.
+        \n\nIn bidirectional scripts, text is written and read from right-to-left, but numbers and embedded words from LTR languages, such as non-localized names, are written left-to-right (LTR). Bidirectional scripts include Arabic, Hebrew, and Persian.
+        \n\nBidirectionality affects not only the layout of text and UI elements but also iconography. This section provides basic, high-level information about how to consider bidirectionality in design.
     </string>
 
 

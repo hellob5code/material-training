@@ -33,6 +33,15 @@ public class LayoutActivityTest extends NavigationDrawerActivityTest<LayoutActiv
         Spoon.screenshot(activity, "drawer_opened");
     }
 
+    public void testShowUnitsAndMeasurementsFragment() {
+        clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_units_and_measurements));
+        Spoon.screenshot(activity, "initial_state");
+
+        openDrawer(R.id.drawer_layout);
+        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
+        Spoon.screenshot(activity, "drawer_opened");
+    }
+
     public void testShowMetricsAndKeylinesFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_metrics_and_keylines));
         Spoon.screenshot(activity, "initial_state");

@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.*;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -17,6 +16,7 @@ import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.ui.listcontrol.IconListControl;
 import fr.erictruong.training.material.ui.listcontrol.ListControl;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
+import fr.erictruong.training.material.util.LogUtils;
 import fr.erictruong.training.material.util.ThemeUtils;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerGroup;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerItem;
@@ -32,13 +32,20 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     protected static final String EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID = "extra_selected_navigation_drawer_child_id";
     protected static final String KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID = "key_selected_navigation_drawer_child_id";
 
-    protected abstract DrawerLayout getDrawerLayout();
+    /** Delay to launch nav drawer item, to allow close animation to play */
+    private static final int NAVIGATION_DRAWER_LAUNCH_DELAY = 200;
 
-    protected abstract View getContent();
+    /** Fade in and fade out durations for the main content when switching between different Activities of the app through the Nav Drawer */
+    protected static final int CONTENT_FADE_OUT_DURATION = 200;
+    protected static final int CONTENT_FADE_IN_DURATION = 200;
 
-    protected abstract ExpandableListView getNavigationDrawer();
+    protected static final int NAVDRAWER_ITEM_INVALID = -1;
+    protected static final int NAVDRAWER_DIVIDER = -2;
+    protected static final int NAVDRAWER_SUBHEADER = -3;
 
-    protected abstract boolean goToNavigationDrawerItem(Tile item);
+    private ActionBarDrawerToggle drawerToggle;
+    private ArrayList<NavigationDrawerGroup> navigationDrawerItems = new ArrayList<NavigationDrawerGroup>();
+    private int selectedNavigationDrawerItemId = NAVDRAWER_ITEM_INVALID;
 
     protected int getSelectedNavigationDrawerGroupId() {
         return NAVDRAWER_ITEM_INVALID;
@@ -59,21 +66,6 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     protected String getNavigationDrawerClosedTitle() {
         return getString(android.R.string.untitled);
     }
-
-    /** Delay to launch nav drawer item, to allow close animation to play */
-    private static final int NAVIGATION_DRAWER_LAUNCH_DELAY = 200;
-
-    /** Fade in and fade out durations for the main content when switching between different Activities of the app through the Nav Drawer */
-    protected static final int CONTENT_FADE_OUT_DURATION = 200;
-    protected static final int CONTENT_FADE_IN_DURATION = 200;
-
-    protected static final int NAVDRAWER_ITEM_INVALID = -1;
-    protected static final int NAVDRAWER_DIVIDER = -2;
-    protected static final int NAVDRAWER_SUBHEADER = -3;
-
-    private ActionBarDrawerToggle drawerToggle;
-    private ArrayList<NavigationDrawerGroup> navigationDrawerItems = new ArrayList<NavigationDrawerGroup>();
-    private int selectedNavigationDrawerItemId = NAVDRAWER_ITEM_INVALID;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -223,7 +215,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
                 getContent().setAlpha(0);
                 getContent().animate().setInterpolator(new DecelerateInterpolator()).alpha(1).setDuration(CONTENT_FADE_IN_DURATION);
             } else {
-                Log.e(TAG, "No content view to fade in, implement getContent() to initialize it.");
+                LogUtils.e(getClass(), "No content view to fade in, implement getContent() to initialize it.");
             }
         }
     }
@@ -234,7 +226,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
                 getContent().setAlpha(1);
                 getContent().animate().setInterpolator(new AccelerateInterpolator()).alpha(0).setDuration(CONTENT_FADE_OUT_DURATION);
             } else {
-                Log.e(TAG, "No content view to fade out, implement getContent() to initialize it.");
+                LogUtils.e(getClass(), "No content view to fade out, implement getContent() to initialize it.");
             }
         }
     }
@@ -440,4 +432,12 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
             return -1;
         }
     }
+
+    protected abstract DrawerLayout getDrawerLayout();
+
+    protected abstract View getContent();
+
+    protected abstract ExpandableListView getNavigationDrawer();
+
+    protected abstract boolean goToNavigationDrawerItem(Tile item);
 }

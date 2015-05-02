@@ -1,5 +1,6 @@
 package fr.erictruong.training.material.ui.activity;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import fr.erictruong.training.material.persistence.preference.AppPrefs;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
@@ -18,5 +19,15 @@ public class MainActivity extends MaterialTrainingNavigationDrawerActivity {
     private void startLastVisitedActivity() {
         NavigationDrawerChild item = new NavigationDrawerChild(AppPrefs.getLastVisitedGroupId(this), AppPrefs.getLastVisitedChildId(this), null);
         goToNavigationDrawerItem(item);
+    }
+
+    @Override
+    protected int getDefaultSelectedFragment() {
+        return NAVDRAWER_ITEM_INVALID;
+    }
+
+    @Override
+    protected Fragment getSelectedFragment(int navdrawerItemId) {
+        return null;
     }
 }

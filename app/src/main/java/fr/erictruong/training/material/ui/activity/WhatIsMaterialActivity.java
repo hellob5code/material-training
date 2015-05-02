@@ -1,23 +1,14 @@
 package fr.erictruong.training.material.ui.activity;
 
 import android.app.Fragment;
-import android.os.Bundle;
 import fr.erictruong.training.material.R;
-import fr.erictruong.training.material.ui.fragment.EnvironmentCardFragment;
-import fr.erictruong.training.material.ui.fragment.MaterialPropertiesCardFragment;
-import fr.erictruong.training.material.ui.fragment.ObjectsIn3dSpaceCardFragment;
+import fr.erictruong.training.material.ui.fragment.EnvironmentFragment;
+import fr.erictruong.training.material.ui.fragment.MaterialPropertiesFragment;
+import fr.erictruong.training.material.ui.fragment.ObjectsIn3dSpaceFragment;
 
 public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActivity {
 
     private static final String TAG = WhatIsMaterialActivity.class.getSimpleName();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-            setUpContent(NAVDRAWER_CHILD_ENVIRONMENT_ID);
-        }
-    }
 
     @Override
     protected int getSelectedNavigationDrawerGroupId() {
@@ -30,16 +21,21 @@ public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActi
     }
 
     @Override
+    protected int getDefaultSelectedFragment() {
+        return NAVDRAWER_CHILD_ENVIRONMENT_ID;
+    }
+
+    @Override
     protected Fragment getSelectedFragment(int navdrawerItemId) {
         switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_ENVIRONMENT_ID:
-                return new EnvironmentCardFragment();
+                return new EnvironmentFragment();
             case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
-                return new MaterialPropertiesCardFragment();
+                return new MaterialPropertiesFragment();
             case NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID:
-                return new ObjectsIn3dSpaceCardFragment();
+                return new ObjectsIn3dSpaceFragment();
             default:
-                return super.getSelectedFragment(navdrawerItemId);
+                return null;
         }
     }
 }

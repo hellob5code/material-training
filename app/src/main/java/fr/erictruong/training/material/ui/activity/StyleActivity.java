@@ -1,24 +1,15 @@
 package fr.erictruong.training.material.ui.activity;
 
 import android.app.Fragment;
-import android.os.Bundle;
 import fr.erictruong.training.material.R;
-import fr.erictruong.training.material.ui.fragment.ColorCardFragment;
-import fr.erictruong.training.material.ui.fragment.IconsCardFragment;
-import fr.erictruong.training.material.ui.fragment.ImageryCardFragment;
-import fr.erictruong.training.material.ui.fragment.TypographyCardFragment;
+import fr.erictruong.training.material.ui.fragment.ColorFragment;
+import fr.erictruong.training.material.ui.fragment.IconsFragment;
+import fr.erictruong.training.material.ui.fragment.ImageryFragment;
+import fr.erictruong.training.material.ui.fragment.TypographyFragment;
 
 public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
 
     private static final String TAG = StyleActivity.class.getSimpleName();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-            setUpContent(NAVDRAWER_CHILD_COLOR_ID);
-        }
-    }
 
     @Override
     protected int getSelectedNavigationDrawerGroupId() {
@@ -31,18 +22,23 @@ public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
     }
 
     @Override
+    protected int getDefaultSelectedFragment() {
+        return NAVDRAWER_CHILD_COLOR_ID;
+    }
+
+    @Override
     protected Fragment getSelectedFragment(int navdrawerItemId) {
         switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_COLOR_ID:
-                return new ColorCardFragment();
+                return new ColorFragment();
             case NAVDRAWER_CHILD_ICONS_ID:
-                return new IconsCardFragment();
+                return new IconsFragment();
             case NAVDRAWER_CHILD_IMAGERY_ID:
-                return new ImageryCardFragment();
+                return new ImageryFragment();
             case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
-                return new TypographyCardFragment();
+                return new TypographyFragment();
             default:
-                return super.getSelectedFragment(navdrawerItemId);
+                return null;
         }
     }
 }

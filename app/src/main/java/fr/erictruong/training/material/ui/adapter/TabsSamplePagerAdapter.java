@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import fr.erictruong.training.material.R;
+import fr.erictruong.training.material.util.LogUtils;
 
 public class TabsSamplePagerAdapter extends PagerAdapter {
 
@@ -36,7 +37,7 @@ public class TabsSamplePagerAdapter extends PagerAdapter {
         // TODO: Setup layout content here.
 
         container.addView(view);
-        Log.d(TAG, "instantiateItem() [position: " + position + "]");
+        LogUtils.d(getClass(), "instantiateItem() [position: " + position + "]");
 
         return view;
     }
@@ -49,6 +50,6 @@ public class TabsSamplePagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
-        Log.d(TAG, "destroyItem() [position: " + position + "]");
+        LogUtils.d(getClass(), "destroyItem() [position: " + position + "]");
     }
 }

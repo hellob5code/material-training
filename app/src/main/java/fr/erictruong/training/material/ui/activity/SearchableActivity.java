@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import fr.erictruong.training.material.R;
+import fr.erictruong.training.material.util.LogUtils;
 
 public class SearchableActivity extends ActionBarActivity {
 
@@ -79,7 +80,7 @@ public class SearchableActivity extends ActionBarActivity {
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            Log.d(TAG, "Search query=" + query);
+            LogUtils.d(getClass(), "Search query=" + query);
         }
     }
 }

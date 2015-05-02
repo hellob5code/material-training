@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'spoon'
-apply plugin: 'org.robolectric'
 
 android {
     compileSdkVersion 22
@@ -77,15 +76,14 @@ dependencies {
     }
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.android.support:cardview-v7:22.0.0'
-    compile('com.android.support:recyclerview-v7:22.0.0') {
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:cardview-v7:22.1.1'
+    compile('com.android.support:recyclerview-v7:22.1.1') {
         exclude module: 'support-v4'
     }
-
     compile 'joda-time:joda-time:2.6'
     compile 'org.apache.commons:commons-lang3:3.3.2'
-    compile 'com.jakewharton:butterknife:6.0.0'
+    compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'fr.erictruong:materialedittext:1.0.0-SNAPSHOT'
 }

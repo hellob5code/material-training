@@ -1,21 +1,12 @@
 package fr.erictruong.training.material.ui.activity;
 
 import android.app.Fragment;
-import android.os.Bundle;
 import fr.erictruong.training.material.R;
-import fr.erictruong.training.material.ui.fragment.IntroductionCardFragment;
+import fr.erictruong.training.material.ui.fragment.IntroductionFragment;
 
 public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActivity {
 
     private static final String TAG = MaterialDesignActivity.class.getSimpleName();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-            setUpContent(NAVDRAWER_CHILD_INTRODUCTION_ID);
-        }
-    }
 
     @Override
     protected int getSelectedNavigationDrawerGroupId() {
@@ -28,12 +19,17 @@ public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActi
     }
 
     @Override
+    protected int getDefaultSelectedFragment() {
+        return NAVDRAWER_CHILD_INTRODUCTION_ID;
+    }
+
+    @Override
     protected Fragment getSelectedFragment(int navdrawerItemId) {
         switch (navdrawerItemId) {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
-                return new IntroductionCardFragment();
+                return new IntroductionFragment();
             default:
-                return super.getSelectedFragment(navdrawerItemId);
+                return null;
         }
     }
 }

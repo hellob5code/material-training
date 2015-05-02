@@ -23,70 +23,75 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
 
     private static final String TAG = MaterialTrainingNavigationDrawerActivity.class.getSimpleName();
 
-    public static final int NAVDRAWER_GROUP_MATERIAL_DESIGN_ID =             0;
-    public static final int NAVDRAWER_CHILD_INTRODUCTION_ID =                1;
-    public static final int NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID =          100;
-    public static final int NAVDRAWER_CHILD_ENVIRONMENT_ID =               101;
-    public static final int NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID =       102;
-    public static final int NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID =       103;
-    public static final int NAVDRAWER_GROUP_ANIMATION_ID =                 200;
-    public static final int NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID =          201;
-    public static final int NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID =    202;
-    public static final int NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID =    203;
-    public static final int NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID =        204;
-    public static final int NAVDRAWER_GROUP_STYLE_ID =                     300;
-    public static final int NAVDRAWER_CHILD_COLOR_ID =                     301;
-    public static final int NAVDRAWER_CHILD_ICONS_ID =                     302;
-    public static final int NAVDRAWER_CHILD_IMAGERY_ID =                   303;
-    public static final int NAVDRAWER_CHILD_TYPOGRAPHY_ID =                304;
-    public static final int NAVDRAWER_GROUP_LAYOUT_ID =                    400;
-    public static final int NAVDRAWER_CHILD_PRINCIPLES_ID =                401;
-    public static final int NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID =      402;
-    public static final int NAVDRAWER_CHILD_STRUCTURE_ID =                 403;
-    public static final int NAVDRAWER_GROUP_COMPONENTS_ID =                500;
-    public static final int NAVDRAWER_CHILD_BOTTOM_SHEETS_ID =             501;
-    public static final int NAVDRAWER_CHILD_BUTTONS_ID =                   502;
-    public static final int NAVDRAWER_CHILD_CARDS_ID =                     503;
-    public static final int NAVDRAWER_CHILD_CHIPS_ID =                     504;
-    public static final int NAVDRAWER_CHILD_DIALOGS_ID =                   505;
-    public static final int NAVDRAWER_CHILD_DIVIDERS_ID =                  506;
-    public static final int NAVDRAWER_CHILD_GRIDS_ID =                     507;
-    public static final int NAVDRAWER_CHILD_LISTS_ID =                     508;
-    public static final int NAVDRAWER_CHILD_LIST_CONTROLS_ID =             509;
-    public static final int NAVDRAWER_CHILD_MENUS_ID =                     510;
-    public static final int NAVDRAWER_CHILD_PICKERS_ID =                   511;
-    public static final int NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID =     512;
-    public static final int NAVDRAWER_CHILD_SLIDERS_ID =                   513;
-    public static final int NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID =      514;
-    public static final int NAVDRAWER_CHILD_SUBHEADERS_ID =                515;
-    public static final int NAVDRAWER_CHILD_SWITCHES_ID =                  516;
-    public static final int NAVDRAWER_CHILD_TABS_ID =                      517;
-    public static final int NAVDRAWER_CHILD_TEXT_FIELDS_ID =               518;
-    public static final int NAVDRAWER_CHILD_TOOLTIPS_ID =                  519;
-    public static final int NAVDRAWER_GROUP_PATTERNS_ID =                  600;
-    public static final int NAVDRAWER_CHILD_DATA_FORMATS_ID =              601;
-    public static final int NAVDRAWER_CHILD_ERRORS_ID =                    602;
-    public static final int NAVDRAWER_CHILD_GESTURES_ID =                  603;
-    public static final int NAVDRAWER_CHILD_LOADING_IMAGES_ID =            604;
-    public static final int NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID =         605;
-    public static final int NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID =  606;
-    public static final int NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID =      607;
-    public static final int NAVDRAWER_CHILD_SEARCH_ID =                    608;
-    public static final int NAVDRAWER_CHILD_SELECTION_ID =                 609;
-    public static final int NAVDRAWER_CHILD_SETTINGS_ID =                  610;
-    public static final int NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID =          611;
-    public static final int NAVDRAWER_GROUP_USABILITY_ID =                 700;
-    public static final int NAVDRAWER_CHILD_ACCESSIBILITY_ID =             701;
-    public static final int NAVDRAWER_CHILD_BIDIRECTIONALITY_ID =          702;
-    public static final int NAVDRAWER_GROUP_RESOURCES_ID =                 800;
-    public static final int NAVDRAWER_CHILD_COLOR_PALETTES_ID =            801;
-    public static final int NAVDRAWER_CHILD_LAYOUT_TEMPLATES_ID =          802;
-    public static final int NAVDRAWER_CHILD_ROBOTO_AND_NOTO_FONTS_ID =     803;
-    public static final int NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID =  804;
-    public static final int NAVDRAWER_GROUP_WHATS_NEW_ID =                 900;
-    public static final int NAVDRAWER_CHILD_WHATS_NEW_ID =                 901;
-    public static final int NAVDRAWER_ITEM_SETTINGS_ID =                  1000;
-    public static final int NAVDRAWER_ITEM_DEV_MODE_ID =                  1001;
+    public static final int NAVDRAWER_GROUP_MATERIAL_DESIGN_ID                =    0;
+    public static final int NAVDRAWER_CHILD_INTRODUCTION_ID                   =    1;
+    public static final int NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID               =  100;
+    public static final int NAVDRAWER_CHILD_ENVIRONMENT_ID                    =  101;
+    public static final int NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID            =  102;
+    public static final int NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID            =  103;
+    public static final int NAVDRAWER_GROUP_ANIMATION_ID                      =  200;
+    public static final int NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID               =  201;
+    public static final int NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID         =  202;
+    public static final int NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID         =  203;
+    public static final int NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID             =  204;
+    public static final int NAVDRAWER_GROUP_STYLE_ID                          =  300;
+    public static final int NAVDRAWER_CHILD_COLOR_ID                          =  301;
+    public static final int NAVDRAWER_CHILD_ICONS_ID                          =  302;
+    public static final int NAVDRAWER_CHILD_IMAGERY_ID                        =  303;
+    public static final int NAVDRAWER_CHILD_TYPOGRAPHY_ID                     =  304;
+    public static final int NAVDRAWER_GROUP_LAYOUT_ID                         =  400;
+    public static final int NAVDRAWER_CHILD_PRINCIPLES_ID                     =  401;
+    public static final int NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID         =  402;
+    public static final int NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID           =  403;
+    public static final int NAVDRAWER_CHILD_STRUCTURE_ID                      =  404;
+    public static final int NAVDRAWER_GROUP_COMPONENTS_ID                     =  500;
+    public static final int NAVDRAWER_CHILD_BOTTOM_SHEETS_ID                  =  501;
+    public static final int NAVDRAWER_CHILD_BUTTONS_ID                        =  502;
+    public static final int NAVDRAWER_CHILD_BUTTONS_FLOATING_ACTION_BUTTON_ID =  503;
+    public static final int NAVDRAWER_CHILD_CARDS_ID                          =  504;
+    public static final int NAVDRAWER_CHILD_CHIPS_ID                          =  505;
+    public static final int NAVDRAWER_CHILD_DATA_TABLES_ID                    =  506;
+    public static final int NAVDRAWER_CHILD_DIALOGS_ID                        =  507;
+    public static final int NAVDRAWER_CHILD_DIVIDERS_ID                       =  508;
+    public static final int NAVDRAWER_CHILD_GRID_LISTS_ID                     =  509;
+    public static final int NAVDRAWER_CHILD_LISTS_ID                          =  510;
+    public static final int NAVDRAWER_CHILD_LISTS_CONTROLS_ID                 =  511;
+    public static final int NAVDRAWER_CHILD_MENUS_ID                          =  512;
+    public static final int NAVDRAWER_CHILD_PICKERS_ID                        =  513;
+    public static final int NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID          =  514;
+    public static final int NAVDRAWER_CHILD_SELECTION_CONTROLS_ID             =  515;
+    public static final int NAVDRAWER_CHILD_SLIDERS_ID                        =  516;
+    public static final int NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID           =  517;
+    public static final int NAVDRAWER_CHILD_SUBHEADERS_ID                     =  518;
+    public static final int NAVDRAWER_CHILD_TABS_ID                           =  519;
+    public static final int NAVDRAWER_CHILD_TEXT_FIELDS_ID                    =  520;
+    public static final int NAVDRAWER_CHILD_TOOLBARS_ID                       =  521;
+    public static final int NAVDRAWER_CHILD_TOOLTIPS_ID                       =  522;
+    public static final int NAVDRAWER_GROUP_PATTERNS_ID                       =  600;
+    public static final int NAVDRAWER_CHILD_APP_STRUCTURE_ID                  =  601;
+    public static final int NAVDRAWER_CHILD_DATA_FORMATS_ID                   =  602;
+    public static final int NAVDRAWER_CHILD_ERRORS_ID                         =  603;
+    public static final int NAVDRAWER_CHILD_GESTURES_ID                       =  604;
+    public static final int NAVDRAWER_CHILD_LOADING_IMAGES_ID                 =  605;
+    public static final int NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID              =  606;
+    public static final int NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID       =  607;
+    public static final int NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID           =  608;
+    public static final int NAVDRAWER_CHILD_SEARCH_ID                         =  609;
+    public static final int NAVDRAWER_CHILD_SELECTION_ID                      =  610;
+    public static final int NAVDRAWER_CHILD_SETTINGS_ID                       =  611;
+    public static final int NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID               =  612;
+    public static final int NAVDRAWER_GROUP_USABILITY_ID                      =  700;
+    public static final int NAVDRAWER_CHILD_ACCESSIBILITY_ID                  =  701;
+    public static final int NAVDRAWER_CHILD_BIDIRECTIONALITY_ID               =  702;
+    public static final int NAVDRAWER_GROUP_RESOURCES_ID                      =  800;
+    public static final int NAVDRAWER_CHILD_COLOR_PALETTES_ID                 =  801;
+    public static final int NAVDRAWER_CHILD_LAYOUT_TEMPLATES_ID               =  802;
+    public static final int NAVDRAWER_CHILD_ROBOTO_AND_NOTO_FONTS_ID          =  803;
+    public static final int NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID       =  804;
+    public static final int NAVDRAWER_GROUP_WHATS_NEW_ID                      =  900;
+    public static final int NAVDRAWER_CHILD_WHATS_NEW_ID                      =  901;
+    public static final int NAVDRAWER_ITEM_SETTINGS_ID                        = 1000;
+    public static final int NAVDRAWER_ITEM_DEV_MODE_ID                        = 1001;
 
     @InjectView(R.id.toolbar) Toolbar toolbar;
     @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
@@ -109,6 +114,10 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         setSupportActionBar(toolbar);
 
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
+
+        if (savedInstanceState == null) {
+            setUpContent(getDefaultSelectedFragment());
+        }
     }
 
     @Override
@@ -152,29 +161,34 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
                 .addChild(NAVDRAWER_CHILD_TYPOGRAPHY_ID, getString(R.string.navdrawer_child_typography));
         addGroup(NAVDRAWER_GROUP_LAYOUT_ID, getString(R.string.navdrawer_group_layout))
                 .addChild(NAVDRAWER_CHILD_PRINCIPLES_ID, getString(R.string.navdrawer_child_principles))
+                .addChild(NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID, getString(R.string.navdrawer_child_units_and_measurements))
                 .addChild(NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID, getString(R.string.navdrawer_child_metrics_and_keylines))
                 .addChild(NAVDRAWER_CHILD_STRUCTURE_ID, getString(R.string.navdrawer_child_structure));
         addGroup(NAVDRAWER_GROUP_COMPONENTS_ID, getString(R.string.navdrawer_group_components))
                 .addChild(NAVDRAWER_CHILD_BOTTOM_SHEETS_ID, getString(R.string.navdrawer_child_bottom_sheets))
                 .addChild(NAVDRAWER_CHILD_BUTTONS_ID, getString(R.string.navdrawer_child_buttons))
+                .addChild(NAVDRAWER_CHILD_BUTTONS_FLOATING_ACTION_BUTTON_ID, getString(R.string.navdrawer_child_buttons_floating_action_button))
                 .addChild(NAVDRAWER_CHILD_CARDS_ID, getString(R.string.navdrawer_child_cards))
                 .addChild(NAVDRAWER_CHILD_CHIPS_ID, getString(R.string.navdrawer_child_chips))
+                .addChild(NAVDRAWER_CHILD_DATA_TABLES_ID, getString(R.string.navdrawer_child_data_tables))
                 .addChild(NAVDRAWER_CHILD_DIALOGS_ID, getString(R.string.navdrawer_child_dialogs))
                 .addChild(NAVDRAWER_CHILD_DIVIDERS_ID, getString(R.string.navdrawer_child_dividers))
-                .addChild(NAVDRAWER_CHILD_GRIDS_ID, getString(R.string.navdrawer_child_grids))
+                .addChild(NAVDRAWER_CHILD_GRID_LISTS_ID, getString(R.string.navdrawer_child_grid_lists))
                 .addChild(NAVDRAWER_CHILD_LISTS_ID, getString(R.string.navdrawer_child_lists))
-                .addChild(NAVDRAWER_CHILD_LIST_CONTROLS_ID, getString(R.string.navdrawer_child_list_controls))
+                .addChild(NAVDRAWER_CHILD_LISTS_CONTROLS_ID, getString(R.string.navdrawer_child_lists_controls))
                 .addChild(NAVDRAWER_CHILD_MENUS_ID, getString(R.string.navdrawer_child_menus))
                 .addChild(NAVDRAWER_CHILD_PICKERS_ID, getString(R.string.navdrawer_child_pickers))
                 .addChild(NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID, getString(R.string.navdrawer_child_progress_and_activity))
+                .addChild(NAVDRAWER_CHILD_SELECTION_CONTROLS_ID, getString(R.string.navdrawer_child_selection_controls))
                 .addChild(NAVDRAWER_CHILD_SLIDERS_ID, getString(R.string.navdrawer_child_sliders))
                 .addChild(NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID, getString(R.string.navdrawer_child_snackbars_and_toasts))
                 .addChild(NAVDRAWER_CHILD_SUBHEADERS_ID, getString(R.string.navdrawer_child_subheaders))
-                .addChild(NAVDRAWER_CHILD_SWITCHES_ID, getString(R.string.navdrawer_child_switches))
                 .addChild(NAVDRAWER_CHILD_TABS_ID, getString(R.string.navdrawer_child_tabs))
                 .addChild(NAVDRAWER_CHILD_TEXT_FIELDS_ID, getString(R.string.navdrawer_child_text_fields))
+                .addChild(NAVDRAWER_CHILD_TOOLBARS_ID, getString(R.string.navdrawer_child_toolbars))
                 .addChild(NAVDRAWER_CHILD_TOOLTIPS_ID, getString(R.string.navdrawer_child_tooltips));
         addGroup(NAVDRAWER_GROUP_PATTERNS_ID, getString(R.string.navdrawer_group_patterns))
+                .addChild(NAVDRAWER_CHILD_APP_STRUCTURE_ID, getString(R.string.navdrawer_child_app_structure))
                 .addChild(NAVDRAWER_CHILD_DATA_FORMATS_ID, getString(R.string.navdrawer_child_data_formats))
                 .addChild(NAVDRAWER_CHILD_ERRORS_ID, getString(R.string.navdrawer_child_errors))
                 .addChild(NAVDRAWER_CHILD_GESTURES_ID, getString(R.string.navdrawer_child_gestures))
@@ -266,10 +280,6 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         }
     }
 
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        return null;
-    }
-
     protected void setUpContent(int defaultNavdrawerItemId) {
         int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, defaultNavdrawerItemId);
         Fragment fragment = getSelectedFragment(id);
@@ -279,4 +289,8 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
             AppPrefs.putLastVisitedChildId(this, id);
         }
     }
+
+    protected abstract int getDefaultSelectedFragment();
+
+    protected abstract Fragment getSelectedFragment(int navdrawerItemId);
 }
