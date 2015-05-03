@@ -46,8 +46,20 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
                 v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_subheader_material, parent, false);
                 viewHolder = new SubheaderCard.ViewHolder(v);
                 break;
+            case TYPE_DISPLAY_1_BODY_1:
+                v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_display1_body1_material, parent, false);
+                viewHolder = new DisplayBodyCard.ViewHolder(v);
+                break;
+            case TYPE_DISPLAY_1_BODY_2:
+                v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_display1_body2_material, parent, false);
+                viewHolder = new DisplayBodyCard.ViewHolder(v);
+                break;
             case TYPE_HEADLINE_BODY_1:
                 v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_material, parent, false);
+                viewHolder = new HeadlineBodyCard.ViewHolder(v);
+                break;
+            case TYPE_HEADLINE_BODY_2:
+                v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body2_material, parent, false);
                 viewHolder = new HeadlineBodyCard.ViewHolder(v);
                 break;
             case TYPE_HEADLINE_BODY_1_THREE_BUTTON:
@@ -57,6 +69,18 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
             case TYPE_HEADLINE_BODY_1_SIX_VERTICAL_BUTTON:
                 v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_headline_body1_six_vertical_button_material, parent, false);
                 viewHolder = new HeadlineBodySixVerticalButtonCard.ViewHolder(v);
+                break;
+            case TYPE_PRIMARY_DISPLAY_1_BODY_1:
+                v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_primary_display1_body1_material, parent, false);
+                viewHolder = new DisplayBodyCard.ViewHolder(v);
+                break;
+            case TYPE_PRIMARY_DISPLAY_1_BODY_2:
+                v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_primary_display1_body2_material, parent, false);
+                viewHolder = new DisplayBodyCard.ViewHolder(v);
+                break;
+            case TYPE_PRIMARY_HEADLINE_BODY_1:
+                v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_primary_headline_body1_material, parent, false);
+                viewHolder = new HeadlineBodyCard.ViewHolder(v);
                 break;
             case TYPE_PRIMARY_HEADLINE_BODY_2:
                 v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_primary_headline_body2_material, parent, false);

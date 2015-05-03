@@ -16,19 +16,19 @@ public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
     protected CharSequence button1, button2, button3;
     protected Callable action1, action2, action3;
 
-    public HeadlineBodyThreeButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, Callable action1) {
+    public HeadlineBodyThreeButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, Callable action1) {
         this(id, headline, body1, button1, null, null, action1, null, null);
     }
 
-    public HeadlineBodyThreeButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, Callable action1, Callable action2) {
+    public HeadlineBodyThreeButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, Callable action1, Callable action2) {
         this(id, headline, body1, button1, button2, null, action1, action2, null);
     }
 
-    public HeadlineBodyThreeButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
+    public HeadlineBodyThreeButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
         this(id, TYPE_HEADLINE_BODY_1_THREE_BUTTON, headline, body1, button1, button2, button3, action1, action2, action3);
     }
 
-    public HeadlineBodyThreeButtonCard(int id, int viewType, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
+    public HeadlineBodyThreeButtonCard(long id, int viewType, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
         super(id, viewType, headline, body1);
         this.button1 = button1;
         this.button2 = button2;
@@ -81,7 +81,7 @@ public class HeadlineBodyThreeButtonCard extends HeadlineBodyCard {
         @Override
         public void bindView(Card card, int position) {
             HeadlineBodyThreeButtonCard c = (HeadlineBodyThreeButtonCard) card;
-            bindView(c.getHeadline(), c.getBody1(), c.getButton1(), c.getButton2(), c.getButton3(), c.getAction1(), c.getAction2(), c.getAction3());
+            bindView(c.getHeadline(), c.getBody(), c.getButton1(), c.getButton2(), c.getButton3(), c.getAction1(), c.getAction2(), c.getAction3());
         }
 
         protected void bindView(CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, final Callable action1, final Callable action2, final Callable action3) {

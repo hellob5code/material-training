@@ -16,31 +16,31 @@ public class HeadlineBodySixVerticalButtonCard extends HeadlineBodyCard {
     protected CharSequence button1, button2, button3, button4, button5, button6;
     protected Callable action1, action2, action3, action4, action5, action6;
 
-    public HeadlineBodySixVerticalButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, Callable action1) {
+    public HeadlineBodySixVerticalButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, Callable action1) {
         this(id, headline, body1, button1, null, null, null, null, null, action1, null, null, null, null, null);
     }
 
-    public HeadlineBodySixVerticalButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, Callable action1, Callable action2) {
+    public HeadlineBodySixVerticalButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, Callable action1, Callable action2) {
         this(id, headline, body1, button1, button2, null, null, null, null, action1, action2, null, null, null, null);
     }
 
-    public HeadlineBodySixVerticalButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
+    public HeadlineBodySixVerticalButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, Callable action1, Callable action2, Callable action3) {
         this(id, headline, body1, button1, button2, button3, null, null, null, action1, action2, action3, null, null, null);
     }
 
-    public HeadlineBodySixVerticalButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, Callable action1, Callable action2, Callable action3, Callable action4) {
+    public HeadlineBodySixVerticalButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, Callable action1, Callable action2, Callable action3, Callable action4) {
         this(id, headline, body1, button1, button2, button3, button4, null, null, action1, action2, action3, action4, null, null);
     }
 
-    public HeadlineBodySixVerticalButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, CharSequence button5, Callable action1, Callable action2, Callable action3, Callable action4, Callable action5) {
+    public HeadlineBodySixVerticalButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, CharSequence button5, Callable action1, Callable action2, Callable action3, Callable action4, Callable action5) {
         this(id, headline, body1, button1, button2, button3, button4, button5, null, action1, action2, action3, action4, action5, null);
     }
 
-    public HeadlineBodySixVerticalButtonCard(int id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, CharSequence button5, CharSequence button6, Callable action1, Callable action2, Callable action3, Callable action4, Callable action5, Callable action6) {
+    public HeadlineBodySixVerticalButtonCard(long id, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, CharSequence button5, CharSequence button6, Callable action1, Callable action2, Callable action3, Callable action4, Callable action5, Callable action6) {
         this(id, TYPE_HEADLINE_BODY_1_SIX_VERTICAL_BUTTON, headline, body1, button1, button2, button3, button4, button5, button6, action1, action2, action3, action4, action5, action6);
     }
 
-    public HeadlineBodySixVerticalButtonCard(int id, int viewType, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, CharSequence button5, CharSequence button6, Callable action1, Callable action2, Callable action3, Callable action4, Callable action5, Callable action6) {
+    public HeadlineBodySixVerticalButtonCard(long id, int viewType, CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, CharSequence button5, CharSequence button6, Callable action1, Callable action2, Callable action3, Callable action4, Callable action5, Callable action6) {
         super(id, viewType, headline, body1);
         this.button1 = button1;
         this.button2 = button2;
@@ -131,7 +131,7 @@ public class HeadlineBodySixVerticalButtonCard extends HeadlineBodyCard {
         @Override
         public void bindView(Card card, int position) {
             HeadlineBodySixVerticalButtonCard c = (HeadlineBodySixVerticalButtonCard) card;
-            bindView(c.getHeadline(), c.getBody1(), c.getButton1(), c.getButton2(), c.getButton3(), c.getButton4(), c.getButton5(), c.getButton6(), c.getAction1(), c.getAction2(), c.getAction3(), c.getAction4(), c.getAction5(), c.getAction6());
+            bindView(c.getHeadline(), c.getBody(), c.getButton1(), c.getButton2(), c.getButton3(), c.getButton4(), c.getButton5(), c.getButton6(), c.getAction1(), c.getAction2(), c.getAction3(), c.getAction4(), c.getAction5(), c.getAction6());
         }
 
         protected void bindView(CharSequence headline, CharSequence body1, CharSequence button1, CharSequence button2, CharSequence button3, CharSequence button4, CharSequence button5, CharSequence button6, final Callable action1, final Callable action2, final Callable action3, final Callable action4, final Callable action5, final Callable action6) {

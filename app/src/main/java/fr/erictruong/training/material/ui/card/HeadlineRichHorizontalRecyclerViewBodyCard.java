@@ -17,11 +17,11 @@ public class HeadlineRichHorizontalRecyclerViewBodyCard extends HeadlineBodyCard
 
     protected int[] resourceIds;
 
-    public HeadlineRichHorizontalRecyclerViewBodyCard(int id, int[] resourceIds, CharSequence headline, CharSequence body1) {
+    public HeadlineRichHorizontalRecyclerViewBodyCard(long id, int[] resourceIds, CharSequence headline, CharSequence body1) {
         this(id, TYPE_HEADLINE_RICH_HORIZONTAL_RECYCLER_VIEW_BODY_1, resourceIds, headline, body1);
     }
 
-    public HeadlineRichHorizontalRecyclerViewBodyCard(int id, int viewType, int[] resourceIds, CharSequence headline, CharSequence body1) {
+    public HeadlineRichHorizontalRecyclerViewBodyCard(long id, int viewType, int[] resourceIds, CharSequence headline, CharSequence body1) {
         super(id, viewType, headline, body1);
         this.resourceIds = resourceIds;
     }
@@ -49,7 +49,7 @@ public class HeadlineRichHorizontalRecyclerViewBodyCard extends HeadlineBodyCard
         @Override
         public void bindView(Card card, int position) {
             HeadlineRichHorizontalRecyclerViewBodyCard c = (HeadlineRichHorizontalRecyclerViewBodyCard) card;
-            bindView(c.getDrawableIds(), c.getHeadline(), c.getBody1());
+            bindView(c.getDrawableIds(), c.getHeadline(), c.getBody());
         }
 
         protected void bindView(int[] resourceIds, CharSequence headline, CharSequence body1) {

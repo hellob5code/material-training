@@ -14,11 +14,11 @@ public class RichImageHeadlineBodyCard extends HeadlineBodyCard {
 
     protected int resourceId;
 
-    public RichImageHeadlineBodyCard(int id, int resourceId, CharSequence headline, CharSequence body1) {
+    public RichImageHeadlineBodyCard(long id, int resourceId, CharSequence headline, CharSequence body1) {
         this(id, TYPE_RICH_IMAGE_HEADLINE_BODY_1, resourceId, headline, body1);
     }
 
-    public RichImageHeadlineBodyCard(int id, int viewType, int resourceId, CharSequence headline, CharSequence body1) {
+    public RichImageHeadlineBodyCard(long id, int viewType, int resourceId, CharSequence headline, CharSequence body1) {
         super(id, viewType, headline, body1);
         this.resourceId = resourceId;
     }
@@ -45,7 +45,7 @@ public class RichImageHeadlineBodyCard extends HeadlineBodyCard {
         @Override
         public void bindView(Card card, int position) {
             RichImageHeadlineBodyCard c = (RichImageHeadlineBodyCard) card;
-            bindView(c.getDrawableId(), c.getHeadline(), c.getBody1());
+            bindView(c.getDrawableId(), c.getHeadline(), c.getBody());
         }
 
         protected void bindView(final int resourceId, CharSequence headline, CharSequence body1) {

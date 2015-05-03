@@ -11,7 +11,7 @@ public class SubheaderCard extends Card {
 
     private CharSequence subhead;
 
-    public SubheaderCard(int id, CharSequence subhead) {
+    public SubheaderCard(long id, CharSequence subhead) {
         super(id, TYPE_SUBHEADER);
         this.subhead = subhead;
     }

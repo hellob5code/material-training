@@ -11,22 +11,22 @@ import butterknife.Optional;
 import fr.erictruong.training.material.R;
 import org.apache.commons.lang3.StringUtils;
 
-public class HeadlineBodyCard extends Card {
+public class DisplayBodyCard extends Card {
 
-    protected CharSequence headline, body;
+    protected CharSequence display, body;
 
-    public HeadlineBodyCard(long id, CharSequence headline, CharSequence body) {
-        this(id, TYPE_HEADLINE_BODY_1, headline, body);
+    public DisplayBodyCard(long id, CharSequence display, CharSequence body) {
+        this(id, TYPE_DISPLAY_1_BODY_1, display, body);
     }
 
-    public HeadlineBodyCard(long id, int viewType, CharSequence headline, CharSequence body) {
+    public DisplayBodyCard(long id, int viewType, CharSequence display, CharSequence body) {
         super(id, viewType);
-        this.headline = headline;
+        this.display = display;
         this.body = body;
     }
 
-    public CharSequence getHeadline() {
-        return headline;
+    public CharSequence getDisplay() {
+        return display;
     }
 
     public CharSequence getBody() {
@@ -39,9 +39,9 @@ public class HeadlineBodyCard extends Card {
      */
     public static class ViewHolder extends RecyclerView.ViewHolder implements CardHolder {
 
-        @InjectView(R.id.tv_headline) TextView tvHeadline;
+        @InjectView(R.id.tv_display) TextView tvDisplay;
         @InjectView(R.id.tv_body) TextView tvBody;
-        @Optional @InjectView(R.id.space_headline_body) Space spaceHeadlineBody;
+        @Optional @InjectView(R.id.space_display_body) Space spaceDisplayBody;
 
         public ViewHolder(CardView v) {
             super(v);
@@ -50,17 +50,17 @@ public class HeadlineBodyCard extends Card {
 
         @Override
         public void bindView(Card card, int position) {
-            HeadlineBodyCard c = (HeadlineBodyCard) card;
-            bindView(c.getHeadline(), c.getBody());
+            DisplayBodyCard c = (DisplayBodyCard) card;
+            bindView(c.getDisplay(), c.getBody());
         }
 
-        protected void bindView(CharSequence headline, CharSequence body1) {
-            // Hide headline view if text empty
-            if (StringUtils.isNotEmpty(headline)) {
-                tvHeadline.setVisibility(View.VISIBLE);
-                tvHeadline.setText(headline);
+        protected void bindView(CharSequence display, CharSequence body1) {
+            // Hide display view if text empty
+            if (StringUtils.isNotEmpty(display)) {
+                tvDisplay.setVisibility(View.VISIBLE);
+                tvDisplay.setText(display);
             } else {
-                tvHeadline.setVisibility(View.GONE);
+                tvDisplay.setVisibility(View.GONE);
             }
             // Hide body view if text empty
             if (StringUtils.isNotEmpty(body1)) {
@@ -70,11 +70,11 @@ public class HeadlineBodyCard extends Card {
                 tvBody.setVisibility(View.GONE);
             }
 
-            if (spaceHeadlineBody != null) {
-                if (tvHeadline.getVisibility() == View.VISIBLE && tvBody.getVisibility() == View.VISIBLE) {
-                    spaceHeadlineBody.setVisibility(View.VISIBLE);
+            if (spaceDisplayBody != null) {
+                if (tvDisplay.getVisibility() == View.VISIBLE && tvBody.getVisibility() == View.VISIBLE) {
+                    spaceDisplayBody.setVisibility(View.VISIBLE);
                 } else {
-                    spaceHeadlineBody.setVisibility(View.GONE);
+                    spaceDisplayBody.setVisibility(View.GONE);
                 }
             }
         }

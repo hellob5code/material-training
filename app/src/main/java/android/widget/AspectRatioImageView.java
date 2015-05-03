@@ -8,6 +8,7 @@ import fr.erictruong.training.material.R;
 
 /** Maintains an aspect ratio based on either width or height. Disabled by default. */
 public class AspectRatioImageView extends ImageView {
+
     // NOTE: These must be kept in sync with the AspectRatioImageView attributes in attrs.xml.
     public static final int MEASUREMENT_WIDTH = 0;
     public static final int MEASUREMENT_HEIGHT = 1;
