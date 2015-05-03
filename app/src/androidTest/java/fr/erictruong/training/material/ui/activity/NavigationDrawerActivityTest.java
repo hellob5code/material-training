@@ -1,7 +1,5 @@
 package fr.erictruong.training.material.ui.activity;
 
-import android.app.Activity;
-import android.test.ActivityInstrumentationTestCase2;
 import fr.erictruong.training.material.R;
 
 import static android.support.test.espresso.Espresso.onData;
@@ -14,11 +12,7 @@ import static android.support.test.espresso.contrib.DrawerMatchers.isOpen;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static fr.erictruong.training.material.matcher.CustomMatchers.withNavigationDrawerChildText;
 
-public class NavigationDrawerActivityTest<T extends Activity> extends ActivityInstrumentationTestCase2<T> {
-
-    public NavigationDrawerActivityTest(Class<T> activityClass) {
-        super(activityClass);
-    }
+public class NavigationDrawerActivityTest  {
 
     protected void clickNavigationDrawerItem(String string) {
         openDrawer(R.id.drawer_layout);

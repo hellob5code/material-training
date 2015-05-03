@@ -5,7 +5,7 @@ import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
-import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
+import static android.support.test.internal.util.Checks.checkNotNull;
 import static org.hamcrest.Matchers.equalTo;
 
 public class CustomMatchers {

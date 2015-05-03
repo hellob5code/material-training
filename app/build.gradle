@@ -49,13 +49,15 @@ android {
 }
 
 dependencies {
-    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.0') {
+    androidTestCompile 'com.android.support:support-annotations:22.1.1'
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.1') {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-v4'
     }
     androidTestCompile 'com.squareup.spoon:spoon-client:1.1.8'
 
     testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
     testCompile('org.robolectric:robolectric:2.4') {
         exclude module: 'classworlds'
         exclude module: 'commons-logging'

@@ -1,8 +1,14 @@
 package fr.erictruong.training.material.ui.activity;
 
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
 import com.squareup.spoon.Spoon;
 import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.ui.activity.StyleActivity;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -10,21 +16,21 @@ import static android.support.test.espresso.contrib.DrawerActions.openDrawer;
 import static android.support.test.espresso.contrib.DrawerMatchers.isOpen;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-public class StyleActivityTest extends NavigationDrawerActivityTest<StyleActivity> {
+@RunWith(AndroidJUnit4.class)
+public class StyleActivityTest extends NavigationDrawerActivityTest {
+
+    @Rule
+    public ActivityTestRule<StyleActivity> activityRule = new ActivityTestRule<>(StyleActivity.class);
 
     private StyleActivity activity;
 
-    public StyleActivityTest() {
-        super(StyleActivity.class);
-    }
-
-    @Override
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
-        activity = getActivity();
+        activity = activityRule.getActivity();
     }
 
-    public void testShowColorFragment() {
+    @Test
+    public void showColorFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_color));
         Spoon.screenshot(activity, "initial_state");
 
@@ -33,7 +39,8 @@ public class StyleActivityTest extends NavigationDrawerActivityTest<StyleActivit
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowIconsFragment() {
+    @Test
+    public void showIconsFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_icons));
         Spoon.screenshot(activity, "initial_state");
 
@@ -42,7 +49,8 @@ public class StyleActivityTest extends NavigationDrawerActivityTest<StyleActivit
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowImageryFragment() {
+    @Test
+    public void showImageryFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_imagery));
         Spoon.screenshot(activity, "initial_state");
 
@@ -51,7 +59,8 @@ public class StyleActivityTest extends NavigationDrawerActivityTest<StyleActivit
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowTypographyFragment() {
+    @Test
+    public void showTypographyFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_typography));
         Spoon.screenshot(activity, "initial_state");
 

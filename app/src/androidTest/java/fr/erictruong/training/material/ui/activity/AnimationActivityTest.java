@@ -1,8 +1,13 @@
 package fr.erictruong.training.material.ui.activity;
 
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
 import com.squareup.spoon.Spoon;
 import fr.erictruong.training.material.R;
-import fr.erictruong.training.material.ui.activity.AnimationActivity;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -10,21 +15,21 @@ import static android.support.test.espresso.contrib.DrawerActions.openDrawer;
 import static android.support.test.espresso.contrib.DrawerMatchers.isOpen;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-public class AnimationActivityTest extends NavigationDrawerActivityTest<AnimationActivity> {
+@RunWith(AndroidJUnit4.class)
+public class AnimationActivityTest extends NavigationDrawerActivityTest {
+
+    @Rule
+    public ActivityTestRule<AnimationActivity> activityRule = new ActivityTestRule<>(AnimationActivity.class);
 
     private AnimationActivity activity;
 
-    public AnimationActivityTest() {
-        super(AnimationActivity.class);
-    }
-
-    @Override
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
-        activity = getActivity();
+        activity = activityRule.getActivity();
     }
 
-    public void testShowAuthenticMotionFragment() {
+    @Test
+    public void showAuthenticMotionFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_authentic_motion));
         Spoon.screenshot(activity, "initial_state");
 
@@ -33,7 +38,8 @@ public class AnimationActivityTest extends NavigationDrawerActivityTest<Animatio
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowResponsiveInteractionFragment() {
+    @Test
+    public void showResponsiveInteractionFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_responsive_interaction));
         Spoon.screenshot(activity, "initial_state");
 
@@ -42,7 +48,8 @@ public class AnimationActivityTest extends NavigationDrawerActivityTest<Animatio
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowMeaningfulTransitionsFragment() {
+    @Test
+    public void showMeaningfulTransitionsFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_meaningful_transitions));
         Spoon.screenshot(activity, "initial_state");
 
@@ -51,7 +58,8 @@ public class AnimationActivityTest extends NavigationDrawerActivityTest<Animatio
         Spoon.screenshot(activity, "drawer_opened");
     }
 
-    public void testShowDelightfulDetailsFragment() {
+    @Test
+    public void showDelightfulDetailsFragment() {
         clickNavigationDrawerItem(activity.getString(R.string.navdrawer_child_delightful_details));
         Spoon.screenshot(activity, "initial_state");
 
