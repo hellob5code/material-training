@@ -19,6 +19,7 @@ import java.util.List;
 
 import static android.support.v7.widget.RecyclerView.NO_ID;
 import static fr.erictruong.training.material.ui.card.Card.TYPE_PRIMARY_DISPLAY_1_BODY_2;
+import static fr.erictruong.training.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_1;
 
 public class IntroductionFragment extends MaterialTrainingNavigationDrawerFragment {
 
@@ -58,12 +59,21 @@ public class IntroductionFragment extends MaterialTrainingNavigationDrawerFragme
                 }
             }
         });
+        recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                int verticalScrollOffset = recycler.computeVerticalScrollOffset();
+                img.setTranslationY(-verticalScrollOffset);
+            }
+        });
     }
 
     @Override
     protected List<Card> populateDataset() {
         List<Card> dataset = new ArrayList<>();
         dataset.add(new DisplayBodyCard(NO_ID, TYPE_PRIMARY_DISPLAY_1_BODY_2, getString(R.string.fragment_introduction), getString(R.string.fragment_introduction_txt)));
+        dataset.add(new HeadlineBodyCard(NO_ID, TYPE_PRIMARY_HEADLINE_BODY_1, getString(R.string.fragment_introduction_goals), getString(R.string.fragment_introduction_goals_txt)));
+        dataset.add(new HeadlineBodyCard(NO_ID, TYPE_PRIMARY_HEADLINE_BODY_1, getString(R.string.fragment_introduction_principles), getText(R.string.fragment_introduction_principles_txt)));
         return dataset;
     }
 }
