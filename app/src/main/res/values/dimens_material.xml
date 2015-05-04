@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="status_bar_size">24dp</dimen>
-
     <!-- Text -->
     <dimen name="text_size_button">@dimen/text_size_small</dimen>
     <dimen name="text_size_menu">@dimen/text_size_small</dimen>

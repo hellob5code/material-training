@@ -25,16 +25,16 @@ import android.view.MotionEvent;
  */
 public class ObservableScrollView extends ScrollView {
 
-    public static interface Callbacks {
+    public interface Callbacks {
 
-        public void onScrollChanged(int scrollY);
+        void onScrollChanged(int scrollY);
 
-        public void onDownMotionEvent();
+        void onDownMotionEvent();
 
-        public void onUpOrCancelMotionEvent();
+        void onUpOrCancelMotionEvent();
     }
 
-    private Callbacks mCallbacks;
+    private Callbacks callbacks;
 
     public ObservableScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -43,33 +43,28 @@ public class ObservableScrollView extends ScrollView {
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        if (mCallbacks != null) {
-            mCallbacks.onScrollChanged(t);
+        if (callbacks != null) {
+            callbacks.onScrollChanged(t);
         }
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (mCallbacks != null) {
+        if (callbacks != null) {
             switch (ev.getActionMasked()) {
                 case MotionEvent.ACTION_DOWN:
-                    mCallbacks.onDownMotionEvent();
+                    callbacks.onDownMotionEvent();
                     break;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
-                    mCallbacks.onUpOrCancelMotionEvent();
+                    callbacks.onUpOrCancelMotionEvent();
                     break;
             }
         }
         return super.onTouchEvent(ev);
     }
 
-    @Override
-    public int computeVerticalScrollRange() {
-        return super.computeVerticalScrollRange();
-    }
-
     public void setCallbacks(Callbacks listener) {
-        mCallbacks = listener;
+        callbacks = listener;
     }
 }
