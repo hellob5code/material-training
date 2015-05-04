@@ -146,6 +146,44 @@
     <string name="fragment_objects_in_3d_space_txt">Objects in material design possess similar qualities to objects in the physical world. In the physical world, objects can be stacked or affixed to one another, but cannot pass through one another. Objects cast shadows and reflect light.
         \n\nThese qualities form a spatial model that is familiar to users and can be applied consistently across apps.
     </string>
+    <string name="fragment_objects_in_3d_space_elevation_android">Elevation (Android)</string>
+    <string name="fragment_objects_in_3d_space_elevation_android_txt">Elevation is the relative distance between two surfaces along the z-axis. A child object\'s elevation is relative to the parent object\'s elevation.
+        \n\nElevation is measured in the same units as the x and y axes, typically in density-independent pixels (dp). Since material has a standard 1dp thickness, all elevations are measured in the distance from the top of one surface to the top of another surface.
+        \n\nThe images and values shown are for Android apps.
+        \n\n<b>Resting elevation</b>
+        \n\nAll material objects have a resting elevation, or default elevation, whether the object is a small component or a sheet that spans the entire display.
+        \n\nThe resting elevation for an object does not change; it is constant throughout an app. If an object changes elevation, it should return to its resting elevation as soon as possible.
+        \n\nThe resting elevation for a component type is consistent across apps. However, components may have different resting elevations across platforms, depending on the depth of the environment (e.g., TV has a greater depth than mobile or desktop).
+        \n\n<b>Responsive elevation and dynamic elevation offsets</b>
+        \n\nSome component types have <b>responsive elevation</b>, meaning they change elevation in response to user input (e.g., normal, focused, and pressed) or system events. These elevation changes are consistently implemented using dynamic elevation offsets.
+        \n\n<b>Dynamic elevation offsets</b> are the goal elevation for the component to move towards, relative to the component’s resting state. They also ensure that elevation changes are consistent across actions and component types. For example, all components that lift on press have the same elevation change relative to their resting elevation, and toolbars that lift to allow material to slide under them have consistent offsets.
+        \n\nOnce the input event is completed or cancelled, the component will return to its resting elevation.
+        \n\n<b>Functional shadows</b>
+        \n\nShadows provide important visual cues about objects’ depth and directional movement. They are the only visual cue indicating the amount of separation between surfaces. An object’s elevation determines the appearance of its shadow.
+        \n\nIn motion, shadows are a useful tool to provide cues about an object’s direction of movement and whether the distance between surfaces is increasing or decreasing.
+    </string>
+    <string name="fragment_objects_in_3d_space_object_relationships">Object relationships</string>
+    <string name="fragment_objects_in_3d_space_object_relationships_txt"><b>Object hierarchy</b>
+        \n\nHow you organize objects, or collections of objects, in an app determines how they move in relation to one another. Objects can move independently of each other or be constrained by objects higher in the hierarchy.
+        \n\nAll objects are part of a hierarchy described in terms of a parent-child relationships. The “child” in each of these relationships refers to an element that is a subordinate to its “parent” element. Objects can be children of either the system or another object.
+        \n\nParent-child specifics:
+        \n\n• Each object has one parent.
+        \n• Each object may have any number of children.
+        \n• Children inherit transformative properties from their parent, such as position, rotation, scale, and elevation.
+        \n• Siblings are objects at the same level of hierarchy.
+        \n\n<b>Exceptions</b>
+        \n\nItems parented to the root, such as primary UI elements, move independently of other objects. For example, the floating action button does not scroll with content. Other elements include:
+        \n\n• An app’s side nav drawer
+        \n• The action bar
+        \n• Dialogs
+        \n\n<b>Interaction</b>
+        \n\nHow objects interact with one another is determined by their place in the parent-child hierarchy.
+        \n\nFor example:
+        \n\n• Children have minimal z-axis separation from their parent; other objects do not get inserted between parents and children.
+        \n• In a scrolling card collection, the cards are siblings of each other, so they all move together in tandem. They are children of the card collection object that controls their movement.
+        \n\n<b>Elevation</b>
+        \n\nHow you determine the elevation of objects—their position in z-space—depends on the content hierarchy you want to express and whether an object needs to move independently of other objects.
+    </string>
 
     <!-- Authentic Motion Fragment -->
     <string name="fragment_authentic_motion">Authentic motion</string>
