@@ -116,6 +116,30 @@
     <!-- Material Properties Fragment -->
     <string name="fragment_material_properties">Material properties</string>
     <string name="fragment_material_properties_txt">Material has certain immutable characteristics and inherent behaviors. Understanding these qualities will help you manipulate material in a way that’s consistent with the vision of material design.</string>
+    <string name="fragment_material_properties_physical_properties">Physical properties</string>
+    <string name="fragment_material_properties_physical_properties_txt">Material has <b>varying x &amp; y dimensions</b> (measured in dps) and a <b>uniform thickness</b> (1dp).
+        \n\nMaterial casts shadows.
+        \n\nShadows result naturally from the relative elevation (z-position) between material elements.
+        \n\nContent is displayed on material, in any shape and color. Content does not add thickness to material.
+        \n\nContent can behave independently of the material, but is limited within the bounds of the material.
+        \n\nMaterial is solid.
+        \n\nInput events cannot pass through material.
+        \n\nMultiple material elements cannot occupy the same dimension in space simultaneously.
+        \n\nMaterial cannot pass through other material.
+        \n\nFor example, one sheet of material cannot pass through another sheet of material when changing elevation.
+    </string>
+    <string name="fragment_material_properties_transforming_material">Transforming material</string>
+    <string name="fragment_material_properties_transforming_material_txt">Material can change shape.
+        \n\nMaterial grows and shrinks only along its plane.
+        \n\nMaterial never bends or folds.
+        \n\nSheets of material can join together to become a single sheet of material.
+        \n\nWhen split, material can heal. For example, if you remove a portion of material from a sheet of material, the sheet of material will become a whole sheet again.
+    </string>
+    <string name="fragment_material_properties_movement_of_material">Movement of material</string>
+    <string name="fragment_material_properties_movement_of_material_txt">Material can be spontaneously generated or destroyed anywhere in the environment.
+        \n\nMaterial can move along any axis.
+        \n\nZ-axis motion is typically a result of user interaction with material.
+    </string>
 
     <!-- Objects in 3D Space Fragment -->
     <string name="fragment_objects_in_3d_space">Objects in 3D space</string>
