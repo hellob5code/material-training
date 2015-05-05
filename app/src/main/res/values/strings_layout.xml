@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Principles Fragment -->
+    <string name="fragment_principles">Principles</string>
+    <string name="fragment_principles_txt">Material design is guided by print-based design elements—such as typography, grids, space, scale, color, and imagery—to create hierarchy, meaning, and focus that immerse one in the experience. Material design adopts tools from the field of print design, like baseline grids and structural templates, that repeat across various pages. These layouts scale to fit any screen size, which simplifies the process of creating scalable apps.
+        \n\nThese layouts encourage consistency by repeating visual elements, structural grids, and spacing across platforms and screen sizes. This consistency creates a familiar experience for users across environments.
+    </string>
+    <string name="fragment_principles_how_paper_works">How paper works</string>
+    <string name="fragment_principles_floating_action_button">Floating action button</string>
+
+    <!-- Units and Measurements Fragment -->
+    <string name="fragment_units_and_measurements">Units &amp; measurements</string>
+    <string name="fragment_units_and_measurements_txt">Some units have different meanings in different contexts. This chapter discusses the usage of device-independent pixels, scaleable pixels, as well as concepts like pixel density.</string>
+    <string name="fragment_units_and_measurements_pixel_density">Pixel density</string>
+    <string name="fragment_units_and_measurements_density_independent_pixels_dp">Density-independent pixels (dp)</string>
+    <string name="fragment_units_and_measurements_scaleable_pixels_sp">Scaleable pixels (sp)</string>
+    <string name="fragment_units_and_measurements_designing_layouts_for_dp">Designing layouts for dp</string>
+    <string name="fragment_units_and_measurements_Image_scaling">Image scaling</string>
+
+    <!-- Metrics and Keylines Fragment -->
+    <string name="fragment_metrics_and_keylines">Metrics &amp; keylines</string>
+    <string name="fragment_metrics_and_keylines_baseline_grids">Baseline grids</string>
+    <string name="fragment_metrics_and_keylines_keylines_and_spacing">Keylines and spacing</string>
+    <string name="fragment_metrics_and_keylines_ratio_keylines">Ratio keylines</string>
+    <string name="fragment_metrics_and_keylines_incremental_keylines">Incremental keylines</string>
+    <string name="fragment_metrics_and_keylines_touch_target_size">Touch target size</string>
+
+    <!-- Structure Fragment -->
+    <string name="fragment_structure">Structure</string>
+    <string name="fragment_structure_ui_regions">UI regions</string>
+    <string name="fragment_structure_toolbars">Toolbars</string>
+    <string name="fragment_structure_app_bar">App bar</string>
+    <string name="fragment_structure_system_bars">System bars</string>
+    <string name="fragment_structure_side_nav">Side nav</string>
+    <string name="fragment_structure_whiteframes">Whiteframes</string>
+
+</resources>

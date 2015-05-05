@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color Fragment -->
+    <string name="fragment_color">Color</string>
+    <string name="fragment_color_txt">Color in material design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights. Material takes cues from contemporary architecture, road signs, pavement marking tape, and athletic courts. Color should be unexpected and vibrant.</string>
+    <string name="fragment_color_color_palette">Color palette</string>
+    <string name="fragment_color_ui_color_application">UI color application</string>
+    <string name="fragment_color_themes">Themes</string>
+
+    <!-- Icons Fragment -->
+    <string name="fragment_icons">Icons</string>
+    <string name="fragment_icons_product_icons">Product icons</string>
+    <string name="fragment_icons_system_icons">System icons</string>
+
+    <!-- Imagery Fragment -->
+    <string name="fragment_imagery">Imagery</string>
+    <string name="fragment_imagery_txt">Imagery is more than decoration. It’s a powerful tool to help you communicate and differentiate your product. Bold, graphic, and intentional imagery helps to engage the user.
+        \n\nWhether the mood is subdued and muted or bright and colorful, the following principles and best practices can help you successfully incorporate imagery and bring your apps to life, no matter what the visual brand.
+    </string>
+    <string name="fragment_imagery_principles">Principles</string>
+    <string name="fragment_imagery_best_practices">Best practices</string>
+    <string name="fragment_imagery_ui_integration">UI integration</string>
+
+    <!-- Typography Fragment -->
+    <string name="fragment_typography">Typography</string>
+    <string name="fragment_typography_txt">Since the Ice Cream Sandwich release, Roboto has been the standard typeface on Android. Since Froyo, Noto has been the standard typeface on Android for all languages not covered by Roboto. Noto is also the standard typeface for all languages on Chrome OS.</string>
+    <string name="fragment_typography_language_categorization">Language categorization</string>
+    <string name="fragment_typography_typeface">Typeface</string>
+    <string name="fragment_typography_styles">Styles</string>
+    <string name="fragment_typography_line_height">Line height</string>
+    <string name="fragment_typography_other_typographic_guidelines">Other typographic guidelines</string>
+    <string name="fragment_typography_language_categories_reference">Language categories reference</string>
+
+</resources>
