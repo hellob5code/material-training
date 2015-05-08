@@ -7,6 +7,12 @@ import android.util.TypedValue;
 
 public class ThemeUtils {
 
+    /**
+     * Obtains the color of the compatibility theme from the {@code colorPrimary} attribute or {@code Color.BLACK} by default.
+     *
+     * @param context The Android context.
+     * @return The primary color of the compatibility theme or {@code Color.BLACK} by default.
+     */
     public static int obtainColorPrimary(Context context) {
         int colorId = context.getResources().getIdentifier("colorPrimary", "attr", context.getPackageName());
         if (colorId > 0) {
@@ -19,6 +25,12 @@ public class ThemeUtils {
         return Color.BLACK;
     }
 
+    /**
+     * Obtains the color of the compatibility theme from the {@code colorPrimaryDark} attribute or {@code Color.BLACK} by default.
+     *
+     * @param context The Android context.
+     * @return The primary dark color of the compatibility theme or {@code Color.BLACK} by default.
+     */
     public static int obtainColorPrimaryDark(Context context) {
         int colorId = context.getResources().getIdentifier("colorPrimaryDark", "attr", context.getPackageName());
         if (colorId > 0) {
@@ -31,6 +43,12 @@ public class ThemeUtils {
         return Color.BLACK;
     }
 
+    /**
+     * Obtains the color of the compatibility theme from the {@code colorAccent} attribute or {@code Color.BLACK} by default.
+     *
+     * @param context The Android context.
+     * @return The accent color of the compatibility theme or {@code Color.BLACK} by default.
+     */
     public static int obtainColorAccent(Context context) {
         int colorId = context.getResources().getIdentifier("colorAccent", "attr", context.getPackageName());
         if (colorId > 0) {
