@@ -95,7 +95,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         fadeInContent(NAVDRAWER_ITEM_INVALID); // Always fade in
     }
 
-    private void setUpActionBar() {
+    protected void setUpActionBar() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getDrawerLayout().isDrawerOpen(Gravity.START)) {
             getSupportActionBar().setTitle(getNavigationDrawerOpenedTitle());
@@ -104,7 +104,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         }
     }
 
-    private void setUpNavigationDrawer() {
+    protected void setUpNavigationDrawer() {
         drawerToggle = new ActionBarDrawerToggle(this, getDrawerLayout(), R.string.content_descr_drawer_open, R.string.content_descr_drawer_close) {
             @Override
             public void onDrawerClosed(View view) {

@@ -1,8 +1,11 @@
 package fr.erictruong.training.material.ui.activity;
 
+import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +22,7 @@ import fr.erictruong.training.material.ui.listcontrol.IconListControl;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
 import fr.erictruong.training.material.ui.tile.Tile;
 import fr.erictruong.training.material.util.ApiUtils;
+import fr.erictruong.training.material.util.MathUtils;
 import fr.erictruong.training.material.util.ThemeUtils;
 import fr.erictruong.training.material.util.ViewUtils;
 
@@ -101,6 +105,9 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     @InjectView(R.id.content) View content;
     @InjectView(R.id.navigation_drawer) ExpandableListView navigationDrawer;
 
+    private int statusBarSize;
+    private int actionBarSize;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,16 +115,9 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         setContentView(R.layout.activity_material_training);
         ButterKnife.inject(this);
 
-        int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
-        int actionBarSize = getResources().getDimensionPixelSize(R.dimen.action_bar_size);
+        statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
+        actionBarSize = getResources().getDimensionPixelSize(R.dimen.action_bar_size);
 
-        if (ApiUtils.isLollipop()) {
-            toolbar.getLayoutParams().height += statusBarSize;
-            toolbar.setPadding(0, statusBarSize, 0, 0);
-            navigationDrawer.setPadding(0, navigationDrawer.getPaddingTop() + statusBarSize, 0, 0);
-        }
-        ViewUtils.setMaxWidth(navigationDrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
-        setSupportActionBar(toolbar);
         content.setPadding(0, statusBarSize + actionBarSize, 0, actionBarSize);
 
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
@@ -125,6 +125,25 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         if (savedInstanceState == null) {
             setUpContent(getDefaultSelectedFragment());
         }
+    }
+
+    @Override
+    protected void setUpActionBar() {
+        setSupportActionBar(toolbar);
+        if (ApiUtils.isLollipop()) {
+            toolbar.getLayoutParams().height += statusBarSize;
+            toolbar.setPadding(0, statusBarSize, 0, 0);
+        }
+        super.setUpActionBar();
+    }
+
+    @Override
+    protected void setUpNavigationDrawer() {
+        if (ApiUtils.isLollipop()) {
+            navigationDrawer.setPadding(0, navigationDrawer.getPaddingTop() + statusBarSize, 0, 0);
+        }
+        ViewUtils.setMaxWidth(navigationDrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
+        super.setUpNavigationDrawer();
     }
 
     @Override
@@ -147,19 +166,29 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         return getString(R.string.app_name);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void updateStatusBarOnDrawerSlide(float slideOffset) {
         if (ApiUtils.isKitKat()) {
-            Window window = getWindow();
-            if (slideOffset > 0.15f) {
-                window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            } else {
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                if (ApiUtils.isLollipop()) {
-                    window.setStatusBarColor(ThemeUtils.obtainColorPrimaryDark(this));
-                }
-            }
+            int colorPrimaryDark = ThemeUtils.obtainColorPrimaryDark(this);
+            int color = getResources().getColor(R.color.material_divider);
+            getWindow().setStatusBarColor(blendColors(color, colorPrimaryDark, slideOffset));
         }
+    }
+
+    /**
+     * Blend {@code color1} and {@code color2} using the given ratio.
+     *
+     * @param ratio of which to blend. 1.0 will return {@code color1}, 0.5 will give an even blend,
+     *              0.0 will return {@code color2}.
+     */
+    private static int blendColors(int color1, int color2, float ratio) {
+        final float inverseRation = 1f - ratio;
+        float a = (Color.alpha(color1) * ratio) + (Color.alpha(color2) * inverseRation);
+        float r = (Color.red(color1) * ratio) + (Color.red(color2) * inverseRation);
+        float g = (Color.green(color1) * ratio) + (Color.green(color2) * inverseRation);
+        float b = (Color.blue(color1) * ratio) + (Color.blue(color2) * inverseRation);
+        return Color.argb((int) a, (int) r, (int) g, (int) b);
     }
 
     @Override
