@@ -12,18 +12,8 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import com.squareup.picasso.Picasso;
 import fr.erictruong.training.material.R;
-import fr.erictruong.training.material.ui.card.Card;
-import fr.erictruong.training.material.ui.card.DisplayBodyCard;
-import fr.erictruong.training.material.ui.card.HeadlineBodyCard;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.support.v7.widget.RecyclerView.NO_ID;
-import static fr.erictruong.training.material.ui.card.Card.TYPE_PRIMARY_DISPLAY_1_BODY_2;
-import static fr.erictruong.training.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_1;
-
-public abstract class MaterialTrainingHeaderFragment extends MaterialTrainingNavigationDrawerFragment {
+public abstract class MaterialTrainingHeaderFragment extends MaterialTrainingFragment {
 
     @InjectView(R.id.img) AspectRatioImageView img;
     @InjectView(R.id.recycler) RecyclerView recycler;

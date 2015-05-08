@@ -5,7 +5,7 @@ import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.ui.fragment.AccessibilityFragment;
 import fr.erictruong.training.material.ui.fragment.BidirectionalityFragment;
 
-public class UsabilityActivity extends MaterialTrainingNavigationDrawerActivity {
+public class UsabilityActivity extends MaterialTrainingActivity {
 
     private static final String TAG = UsabilityActivity.class.getSimpleName();
 

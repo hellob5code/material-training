@@ -11,9 +11,8 @@ import java.util.List;
 import static android.support.v7.widget.RecyclerView.NO_ID;
 import static fr.erictruong.training.material.ui.card.Card.TYPE_PRIMARY_DISPLAY_1_BODY_2;
 import static fr.erictruong.training.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_1;
-import static fr.erictruong.training.material.ui.card.Card.TYPE_PRIMARY_HEADLINE_BODY_2;
 
-public class StructureFragment extends MaterialTrainingNavigationDrawerFragment {
+public class StructureFragment extends MaterialTrainingFragment {
 
     @Override
     protected List<Card> populateDataset() {

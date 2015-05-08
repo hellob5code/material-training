@@ -8,27 +8,32 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import fr.erictruong.training.material.BuildConfig;
 import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.persistence.preference.AppPrefs;
+import fr.erictruong.training.material.ui.fragment.MaterialTrainingFragment;
 import fr.erictruong.training.material.ui.listcontrol.IconListControl;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
 import fr.erictruong.training.material.ui.tile.Tile;
 import fr.erictruong.training.material.util.ApiUtils;
-import fr.erictruong.training.material.util.MathUtils;
 import fr.erictruong.training.material.util.ThemeUtils;
 import fr.erictruong.training.material.util.ViewUtils;
 
-public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractExpandableNavigationDrawerActivity {
+public abstract class MaterialTrainingActivity extends AbstractExpandableNavigationDrawerActivity implements MaterialTrainingFragment.OnScrollListener {
 
-    private static final String TAG = MaterialTrainingNavigationDrawerActivity.class.getSimpleName();
+    private static final String TAG = MaterialTrainingActivity.class.getSimpleName();
+
+    private static final int SCROLL_THRESHOLD = 5;
 
     public static final int NAVDRAWER_GROUP_MATERIAL_DESIGN_ID                =    0;
     public static final int NAVDRAWER_CHILD_INTRODUCTION_ID                   =    1;
@@ -104,9 +109,45 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
     @InjectView(R.id.content) View content;
     @InjectView(R.id.navigation_drawer) ExpandableListView navigationDrawer;
+    @InjectView(R.id.navbar) ViewGroup navbar;
 
     private int statusBarSize;
-    private int actionBarSize;
+    private Animation animSlideInDown, animSlideOutUp, animSlideInUp, animSlideOutDown;
+    private Animation.AnimationListener animSlideInListener = new Animation.AnimationListener() {
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            // Do nothing
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+            // Do nothing
+        }
+
+        @Override
+        public void onAnimationStart(Animation animation) {
+            toolbar.setVisibility(View.VISIBLE);
+            navbar.setVisibility(View.VISIBLE);
+        }
+    };
+    private Animation.AnimationListener animSlideOutListener = new Animation.AnimationListener() {
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            toolbar.setVisibility(View.INVISIBLE);
+            navbar.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+            // Do nothing
+        }
+
+        @Override
+        public void onAnimationStart(Animation animation) {
+            // Do nothing
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,15 +157,31 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
         ButterKnife.inject(this);
 
         statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
-        actionBarSize = getResources().getDimensionPixelSize(R.dimen.action_bar_size);
 
-        content.setPadding(0, statusBarSize + actionBarSize, 0, actionBarSize);
-
+        setupBarAnimation();
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
 
         if (savedInstanceState == null) {
             setUpContent(getDefaultSelectedFragment());
         }
+    }
+
+    private void setupBarAnimation() {
+        animSlideInDown = AnimationUtils.loadAnimation(this, R.anim.slide_in_down);
+        animSlideOutUp = AnimationUtils.loadAnimation(this, R.anim.slide_out_up);
+        animSlideInUp = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
+        animSlideOutDown = AnimationUtils.loadAnimation(this, R.anim.slide_out_down);
+
+        int duration = getResources().getInteger(android.R.integer.config_shortAnimTime);
+        animSlideInDown.setDuration(duration);
+        animSlideOutUp.setDuration(duration);
+        animSlideInUp.setDuration(duration);
+        animSlideOutDown.setDuration(duration);
+
+        animSlideInDown.setAnimationListener(animSlideInListener);
+        animSlideOutUp.setAnimationListener(animSlideOutListener);
+        animSlideInUp.setAnimationListener(animSlideInListener);
+        animSlideOutDown.setAnimationListener(animSlideOutListener);
     }
 
     @Override
@@ -344,4 +401,27 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     protected abstract int getDefaultSelectedFragment();
 
     protected abstract Fragment getSelectedFragment(int navdrawerItemId);
+
+    @Override
+    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        if (Math.abs(dy) > SCROLL_THRESHOLD) {
+            if (dy > 0) {
+                // Hide
+                if (toolbar.getVisibility() == View.VISIBLE) {
+                    toolbar.startAnimation(animSlideOutUp);
+                }
+                if (navbar.getVisibility() == View.VISIBLE) {
+                    navbar.startAnimation(animSlideOutDown);
+                }
+            } else {
+                // Show
+                if (toolbar.getVisibility() == View.INVISIBLE) {
+                    toolbar.startAnimation(animSlideInDown);
+                }
+                if (navbar.getVisibility() == View.INVISIBLE) {
+                    navbar.startAnimation(animSlideInUp);
+                }
+            }
+        }
+    }
 }

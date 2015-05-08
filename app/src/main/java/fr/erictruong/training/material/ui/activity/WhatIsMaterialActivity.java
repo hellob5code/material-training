@@ -6,7 +6,7 @@ import fr.erictruong.training.material.ui.fragment.EnvironmentFragment;
 import fr.erictruong.training.material.ui.fragment.MaterialPropertiesFragment;
 import fr.erictruong.training.material.ui.fragment.ObjectsIn3dSpaceFragment;
 
-public class WhatIsMaterialActivity extends MaterialTrainingNavigationDrawerActivity {
+public class WhatIsMaterialActivity extends MaterialTrainingActivity {
 
     private static final String TAG = WhatIsMaterialActivity.class.getSimpleName();
 

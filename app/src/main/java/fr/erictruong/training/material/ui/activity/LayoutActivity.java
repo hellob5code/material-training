@@ -7,7 +7,7 @@ import fr.erictruong.training.material.ui.fragment.PrinciplesFragment;
 import fr.erictruong.training.material.ui.fragment.StructureFragment;
 import fr.erictruong.training.material.ui.fragment.UnitsAndMeasurementsFragment;
 
-public class LayoutActivity extends MaterialTrainingNavigationDrawerActivity {
+public class LayoutActivity extends MaterialTrainingActivity {
 
     private static final String TAG = LayoutActivity.class.getSimpleName();
 

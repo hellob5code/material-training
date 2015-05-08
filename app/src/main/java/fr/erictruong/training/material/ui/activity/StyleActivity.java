@@ -7,7 +7,7 @@ import fr.erictruong.training.material.ui.fragment.IconsFragment;
 import fr.erictruong.training.material.ui.fragment.ImageryFragment;
 import fr.erictruong.training.material.ui.fragment.TypographyFragment;
 
-public class StyleActivity extends MaterialTrainingNavigationDrawerActivity {
+public class StyleActivity extends MaterialTrainingActivity {
 
     private static final String TAG = StyleActivity.class.getSimpleName();
 

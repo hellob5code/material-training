@@ -8,7 +8,7 @@ import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
 /**
  * Launcher Activity used to forward to the default screen or the last visited screen.
  */
-public class MainActivity extends MaterialTrainingNavigationDrawerActivity {
+public class MainActivity extends MaterialTrainingActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

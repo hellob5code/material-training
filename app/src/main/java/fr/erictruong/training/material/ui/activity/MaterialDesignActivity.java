@@ -4,7 +4,7 @@ import android.app.Fragment;
 import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.ui.fragment.IntroductionFragment;
 
-public class MaterialDesignActivity extends MaterialTrainingNavigationDrawerActivity {
+public class MaterialDesignActivity extends MaterialTrainingActivity {
 
     private static final String TAG = MaterialDesignActivity.class.getSimpleName();
 

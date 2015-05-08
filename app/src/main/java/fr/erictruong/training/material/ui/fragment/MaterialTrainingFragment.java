@@ -1,5 +1,6 @@
 package fr.erictruong.training.material.ui.fragment;
 
+import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +15,19 @@ import java.util.List;
 
 import static fr.erictruong.training.material.ui.card.Card.TYPE_SUBHEADER;
 
-public abstract class MaterialTrainingNavigationDrawerFragment extends RecyclerFragment {
+public abstract class MaterialTrainingFragment extends RecyclerFragment {
+
+    private OnScrollListener scrollListener;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            scrollListener = (OnScrollListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity + " must implement DatePickerDialogFragment.OnDateSetListener");
+        }
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -36,6 +49,13 @@ public abstract class MaterialTrainingNavigationDrawerFragment extends RecyclerF
 
                 outRect.set(margin * 2, margin, margin * 2, 0);
 
+                int actionBarSize = getResources().getDimensionPixelSize(R.dimen.action_bar_size);
+
+                // Set top margin of first card
+                if (position == 0) {
+                    outRect.top += actionBarSize;
+                }
+
                 if (viewType == TYPE_SUBHEADER) {
                     // Remove top margin for subheader card
                     outRect.top = 0;
@@ -50,11 +70,21 @@ public abstract class MaterialTrainingNavigationDrawerFragment extends RecyclerF
 
                 // Set bottom margin of last card
                 if (position == parent.getAdapter().getItemCount() - 1) {
-                    outRect.bottom = margin;
+                    outRect.bottom = actionBarSize + margin;
                 }
+            }
+        });
+        getRecyclerView().addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                scrollListener.onScrolled(recyclerView, dx, dy);
             }
         });
     }
 
     protected abstract List<Card> populateDataset();
+
+    public interface OnScrollListener {
+        void onScrolled(RecyclerView recyclerView, int dx, int dy);
+    }
 }

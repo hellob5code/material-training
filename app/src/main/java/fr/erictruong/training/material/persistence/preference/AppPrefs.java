@@ -3,15 +3,15 @@ package fr.erictruong.training.material.persistence.preference;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import fr.erictruong.training.material.ui.activity.MaterialTrainingNavigationDrawerActivity;
+import fr.erictruong.training.material.ui.activity.MaterialTrainingActivity;
 
 public final class AppPrefs {
 
     private static final String PREF_LAST_VISITED_GROUP_ID = "pref_last_visited_group_id";
     private static final String PREF_LAST_VISITED_CHILD_ID = "pref_last_visited_child_id";
 
-    public static final int DEFAULT_LAST_VISITED_GROUP_ID = MaterialTrainingNavigationDrawerActivity.NAVDRAWER_GROUP_MATERIAL_DESIGN_ID;
-    public static final int DEFAULT_LAST_VISITED_CHILD_ID = MaterialTrainingNavigationDrawerActivity.NAVDRAWER_CHILD_INTRODUCTION_ID;
+    public static final int DEFAULT_LAST_VISITED_GROUP_ID = MaterialTrainingActivity.NAVDRAWER_GROUP_MATERIAL_DESIGN_ID;
+    public static final int DEFAULT_LAST_VISITED_CHILD_ID = MaterialTrainingActivity.NAVDRAWER_CHILD_INTRODUCTION_ID;
 
     private AppPrefs() {}
 

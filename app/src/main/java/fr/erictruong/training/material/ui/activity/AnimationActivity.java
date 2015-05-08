@@ -7,7 +7,7 @@ import fr.erictruong.training.material.ui.fragment.DelightfulDetailsFragment;
 import fr.erictruong.training.material.ui.fragment.MeaningfulTransitionsFragment;
 import fr.erictruong.training.material.ui.fragment.ResponsiveInteractionFragment;
 
-public class AnimationActivity extends MaterialTrainingNavigationDrawerActivity {
+public class AnimationActivity extends MaterialTrainingActivity {
 
     private static final String TAG = AnimationActivity.class.getSimpleName();
 
