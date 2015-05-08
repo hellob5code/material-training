@@ -77,6 +77,23 @@ public abstract class MaterialTrainingFragment extends RecyclerFragment {
         getRecyclerView().addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+
+                // TODO: Call onScrolledToStart() in a better way (e.g. when card are larger than the screen).
+                int totalItemCount = layoutManager.getItemCount();
+                int firstCompletelyVisibleItemPosition = layoutManager.findFirstCompletelyVisibleItemPosition();
+                if (firstCompletelyVisibleItemPosition == 0) {
+                    scrollListener.onScrolledToStart(recyclerView);
+                    return;
+                }
+
+                // TODO: Call onScrolledToEnd() in a better way (e.g. when card are larger than the screen).
+                int lastCompletelyVisibleItemPosition = layoutManager.findLastCompletelyVisibleItemPosition();
+                if (lastCompletelyVisibleItemPosition == totalItemCount - 1) {
+                    scrollListener.onScrolledToEnd(recyclerView);
+                    return;
+                }
+
                 scrollListener.onScrolled(recyclerView, dx, dy);
             }
         });
@@ -85,6 +102,11 @@ public abstract class MaterialTrainingFragment extends RecyclerFragment {
     protected abstract List<Card> populateDataset();
 
     public interface OnScrollListener {
+
         void onScrolled(RecyclerView recyclerView, int dx, int dy);
+
+        void onScrolledToStart(RecyclerView recyclerView);
+
+        void onScrolledToEnd(RecyclerView recyclerView);
     }
 }

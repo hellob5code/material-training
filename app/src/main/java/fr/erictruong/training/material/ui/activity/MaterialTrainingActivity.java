@@ -406,22 +406,38 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         if (Math.abs(dy) > SCROLL_THRESHOLD) {
             if (dy > 0) {
-                // Hide
-                if (toolbar.getVisibility() == View.VISIBLE) {
-                    toolbar.startAnimation(animSlideOutUp);
-                }
-                if (navbar.getVisibility() == View.VISIBLE) {
-                    navbar.startAnimation(animSlideOutDown);
-                }
+                hideBars();
             } else {
-                // Show
-                if (toolbar.getVisibility() == View.INVISIBLE) {
-                    toolbar.startAnimation(animSlideInDown);
-                }
-                if (navbar.getVisibility() == View.INVISIBLE) {
-                    navbar.startAnimation(animSlideInUp);
-                }
+                showBars();
             }
         }
+    }
+
+    private void hideBars() {
+        if (toolbar.getVisibility() == View.VISIBLE) {
+            toolbar.startAnimation(animSlideOutUp);
+        }
+        if (navbar.getVisibility() == View.VISIBLE) {
+            navbar.startAnimation(animSlideOutDown);
+        }
+    }
+
+    private void showBars() {
+        if (toolbar.getVisibility() == View.INVISIBLE) {
+            toolbar.startAnimation(animSlideInDown);
+        }
+        if (navbar.getVisibility() == View.INVISIBLE) {
+            navbar.startAnimation(animSlideInUp);
+        }
+    }
+
+    @Override
+    public void onScrolledToStart(RecyclerView recyclerView) {
+        showBars();
+    }
+
+    @Override
+    public void onScrolledToEnd(RecyclerView recyclerView) {
+        showBars();
     }
 }
