@@ -35,6 +35,7 @@ public abstract class MaterialTrainingHeaderFragment extends MaterialTrainingFra
         img.setAspectRatioEnabled(true);
         Picasso.with(getActivity())
                 .load(getHeaderDrawable())
+                .centerCrop()
                 .fit()
                 .into(img);
     }
@@ -47,7 +48,7 @@ public abstract class MaterialTrainingHeaderFragment extends MaterialTrainingFra
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 int position = parent.getChildLayoutPosition(view);
                 if (position == 0) {
-                    outRect.top = getResources().getDimensionPixelSize(R.dimen.action_bar_size_x3);
+                    outRect.top = getResources().getDimensionPixelSize(R.dimen.action_bar_size_x2);
                 }
             }
         });

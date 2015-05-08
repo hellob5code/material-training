@@ -39,16 +39,20 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     protected static final int CONTENT_FADE_OUT_DURATION = 200;
     protected static final int CONTENT_FADE_IN_DURATION = 200;
 
-    protected static final int NAVDRAWER_ITEM_INVALID = -1;
+    protected static final int NAVDRAWER_NO_ID = -1;
     protected static final int NAVDRAWER_DIVIDER = -2;
     protected static final int NAVDRAWER_SUBHEADER = -3;
 
     private ActionBarDrawerToggle drawerToggle;
     private ArrayList<NavigationDrawerGroup> navigationDrawerItems = new ArrayList<NavigationDrawerGroup>();
-    private int selectedNavigationDrawerItemId = NAVDRAWER_ITEM_INVALID;
+    private int selectedNavigationDrawerItemId = NAVDRAWER_NO_ID;
 
     protected int getSelectedNavigationDrawerGroupId() {
-        return NAVDRAWER_ITEM_INVALID;
+        return NAVDRAWER_NO_ID;
+    }
+
+    protected int getSelectedNavigationDrawerItemId() {
+        return selectedNavigationDrawerItemId;
     }
 
     /**
@@ -76,14 +80,14 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        selectedNavigationDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_ITEM_INVALID);
+        selectedNavigationDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            selectedNavigationDrawerItemId = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_ITEM_INVALID);
+            selectedNavigationDrawerItemId = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
         }
     }
 
@@ -92,7 +96,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         super.onPostCreate(savedInstanceState);
         setUpActionBar();
         setUpNavigationDrawer();
-        fadeInContent(NAVDRAWER_ITEM_INVALID); // Always fade in
+        fadeInContent(NAVDRAWER_NO_ID); // Always fade in
     }
 
     protected void setUpActionBar() {
@@ -155,7 +159,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         getNavigationDrawer().setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                if (id == NAVDRAWER_ITEM_INVALID || id == NAVDRAWER_DIVIDER || id == NAVDRAWER_SUBHEADER) {
+                if (id == NAVDRAWER_NO_ID || id == NAVDRAWER_DIVIDER || id == NAVDRAWER_SUBHEADER) {
                     return false;
                 } else {
                     onNavigationDrawerItemClicked(adapter.getGroup(groupPosition));
@@ -184,14 +188,14 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         }
     }
 
-    private void onNavigationDrawerItemClicked(final NavigationDrawerGroup group) {
+    protected void onNavigationDrawerItemClicked(final NavigationDrawerGroup group) {
         if (group.isItem()) {
             goToNavigationDrawerItem(group);
             getDrawerLayout().closeDrawer(Gravity.START);
         }
     }
 
-    private void onNavigationDrawerItemClicked(final NavigationDrawerChild child) {
+    protected void onNavigationDrawerItemClicked(final NavigationDrawerChild child) {
         // Perform action after a short delay to allow the close animation to play
         if (child.getId() != selectedNavigationDrawerItemId) {
             new Handler().postDelayed(new Runnable() {
@@ -309,7 +313,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
             if (getChild(groupPosition, childPosition) != null) {
                 return getChild(groupPosition, childPosition).getId();
             }
-            return NAVDRAWER_ITEM_INVALID;
+            return NAVDRAWER_NO_ID;
         }
 
         @Override

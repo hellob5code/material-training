@@ -8,16 +8,17 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import fr.erictruong.training.material.BuildConfig;
 import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.persistence.preference.AppPrefs;
@@ -110,6 +111,8 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     @InjectView(R.id.content) View content;
     @InjectView(R.id.navigation_drawer) ExpandableListView navigationDrawer;
     @InjectView(R.id.navbar) ViewGroup navbar;
+    @InjectView(R.id.previous) Button btnPrevious;
+    @InjectView(R.id.next) Button btnNext;
 
     private int statusBarSize;
     private Animation animSlideInDown, animSlideOutUp, animSlideInUp, animSlideOutDown;
@@ -187,18 +190,14 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     @Override
     protected void setUpActionBar() {
         setSupportActionBar(toolbar);
-        if (ApiUtils.isLollipop()) {
-            toolbar.getLayoutParams().height += statusBarSize;
-            toolbar.setPadding(0, statusBarSize, 0, 0);
-        }
+        toolbar.getLayoutParams().height += statusBarSize;
+        toolbar.setPadding(0, statusBarSize, 0, 0);
         super.setUpActionBar();
     }
 
     @Override
     protected void setUpNavigationDrawer() {
-        if (ApiUtils.isLollipop()) {
-            navigationDrawer.setPadding(0, navigationDrawer.getPaddingTop() + statusBarSize, 0, 0);
-        }
+        navigationDrawer.setPadding(0, navigationDrawer.getPaddingTop() + statusBarSize, 0, navigationDrawer.getPaddingBottom());
         ViewUtils.setMaxWidth(navigationDrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         super.setUpNavigationDrawer();
     }
@@ -398,10 +397,6 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
         }
     }
 
-    protected abstract int getDefaultSelectedFragment();
-
-    protected abstract Fragment getSelectedFragment(int navdrawerItemId);
-
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         if (Math.abs(dy) > SCROLL_THRESHOLD) {
@@ -440,4 +435,28 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     public void onScrolledToEnd(RecyclerView recyclerView) {
         showBars();
     }
+
+    @OnClick(R.id.previous)
+    public void onBtnPrevious() {
+        NavigationDrawerChild drawerChild = getPreviousNavigationDrawerItem();
+        if (drawerChild != null) {
+            onNavigationDrawerItemClicked(drawerChild);
+        }
+    }
+
+    @OnClick(R.id.next)
+    public void onBtnNext() {
+        NavigationDrawerChild drawerChild = getNextNavigationDrawerItem();
+        if (drawerChild != null) {
+            onNavigationDrawerItemClicked(drawerChild);
+        }
+    }
+
+    protected abstract int getDefaultSelectedFragment();
+
+    protected abstract Fragment getSelectedFragment(int navdrawerItemId);
+
+    protected abstract NavigationDrawerChild getPreviousNavigationDrawerItem();
+
+    protected abstract NavigationDrawerChild getNextNavigationDrawerItem();
 }

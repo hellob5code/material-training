@@ -3,6 +3,9 @@ package fr.erictruong.training.material.ui.activity;
 import android.app.Fragment;
 import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.ui.fragment.DummyFragment;
+import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
+import fr.erictruong.training.material.ui.tile.NavigationDrawerGroup;
+import fr.erictruong.training.material.ui.tile.Tile;
 
 public class WhatsNewActivity extends MaterialTrainingActivity {
 
@@ -31,5 +34,21 @@ public class WhatsNewActivity extends MaterialTrainingActivity {
             default:
                 return null;
         }
+    }
+
+    @Override
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
+        switch (getSelectedNavigationDrawerItemId()) {
+            case NAVDRAWER_CHILD_WHATS_NEW_ID:
+                return new NavigationDrawerChild(NAVDRAWER_GROUP_RESOURCES_ID, NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID, null);
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    protected NavigationDrawerChild getNextNavigationDrawerItem() {
+        // Do nothing
+        return null;
     }
 }

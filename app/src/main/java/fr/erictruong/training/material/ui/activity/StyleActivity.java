@@ -6,6 +6,9 @@ import fr.erictruong.training.material.ui.fragment.ColorFragment;
 import fr.erictruong.training.material.ui.fragment.IconsFragment;
 import fr.erictruong.training.material.ui.fragment.ImageryFragment;
 import fr.erictruong.training.material.ui.fragment.TypographyFragment;
+import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
+import fr.erictruong.training.material.ui.tile.NavigationDrawerGroup;
+import fr.erictruong.training.material.ui.tile.Tile;
 
 public class StyleActivity extends MaterialTrainingActivity {
 
@@ -37,6 +40,38 @@ public class StyleActivity extends MaterialTrainingActivity {
                 return new ImageryFragment();
             case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
                 return new TypographyFragment();
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
+        switch (getSelectedNavigationDrawerItemId()) {
+            case NAVDRAWER_CHILD_COLOR_ID:
+                return new NavigationDrawerChild(NAVDRAWER_GROUP_ANIMATION_ID, NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID, null);
+            case NAVDRAWER_CHILD_ICONS_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_COLOR_ID, null);
+            case NAVDRAWER_CHILD_IMAGERY_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ICONS_ID, null);
+            case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_IMAGERY_ID, null);
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    protected NavigationDrawerChild getNextNavigationDrawerItem() {
+        switch (getSelectedNavigationDrawerItemId()) {
+            case NAVDRAWER_CHILD_COLOR_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ICONS_ID, null);
+            case NAVDRAWER_CHILD_ICONS_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_IMAGERY_ID, null);
+            case NAVDRAWER_CHILD_IMAGERY_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TYPOGRAPHY_ID, null);
+            case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
+                return new NavigationDrawerChild(NAVDRAWER_GROUP_LAYOUT_ID, NAVDRAWER_CHILD_PRINCIPLES_ID, null);
             default:
                 return null;
         }

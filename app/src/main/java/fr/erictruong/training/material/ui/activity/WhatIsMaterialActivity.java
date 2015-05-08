@@ -5,6 +5,7 @@ import fr.erictruong.training.material.R;
 import fr.erictruong.training.material.ui.fragment.EnvironmentFragment;
 import fr.erictruong.training.material.ui.fragment.MaterialPropertiesFragment;
 import fr.erictruong.training.material.ui.fragment.ObjectsIn3dSpaceFragment;
+import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
 
 public class WhatIsMaterialActivity extends MaterialTrainingActivity {
 
@@ -34,6 +35,34 @@ public class WhatIsMaterialActivity extends MaterialTrainingActivity {
                 return new MaterialPropertiesFragment();
             case NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID:
                 return new ObjectsIn3dSpaceFragment();
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
+        switch (getSelectedNavigationDrawerItemId()) {
+            case NAVDRAWER_CHILD_ENVIRONMENT_ID:
+                return new NavigationDrawerChild(NAVDRAWER_GROUP_MATERIAL_DESIGN_ID, NAVDRAWER_CHILD_INTRODUCTION_ID, null);
+            case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ENVIRONMENT_ID, null);
+            case NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID, null);
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    protected NavigationDrawerChild getNextNavigationDrawerItem() {
+        switch (getSelectedNavigationDrawerItemId()) {
+            case NAVDRAWER_CHILD_ENVIRONMENT_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID, null);
+            case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
+                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID, null);
+            case NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID:
+                return new NavigationDrawerChild(NAVDRAWER_GROUP_ANIMATION_ID, NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID, null);
             default:
                 return null;
         }

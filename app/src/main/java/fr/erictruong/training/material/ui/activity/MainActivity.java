@@ -17,17 +17,28 @@ public class MainActivity extends MaterialTrainingActivity {
     }
 
     private void startLastVisitedActivity() {
-        NavigationDrawerChild item = new NavigationDrawerChild(AppPrefs.getLastVisitedGroupId(this), AppPrefs.getLastVisitedChildId(this), null);
-        goToNavigationDrawerItem(item);
+        onNavigationDrawerItemClicked(new NavigationDrawerChild(AppPrefs.getLastVisitedGroupId(this), AppPrefs.getLastVisitedChildId(this), null));
     }
 
     @Override
     protected int getDefaultSelectedFragment() {
-        return NAVDRAWER_ITEM_INVALID;
+        return NAVDRAWER_NO_ID;
     }
 
     @Override
     protected Fragment getSelectedFragment(int navdrawerItemId) {
+        return null;
+    }
+
+    @Override
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
+        // Do nothing
+        return null;
+    }
+
+    @Override
+    protected NavigationDrawerChild getNextNavigationDrawerItem() {
+        // Do nothing
         return null;
     }
 }
