@@ -4,7 +4,12 @@
     <string name="app_name">Material Design Training</string>
     <string name="hello_world">Hello world!</string>
 
-    <!-- Menu -->
+    <!-- Accessibility Description -->
+    <string name="content_descr_drawer_close">Close navigation drawer</string>
+    <string name="content_descr_drawer_open">Open navigation drawer</string>
+    <string name="content_descr_rich_media">Rich media</string>
+
+    <!-- General -->
     <string name="txt_search">Search</string>
     <string name="txt_settings">Settings</string>
     <string name="txt_validate">Validate</string>
@@ -162,10 +167,5 @@
 
     <!-- Tabs Activity -->
     <string name="title_activity_tabs">Page title</string>
-
-    <!-- Accessibility Description -->
-    <string name="content_descr_drawer_close">Close navigation drawer</string>
-    <string name="content_descr_drawer_open">Open navigation drawer</string>
-    <string name="content_descr_rich_media">Rich media</string>
 
 </resources>

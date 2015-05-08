@@ -8,10 +8,22 @@ import android.util.TypedValue;
 public class ThemeUtils {
 
     public static int obtainColorPrimary(Context context) {
-        int colorPrimaryId = context.getResources().getIdentifier("colorPrimary", "attr", context.getPackageName());
-        if (colorPrimaryId > 0) {
+        int colorId = context.getResources().getIdentifier("colorPrimary", "attr", context.getPackageName());
+        if (colorId > 0) {
             TypedValue typedValue = new TypedValue();
-            TypedArray a = context.getTheme().obtainStyledAttributes(typedValue.data, new int[]{ colorPrimaryId });
+            TypedArray a = context.getTheme().obtainStyledAttributes(typedValue.data, new int[]{ colorId });
+            int color = a.getColor(0, 0);
+            a.recycle();
+            return color;
+        }
+        return Color.BLACK;
+    }
+
+    public static int obtainColorPrimaryDark(Context context) {
+        int colorId = context.getResources().getIdentifier("colorPrimaryDark", "attr", context.getPackageName());
+        if (colorId > 0) {
+            TypedValue typedValue = new TypedValue();
+            TypedArray a = context.getTheme().obtainStyledAttributes(typedValue.data, new int[]{ colorId });
             int color = a.getColor(0, 0);
             a.recycle();
             return color;
@@ -20,10 +32,10 @@ public class ThemeUtils {
     }
 
     public static int obtainColorAccent(Context context) {
-        int colorAccentId = context.getResources().getIdentifier("colorAccent", "attr", context.getPackageName());
-        if (colorAccentId > 0) {
+        int colorId = context.getResources().getIdentifier("colorAccent", "attr", context.getPackageName());
+        if (colorId > 0) {
             TypedValue typedValue = new TypedValue();
-            TypedArray a = context.getTheme().obtainStyledAttributes(typedValue.data, new int[]{ colorAccentId });
+            TypedArray a = context.getTheme().obtainStyledAttributes(typedValue.data, new int[]{ colorId });
             int color = a.getColor(0, 0);
             a.recycle();
             return color;

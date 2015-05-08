@@ -24,6 +24,9 @@ public abstract class MaterialTrainingNavigationDrawerFragment extends RecyclerF
         getRecyclerView().addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                int position = parent.getChildLayoutPosition(view);
+                int viewType = parent.getAdapter().getItemViewType(position);
+
                 int margin;
                 if (ApiUtils.isLollipop()) {
                     margin = getResources().getDimensionPixelSize(R.dimen.margin_small);
@@ -33,21 +36,15 @@ public abstract class MaterialTrainingNavigationDrawerFragment extends RecyclerF
 
                 outRect.set(margin * 2, margin, margin * 2, 0);
 
-                int position = parent.getChildLayoutPosition(view);
-                int viewType = parent.getAdapter().getItemViewType(position);
-                switch (viewType) {
-                    case TYPE_SUBHEADER:
-                        // Remove top margin for subheader card
-                        outRect.top = 0;
-                        break;
+                if (viewType == TYPE_SUBHEADER) {
+                    // Remove top margin for subheader card
+                    outRect.top = 0;
                 }
                 if (position > 1) {
                     int previousViewType = parent.getAdapter().getItemViewType(position - 1);
-                    switch (previousViewType) {
-                        case TYPE_SUBHEADER:
-                            // Remove top margin for card preceded by a subheader card
-                            outRect.top = 0;
-                            break;
+                    if (previousViewType == TYPE_SUBHEADER) {
+                        // Remove top margin for card preceded by a subheader card
+                        outRect.top = 0;
                     }
                 }
 

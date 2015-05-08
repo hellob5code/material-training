@@ -31,6 +31,11 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
     }
 
     @Override
+    public long getItemId(int position) {
+        return dataset.get(position).getId();
+    }
+
+    @Override
     public int getItemViewType(int position) {
         return dataset.get(position).getViewType();
     }

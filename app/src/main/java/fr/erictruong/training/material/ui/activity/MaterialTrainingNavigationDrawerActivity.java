@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ExpandableListView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -17,6 +19,7 @@ import fr.erictruong.training.material.ui.listcontrol.IconListControl;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
 import fr.erictruong.training.material.ui.tile.Tile;
 import fr.erictruong.training.material.util.ApiUtils;
+import fr.erictruong.training.material.util.ThemeUtils;
 import fr.erictruong.training.material.util.ViewUtils;
 
 public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractExpandableNavigationDrawerActivity {
@@ -101,17 +104,21 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navdrawer);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        setContentView(R.layout.activity_material_training);
         ButterKnife.inject(this);
 
+        int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
+        int actionBarSize = getResources().getDimensionPixelSize(R.dimen.action_bar_size);
+
         if (ApiUtils.isLollipop()) {
-            int statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
             toolbar.getLayoutParams().height += statusBarSize;
             toolbar.setPadding(0, statusBarSize, 0, 0);
             navigationDrawer.setPadding(0, navigationDrawer.getPaddingTop() + statusBarSize, 0, 0);
         }
         ViewUtils.setMaxWidth(navigationDrawer, getResources().getDimensionPixelSize(R.dimen.navdrawer_max_width_material));
         setSupportActionBar(toolbar);
+        content.setPadding(0, statusBarSize + actionBarSize, 0, actionBarSize);
 
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
 
@@ -138,6 +145,21 @@ public abstract class MaterialTrainingNavigationDrawerActivity extends AbstractE
     @Override
     protected String getNavigationDrawerOpenedTitle() {
         return getString(R.string.app_name);
+    }
+
+    @Override
+    protected void updateStatusBarOnDrawerSlide(float slideOffset) {
+        if (ApiUtils.isKitKat()) {
+            Window window = getWindow();
+            if (slideOffset > 0.15f) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            } else {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                if (ApiUtils.isLollipop()) {
+                    window.setStatusBarColor(ThemeUtils.obtainColorPrimaryDark(this));
+                }
+            }
+        }
     }
 
     @Override
