@@ -23,10 +23,13 @@ import fr.erictruong.training.material.persistence.preference.AppPrefs;
 import fr.erictruong.training.material.ui.fragment.MaterialTrainingFragment;
 import fr.erictruong.training.material.ui.listcontrol.IconListControl;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
+import fr.erictruong.training.material.ui.tile.NavigationDrawerGroup;
 import fr.erictruong.training.material.ui.tile.Tile;
 import fr.erictruong.training.material.util.ApiUtils;
 import fr.erictruong.training.material.util.ThemeUtils;
 import fr.erictruong.training.material.util.ViewUtils;
+
+import java.util.List;
 
 public abstract class MaterialTrainingActivity extends AbstractExpandableNavigationDrawerActivity implements MaterialTrainingFragment.OnScrollListener {
 
@@ -341,6 +344,7 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
             case NAVDRAWER_GROUP_WHATS_NEW_ID:
                 return new Intent(this, WhatsNewActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
             default:
+                // TODO: Explicitly handle error.
                 return null;
         }
     }
@@ -456,8 +460,9 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
 
     @OnClick(R.id.previous)
     public void onBtnPrevious() {
-        int itemId = getSelectedNavigationDrawerItemId();
-        NavigationDrawerChild drawerChild = getPreviousNavigationDrawerItem(itemId);
+        int itemId = getSelectedNavigationDrawerChildId();
+        NavigationDrawerExpandableListAdapter adapter = (NavigationDrawerExpandableListAdapter) getNavigationDrawer().getExpandableListAdapter();
+        NavigationDrawerChild drawerChild = getPreviousNavigationDrawerItem(adapter, itemId);
         if (drawerChild != null) {
             onNavigationDrawerItemClicked(drawerChild);
         }
@@ -465,18 +470,36 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
 
     @OnClick(R.id.next)
     public void onBtnNext() {
-        int itemId = getSelectedNavigationDrawerItemId();
-        NavigationDrawerChild drawerChild = getNextNavigationDrawerItem(itemId);
+        int itemId = getSelectedNavigationDrawerChildId();
+        NavigationDrawerExpandableListAdapter adapter = (NavigationDrawerExpandableListAdapter) getNavigationDrawer().getExpandableListAdapter();
+        NavigationDrawerChild drawerChild = getNextNavigationDrawerItem(adapter, itemId);
         if (drawerChild != null) {
             onNavigationDrawerItemClicked(drawerChild);
         }
     }
 
+    protected Fragment getSelectedFragment(int id) {
+        // TODO: Explicitly handle error.
+        return null;
+    }
+
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
+        int currentGroupId = getSelectedNavigationDrawerGroupId();
+        NavigationDrawerGroup group = adapter.getGroupById(currentGroupId);
+        NavigationDrawerChild child = adapter.getChildById(group, id);
+        List<NavigationDrawerChild> children = group.getChildren();
+        int i = children.indexOf(child);
+        return children.get(i - 1);
+    }
+
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
+        int currentGroupId = getSelectedNavigationDrawerGroupId();
+        NavigationDrawerGroup group = adapter.getGroupById(currentGroupId);
+        NavigationDrawerChild child = adapter.getChildById(group, id);
+        List<NavigationDrawerChild> children = group.getChildren();
+        int i = children.indexOf(child);
+        return children.get(i + 1);
+    }
+
     protected abstract int getDefaultSelectedFragment();
-
-    protected abstract Fragment getSelectedFragment(int id);
-
-    protected abstract NavigationDrawerChild getPreviousNavigationDrawerItem(int id);
-
-    protected abstract NavigationDrawerChild getNextNavigationDrawerItem(int id);
 }

@@ -35,31 +35,27 @@ public class UsabilityActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
                 return new BidirectionalityFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_PATTERNS_ID, NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID, null);
-            case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ACCESSIBILITY_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_PATTERNS_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BIDIRECTIONALITY_ID, null);
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_RESOURCES_ID, NAVDRAWER_CHILD_COLOR_PALETTES_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_RESOURCES_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }

@@ -7,8 +7,6 @@ import fr.erictruong.training.material.ui.fragment.DelightfulDetailsFragment;
 import fr.erictruong.training.material.ui.fragment.MeaningfulTransitionsFragment;
 import fr.erictruong.training.material.ui.fragment.ResponsiveInteractionFragment;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
-import fr.erictruong.training.material.ui.tile.NavigationDrawerGroup;
-import fr.erictruong.training.material.ui.tile.Tile;
 
 public class AnimationActivity extends MaterialTrainingActivity {
 
@@ -41,39 +39,27 @@ public class AnimationActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID:
                 return new DelightfulDetailsFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID, NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID, null);
-            case NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID, null);
-            case NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID, null);
-            case NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID, null);
-            case NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID, null);
-            case NAVDRAWER_CHILD_MEANINGFUL_TRANSITIONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID, null);
             case NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_STYLE_ID, NAVDRAWER_CHILD_COLOR_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_STYLE_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }

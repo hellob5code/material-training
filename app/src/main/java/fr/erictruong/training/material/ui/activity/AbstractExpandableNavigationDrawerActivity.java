@@ -6,8 +6,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -25,7 +25,7 @@ import fr.erictruong.training.material.ui.tile.Tile;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractExpandableNavigationDrawerActivity extends ActionBarActivity {
+public abstract class AbstractExpandableNavigationDrawerActivity extends AppCompatActivity {
 
     private static final String TAG = AbstractExpandableNavigationDrawerActivity.class.getSimpleName();
 
@@ -45,14 +45,14 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
 
     private ActionBarDrawerToggle drawerToggle;
     private ArrayList<NavigationDrawerGroup> navigationDrawerItems = new ArrayList<NavigationDrawerGroup>();
-    private int selectedNavigationDrawerItemId = NAVDRAWER_NO_ID;
+    private int selectedNavigationDrawerChildId = NAVDRAWER_NO_ID;
 
     protected int getSelectedNavigationDrawerGroupId() {
         return NAVDRAWER_NO_ID;
     }
 
-    protected int getSelectedNavigationDrawerItemId() {
-        return selectedNavigationDrawerItemId;
+    protected int getSelectedNavigationDrawerChildId() {
+        return selectedNavigationDrawerChildId;
     }
 
     /**
@@ -74,20 +74,20 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, selectedNavigationDrawerItemId);
+        outState.putInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, selectedNavigationDrawerChildId);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        selectedNavigationDrawerItemId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
+        selectedNavigationDrawerChildId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            selectedNavigationDrawerItemId = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
+            selectedNavigationDrawerChildId = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
         }
     }
 
@@ -197,11 +197,11 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
 
     protected void onNavigationDrawerItemClicked(final NavigationDrawerChild child) {
         // Perform action after a short delay to allow the close animation to play
-        if (child.getId() != selectedNavigationDrawerItemId) {
+        if (child.getId() != selectedNavigationDrawerChildId) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    selectedNavigationDrawerItemId = child.getId();
+                    selectedNavigationDrawerChildId = child.getId();
                     if (goToNavigationDrawerItem(child)) {
                         fadeInContent(child.getId());
                         getNavigationDrawer().invalidateViews();
@@ -286,7 +286,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         return addGroup(new NavigationDrawerItem(id, text, primary, secondary));
     }
 
-    private class NavigationDrawerExpandableListAdapter extends BaseExpandableListAdapter {
+    protected class NavigationDrawerExpandableListAdapter extends BaseExpandableListAdapter {
 
         private List<NavigationDrawerGroup> items;
 
@@ -304,6 +304,16 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
             NavigationDrawerGroup group = getGroup(groupPosition);
             if (group.getChildren() != null && !group.getChildren().isEmpty()) {
                 return group.getChildren().get(childPosition);
+            }
+            return null;
+        }
+
+        public NavigationDrawerChild getChildById(NavigationDrawerGroup group, int childId) {
+            List<NavigationDrawerChild> children = group.getChildren();
+            for (int i = 0; i < children.size(); i++) {
+                if (children.get(i).getId() == childId) {
+                    return children.get(i);
+                }
             }
             return null;
         }
@@ -329,7 +339,7 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
             // Bind the content
             TextView textView = (TextView) view.findViewById(R.id.tv_text);
             textView.setText(child.getText());
-            if (selectedNavigationDrawerItemId == getChildId(groupPosition, childPosition)) {
+            if (selectedNavigationDrawerChildId == getChildId(groupPosition, childPosition)) {
                 textView.setTextColor(ThemeUtils.obtainColorPrimary(AbstractExpandableNavigationDrawerActivity.this));
             }
 
@@ -344,6 +354,15 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
         @Override
         public NavigationDrawerGroup getGroup(int groupPosition) {
             return items.get(groupPosition);
+        }
+
+        public NavigationDrawerGroup getGroupById(int groupId) {
+            for (int i = 0; i < items.size(); i++) {
+                if (getGroupId(i) == groupId) {
+                    return getGroup(i);
+                }
+            }
+            return null;
         }
 
         @Override
@@ -427,13 +446,13 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends ActionB
             return true;
         }
 
-        public int getGroupIndex(int selectedNavigationDrawerGroupId) {
+        public int getGroupIndex(int groupId) {
             for (int i = 0; i < items.size(); i++) {
-                if (items.get(i).getId() == selectedNavigationDrawerGroupId) {
+                if (getGroupId(i) == groupId) {
                     return i;
                 }
             }
-            return -1;
+            return NAVDRAWER_NO_ID;
         }
     }
 

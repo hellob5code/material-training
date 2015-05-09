@@ -32,23 +32,23 @@ public class WhatsNewActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_WHATS_NEW_ID:
                 return new DummyFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_WHATS_NEW_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_RESOURCES_ID, NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_RESOURCES_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
-        // Do nothing
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
+        // No next item
         return null;
     }
 }

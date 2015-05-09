@@ -29,14 +29,4 @@ public class MainActivity extends MaterialTrainingActivity {
     protected Fragment getSelectedFragment(int id) {
         return null;
     }
-
-    @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
-        return null;
-    }
-
-    @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
-        return null;
-    }
 }

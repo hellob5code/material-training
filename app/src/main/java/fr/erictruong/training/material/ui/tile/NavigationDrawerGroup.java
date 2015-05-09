@@ -21,6 +21,18 @@ public class NavigationDrawerGroup extends SingleLineListTile {
         return children;
     }
 
+    public NavigationDrawerChild getChild(int index) {
+        return children.get(index);
+    }
+
+    public NavigationDrawerChild getFirstChild() {
+        return children.get(0);
+    }
+
+    public NavigationDrawerChild getLastChild() {
+        return children.get(children.size() - 1);
+    }
+
     private NavigationDrawerGroup addChild(NavigationDrawerChild child) {
         child.parentId = id;
         children.add(child);

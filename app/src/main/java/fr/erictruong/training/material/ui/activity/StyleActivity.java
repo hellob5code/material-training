@@ -41,39 +41,27 @@ public class StyleActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
                 return new TypographyFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_COLOR_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_ANIMATION_ID, NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID, null);
-            case NAVDRAWER_CHILD_ICONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_COLOR_ID, null);
-            case NAVDRAWER_CHILD_IMAGERY_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ICONS_ID, null);
-            case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_IMAGERY_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_ANIMATION_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_COLOR_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ICONS_ID, null);
-            case NAVDRAWER_CHILD_ICONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_IMAGERY_ID, null);
-            case NAVDRAWER_CHILD_IMAGERY_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TYPOGRAPHY_ID, null);
             case NAVDRAWER_CHILD_TYPOGRAPHY_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_LAYOUT_ID, NAVDRAWER_CHILD_PRINCIPLES_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_LAYOUT_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }

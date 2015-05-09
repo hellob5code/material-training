@@ -74,111 +74,27 @@ public class ComponentsActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_TOOLTIPS_ID:
                 return new TooltipsFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_LAYOUT_ID, NAVDRAWER_CHILD_STRUCTURE_ID, null);
-            case NAVDRAWER_CHILD_BUTTONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BOTTOM_SHEETS_ID, null);
-            case NAVDRAWER_CHILD_BUTTONS_FLOATING_ACTION_BUTTON_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BUTTONS_ID, null);
-            case NAVDRAWER_CHILD_CARDS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BUTTONS_FLOATING_ACTION_BUTTON_ID, null);
-            case NAVDRAWER_CHILD_CHIPS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_CARDS_ID, null);
-            case NAVDRAWER_CHILD_DATA_TABLES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_CHIPS_ID, null);
-            case NAVDRAWER_CHILD_DIALOGS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DATA_TABLES_ID, null);
-            case NAVDRAWER_CHILD_DIVIDERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DIALOGS_ID, null);
-            case NAVDRAWER_CHILD_GRID_LISTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DIVIDERS_ID, null);
-            case NAVDRAWER_CHILD_LISTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_GRID_LISTS_ID, null);
-            case NAVDRAWER_CHILD_LISTS_CONTROLS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LISTS_ID, null);
-            case NAVDRAWER_CHILD_MENUS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LISTS_CONTROLS_ID, null);
-            case NAVDRAWER_CHILD_PICKERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_MENUS_ID, null);
-            case NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_PICKERS_ID, null);
-            case NAVDRAWER_CHILD_SELECTION_CONTROLS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID, null);
-            case NAVDRAWER_CHILD_SLIDERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SELECTION_CONTROLS_ID, null);
-            case NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SLIDERS_ID, null);
-            case NAVDRAWER_CHILD_SUBHEADERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID, null);
-            case NAVDRAWER_CHILD_TABS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SUBHEADERS_ID, null);
-            case NAVDRAWER_CHILD_TEXT_FIELDS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TABS_ID, null);
-            case NAVDRAWER_CHILD_TOOLBARS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TEXT_FIELDS_ID, null);
-            case NAVDRAWER_CHILD_TOOLTIPS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TOOLBARS_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_LAYOUT_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BUTTONS_ID, null);
-            case NAVDRAWER_CHILD_BUTTONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BUTTONS_FLOATING_ACTION_BUTTON_ID, null);
-            case NAVDRAWER_CHILD_BUTTONS_FLOATING_ACTION_BUTTON_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_CARDS_ID, null);
-            case NAVDRAWER_CHILD_CARDS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_CHIPS_ID, null);
-            case NAVDRAWER_CHILD_CHIPS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DATA_TABLES_ID, null);
-            case NAVDRAWER_CHILD_DATA_TABLES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DIALOGS_ID, null);
-            case NAVDRAWER_CHILD_DIALOGS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DIVIDERS_ID, null);
-            case NAVDRAWER_CHILD_DIVIDERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_GRID_LISTS_ID, null);
-            case NAVDRAWER_CHILD_GRID_LISTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LISTS_ID, null);
-            case NAVDRAWER_CHILD_LISTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LISTS_CONTROLS_ID, null);
-            case NAVDRAWER_CHILD_LISTS_CONTROLS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_MENUS_ID, null);
-            case NAVDRAWER_CHILD_MENUS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_PICKERS_ID, null);
-            case NAVDRAWER_CHILD_PICKERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID, null);
-            case NAVDRAWER_CHILD_PROGRESS_AND_ACTIVITY_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SELECTION_CONTROLS_ID, null);
-            case NAVDRAWER_CHILD_SELECTION_CONTROLS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SLIDERS_ID, null);
-            case NAVDRAWER_CHILD_SLIDERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID, null);
-            case NAVDRAWER_CHILD_SNACKBARS_AND_TOASTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SUBHEADERS_ID, null);
-            case NAVDRAWER_CHILD_SUBHEADERS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TABS_ID, null);
-            case NAVDRAWER_CHILD_TABS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TEXT_FIELDS_ID, null);
-            case NAVDRAWER_CHILD_TEXT_FIELDS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TOOLBARS_ID, null);
-            case NAVDRAWER_CHILD_TOOLBARS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_TOOLTIPS_ID, null);
             case NAVDRAWER_CHILD_TOOLTIPS_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_PATTERNS_ID, NAVDRAWER_CHILD_APP_STRUCTURE_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_PATTERNS_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }

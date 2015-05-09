@@ -54,71 +54,27 @@ public class PatternsActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID:
                 return new SwipeToRefreshFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_APP_STRUCTURE_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_COMPONENTS_ID, NAVDRAWER_CHILD_TOOLTIPS_ID, null);
-            case NAVDRAWER_CHILD_DATA_FORMATS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_APP_STRUCTURE_ID, null);
-            case NAVDRAWER_CHILD_ERRORS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DATA_FORMATS_ID, null);
-            case NAVDRAWER_CHILD_GESTURES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ERRORS_ID, null);
-            case NAVDRAWER_CHILD_LOADING_IMAGES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_GESTURES_ID, null);
-            case NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LOADING_IMAGES_ID, null);
-            case NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID, null);
-            case NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID, null);
-            case NAVDRAWER_CHILD_SEARCH_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID, null);
-            case NAVDRAWER_CHILD_SELECTION_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SEARCH_ID, null);
-            case NAVDRAWER_CHILD_SETTINGS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SELECTION_ID, null);
-            case NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SETTINGS_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_COMPONENTS_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_APP_STRUCTURE_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DATA_FORMATS_ID, null);
-            case NAVDRAWER_CHILD_DATA_FORMATS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ERRORS_ID, null);
-            case NAVDRAWER_CHILD_ERRORS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_GESTURES_ID, null);
-            case NAVDRAWER_CHILD_GESTURES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LOADING_IMAGES_ID, null);
-            case NAVDRAWER_CHILD_LOADING_IMAGES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID, null);
-            case NAVDRAWER_CHILD_NAVIGATION_DRAWER_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID, null);
-            case NAVDRAWER_CHILD_NAVIGATIONAL_TRANSITIONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID, null);
-            case NAVDRAWER_CHILD_SCROLLING_TECHNIQUES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SEARCH_ID, null);
-            case NAVDRAWER_CHILD_SEARCH_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SELECTION_ID, null);
-            case NAVDRAWER_CHILD_SELECTION_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SETTINGS_ID, null);
-            case NAVDRAWER_CHILD_SETTINGS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID, null);
             case NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_USABILITY_ID, NAVDRAWER_CHILD_ACCESSIBILITY_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_USABILITY_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }

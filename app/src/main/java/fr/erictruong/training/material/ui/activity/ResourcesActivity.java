@@ -38,39 +38,27 @@ public class ResourcesActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID:
                 return new DummyFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_COLOR_PALETTES_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_USABILITY_ID, NAVDRAWER_CHILD_BIDIRECTIONALITY_ID, null);
-            case NAVDRAWER_CHILD_LAYOUT_TEMPLATES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_COLOR_PALETTES_ID, null);
-            case NAVDRAWER_CHILD_ROBOTO_AND_NOTO_FONTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LAYOUT_TEMPLATES_ID, null);
-            case NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ROBOTO_AND_NOTO_FONTS_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_USABILITY_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_COLOR_PALETTES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_LAYOUT_TEMPLATES_ID, null);
-            case NAVDRAWER_CHILD_LAYOUT_TEMPLATES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ROBOTO_AND_NOTO_FONTS_ID, null);
-            case NAVDRAWER_CHILD_ROBOTO_AND_NOTO_FONTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID, null);
             case NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_WHATS_NEW_ID, NAVDRAWER_CHILD_WHATS_NEW_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_WHATS_NEW_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }

@@ -32,23 +32,23 @@ public class MaterialDesignActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
                 return new IntroductionFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
-        // Do nothing
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
+        // No previous item
         return null;
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID, NAVDRAWER_CHILD_ENVIRONMENT_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }

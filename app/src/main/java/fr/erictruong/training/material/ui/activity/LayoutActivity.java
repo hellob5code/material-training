@@ -41,39 +41,27 @@ public class LayoutActivity extends MaterialTrainingActivity {
             case NAVDRAWER_CHILD_STRUCTURE_ID:
                 return new StructureFragment();
             default:
-                return null;
+                return super.getSelectedFragment(id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
             case NAVDRAWER_CHILD_PRINCIPLES_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_STYLE_ID, NAVDRAWER_CHILD_TYPOGRAPHY_ID, null);
-            case NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_PRINCIPLES_ID, null);
-            case NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID, null);
-            case NAVDRAWER_CHILD_STRUCTURE_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_STYLE_ID).getLastChild();
             default:
-                return null;
+                return super.getPreviousNavigationDrawerItem(adapter, id);
         }
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(NavigationDrawerExpandableListAdapter adapter, int id) {
         switch (id) {
-            case NAVDRAWER_CHILD_PRINCIPLES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID, null);
-            case NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID, null);
-            case NAVDRAWER_CHILD_METRICS_AND_KEYLINES_ID:
-                return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_STRUCTURE_ID, null);
             case NAVDRAWER_CHILD_STRUCTURE_ID:
-                return new NavigationDrawerChild(NAVDRAWER_GROUP_COMPONENTS_ID, NAVDRAWER_CHILD_BOTTOM_SHEETS_ID, null);
+                return adapter.getGroupById(NAVDRAWER_GROUP_COMPONENTS_ID).getFirstChild();
             default:
-                return null;
+                return super.getNextNavigationDrawerItem(adapter, id);
         }
     }
 }
