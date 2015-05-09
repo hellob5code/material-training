@@ -13,7 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -128,7 +130,7 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
 
         statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
 
-        setupBarAnimation();
+        setUpNavigationBar();
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
 
         if (savedInstanceState == null) {
@@ -136,7 +138,7 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
         }
     }
 
-    private void setupBarAnimation() {
+    protected void setUpNavigationBar() {
         content.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {

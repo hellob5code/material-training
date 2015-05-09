@@ -14,10 +14,13 @@
         <item name="android:textColor">@color/text_color_material_light</item>
     </style>
 
-    <style name="ButtonFlat" parent="android:Widget.Material.Button.Borderless">
+    <style name="Button.Borderless" parent="android:Widget.Material.Button.Borderless">
     </style>
 
-    <style name="ButtonFlat.Blue" parent="android:Widget.Material.Button.Borderless.Colored">
+    <style name="Button.Borderless.Light" parent="android:Widget.Material.Light.Button.Borderless">
+    </style>
+
+    <style name="Button.Borderless.Light.Blue" parent="android:Widget.Material.Button.Borderless.Colored">
         <item name="android:textColor">@color/material_blue</item>
     </style>
 

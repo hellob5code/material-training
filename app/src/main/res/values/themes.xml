@@ -33,7 +33,7 @@
 
     <!-- Light DarkActionBar -->
 
-    <style name="Theme.App.Light.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Light.App.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent_1</item>
@@ -41,37 +41,37 @@
         <item name="android:editTextStyle">@style/AppEditText</item>
     </style>
 
-    <style name="Theme.Cyan.Light.DarkActionBar" parent="Theme.App.Light.DarkActionBar">
+    <style name="Theme.Light.Cyan.DarkActionBar" parent="Theme.Light.App.DarkActionBar">
         <item name="colorPrimary">@color/material_cyan</item>
         <item name="colorPrimaryDark">@color/material_cyan_700</item>
         <item name="colorAccent">@color/material_yellow</item>
     </style>
 
-    <style name="Theme.Indigo.Light.DarkActionBar" parent="Theme.App.Light.DarkActionBar">
+    <style name="Theme.Light.Indigo.DarkActionBar" parent="Theme.Light.App.DarkActionBar">
         <item name="colorPrimary">@color/material_indigo</item>
         <item name="colorPrimaryDark">@color/material_indigo_700</item>
         <item name="colorAccent">@color/material_pink</item>
     </style>
 
-    <style name="Theme.LightBlue.Light.DarkActionBar" parent="Theme.App.Light.DarkActionBar">
+    <style name="Theme.Light.LightBlue.DarkActionBar" parent="Theme.Light.App.DarkActionBar">
         <item name="colorPrimary">@color/material_light_blue_500</item>
         <item name="colorPrimaryDark">@color/material_light_blue_700</item>
         <item name="colorAccent">@color/material_pink</item>
     </style>
 
-    <style name="Theme.Orange.Light.DarkActionBar" parent="Theme.App.Light.DarkActionBar">
+    <style name="Theme.Light.Orange.DarkActionBar" parent="Theme.Light.App.DarkActionBar">
         <item name="colorPrimary">@color/material_orange</item>
         <item name="colorPrimaryDark">@color/material_orange_700</item>
         <item name="colorAccent">@color/material_green</item>
     </style>
 
-    <style name="Theme.Pink.Light.DarkActionBar" parent="Theme.App.Light.DarkActionBar">
+    <style name="Theme.Light.Pink.DarkActionBar" parent="Theme.Light.App.DarkActionBar">
         <item name="colorPrimary">@color/material_pink_700</item>
         <item name="colorPrimaryDark">@color/material_pink_900</item>
         <item name="colorAccent">@color/accent_1</item>
     </style>
 
-    <style name="Theme.Teal.Light.DarkActionBar" parent="Theme.App.Light.DarkActionBar">
+    <style name="Theme.Light.Teal.DarkActionBar" parent="Theme.Light.App.DarkActionBar">
         <item name="colorPrimary">@color/material_teal</item>
         <item name="colorPrimaryDark">@color/material_teal_700</item>
         <item name="colorAccent">@color/material_light_blue</item>
@@ -79,49 +79,49 @@
 
     <!-- Light NoActionBar -->
 
-    <style name="Theme.Cyan.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.Cyan.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_cyan</item>
         <item name="colorPrimaryDark">@color/material_cyan_700</item>
         <item name="colorAccent">@color/material_yellow</item>
     </style>
 
-    <style name="Theme.Purple.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.Purple.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_purple_500</item>
         <item name="colorPrimaryDark">@color/material_purple_700</item>
         <item name="colorAccent">@color/material_pink</item> <!-- Not final -->
     </style>
 
-    <style name="Theme.Indigo.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.Indigo.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_indigo</item>
         <item name="colorPrimaryDark">@color/material_indigo_700</item>
         <item name="colorAccent">@color/material_pink</item>
     </style>
 
-    <style name="Theme.LightBlue.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.LightBlue.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_light_blue_500</item>
         <item name="colorPrimaryDark">@color/material_light_blue_700</item>
         <item name="colorAccent">@color/material_pink</item>
     </style>
 
-    <style name="Theme.Orange.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.Orange.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_orange</item>
         <item name="colorPrimaryDark">@color/material_orange_700</item>
         <item name="colorAccent">@color/material_green</item>
     </style>
 
-    <style name="Theme.BlueGrey.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.BlueGrey.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_blue_grey_700</item>
         <item name="colorPrimaryDark">@color/material_blue_grey_900</item>
         <item name="colorAccent">@color/accent_1</item> <!-- Not final -->
     </style>
 
-    <style name="Theme.Pink.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.Pink.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_pink_700</item>
         <item name="colorPrimaryDark">@color/material_pink_900</item>
         <item name="colorAccent">@color/accent_1</item>
     </style>
 
-    <style name="Theme.Teal.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Light.Teal.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/material_teal</item>
         <item name="colorPrimaryDark">@color/material_teal_700</item>
         <item name="colorAccent">@color/material_light_blue</item>

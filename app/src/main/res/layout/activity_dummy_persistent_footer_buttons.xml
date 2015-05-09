@@ -147,7 +147,7 @@
 
         <Button
             android:id="@+id/button_2"
-            style="@style/ButtonFlat.Blue"
+            style="@style/Button.Borderless.Blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -155,7 +155,7 @@
 
         <Button
             android:id="@+id/button_1"
-            style="@style/ButtonFlat.Blue"
+            style="@style/Button.Borderless.Blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@+id/button_2"

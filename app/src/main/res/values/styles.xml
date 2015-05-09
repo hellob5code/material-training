@@ -54,17 +54,25 @@
         <item name="android:background">@drawable/btn_grey_50_material</item>
     </style>
 
-    <style name="ButtonFlat" parent="android:Widget.Holo.Button.Borderless">
-        <item name="android:minWidth">88dp</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/text_color_material_light</item>
-        <item name="android:paddingLeft">@dimen/padding_small</item>
-        <item name="android:paddingRight">@dimen/padding_small</item>
+    <style name="Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
+
     </style>
 
-    <style name="ButtonFlat.Blue">
+    <style name="Button.Borderless.Blue" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textColor">@color/material_blue</item>
+    </style>
+
+    <style name="Button.Borderless.Light" parent="Widget.AppCompat.Button.Borderless">
+        <!--<item name="android:minWidth">88dp</item>-->
+        <!--<item name="android:textSize">14sp</item>-->
+        <!--<item name="android:textStyle">bold</item>-->
+        <!--<item name="android:textAllCaps">true</item>-->
+        <!--<item name="android:textColor">@color/text_color_material_light</item>-->
+        <!--<item name="android:paddingLeft">@dimen/padding_small</item>-->
+        <!--<item name="android:paddingRight">@dimen/padding_small</item>-->
+    </style>
+
+    <style name="Button.Borderless.Light.Blue">
         <item name="android:textColor">@color/material_blue</item>
     </style>
 
