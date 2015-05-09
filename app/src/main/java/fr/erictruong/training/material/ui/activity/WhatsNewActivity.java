@@ -27,8 +27,8 @@ public class WhatsNewActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_WHATS_NEW_ID:
                 return new DummyFragment();
             default:
@@ -37,8 +37,8 @@ public class WhatsNewActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_WHATS_NEW_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_RESOURCES_ID, NAVDRAWER_CHILD_STICKER_SHEETS_AND_ICONS_ID, null);
             default:
@@ -47,7 +47,7 @@ public class WhatsNewActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
         // Do nothing
         return null;
     }

@@ -77,19 +77,15 @@ public abstract class MaterialTrainingFragment extends RecyclerFragment {
         getRecyclerView().addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-
-                // TODO: Call onScrolledToStart() in a better way (e.g. when card are larger than the screen).
-                int totalItemCount = layoutManager.getItemCount();
-                int firstCompletelyVisibleItemPosition = layoutManager.findFirstCompletelyVisibleItemPosition();
-                if (firstCompletelyVisibleItemPosition == 0) {
+                int scrollOffset = recyclerView.computeVerticalScrollOffset();
+                if (scrollOffset == 0) {
                     scrollListener.onScrolledToStart(recyclerView);
                     return;
                 }
 
-                // TODO: Call onScrolledToEnd() in a better way (e.g. when card are larger than the screen).
-                int lastCompletelyVisibleItemPosition = layoutManager.findLastCompletelyVisibleItemPosition();
-                if (lastCompletelyVisibleItemPosition == totalItemCount - 1) {
+                int scrollRange = recyclerView.computeVerticalScrollRange();
+                int scrollExtent = recyclerView.computeVerticalScrollExtent();
+                if (scrollOffset + scrollExtent > scrollRange - 5) {
                     scrollListener.onScrolledToEnd(recyclerView);
                     return;
                 }

@@ -30,8 +30,8 @@ public class LayoutActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_PRINCIPLES_ID:
                 return new PrinciplesFragment();
             case NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID:
@@ -46,8 +46,8 @@ public class LayoutActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_PRINCIPLES_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_STYLE_ID, NAVDRAWER_CHILD_TYPOGRAPHY_ID, null);
             case NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID:
@@ -62,8 +62,8 @@ public class LayoutActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_PRINCIPLES_ID:
                 return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID, null);
             case NAVDRAWER_CHILD_UNITS_AND_MEASUREMENTS_ID:

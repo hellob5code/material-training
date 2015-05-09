@@ -27,8 +27,8 @@ public class ComponentsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected  Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected  Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
                 return new BottomSheetsFragment();
             case NAVDRAWER_CHILD_BUTTONS_ID:
@@ -79,8 +79,8 @@ public class ComponentsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_LAYOUT_ID, NAVDRAWER_CHILD_STRUCTURE_ID, null);
             case NAVDRAWER_CHILD_BUTTONS_ID:
@@ -131,8 +131,8 @@ public class ComponentsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_BOTTOM_SHEETS_ID:
                 return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BUTTONS_ID, null);
             case NAVDRAWER_CHILD_BUTTONS_ID:

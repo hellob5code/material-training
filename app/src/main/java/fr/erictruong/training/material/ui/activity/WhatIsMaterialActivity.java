@@ -27,8 +27,8 @@ public class WhatIsMaterialActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_ENVIRONMENT_ID:
                 return new EnvironmentFragment();
             case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
@@ -41,8 +41,8 @@ public class WhatIsMaterialActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_ENVIRONMENT_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_MATERIAL_DESIGN_ID, NAVDRAWER_CHILD_INTRODUCTION_ID, null);
             case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:
@@ -55,8 +55,8 @@ public class WhatIsMaterialActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_ENVIRONMENT_ID:
                 return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID, null);
             case NAVDRAWER_CHILD_MATERIAL_PROPERTIES_ID:

@@ -26,19 +26,17 @@ public class MainActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
         return null;
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        // Do nothing
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
         return null;
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        // Do nothing
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
         return null;
     }
 }

@@ -30,8 +30,8 @@ public class AnimationActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID:
                 return new AuthenticMotionFragment();
             case NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID:
@@ -46,8 +46,8 @@ public class AnimationActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID, NAVDRAWER_CHILD_OBJECTS_IN_3D_SPACE_ID, null);
             case NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID:
@@ -62,8 +62,8 @@ public class AnimationActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID:
                 return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID, null);
             case NAVDRAWER_CHILD_RESPONSIVE_INTERACTION_ID:

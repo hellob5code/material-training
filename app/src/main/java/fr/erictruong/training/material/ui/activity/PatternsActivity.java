@@ -27,8 +27,8 @@ public class PatternsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_APP_STRUCTURE_ID:
                 return new AppStructureFragment();
             case NAVDRAWER_CHILD_DATA_FORMATS_ID:
@@ -59,8 +59,8 @@ public class PatternsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_APP_STRUCTURE_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_COMPONENTS_ID, NAVDRAWER_CHILD_TOOLTIPS_ID, null);
             case NAVDRAWER_CHILD_DATA_FORMATS_ID:
@@ -91,8 +91,8 @@ public class PatternsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_APP_STRUCTURE_ID:
                 return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_DATA_FORMATS_ID, null);
             case NAVDRAWER_CHILD_DATA_FORMATS_ID:

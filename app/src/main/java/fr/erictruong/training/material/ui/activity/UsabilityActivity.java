@@ -28,8 +28,8 @@ public class UsabilityActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
                 return new AccessibilityFragment();
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
@@ -40,8 +40,8 @@ public class UsabilityActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_PATTERNS_ID, NAVDRAWER_CHILD_SWIPE_TO_REFRESH_ID, null);
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:
@@ -52,8 +52,8 @@ public class UsabilityActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_ACCESSIBILITY_ID:
                 return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_BIDIRECTIONALITY_ID, null);
             case NAVDRAWER_CHILD_BIDIRECTIONALITY_ID:

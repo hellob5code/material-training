@@ -12,9 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
+import android.view.ViewTreeObserver;
 import android.widget.ExpandableListView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -34,7 +32,7 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
 
     private static final String TAG = MaterialTrainingActivity.class.getSimpleName();
 
-    private static final int SCROLL_THRESHOLD = 5;
+    private static final int SCROLL_THRESHOLD = 2;
 
     public static final int NAVDRAWER_GROUP_MATERIAL_DESIGN_ID                =    0;
     public static final int NAVDRAWER_CHILD_INTRODUCTION_ID                   =    1;
@@ -111,46 +109,12 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     @InjectView(R.id.content) View content;
     @InjectView(R.id.navigation_drawer) ExpandableListView navigationDrawer;
     @InjectView(R.id.navbar) ViewGroup navbar;
-    @InjectView(R.id.previous) Button btnPrevious;
-    @InjectView(R.id.next) Button btnNext;
 
     private int statusBarSize;
-    private Animation animSlideInDown, animSlideOutUp, animSlideInUp, animSlideOutDown;
-    private Animation.AnimationListener animSlideInListener = new Animation.AnimationListener() {
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-            // Do nothing
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {
-            // Do nothing
-        }
-
-        @Override
-        public void onAnimationStart(Animation animation) {
-            toolbar.setVisibility(View.VISIBLE);
-            navbar.setVisibility(View.VISIBLE);
-        }
-    };
-    private Animation.AnimationListener animSlideOutListener = new Animation.AnimationListener() {
-        @Override
-        public void onAnimationEnd(Animation animation) {
-            toolbar.setVisibility(View.INVISIBLE);
-            navbar.setVisibility(View.INVISIBLE);
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {
-            // Do nothing
-        }
-
-        @Override
-        public void onAnimationStart(Animation animation) {
-            // Do nothing
-        }
-    };
+    private boolean isToolbarAnimationRunning;
+    private boolean isNavbarAnimationRunning;
+    private float toolbarFinalY;
+    private float navbarFinalY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,21 +134,18 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     }
 
     private void setupBarAnimation() {
-        animSlideInDown = AnimationUtils.loadAnimation(this, R.anim.slide_in_down);
-        animSlideOutUp = AnimationUtils.loadAnimation(this, R.anim.slide_out_up);
-        animSlideInUp = AnimationUtils.loadAnimation(this, R.anim.slide_in_up);
-        animSlideOutDown = AnimationUtils.loadAnimation(this, R.anim.slide_out_down);
-
-        int duration = getResources().getInteger(android.R.integer.config_shortAnimTime);
-        animSlideInDown.setDuration(duration);
-        animSlideOutUp.setDuration(duration);
-        animSlideInUp.setDuration(duration);
-        animSlideOutDown.setDuration(duration);
-
-        animSlideInDown.setAnimationListener(animSlideInListener);
-        animSlideOutUp.setAnimationListener(animSlideOutListener);
-        animSlideInUp.setAnimationListener(animSlideInListener);
-        animSlideOutDown.setAnimationListener(animSlideOutListener);
+        content.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    content.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    content.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+                toolbarFinalY = -toolbar.getHeight();
+                navbarFinalY = navbar.getHeight();
+            }
+        });
     }
 
     @Override
@@ -350,45 +311,42 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
                 AppPrefs.putLastVisitedGroupId(this, parentId);
 
                 // Click on a child of another group
-                switch (parentId) {
-                    case NAVDRAWER_GROUP_MATERIAL_DESIGN_ID:
-                        startActivity(new Intent(this, MaterialDesignActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID:
-                        startActivity(new Intent(this, WhatIsMaterialActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_ANIMATION_ID:
-                        startActivity(new Intent(this, AnimationActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_STYLE_ID:
-                        startActivity(new Intent(this, StyleActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_LAYOUT_ID:
-                        startActivity(new Intent(this, LayoutActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_COMPONENTS_ID:
-                        startActivity(new Intent(this, ComponentsActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_PATTERNS_ID:
-                        startActivity(new Intent(this, PatternsActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_USABILITY_ID:
-                        startActivity(new Intent(this, UsabilityActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_RESOURCES_ID:
-                        startActivity(new Intent(this, ResourcesActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                    case NAVDRAWER_GROUP_WHATS_NEW_ID:
-                        startActivity(new Intent(this, WhatsNewActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id));
-                        break;
-                }
+                Intent intent = getSelectedActivity(parentId, id);
+                startActivity(intent);
                 finish();
                 return false;
         }
     }
 
-    protected void setUpContent(int defaultNavdrawerItemId) {
-        int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, defaultNavdrawerItemId);
+    private Intent getSelectedActivity(int parentId, int id) {
+        switch (parentId) {
+            case NAVDRAWER_GROUP_MATERIAL_DESIGN_ID:
+                return new Intent(this, MaterialDesignActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID:
+                return new Intent(this, WhatIsMaterialActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_ANIMATION_ID:
+                return new Intent(this, AnimationActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_STYLE_ID:
+                return new Intent(this, StyleActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_LAYOUT_ID:
+                return new Intent(this, LayoutActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_COMPONENTS_ID:
+                return new Intent(this, ComponentsActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_PATTERNS_ID:
+                return new Intent(this, PatternsActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_USABILITY_ID:
+                return new Intent(this, UsabilityActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_RESOURCES_ID:
+                return new Intent(this, ResourcesActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            case NAVDRAWER_GROUP_WHATS_NEW_ID:
+                return new Intent(this, WhatsNewActivity.class).putExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, id);
+            default:
+                return null;
+        }
+    }
+
+    protected void setUpContent(int defaultId) {
+        int id = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, defaultId);
         Fragment fragment = getSelectedFragment(id);
         if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -409,36 +367,97 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     }
 
     private void hideBars() {
-        if (toolbar.getVisibility() == View.VISIBLE) {
-            toolbar.startAnimation(animSlideOutUp);
+        if (!isToolbarAnimationRunning) {
+            toolbar.animate()
+                    .translationY(toolbarFinalY)
+                    .withStartAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isToolbarAnimationRunning = true;
+                        }
+                    })
+                    .withEndAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isToolbarAnimationRunning = false;
+                        }
+                    })
+                    .start();
         }
-        if (navbar.getVisibility() == View.VISIBLE) {
-            navbar.startAnimation(animSlideOutDown);
+        if (!isNavbarAnimationRunning) {
+            navbar.animate()
+                    .translationY(navbarFinalY)
+                    .withStartAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isNavbarAnimationRunning = true;
+                        }
+                    })
+                    .withEndAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isNavbarAnimationRunning = false;
+                        }
+                    })
+                    .start();
         }
     }
 
     private void showBars() {
-        if (toolbar.getVisibility() == View.INVISIBLE) {
-            toolbar.startAnimation(animSlideInDown);
+        if (!isToolbarAnimationRunning) {
+            toolbar.animate()
+                    .translationY(0)
+                    .withStartAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isToolbarAnimationRunning = true;
+                        }
+                    })
+                    .withEndAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isToolbarAnimationRunning = false;
+                        }
+                    })
+                    .start();
         }
-        if (navbar.getVisibility() == View.INVISIBLE) {
-            navbar.startAnimation(animSlideInUp);
+        if (!isNavbarAnimationRunning) {
+            navbar.animate()
+                    .translationY(0)
+                    .withStartAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isNavbarAnimationRunning = true;
+                        }
+                    })
+                    .withEndAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            isNavbarAnimationRunning = false;
+                        }
+                    })
+                    .start();
         }
     }
 
     @Override
     public void onScrolledToStart(RecyclerView recyclerView) {
+        isToolbarAnimationRunning = false;
+        isNavbarAnimationRunning = false;
         showBars();
     }
 
     @Override
     public void onScrolledToEnd(RecyclerView recyclerView) {
+        isToolbarAnimationRunning = false;
+        isNavbarAnimationRunning = false;
         showBars();
     }
 
     @OnClick(R.id.previous)
     public void onBtnPrevious() {
-        NavigationDrawerChild drawerChild = getPreviousNavigationDrawerItem();
+        int itemId = getSelectedNavigationDrawerItemId();
+        NavigationDrawerChild drawerChild = getPreviousNavigationDrawerItem(itemId);
         if (drawerChild != null) {
             onNavigationDrawerItemClicked(drawerChild);
         }
@@ -446,7 +465,8 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
 
     @OnClick(R.id.next)
     public void onBtnNext() {
-        NavigationDrawerChild drawerChild = getNextNavigationDrawerItem();
+        int itemId = getSelectedNavigationDrawerItemId();
+        NavigationDrawerChild drawerChild = getNextNavigationDrawerItem(itemId);
         if (drawerChild != null) {
             onNavigationDrawerItemClicked(drawerChild);
         }
@@ -454,9 +474,9 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
 
     protected abstract int getDefaultSelectedFragment();
 
-    protected abstract Fragment getSelectedFragment(int navdrawerItemId);
+    protected abstract Fragment getSelectedFragment(int id);
 
-    protected abstract NavigationDrawerChild getPreviousNavigationDrawerItem();
+    protected abstract NavigationDrawerChild getPreviousNavigationDrawerItem(int id);
 
-    protected abstract NavigationDrawerChild getNextNavigationDrawerItem();
+    protected abstract NavigationDrawerChild getNextNavigationDrawerItem(int id);
 }

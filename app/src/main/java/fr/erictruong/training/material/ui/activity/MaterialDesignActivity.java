@@ -27,8 +27,8 @@ public class MaterialDesignActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
                 return new IntroductionFragment();
             default:
@@ -37,14 +37,14 @@ public class MaterialDesignActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
         // Do nothing
         return null;
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_INTRODUCTION_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_WHAT_IS_MATERIAL_ID, NAVDRAWER_CHILD_ENVIRONMENT_ID, null);
             default:

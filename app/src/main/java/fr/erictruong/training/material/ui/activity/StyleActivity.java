@@ -30,8 +30,8 @@ public class StyleActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected Fragment getSelectedFragment(int navdrawerItemId) {
-        switch (navdrawerItemId) {
+    protected Fragment getSelectedFragment(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_COLOR_ID:
                 return new ColorFragment();
             case NAVDRAWER_CHILD_ICONS_ID:
@@ -46,8 +46,8 @@ public class StyleActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getPreviousNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getPreviousNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_COLOR_ID:
                 return new NavigationDrawerChild(NAVDRAWER_GROUP_ANIMATION_ID, NAVDRAWER_CHILD_DELIGHTFUL_DETAILS_ID, null);
             case NAVDRAWER_CHILD_ICONS_ID:
@@ -62,8 +62,8 @@ public class StyleActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected NavigationDrawerChild getNextNavigationDrawerItem() {
-        switch (getSelectedNavigationDrawerItemId()) {
+    protected NavigationDrawerChild getNextNavigationDrawerItem(int id) {
+        switch (id) {
             case NAVDRAWER_CHILD_COLOR_ID:
                 return new NavigationDrawerChild(getSelectedNavigationDrawerGroupId(), NAVDRAWER_CHILD_ICONS_ID, null);
             case NAVDRAWER_CHILD_ICONS_ID:
