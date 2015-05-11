@@ -25,7 +25,7 @@ public class LayoutActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected int getDefaultSelectedFragment() {
+    protected int getDefaultSelectedNavigationDrawerChildId() {
         return NAVDRAWER_CHILD_PRINCIPLES_ID;
     }
 

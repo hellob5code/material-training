@@ -22,7 +22,7 @@ public class ComponentsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected int getDefaultSelectedFragment() {
+    protected int getDefaultSelectedNavigationDrawerChildId() {
         return NAVDRAWER_CHILD_BOTTOM_SHEETS_ID;
     }
 

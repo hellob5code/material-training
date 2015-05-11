@@ -25,7 +25,7 @@ public class StyleActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected int getDefaultSelectedFragment() {
+    protected int getDefaultSelectedNavigationDrawerChildId() {
         return NAVDRAWER_CHILD_COLOR_ID;
     }
 

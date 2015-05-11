@@ -22,7 +22,7 @@ public class PatternsActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected int getDefaultSelectedFragment() {
+    protected int getDefaultSelectedNavigationDrawerChildId() {
         return NAVDRAWER_CHILD_DATA_FORMATS_ID;
     }
 

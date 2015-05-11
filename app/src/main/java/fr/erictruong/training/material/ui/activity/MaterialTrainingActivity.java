@@ -13,9 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -28,6 +28,7 @@ import fr.erictruong.training.material.ui.tile.NavigationDrawerChild;
 import fr.erictruong.training.material.ui.tile.NavigationDrawerGroup;
 import fr.erictruong.training.material.ui.tile.Tile;
 import fr.erictruong.training.material.util.ApiUtils;
+import fr.erictruong.training.material.util.LogUtils;
 import fr.erictruong.training.material.util.ThemeUtils;
 import fr.erictruong.training.material.util.ViewUtils;
 
@@ -114,6 +115,10 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     @InjectView(R.id.content) View content;
     @InjectView(R.id.navigation_drawer) ExpandableListView navigationDrawer;
     @InjectView(R.id.navbar) ViewGroup navbar;
+    @InjectView(R.id.previous) FrameLayout previous;
+    @InjectView(R.id.next) FrameLayout next;
+    @InjectView(R.id.tv_previous) TextView tvPrevious;
+    @InjectView(R.id.tv_next) TextView tvNext;
 
     private int statusBarSize;
     private boolean isToolbarAnimationRunning;
@@ -130,12 +135,17 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
 
         statusBarSize = getResources().getDimensionPixelSize(R.dimen.status_bar_size);
 
-        setUpNavigationBar();
         overridePendingTransition(R.anim.short_fade_in, R.anim.short_fade_out);
 
         if (savedInstanceState == null) {
-            setUpContent(getDefaultSelectedFragment());
+            setUpContent(getDefaultSelectedNavigationDrawerChildId());
         }
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        setUpNavigationBar();
     }
 
     protected void setUpNavigationBar() {
@@ -151,6 +161,27 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
                 navbarFinalY = navbar.getHeight();
             }
         });
+        refreshNavigationBar();
+    }
+
+    private void refreshNavigationBar() {
+        int itemId = getSelectedNavigationDrawerChildId();
+        if (itemId != NAVDRAWER_NO_ID) {
+            NavigationDrawerExpandableListAdapter adapter = (NavigationDrawerExpandableListAdapter) getNavigationDrawer().getExpandableListAdapter();
+            NavigationDrawerChild previousItem = getPreviousNavigationDrawerItem(adapter, itemId);
+            if (previousItem != null) {
+                tvPrevious.setText(previousItem.getText());
+            } else {
+                previous.setVisibility(View.GONE);
+            }
+
+            NavigationDrawerChild nextItem = getNextNavigationDrawerItem(adapter, itemId);
+            if (nextItem != null) {
+                tvNext.setText(nextItem.getText());
+            } else {
+                next.setVisibility(View.GONE);
+            }
+        }
     }
 
     @Override
@@ -294,7 +325,7 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
     protected boolean goToNavigationDrawerItem(Tile item) {
         int id = item.getId();
 
-        // Click on an item
+        LogUtils.d(getClass(), "Selected navigation drawer item. id[%d]", id);
         switch (id) {
             case NAVDRAWER_ITEM_SETTINGS_ID:
                 startActivity(new Intent(this, SettingsActivity.class));
@@ -303,19 +334,21 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
                 startActivity(new Intent(this, DeveloperModeActivity.class));
                 return true;
             default:
-                // Click on a child
                 Fragment fragment = getSelectedFragment(id);
                 if (fragment != null) {
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.content, fragment).commit();
+                    ft.replace(R.id.content, fragment)
+                            .commit();
+
                     AppPrefs.putLastVisitedChildId(this, id);
+                    refreshNavigationBar();
                     return true;
                 }
 
                 int parentId = ((NavigationDrawerChild) item).getParentId();
                 AppPrefs.putLastVisitedGroupId(this, parentId);
 
-                // Click on a child of another group
+                LogUtils.d(getClass(), "Selected navigation drawer sub item of another group. parentId[%d] id[%d]", parentId, id);
                 Intent intent = getSelectedActivity(parentId, id);
                 startActivity(intent);
                 finish();
@@ -356,7 +389,9 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
         Fragment fragment = getSelectedFragment(id);
         if (fragment != null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(R.id.content, fragment).commit();
+            ft.add(R.id.content, fragment)
+                    .commit();
+
             AppPrefs.putLastVisitedChildId(this, id);
         }
     }
@@ -502,6 +537,4 @@ public abstract class MaterialTrainingActivity extends AbstractExpandableNavigat
         int i = children.indexOf(child);
         return children.get(i + 1);
     }
-
-    protected abstract int getDefaultSelectedFragment();
 }

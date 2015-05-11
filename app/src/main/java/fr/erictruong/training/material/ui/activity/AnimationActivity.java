@@ -23,7 +23,7 @@ public class AnimationActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected int getDefaultSelectedFragment() {
+    protected int getDefaultSelectedNavigationDrawerChildId() {
         return NAVDRAWER_CHILD_AUTHENTIC_MOTION_ID;
     }
 

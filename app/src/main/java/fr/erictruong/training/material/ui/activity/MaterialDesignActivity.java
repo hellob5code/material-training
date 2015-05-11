@@ -22,7 +22,7 @@ public class MaterialDesignActivity extends MaterialTrainingActivity {
     }
 
     @Override
-    protected int getDefaultSelectedFragment() {
+    protected int getDefaultSelectedNavigationDrawerChildId() {
         return NAVDRAWER_CHILD_INTRODUCTION_ID;
     }
 

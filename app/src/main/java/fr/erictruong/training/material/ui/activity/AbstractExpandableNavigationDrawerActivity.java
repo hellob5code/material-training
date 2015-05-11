@@ -80,14 +80,14 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends AppComp
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        selectedNavigationDrawerChildId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
+        selectedNavigationDrawerChildId = savedInstanceState.getInt(KEY_SELECTED_NAVIGATION_DRAWER_CHILD_ID, getDefaultSelectedNavigationDrawerChildId());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            selectedNavigationDrawerChildId = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, NAVDRAWER_NO_ID);
+            selectedNavigationDrawerChildId = getIntent().getIntExtra(EXTRA_SELECTED_NAVIGATION_DRAWER_CHILD_ID, getDefaultSelectedNavigationDrawerChildId());
         }
     }
 
@@ -463,4 +463,6 @@ public abstract class AbstractExpandableNavigationDrawerActivity extends AppComp
     protected abstract ExpandableListView getNavigationDrawer();
 
     protected abstract boolean goToNavigationDrawerItem(Tile item);
+
+    protected abstract int getDefaultSelectedNavigationDrawerChildId();
 }
