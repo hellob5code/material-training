@@ -1,137 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fr.erictruong.training.material">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fr.erictruong.material.training">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.App.Light">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.activity.AccentFixedTabsActivity"
-            android:label="@string/title_activity_tabs"
-            android:theme="@style/Theme.Grey50.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.AnimationActivity"
-            android:theme="@style/Theme.Light.Purple.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.ContactsActivity"
-            android:theme="@style/Theme.Grey50.Light"/>
-        <activity
-            android:name=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Light.Indigo.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.ComposeEmailActivity"
-            android:label="@string/title_activity_compose_email"
-            android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Light.Pink.DarkActionBar"/> <!-- TODO: Set real parent activity. -->
-        <activity
-            android:name=".ui.activity.DeveloperModeActivity"
-            android:label="@string/title_activity_developer_mode"
-            android:parentActivityName=".ui.activity.ComponentsActivity"/> <!-- TODO: Set real parent activity. -->
-        <activity
-            android:name=".ui.activity.DummyInlineButtons1Activity"
-            android:theme="@style/Theme.Grey50.Light"/>
-        <activity
-            android:name=".ui.activity.DummyInlineButtons2Activity"
-            android:theme="@style/Theme.Grey50.Light"/>
-        <activity
-            android:name=".ui.activity.DummyInlineButtons3Activity"
-            android:theme="@style/Theme.Grey50.Light"/>
-        <activity
-            android:name=".ui.activity.DummyPersistentFooterButtonsActivity"
-            android:theme="@style/Theme.Grey50.Light"/>
-        <activity
-            android:name=".ui.activity.FixedTabsActivity"
-            android:label="@string/title_activity_tabs"
-            android:theme="@style/Theme.Light.Cyan.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.LayoutActivity"
-            android:theme="@style/Theme.Light.Pink.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.LockedFixedTabsActivity"
-            android:label="@string/title_activity_tabs"
-            android:theme="@style/Theme.Light.Cyan.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".ui.MainActivity"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activity.MaterialDesignActivity"
-            android:theme="@style/Theme.Light.Cyan.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.MyFilesActivity"
-            android:theme="@style/Theme.Grey50.Light"/>
-        <activity
-            android:name=".ui.activity.PatternsActivity"
-            android:theme="@style/Theme.Light.Orange.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.RegisterApplicationActivity"
-            android:label="@string/title_activity_register_application"
-            android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Light.Indigo.DarkActionBar"/> <!-- TODO: Set real parent activity. -->
-        <activity
-            android:name=".ui.activity.RegisterContactActivity"
-            android:label="@string/title_activity_register_contact"
-            android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Light.Indigo.DarkActionBar"/> <!-- TODO: Set real parent activity. -->
-        <activity
-            android:name=".ui.activity.RegisterEventActivity"
-            android:label="@string/title_activity_register_event"
-            android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Light.Teal.DarkActionBar"/> <!-- TODO: Set real parent activity. -->
-        <activity
-            android:name=".ui.activity.RegisterNoteActivity"
-            android:label="@string/title_activity_register_note"
-            android:parentActivityName=".ui.activity.ComponentsActivity"
-            android:theme="@style/Theme.Light.Teal.DarkActionBar"/> <!-- TODO: Set real parent activity. -->
-        <activity
-            android:name=".ui.activity.ResourcesActivity"
-            android:theme="@style/Theme.Light.LightBlue.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.ScrollableTabsActivity"
-            android:label="@string/title_activity_tabs"
-            android:theme="@style/Theme.Light.Cyan.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.SearchableActivity"
-            android:label="@string/title_activity_searchable"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.Light.Indigo.DarkActionBar">
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable"/>
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".ui.activity.ComponentsActivity"/> <!-- TODO: Set real parent activity. -->
-        <activity
-            android:name=".ui.activity.StyleActivity"
-            android:theme="@style/Theme.Light.Teal.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.SystemIconsActivity"
-            android:theme="@style/Theme.Grey50.Light"
-            android:label="@string/title_activity_system_icons"
-            android:parentActivityName=".ui.activity.StyleActivity"/>
-        <activity
-            android:name=".ui.activity.UsabilityActivity"
-            android:theme="@style/Theme.Light.BlueGrey.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.WhatIsMaterialActivity"
-            android:theme="@style/Theme.Light.LightBlue.NoActionBar"/>
-        <activity
-            android:name=".ui.activity.WhatsNewActivity"
-            android:theme="@style/Theme.Light.LightBlue.NoActionBar"/>
-    </application>
 
+        <activity
+            android:name=".ui.material_design.MaterialDesignActivity"
+            android:noHistory="true"
+            android:theme="@style/Cyan.NoActionBar"/>
+        <activity
+            android:name=".ui.what_is_material.WhatIsMaterialActivity"
+            android:noHistory="true"
+            android:theme="@style/LightBlue.NoActionBar"/>
+        <activity
+            android:name=".ui.animation.AnimationActivity"
+            android:noHistory="true"
+            android:theme="@style/Purple.NoActionBar"/>
+        <activity
+            android:name=".ui.style.StyleActivity"
+            android:noHistory="true"
+            android:theme="@style/Teal.NoActionBar"/>
+        <activity
+            android:name=".ui.layout.LayoutActivity"
+            android:noHistory="true"
+            android:theme="@style/Pink.NoActionBar"/>
+        <activity
+            android:name=".ui.components.ComponentsActivity"
+            android:noHistory="true"
+            android:theme="@style/Indigo.NoActionBar"/>
+        <activity
+            android:name=".ui.patterns.PatternsActivity"
+            android:noHistory="true"
+            android:theme="@style/Orange.NoActionBar"/>
+        <activity
+            android:name=".ui.usability.UsabilityActivity"
+            android:noHistory="true"
+            android:theme="@style/BlueGrey.NoActionBar"/>
+        <activity
+            android:name=".ui.resources.ResourcesActivity"
+            android:noHistory="true"
+            android:theme="@style/LightBlue.NoActionBar"/>
+        <activity
+            android:name=".ui.whats_new.WhatsNewActivity"
+            android:noHistory="true"
+            android:theme="@style/LightBlue.NoActionBar"/>
+
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:label="@string/title_settings"/>
+
+        <activity
+            android:name=".ui.components.lists.SampleListActivity"
+            android:label="@string/title_sample_list"
+            android:theme="@style/Grey50"/>
+        <activity
+            android:name=".ui.components.lists_controls.SampleListControlActivity"
+            android:label="@string/title_sample_list_control"
+            android:theme="@style/Grey50"/>
+
+        <activity
+            android:name=".ui.components.tabs.FixedTabBarActivity"
+            android:label="@string/title_page_title"
+            android:theme="@style/Cyan.NoActionBar"/>
+        <activity
+            android:name=".ui.components.tabs.ExtendedAppBarTabBarActivity"
+            android:label="@string/title_page_title"
+            android:theme="@style/Cyan.NoActionBar"/>
+        <activity
+            android:name=".ui.components.tabs.PinnedTabBarActivity"
+            android:label="@string/title_page_title"
+            android:theme="@style/Cyan.NoActionBar"/>
+        <activity
+            android:name=".ui.components.tabs.ColoredTabBarActivity"
+            android:label="@string/title_page_title"
+            android:theme="@style/Grey50.NoActionBar"/>
+        <activity
+            android:name=".ui.components.tabs.ScrollableTabBarActivity"
+            android:label="@string/title_page_title"
+            android:theme="@style/Cyan.NoActionBar"/>
+        <activity
+            android:name=".ui.components.tabs.FixedTabBarIconsActivity"
+            android:label="@string/title_page_title"
+            android:theme="@style/Cyan.NoActionBar"/>
+        <activity
+            android:name=".ui.components.tabs.ColoredTabBarIconsActivity"
+            android:label="@string/title_page_title"
+            android:theme="@style/Grey50.NoActionBar"/>
+    </application>
 </manifest>

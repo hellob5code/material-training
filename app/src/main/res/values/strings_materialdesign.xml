@@ -2,14 +2,14 @@
 <resources>
 
     <!-- Introduction Fragment -->
-    <string name="fragment_introduction">Introduction</string>
-    <string name="fragment_introduction_txt">We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. This spec is a living document that will be updated as we continue to develop the tenets and specifics of material design.</string>
-    <string name="fragment_introduction_goals">Goals</string>
-    <string name="fragment_introduction_goals_txt">Create a visual language that synthesizes classic principles of good design with the innovation and possibility of technology and science.
+    <string name="introduction">Introduction</string>
+    <string name="introduction_txt">We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. This spec is a living document that will be updated as we continue to develop the tenets and specifics of material design.</string>
+    <string name="introduction_goals">Goals</string>
+    <string name="introduction_goals_txt">Create a visual language that synthesizes classic principles of good design with the innovation and possibility of technology and science.
         \n\nDevelop a single underlying system that allows for a unified experience across platforms and device sizes. Mobile precepts are fundamental, but touch, voice, mouse, and keyboard are all ﬁrst-class input methods.
     </string>
-    <string name="fragment_introduction_principles">Principles</string>
-    <string name="fragment_introduction_principles_txt"><b>Material is the metaphor</b>
+    <string name="introduction_principles">Principles</string>
+    <string name="introduction_principles_txt"><b>Material is the metaphor</b>
         \n\nA material metaphor is the unifying theory of a rationalized space and a system of motion. The material is grounded in tactile reality, inspired by the study of paper and ink, yet technologically advanced and open to imagination and magic.
         \n\nSurfaces and edges of the material provide visual cues that are grounded in reality. The use of familiar tactile attributes helps users quickly understand affordances. Yet the flexibility of the material creates new affordances that supercede those in the physical world, without breaking the rules of physics.
         \n\nThe fundamentals of light, surface, and movement are key to conveying how objects move, interact, and exist in space and in relation to each other. Realistic lighting shows seams, divides space, and indicates moving parts.

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:minHeight="@dimen/touch_target_88dp"
+    android:paddingEnd="@dimen/keyline_1_material"
+    android:paddingRight="@dimen/keyline_1_material">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginLeft="@dimen/keyline_1_material"
+        android:layout_marginStart="@dimen/keyline_1_material"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/keyline_2_material"
+        android:layout_marginStart="@dimen/keyline_2_material"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/material_text"
+            android:textSize="@dimen/text_size_normal"
+            tools:text="Two-line item"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/material_text_secondary"
+            android:textSize="@dimen/text_size_small"
+            tools:text="Ipsum praesent"/>
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/material_text_secondary"
+            android:textSize="@dimen/text_size_small"
+            tools:text="Ipsum praesent"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primary">@color/material_blue_grey</color>
-    <color name="primary_dark">@color/material_blue_grey_700</color>
-    <color name="primary_light">@color/material_blue_grey_300</color>
+    <color name="primary">@color/material_indigo</color>
+    <color name="primary_dark">@color/material_indigo_700</color>
+    <color name="accent_1">@color/material_pink_A200</color>
 
-    <color name="accent_1">@color/material_indigo</color>
-    <color name="accent_2">@color/material_red</color>
-
-    <color name="drive_blue">#3d83f9</color>
-    <color name="drive_red">#db4437</color>
-    <color name="drive_green">#0f9d58</color>
+    <drawable name="gray">#888888</drawable>
 
 </resources>

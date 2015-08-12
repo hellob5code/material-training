@@ -1,79 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Item">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">240dp</item>
-    </style>
+    <style name="TextAppearance.AppCompat" parent="TextAppearance.AppCompat">
 
-    <style name="Item.Bottom">
-        <item name="android:background">@color/material_grey_100</item>
-    </style>
-
-    <style name="Item.Bottom.Alt">
-        <item name="android:background">@color/material_grey_200</item>
-    </style>
-
-
-
-
-
-    <style name="FullwidthSearchView" parent="Widget.AppCompat.SearchView">
-        <!-- Background for the search query section (e.g. EditText) -->
-        <item name="queryBackground">@android:color/transparent</item>
-        <!-- Background for the section containing the action (e.g. voice search) -->
-        <item name="submitBackground">@android:color/transparent</item>
-        <!-- Close button icon -->
-        <item name="closeIcon">@drawable/ic_navigation_cancel</item>
-        <!-- Search button icon -->
-        <item name="searchIcon">@android:color/transparent</item>
-        <!-- Voice search button icon -->
-        <item name="voiceIcon">@drawable/ic_hardware_keyboard_voice</item>
-        <!-- Commit icon shown in the query suggestion row -->
-        <item name="commitIcon">@drawable/ic_navigation_arrow_forward</item>
-    </style>
-
-    <style name="AppEditText" parent="Widget.AppCompat.EditText">
-        <item name="android:textSize">16sp</item>
-    </style>
-
-
-    <!-- Button -->
-    <style name="ButtonRaised" parent="android:Widget.Holo.Button">
-        <item name="android:minWidth">88dp</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="ButtonRaised.Blue">
-        <item name="android:background">@drawable/btn_blue_material</item>
-    </style>
-
-    <style name="ButtonRaised.Grey50">
-        <item name="android:background">@drawable/btn_grey_50_material</item>
-    </style>
-
-    <style name="Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
-
-    </style>
-
-    <style name="Button.Borderless.Blue" parent="Widget.AppCompat.Button.Borderless.Colored">
-        <item name="android:textColor">@color/material_blue</item>
-    </style>
-
-    <style name="Button.Borderless.Light" parent="Widget.AppCompat.Button.Borderless">
-        <!--<item name="android:minWidth">88dp</item>-->
-        <!--<item name="android:textSize">14sp</item>-->
-        <!--<item name="android:textStyle">bold</item>-->
-        <!--<item name="android:textAllCaps">true</item>-->
-        <!--<item name="android:textColor">@color/text_color_material_light</item>-->
-        <!--<item name="android:paddingLeft">@dimen/padding_small</item>-->
-        <!--<item name="android:paddingRight">@dimen/padding_small</item>-->
-    </style>
-
-    <style name="Button.Borderless.Light.Blue">
-        <item name="android:textColor">@color/material_blue</item>
     </style>
 
 </resources>
