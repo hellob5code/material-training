@@ -198,56 +198,71 @@
         <menu>
             <group
                 android:id="@+id/group_patterns"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_app_structure"
-                    android:title="@string/navigation_drawer_item_app_structure"/>
+                    android:title="@string/navigation_drawer_item_app_structure"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_data_formats"
-                    android:title="@string/navigation_drawer_item_data_formats"/>
+                    android:title="@string/navigation_drawer_item_data_formats"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_empty_states"
-                    android:title="@string/navigation_drawer_item_empty_states"/>
+                    android:title="@string/navigation_drawer_item_empty_states"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_errors"
-                    android:title="@string/navigation_drawer_item_errors"/>
+                    android:title="@string/navigation_drawer_item_errors"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_gestures"
-                    android:title="@string/navigation_drawer_item_gestures"/>
+                    android:title="@string/navigation_drawer_item_gestures"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_fingerprint"
-                    android:title="@string/navigation_drawer_item_fingerprint"/>
+                    android:title="@string/navigation_drawer_item_fingerprint"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_launch_screens"
-                    android:title="@string/navigation_drawer_item_launch_screens"/>
+                    android:title="@string/navigation_drawer_item_launch_screens"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_loading_images"
-                    android:title="@string/navigation_drawer_item_loading_images"/>
+                    android:title="@string/navigation_drawer_item_loading_images"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_navigation"
-                    android:title="@string/navigation_drawer_item_navigation"/>
+                    android:title="@string/navigation_drawer_item_navigation"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_navigation_drawer"
-                    android:title="@string/navigation_drawer_item_navigation_drawer"/>
+                    android:title="@string/navigation_drawer_item_navigation_drawer"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_navigational_transitions"
-                    android:title="@string/navigation_drawer_item_navigational_transitions"/>
+                    android:title="@string/navigation_drawer_item_navigational_transitions"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_notifications"
-                    android:title="@string/navigation_drawer_item_notifications"/>
+                    android:title="@string/navigation_drawer_item_notifications"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_scrolling_techniques"
-                    android:title="@string/navigation_drawer_item_scrolling_techniques"/>
+                    android:title="@string/navigation_drawer_item_scrolling_techniques"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_search"
-                    android:title="@string/navigation_drawer_item_search"/>
+                    android:title="@string/navigation_drawer_item_search"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_selection"
-                    android:title="@string/navigation_drawer_item_selection"/>
+                    android:title="@string/navigation_drawer_item_selection"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_settings"
-                    android:title="@string/navigation_drawer_item_settings"/>
+                    android:title="@string/navigation_drawer_item_settings"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_swipe_to_refresh"
                     android:title="@string/navigation_drawer_item_swipe_to_refresh"/>
