@@ -11,18 +11,18 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Dummy"
-            android:textAllCaps="true"/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:text="Dummy"-->
+            <!--android:textAllCaps="true"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus nisi, dictum vel sem eu, congue sagittis ipsum. Nulla rutrum commodo aliquam. Morbi in enim orci. Suspendisse potenti. Nulla porta enim tellus, sit amet aliquam mi dignissim non. Nam eu nisl pellentesque ante feugiat luctus. Proin finibus sit amet ipsum sit amet pellentesque. Maecenas quis libero tincidunt, aliquet elit a, consectetur diam. Morbi a tortor arcu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vestibulum, mi id commodo aliquet, ligula metus blandit diam, nec dignissim justo enim sed lectus.\n\nTe eam bonorum adolescens interpretaris, suas ancillae te vim. Ut fastidii disputando mea, vis odio tota accusata ut, labitur tibique usu cu. Has habeo possit dolorum ne, eu mel errem exerci efficiendi. Delicata reprehendunt sea ad, postea doming nec an, exerci signiferumque no qui. Te eam bonorum adolescens interpretaris, suas ancillae te vim. Ut fastidii disputando mea, vis odio tota accusata ut, labitur tibique usu cu. Has habeo possit dolorum ne, eu mel errem exerci efficiendi. Delicata reprehendunt sea ad, postea doming nec an, exerci signiferumque no qui. Te eam bonorum adolescens interpretaris, suas ancillae te vim. Ut fastidii disputando mea, vis odio tota accusata ut, labitur tibique usu cu."/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus nisi, dictum vel sem eu, congue sagittis ipsum. Nulla rutrum commodo aliquam. Morbi in enim orci. Suspendisse potenti. Nulla porta enim tellus, sit amet aliquam mi dignissim non. Nam eu nisl pellentesque ante feugiat luctus. Proin finibus sit amet ipsum sit amet pellentesque. Maecenas quis libero tincidunt, aliquet elit a, consectetur diam. Morbi a tortor arcu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vestibulum, mi id commodo aliquet, ligula metus blandit diam, nec dignissim justo enim sed lectus.\n\nTe eam bonorum adolescens interpretaris, suas ancillae te vim. Ut fastidii disputando mea, vis odio tota accusata ut, labitur tibique usu cu. Has habeo possit dolorum ne, eu mel errem exerci efficiendi. Delicata reprehendunt sea ad, postea doming nec an, exerci signiferumque no qui. Te eam bonorum adolescens interpretaris, suas ancillae te vim. Ut fastidii disputando mea, vis odio tota accusata ut, labitur tibique usu cu. Has habeo possit dolorum ne, eu mel errem exerci efficiendi. Delicata reprehendunt sea ad, postea doming nec an, exerci signiferumque no qui. Te eam bonorum adolescens interpretaris, suas ancillae te vim. Ut fastidii disputando mea, vis odio tota accusata ut, labitur tibique usu cu."/>-->
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
