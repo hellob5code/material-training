@@ -7,6 +7,7 @@ import android.content.Intent;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.BaseDrawerActivity;
 import fr.erictruong.material.training.ui.core.fragment.DummyFragment;
+import fr.erictruong.material.training.ui.patterns.swipe_to_refresh.SwipeToRefreshFragment;
 
 public class PatternsActivity extends BaseDrawerActivity {
 
@@ -58,7 +59,7 @@ public class PatternsActivity extends BaseDrawerActivity {
             case R.id.nav_settings:
                 return DummyFragment.newInstance();
             case R.id.nav_swipe_to_refresh:
-                return DummyFragment.newInstance();
+                return SwipeToRefreshFragment.newInstance();
             default:
                 return null;
         }

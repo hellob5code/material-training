@@ -12,8 +12,6 @@ import fr.erictruong.material.training.R;
 public abstract class RecyclerFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -23,9 +21,5 @@ public abstract class RecyclerFragment extends Fragment {
 
     public RecyclerView getRecyclerView() {
         return recyclerView;
-    }
-
-    public void setRecyclerView(RecyclerView recyclerView) {
-        this.recyclerView = recyclerView;
     }
 }

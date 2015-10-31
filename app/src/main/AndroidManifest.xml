@@ -60,11 +60,11 @@
 
         <activity
             android:name=".ui.components.lists.SampleListActivity"
-            android:label="@string/title_sample_list"
+            android:label="@string/title_sample"
             android:theme="@style/Grey50"/>
         <activity
             android:name=".ui.components.lists_controls.SampleListControlActivity"
-            android:label="@string/title_sample_list_control"
+            android:label="@string/title_sample"
             android:theme="@style/Grey50"/>
 
         <activity
@@ -95,5 +95,10 @@
             android:name=".ui.components.tabs.ColoredTabBarIconsActivity"
             android:label="@string/title_page_title"
             android:theme="@style/Grey50.NoActionBar"/>
+
+        <activity
+            android:name=".ui.patterns.swipe_to_refresh.SampleSwipeToRefreshActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"/>
     </application>
 </manifest>

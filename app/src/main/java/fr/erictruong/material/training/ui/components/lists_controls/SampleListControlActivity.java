@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,22 +12,19 @@ import android.widget.CompoundButton;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.model.DummyModel;
 import fr.erictruong.material.training.ui.components.lists.MaterialListAdapter;
 import fr.erictruong.material.training.ui.components.lists.MaterialListItem;
 import fr.erictruong.material.training.ui.components.lists.MaterialListItemMapper;
 import fr.erictruong.material.training.ui.components.lists.OnActionListener;
+import fr.erictruong.material.training.ui.core.activity.RecyclerActivity;
 
 import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
 
-public class SampleListControlActivity extends AppCompatActivity {
+public class SampleListControlActivity extends RecyclerActivity {
 
     public static final String EXTRA_LIST_VIEW_TYPE = "extra_list_view_type";
-
-    @Bind(R.id.recycler_view) RecyclerView recyclerView;
 
     private MaterialListAdapter<DummyModel> adapter;
     private List<DummyModel> items;
@@ -42,8 +38,7 @@ public class SampleListControlActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recycler_view);
-        ButterKnife.bind(this);
+        final RecyclerView recyclerView = getRecyclerView();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         DummyModel item = new DummyModel(0, "http://placehold.it/100/888/888/", "Primary text", "Secondary text", "Tertiary text");
