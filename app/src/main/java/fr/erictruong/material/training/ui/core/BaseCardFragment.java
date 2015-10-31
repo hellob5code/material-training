@@ -33,10 +33,16 @@ public abstract class BaseCardFragment extends RecyclerFragment {
                 int margin;
                 if (BuildVersion.isLollipop()) {
                     margin = getResources().getDimensionPixelSize(R.dimen.margin_small);
-                    outRect.set(0, 0, 0, margin);
+                    outRect.set(0, margin, 0, 0);
                 } else {
                     margin = getResources().getDimensionPixelSize(R.dimen.margin_xxsmall);
-                    outRect.set(-margin, 0, -margin, margin);
+                    outRect.set(-margin, margin, -margin, 0);
+                }
+
+                int position = parent.getChildAdapterPosition(view);
+
+                if (position == 0) {
+                    outRect.top = 0;
                 }
             }
         });

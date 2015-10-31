@@ -63,7 +63,7 @@ public class AvatarItem extends TextItem {
             return this;
         }
 
-        public Builder action(OnActionListener<AvatarItem> action) {
+        public Builder action(OnActionListener action) {
             this.action = action;
             return this;
         }

@@ -42,7 +42,7 @@ public class ColoredTabBarActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(toolbar, "Navigation!", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(toolbar, "Navigation icon", Snackbar.LENGTH_SHORT).show();
             }
         });
 

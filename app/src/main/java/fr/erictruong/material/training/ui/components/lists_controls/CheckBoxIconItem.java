@@ -77,12 +77,12 @@ public class CheckBoxIconItem extends IconItem {
             return this;
         }
 
-        public Builder action(OnActionListener<CheckBoxIconItem> action) {
+        public Builder action(OnActionListener action) {
             this.action = action;
             return this;
         }
 
-        public Builder actionPrimary(OnCheckActionListener<CheckBoxIconItem> actionPrimary) {
+        public Builder actionPrimary(OnCheckActionListener actionPrimary) {
             this.actionPrimary = actionPrimary;
             return this;
         }

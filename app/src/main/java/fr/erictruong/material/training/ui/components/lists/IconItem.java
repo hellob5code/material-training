@@ -65,7 +65,7 @@ public class IconItem extends TextItem {
             return this;
         }
 
-        public Builder action(OnActionListener<IconItem> action) {
+        public Builder action(OnActionListener action) {
             this.action = action;
             return this;
         }

@@ -52,4 +52,11 @@ public class DummyModel {
     public void setText3(String text3) {
         this.text3 = text3;
     }
+
+    @Override
+    public String toString() {
+        return "DummyModel{" +
+                "id=" + id +
+                '}';
+    }
 }

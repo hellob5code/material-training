@@ -61,16 +61,16 @@ public class SampleListControlActivity extends AppCompatActivity {
                                 .text1(item.getText1())
                                 .text2(item.getText2())
                                 .text3(item.getText3())
-                                .action(new OnActionListener<CheckBoxIconItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, CheckBoxIconItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
-                                .actionPrimary(new OnCheckActionListener<CheckBoxIconItem>() {
+                                .actionPrimary(new OnCheckActionListener<DummyModel>() {
                                     @Override
-                                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, CheckBoxIconItem item) {
-                                        Snackbar.make(recyclerView, "Primary action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Primary action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();

@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.transform.CircleStrokeTransformation;
 
-public class AvatarIconViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarIconItem> {
+public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarIconItem, T> {
 
     private IconViewHolder viewHolder;
 
@@ -32,8 +32,8 @@ public class AvatarIconViewHolder extends RecyclerView.ViewHolder implements Mat
     }
 
     @Override
-    public void bind(AvatarIconItem item) {
-        viewHolder.bind(item);
+    public void bind(AvatarIconItem item, T object) {
+        viewHolder.bind(item, object);
         picasso.load(item.avatarUrl)
                 .placeholder(R.drawable.circle)
                 .transform(circleStrokeTransformation)

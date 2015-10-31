@@ -25,43 +25,33 @@
 
         <activity
             android:name=".ui.material_design.MaterialDesignActivity"
-            android:noHistory="true"
             android:theme="@style/Cyan.NoActionBar"/>
         <activity
             android:name=".ui.what_is_material.WhatIsMaterialActivity"
-            android:noHistory="true"
             android:theme="@style/LightBlue.NoActionBar"/>
         <activity
             android:name=".ui.animation.AnimationActivity"
-            android:noHistory="true"
             android:theme="@style/Purple.NoActionBar"/>
         <activity
             android:name=".ui.style.StyleActivity"
-            android:noHistory="true"
             android:theme="@style/Teal.NoActionBar"/>
         <activity
             android:name=".ui.layout.LayoutActivity"
-            android:noHistory="true"
             android:theme="@style/Pink.NoActionBar"/>
         <activity
             android:name=".ui.components.ComponentsActivity"
-            android:noHistory="true"
             android:theme="@style/Indigo.NoActionBar"/>
         <activity
             android:name=".ui.patterns.PatternsActivity"
-            android:noHistory="true"
             android:theme="@style/Orange.NoActionBar"/>
         <activity
             android:name=".ui.usability.UsabilityActivity"
-            android:noHistory="true"
             android:theme="@style/BlueGrey.NoActionBar"/>
         <activity
             android:name=".ui.resources.ResourcesActivity"
-            android:noHistory="true"
             android:theme="@style/LightBlue.NoActionBar"/>
         <activity
             android:name=".ui.whats_new.WhatsNewActivity"
-            android:noHistory="true"
             android:theme="@style/LightBlue.NoActionBar"/>
 
         <activity

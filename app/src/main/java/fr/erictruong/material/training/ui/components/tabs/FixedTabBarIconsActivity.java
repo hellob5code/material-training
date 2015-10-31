@@ -2,9 +2,14 @@ package fr.erictruong.material.training.ui.components.tabs;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -38,7 +43,7 @@ public class FixedTabBarIconsActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(toolbar, "Navigation!", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(toolbar, "Navigation icon", Snackbar.LENGTH_SHORT).show();
             }
         });
 
@@ -50,8 +55,15 @@ public class FixedTabBarIconsActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);
 
-        tabs.getTabAt(0).setIcon(R.drawable.ic_phone_white_24dp);
-        tabs.getTabAt(1).setIcon(R.drawable.ic_favorite_white_24dp);
-        tabs.getTabAt(2).setIcon(R.drawable.ic_person_pin_white_24dp);
+        ColorStateList tabTextColors = tabs.getTabTextColors();
+        tabs.getTabAt(0).setIcon(getStateListDrawable(tabTextColors, R.drawable.ic_phone_white_24dp));
+        tabs.getTabAt(1).setIcon(getStateListDrawable(tabTextColors, R.drawable.ic_favorite_white_24dp));
+        tabs.getTabAt(2).setIcon(getStateListDrawable(tabTextColors, R.drawable.ic_person_pin_white_24dp));
+    }
+
+    private Drawable getStateListDrawable(ColorStateList colorStateList, @DrawableRes int drawableResId) {
+        Drawable drawable = ContextCompat.getDrawable(this, drawableResId);
+        DrawableCompat.setTintList(drawable, colorStateList);
+        return drawable;
     }
 }

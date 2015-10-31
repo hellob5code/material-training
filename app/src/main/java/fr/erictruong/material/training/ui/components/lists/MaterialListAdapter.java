@@ -67,6 +67,10 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    public T getData(int position) {
+        return dataset.get(position);
+    }
+
     public MaterialListItem getItem(int position) {
         return mapper.map(dataset.get(position));
     }
@@ -132,7 +136,7 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        ((MaterialListTileViewHolder) viewHolder).bind(getItem(position));
+        ((MaterialListTileViewHolder) viewHolder).bind(getItem(position), getData(position));
     }
 
     @Override

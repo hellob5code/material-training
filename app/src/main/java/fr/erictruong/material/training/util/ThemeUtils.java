@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
@@ -72,17 +73,19 @@ public class ThemeUtils {
 
     public static Drawable getTintedDrawable(Context context, @DrawableRes int drawableResId, @ColorRes int colorResId) {
         Drawable drawable = ContextCompat.getDrawable(context, drawableResId).mutate();
-//        Drawable drawable = res.getDrawable(drawableResId);
         int color = ContextCompat.getColor(context, colorResId);
-//        int color = res.getColor(colorResId);
         drawable.setColorFilter(color, PorterDuff.Mode.SRC_IN);
         return drawable;
     }
 
-    public static Drawable getPrimaryTintedDrawable(Context context, @DrawableRes int drawableResId) {
-//        Drawable drawable = ContextCompat.getDrawable(context, drawableResId).mutate();
-        Drawable drawable = context.getResources().getDrawable(drawableResId).mutate();
-        drawable.setColorFilter(obtainColorPrimary(context), PorterDuff.Mode.SRC_IN);
+    public static Drawable getTintedDrawable(Drawable drawable, @ColorInt int color) {
+        drawable.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+        return drawable;
+    }
+
+    public static Drawable getAccentTintedDrawable(Context context, @DrawableRes int drawableResId) {
+        Drawable drawable = ContextCompat.getDrawable(context, drawableResId).mutate();
+        drawable.setColorFilter(obtainColorAccent(context), PorterDuff.Mode.SRC_IN);
         return drawable;
     }
 }

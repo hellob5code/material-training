@@ -19,7 +19,9 @@
             android:id="@+id/colored_tab_bar_tabs"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:tabMode="fixed"/>
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabMaxWidth="0dp"/>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager

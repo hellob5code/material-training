@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import fr.erictruong.material.training.R;
 
-public class IconViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<IconItem> {
+public class IconViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<IconItem, T> {
 
     private TextViewHolder viewHolder;
 
@@ -21,8 +21,8 @@ public class IconViewHolder extends RecyclerView.ViewHolder implements MaterialL
     }
 
     @Override
-    public void bind(IconItem item) {
-        viewHolder.bind(item);
+    public void bind(IconItem item, T object) {
+        viewHolder.bind(item, object);
         icon.setImageResource(item.icon);
     }
 }

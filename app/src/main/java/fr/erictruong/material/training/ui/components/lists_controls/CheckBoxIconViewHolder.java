@@ -11,7 +11,7 @@ import fr.erictruong.material.training.ui.components.lists.IconViewHolder;
 import fr.erictruong.material.training.ui.components.lists.MaterialListTileViewHolder;
 import fr.erictruong.material.training.util.ViewUtils;
 
-public class CheckBoxIconViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<CheckBoxIconItem> {
+public class CheckBoxIconViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<CheckBoxIconItem, T> {
 
     private IconViewHolder viewHolder;
 
@@ -27,12 +27,12 @@ public class CheckBoxIconViewHolder extends RecyclerView.ViewHolder implements M
     }
 
     @Override
-    public void bind(final CheckBoxIconItem item) {
-        viewHolder.bind(item);
+    public void bind(final CheckBoxIconItem item, final T object) {
+        viewHolder.bind(item, object);
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                item.actionPrimary.onCheckedChanged(buttonView, isChecked, item);
+                item.actionPrimary.onCheckedChanged(buttonView, isChecked, object);
             }
         });
         checkbox.setChecked(item.isChecked);

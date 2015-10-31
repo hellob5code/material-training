@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import fr.erictruong.material.training.R;
 
-public class TextViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<TextItem> {
+public class TextViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<TextItem, T> {
 
     @NonNull
     private TextView text1;
@@ -25,7 +25,7 @@ public class TextViewHolder extends RecyclerView.ViewHolder implements MaterialL
     }
 
     @Override
-    public void bind(final TextItem item) {
+    public void bind(final TextItem item, final T object) {
         text1.setText(item.text1);
         if (text2 != null) {
             text2.setText(item.text2);
@@ -37,7 +37,7 @@ public class TextViewHolder extends RecyclerView.ViewHolder implements MaterialL
             @Override
             public void onClick(View v) {
                 if (item.action != null) {
-                    item.action.onClick(v, item);
+                    item.action.onClick(v, object);
                 }
             }
         });

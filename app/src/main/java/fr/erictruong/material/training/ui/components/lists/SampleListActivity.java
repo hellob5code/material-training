@@ -61,10 +61,10 @@ public class SampleListActivity extends AppCompatActivity {
                         return new TextItem.Builder()
                                 .id(item.getId())
                                 .text1(item.getText1())
-                                .action(new OnActionListener<TextItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, TextItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -80,10 +80,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .id(item.getId())
                                 .icon(R.drawable.gray)
                                 .text1(item.getText1())
-                                .action(new OnActionListener<IconItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, IconItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -99,10 +99,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .id(item.getId())
                                 .avatarUrl(item.getAvatarUrl())
                                 .text1(item.getText1())
-                                .action(new OnActionListener<AvatarItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, AvatarItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -119,10 +119,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .avatarUrl(item.getAvatarUrl())
                                 .icon(R.drawable.gray)
                                 .text1(item.getText1())
-                                .action(new OnActionListener<AvatarIconItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, AvatarIconItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -139,10 +139,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .viewType(VIEW_TYPE_TWO_LINE)
                                 .text1(item.getText1())
                                 .text2(item.getText2())
-                                .action(new OnActionListener<TextItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, TextItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -160,10 +160,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .icon(R.drawable.gray)
                                 .text1(item.getText1())
                                 .text2(item.getText2())
-                                .action(new OnActionListener<IconItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, IconItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -181,10 +181,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .avatarUrl(item.getAvatarUrl())
                                 .text1(item.getText1())
                                 .text2(item.getText2())
-                                .action(new OnActionListener<AvatarItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, AvatarItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -203,10 +203,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .icon(R.drawable.gray)
                                 .text1(item.getText1())
                                 .text2(item.getText2())
-                                .action(new OnActionListener<AvatarIconItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, AvatarIconItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -224,10 +224,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .text1(item.getText1())
                                 .text2(item.getText2())
                                 .text3(item.getText3())
-                                .action(new OnActionListener<TextItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, TextItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -246,10 +246,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .text1(item.getText1())
                                 .text2(item.getText2())
                                 .text3(item.getText3())
-                                .action(new OnActionListener<IconItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, IconItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -268,10 +268,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .text1(item.getText1())
                                 .text2(item.getText2())
                                 .text3(item.getText3())
-                                .action(new OnActionListener<AvatarItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, AvatarItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();
@@ -291,10 +291,10 @@ public class SampleListActivity extends AppCompatActivity {
                                 .text1(item.getText1())
                                 .text2(item.getText2())
                                 .text3(item.getText3())
-                                .action(new OnActionListener<AvatarIconItem>() {
+                                .action(new OnActionListener<DummyModel>() {
                                     @Override
-                                    public void onClick(View v, AvatarIconItem item) {
-                                        Snackbar.make(recyclerView, "Action ID=" + item.id + "!", Snackbar.LENGTH_SHORT).show();
+                                    public void onClick(View v, DummyModel item) {
+                                        Snackbar.make(recyclerView, "Action " + item, Snackbar.LENGTH_SHORT).show();
                                     }
                                 })
                                 .build();

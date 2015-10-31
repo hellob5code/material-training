@@ -71,7 +71,7 @@ public class AvatarIconItem extends IconItem {
             return this;
         }
 
-        public Builder action(OnActionListener<AvatarIconItem> action) {
+        public Builder action(OnActionListener action) {
             this.action = action;
             return this;
         }

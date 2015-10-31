@@ -66,7 +66,7 @@ public class TextItem extends MaterialListItem {
             return this;
         }
 
-        public Builder action(OnActionListener<TextItem> action) {
+        public Builder action(OnActionListener action) {
             this.action = action;
             return this;
         }
