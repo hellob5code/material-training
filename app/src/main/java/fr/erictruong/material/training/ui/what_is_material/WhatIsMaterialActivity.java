@@ -3,6 +3,7 @@ package fr.erictruong.material.training.ui.what_is_material;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.BaseDrawerActivity;
@@ -32,6 +33,7 @@ public class WhatIsMaterialActivity extends BaseDrawerActivity {
             case R.id.nav_elevation_and_shadows:
                 return DummyFragment.newInstance();
             default:
+                Log.d("WhatIsMaterialActivity", "Unknown ID: " + id);
                 return null;
         }
     }

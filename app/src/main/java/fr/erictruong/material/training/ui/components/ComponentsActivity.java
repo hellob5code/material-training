@@ -3,6 +3,7 @@ package fr.erictruong.material.training.ui.components;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.components.lists.ListsFragment;
@@ -75,6 +76,7 @@ public class ComponentsActivity extends BaseDrawerActivity {
             case R.id.nav_tooltips:
                 return DummyFragment.newInstance();
             default:
+                Log.d("ComponentsActivity", "Unknown ID: " + id);
                 return null;
         }
     }

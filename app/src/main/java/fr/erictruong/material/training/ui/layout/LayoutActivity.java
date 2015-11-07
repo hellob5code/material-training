@@ -3,6 +3,7 @@ package fr.erictruong.material.training.ui.layout;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.BaseDrawerActivity;
@@ -36,6 +37,7 @@ public class LayoutActivity extends BaseDrawerActivity {
             case R.id.nav_adaptive_ui:
                 return DummyFragment.newInstance();
             default:
+                Log.d("LayoutActivity", "Unknown ID: " + id);
                 return null;
         }
     }

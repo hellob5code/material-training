@@ -3,6 +3,7 @@ package fr.erictruong.material.training.ui.style;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.BaseDrawerActivity;
@@ -36,6 +37,7 @@ public class StyleActivity extends BaseDrawerActivity {
             case R.id.nav_writing:
                 return DummyFragment.newInstance();
             default:
+                Log.d("StyleActivity", "Unknown ID: " + id);
                 return null;
         }
     }
