@@ -74,6 +74,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
         Fragment fragment = getSelectedFragment(id);
         if (fragment != null) {
             replaceFragment(fragment, title);
+            getIntent().putExtra(EXTRA_NAV_ID, id);
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }

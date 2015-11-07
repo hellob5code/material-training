@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 
+import fr.erictruong.android.core.activity.RefreshActivity;
+import fr.erictruong.android.core.util.ThemeUtils;
 import fr.erictruong.material.training.R;
-import fr.erictruong.material.training.ui.core.activity.RefreshActivity;
-import fr.erictruong.material.training.util.ThemeUtils;
 
 public class SampleSwipeToRefreshActivity extends RefreshActivity implements SwipeRefreshLayout.OnRefreshListener {
 

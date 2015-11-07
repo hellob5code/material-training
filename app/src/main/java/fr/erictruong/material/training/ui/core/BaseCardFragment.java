@@ -6,10 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import fr.erictruong.android.core.fragment.RecyclerFragment;
+import fr.erictruong.android.core.util.BuildVersion;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter;
-import fr.erictruong.material.training.ui.core.fragment.RecyclerFragment;
-import fr.erictruong.material.training.util.BuildVersion;
 
 public abstract class BaseCardFragment extends RecyclerFragment {
 

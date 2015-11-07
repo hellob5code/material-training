@@ -14,18 +14,18 @@ import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
 import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
 import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_ICON;
 
 public class ListsFragment extends BaseCardFragment {
 

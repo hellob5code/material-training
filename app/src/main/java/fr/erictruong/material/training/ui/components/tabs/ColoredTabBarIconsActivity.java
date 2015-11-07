@@ -20,10 +20,10 @@ import android.view.MenuInflater;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fr.erictruong.android.core.adapter.SimpleFragmentPagerAdapter;
+import fr.erictruong.android.core.util.ThemeUtils;
 import fr.erictruong.material.training.R;
-import fr.erictruong.material.training.ui.core.adapter.SimpleFragmentPagerAdapter;
-import fr.erictruong.material.training.ui.core.fragment.DummyFragment;
-import fr.erictruong.material.training.util.ThemeUtils;
+import fr.erictruong.material.training.ui.core.DummyFragment;
 
 public class ColoredTabBarIconsActivity extends AppCompatActivity {
 

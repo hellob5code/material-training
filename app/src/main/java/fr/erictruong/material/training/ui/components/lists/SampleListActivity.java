@@ -11,22 +11,30 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.erictruong.android.lists.AvatarIconItem;
+import fr.erictruong.android.lists.AvatarItem;
+import fr.erictruong.android.lists.IconItem;
+import fr.erictruong.android.lists.MaterialListAdapter;
+import fr.erictruong.android.lists.MaterialListItem;
+import fr.erictruong.android.lists.MaterialListItemMapper;
+import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.TextItem;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.model.DummyModel;
-import fr.erictruong.material.training.ui.core.activity.RecyclerActivity;
+import fr.erictruong.android.core.activity.RecyclerActivity;
 
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR_ICON;
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_AVATAR_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_THREE_LINE_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_ICON;
 
 public class SampleListActivity extends RecyclerActivity {
 

@@ -9,7 +9,7 @@ import fr.erictruong.material.training.ui.components.lists.ListsFragment;
 import fr.erictruong.material.training.ui.components.lists_controls.ListsControlsFragment;
 import fr.erictruong.material.training.ui.components.tabs.TabsFragment;
 import fr.erictruong.material.training.ui.core.BaseDrawerActivity;
-import fr.erictruong.material.training.ui.core.fragment.DummyFragment;
+import fr.erictruong.material.training.ui.core.DummyFragment;
 
 public class ComponentsActivity extends BaseDrawerActivity {
 

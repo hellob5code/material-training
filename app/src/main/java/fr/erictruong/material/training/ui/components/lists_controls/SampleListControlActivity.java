@@ -12,15 +12,17 @@ import android.widget.CompoundButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.erictruong.android.lists.CheckBoxIconItem;
+import fr.erictruong.android.lists.MaterialListAdapter;
+import fr.erictruong.android.lists.MaterialListItem;
+import fr.erictruong.android.lists.MaterialListItemMapper;
+import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.model.DummyModel;
-import fr.erictruong.material.training.ui.components.lists.MaterialListAdapter;
-import fr.erictruong.material.training.ui.components.lists.MaterialListItem;
-import fr.erictruong.material.training.ui.components.lists.MaterialListItemMapper;
-import fr.erictruong.material.training.ui.components.lists.OnActionListener;
-import fr.erictruong.material.training.ui.core.activity.RecyclerActivity;
+import fr.erictruong.android.core.activity.RecyclerActivity;
 
-import static fr.erictruong.material.training.ui.components.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
 
 public class SampleListControlActivity extends RecyclerActivity {
 
