@@ -38,4 +38,9 @@ public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements 
                 .transform(circleStrokeTransformation)
                 .into(avatar);
     }
+
+    @Override
+    public void unbind() {
+        // Nothing to do
+    }
 }

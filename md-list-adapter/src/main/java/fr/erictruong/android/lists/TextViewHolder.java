@@ -41,4 +41,9 @@ public class TextViewHolder<T> extends RecyclerView.ViewHolder implements Materi
             }
         });
     }
+
+    @Override
+    public void unbind() {
+        // Nothing to do
+    }
 }

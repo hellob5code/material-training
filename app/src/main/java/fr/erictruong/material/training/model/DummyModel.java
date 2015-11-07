@@ -4,6 +4,7 @@ public class DummyModel {
 
     private long id;
     private String avatarUrl, text1, text2, text3;
+    private boolean flag;
 
     public DummyModel(long id, String avatarUrl, String text1, String text2, String text3) {
         this.id = id;
@@ -11,6 +12,15 @@ public class DummyModel {
         this.text1 = text1;
         this.text2 = text2;
         this.text3 = text3;
+    }
+
+    public DummyModel(long id, String avatarUrl, String text1, String text2, String text3, boolean flag) {
+        this.id = id;
+        this.avatarUrl = avatarUrl;
+        this.text1 = text1;
+        this.text2 = text2;
+        this.text3 = text3;
+        this.flag = flag;
     }
 
     public long getId() {
@@ -51,6 +61,14 @@ public class DummyModel {
 
     public void setText3(String text3) {
         this.text3 = text3;
+    }
+
+    public boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 
     @Override

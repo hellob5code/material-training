@@ -26,12 +26,17 @@ public class CheckBoxIconViewHolder<T> extends RecyclerView.ViewHolder implement
     @Override
     public void bind(final CheckBoxIconItem item, final T object) {
         viewHolder.bind(item, object);
+        checkbox.setChecked(item.isChecked);
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 item.actionPrimary.onCheckedChanged(buttonView, isChecked, object);
             }
         });
-        checkbox.setChecked(item.isChecked);
+    }
+
+    @Override
+    public void unbind() {
+        checkbox.setOnCheckedChangeListener(null);
     }
 }

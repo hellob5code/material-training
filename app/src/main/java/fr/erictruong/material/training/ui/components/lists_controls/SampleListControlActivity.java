@@ -72,7 +72,7 @@ public class SampleListControlActivity extends RecyclerActivity {
             public MaterialListItem map(DummyModel item) {
                 return new CheckBoxIconItem.Builder()
                         .id(item.getId())
-                        .isChecked(false)
+                        .isChecked(item.getFlag())
                         .icon(R.drawable.ic_message_24dp_alpha54)
                         .text1(item.getText1())
                         .text2(item.getText2())
@@ -87,6 +87,7 @@ public class SampleListControlActivity extends RecyclerActivity {
                             @Override
                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, DummyModel item) {
                                 Snackbar.make(getRecyclerView(), "Primary action " + item, Snackbar.LENGTH_SHORT).show();
+                                item.setFlag(isChecked);
                             }
                         })
                         .build();

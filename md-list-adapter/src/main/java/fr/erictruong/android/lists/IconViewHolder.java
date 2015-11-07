@@ -24,4 +24,9 @@ public class IconViewHolder<T> extends RecyclerView.ViewHolder implements Materi
         viewHolder.bind(item, object);
         icon.setImageResource(item.icon);
     }
+
+    @Override
+    public void unbind() {
+        // Nothing to do
+    }
 }

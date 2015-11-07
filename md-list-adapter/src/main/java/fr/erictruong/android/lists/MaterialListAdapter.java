@@ -132,12 +132,17 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        ((MaterialListTileViewHolder) viewHolder).bind(getItem(position), getData(position));
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        ((MaterialListTileViewHolder) holder).bind(getItem(position), getData(position));
     }
 
     @Override
     public int getItemCount() {
         return dataset.size();
+    }
+
+    @Override
+    public void onViewRecycled(RecyclerView.ViewHolder holder) {
+        ((MaterialListTileViewHolder) holder).unbind();
     }
 }
