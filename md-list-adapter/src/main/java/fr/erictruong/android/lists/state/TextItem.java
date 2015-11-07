@@ -1,6 +1,8 @@
-package fr.erictruong.android.lists;
+package fr.erictruong.android.lists.state;
 
 import fr.erictruong.android.lists.MaterialListAdapter.TextViewType;
+import fr.erictruong.android.lists.MaterialListItem;
+import fr.erictruong.android.lists.OnActionListener;
 
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
 

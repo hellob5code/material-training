@@ -1,18 +1,22 @@
-package fr.erictruong.android.lists;
+package fr.erictruong.android.lists.action;
 
 import android.support.annotation.DrawableRes;
 
-public class IconItem extends TextItem {
+import fr.erictruong.android.lists.MaterialListAdapter;
+import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
+
+public class IconSwitchItem extends SwitchItem {
 
     public final int icon;
 
-    private IconItem(Builder builder) {
-        super(builder.id, builder.viewType, builder.text1, builder.text2, builder.text3, builder.action);
+    private IconSwitchItem(Builder builder) {
+        super(builder.id, builder.viewType, builder.isChecked, builder.text1, builder.text2, builder.text3, builder.action, builder.actionSecondary);
         this.icon = builder.icon;
     }
 
-    protected IconItem(long id, int viewType, int icon, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action) {
-        super(id, viewType, text1, text2, text3, action);
+    protected IconSwitchItem(long id, int viewType, int icon, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener actionSecondary) {
+        super(id, viewType, isChecked, text1, text2, text3, action, actionSecondary);
         this.icon = icon;
     }
 
@@ -21,14 +25,16 @@ public class IconItem extends TextItem {
         private long id;
         private int viewType;
         private int icon;
+        private boolean isChecked;
         private CharSequence text1;
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
+        private OnCheckActionListener actionSecondary;
 
         public Builder() {
             this.id = NO_ID;
-            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
+            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
         }
 
         public Builder id(long id) {
@@ -43,6 +49,11 @@ public class IconItem extends TextItem {
 
         public Builder icon(@DrawableRes int icon) {
             this.icon = icon;
+            return this;
+        }
+
+        public Builder isChecked(boolean isChecked) {
+            this.isChecked = isChecked;
             return this;
         }
 
@@ -66,8 +77,13 @@ public class IconItem extends TextItem {
             return this;
         }
 
-        public IconItem build() {
-            return new IconItem(this);
+        public Builder actionSecondary(OnCheckActionListener actionSecondary) {
+            this.actionSecondary = actionSecondary;
+            return this;
+        }
+
+        public IconSwitchItem build() {
+            return new IconSwitchItem(this);
         }
     }
 }

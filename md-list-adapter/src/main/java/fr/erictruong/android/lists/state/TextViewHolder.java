@@ -1,10 +1,13 @@
-package fr.erictruong.android.lists;
+package fr.erictruong.android.lists.state;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import fr.erictruong.android.lists.MaterialListTileViewHolder;
+import fr.erictruong.android.lists.R;
 
 
 public class TextViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<TextItem, T> {
@@ -16,11 +19,11 @@ public class TextViewHolder<T> extends RecyclerView.ViewHolder implements Materi
     @Nullable
     private TextView text3;
 
-    public TextViewHolder(View view) {
-        super(view);
-        text1 = (TextView) view.findViewById(R.id.text1);
-        text2 = (TextView) view.findViewById(R.id.text2);
-        text3 = (TextView) view.findViewById(R.id.text3);
+    public TextViewHolder(View itemView) {
+        super(itemView);
+        text1 = (TextView) itemView.findViewById(R.id.text1);
+        text2 = (TextView) itemView.findViewById(R.id.text2);
+        text3 = (TextView) itemView.findViewById(R.id.text3);
     }
 
     @Override

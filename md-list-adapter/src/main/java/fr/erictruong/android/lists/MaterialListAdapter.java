@@ -11,6 +11,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.List;
 
+import fr.erictruong.android.lists.state.AvatarViewHolder;
+import fr.erictruong.android.lists.state.IconViewHolder;
+import fr.erictruong.android.lists.state.TextViewHolder;
+import fr.erictruong.android.lists.action.AvatarCheckBoxViewHolder;
+import fr.erictruong.android.lists.action.AvatarIconViewHolder;
+import fr.erictruong.android.lists.action.CheckBoxIconViewHolder;
+import fr.erictruong.android.lists.action.IconSwitchViewHolder;
+
 public class MaterialListAdapter<T> extends RecyclerView.Adapter {
 
     public static final int VIEW_TYPE_ONE_LINE = 0;
@@ -26,8 +34,12 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
     public static final int VIEW_TYPE_TWO_LINE_AVATAR_ICON = 10;
     public static final int VIEW_TYPE_THREE_LINE_AVATAR_ICON = 11;
 
+    public static final int VIEW_TYPE_ONE_LINE_CHECKBOX = 12;
+
+    public static final int VIEW_TYPE_ONE_LINE_SWITCH = 21;
+
     public static final int VIEW_TYPE_ONE_LINE_CHECKBOX_ICON = 230;
-    public static final int VIEW_TYPE_ONE_LINE_CHECKBOX_AVATAR = 245;
+    public static final int VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX = 245;
     public static final int VIEW_TYPE_ONE_LINE_ICON_SWITCH = 251;
     public static final int VIEW_TYPE_ONE_LINE_AVATAR_REORDER = 269;
 
@@ -126,6 +138,12 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
             case VIEW_TYPE_ONE_LINE_CHECKBOX_ICON:
                 view = inflater.inflate(R.layout.list_tile_one_line_checkbox_icon, parent, false);
                 return new CheckBoxIconViewHolder(view);
+            case VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX:
+                view = inflater.inflate(R.layout.list_tile_one_line_avatar_checkbox, parent, false);
+                return new AvatarCheckBoxViewHolder(view);
+            case VIEW_TYPE_ONE_LINE_ICON_SWITCH:
+                view = inflater.inflate(R.layout.list_tile_one_line_icon_switch, parent, false);
+                return new IconSwitchViewHolder(view);
             default:
                 throw new IllegalArgumentException("Unknown view type: " + viewType);
         }

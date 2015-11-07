@@ -1,4 +1,4 @@
-package fr.erictruong.android.lists;
+package fr.erictruong.android.lists.action;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,10 +10,13 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import fr.erictruong.android.core.transform.CircleStrokeTransformation;
+import fr.erictruong.android.lists.MaterialListTileViewHolder;
+import fr.erictruong.android.lists.R;
+import fr.erictruong.android.lists.state.IconViewHolder;
 
 public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarIconItem, T> {
 
-    private IconViewHolder viewHolder;
+    private IconViewHolder<T> iconHolder;
 
     @NonNull
     private ImageView avatar;
@@ -21,18 +24,18 @@ public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements 
     private Picasso picasso;
     private CircleStrokeTransformation circleStrokeTransformation;
 
-    public AvatarIconViewHolder(View view) {
-        super(view);
-        viewHolder = new IconViewHolder(view);
-        avatar = (ImageView) view.findViewById(R.id.avatar);
-        Context context = view.getContext();
+    public AvatarIconViewHolder(View itemView) {
+        super(itemView);
+        iconHolder = new IconViewHolder<>(itemView);
+        avatar = (ImageView) itemView.findViewById(R.id.avatar);
+        Context context = itemView.getContext();
         picasso = Picasso.with(context);
         circleStrokeTransformation = new CircleStrokeTransformation(context, Color.WHITE, 0);
     }
 
     @Override
     public void bind(AvatarIconItem item, T object) {
-        viewHolder.bind(item, object);
+        iconHolder.bind(item, object);
         picasso.load(item.avatarUrl)
                 .placeholder(R.drawable.circle)
                 .transform(circleStrokeTransformation)
@@ -41,6 +44,6 @@ public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements 
 
     @Override
     public void unbind() {
-        // Nothing to do
+        iconHolder.unbind();
     }
 }

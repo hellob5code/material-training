@@ -12,6 +12,8 @@ import fr.erictruong.material.training.ui.components.cards.HeadlineBodyItem;
 import fr.erictruong.material.training.ui.components.cards.MaterialCardItem;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
 import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
 import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
@@ -44,8 +46,18 @@ public class ListsControlsFragment extends BaseCardFragment {
                         SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_CHECKBOX_ICON);
                     }
                 })
-                .button2("Checkbox (alt)", null)
-                .button3("Switch", null)
+                .button2("Checkbox (alt)", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX);
+                    }
+                })
+                .button3("Switch", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_ICON_SWITCH);
+                    }
+                })
                 .button4("Reorder", null)
                 .button5("Expand/collapse", null)
                 .button6("Leave-behinds", null)

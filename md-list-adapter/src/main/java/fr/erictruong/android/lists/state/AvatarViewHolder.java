@@ -1,4 +1,4 @@
-package fr.erictruong.android.lists;
+package fr.erictruong.android.lists.state;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,10 +10,12 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import fr.erictruong.android.core.transform.CircleStrokeTransformation;
+import fr.erictruong.android.lists.MaterialListTileViewHolder;
+import fr.erictruong.android.lists.R;
 
 public class AvatarViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarItem, T> {
 
-    private TextViewHolder viewHolder;
+    private TextViewHolder<T> textHolder;
 
     @NonNull
     private ImageView avatar;
@@ -21,18 +23,18 @@ public class AvatarViewHolder<T> extends RecyclerView.ViewHolder implements Mate
     private Picasso picasso;
     private CircleStrokeTransformation circleStrokeTransformation;
 
-    public AvatarViewHolder(View view) {
-        super(view);
-        viewHolder = new TextViewHolder(view);
-        avatar = (ImageView) view.findViewById(R.id.avatar);
-        Context context = view.getContext();
+    public AvatarViewHolder(View itemView) {
+        super(itemView);
+        textHolder = new TextViewHolder<>(itemView);
+        avatar = (ImageView) itemView.findViewById(R.id.avatar);
+        Context context = itemView.getContext();
         picasso = Picasso.with(context);
         circleStrokeTransformation = new CircleStrokeTransformation(context, Color.WHITE, 0);
     }
 
     @Override
     public void bind(AvatarItem item, T object) {
-        viewHolder.bind(item, object);
+        textHolder.bind(item, object);
         picasso.load(item.avatarUrl)
                 .placeholder(R.drawable.circle)
                 .transform(circleStrokeTransformation)
@@ -41,6 +43,6 @@ public class AvatarViewHolder<T> extends RecyclerView.ViewHolder implements Mate
 
     @Override
     public void unbind() {
-        // Nothing to do
+        textHolder.unbind();
     }
 }

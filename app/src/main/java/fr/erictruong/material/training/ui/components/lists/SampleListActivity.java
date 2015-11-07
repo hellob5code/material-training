@@ -12,14 +12,14 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.erictruong.android.lists.AvatarIconItem;
-import fr.erictruong.android.lists.AvatarItem;
-import fr.erictruong.android.lists.IconItem;
+import fr.erictruong.android.lists.action.AvatarIconItem;
+import fr.erictruong.android.lists.state.AvatarItem;
+import fr.erictruong.android.lists.state.IconItem;
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.MaterialListItem;
 import fr.erictruong.android.lists.MaterialListItemMapper;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.TextItem;
+import fr.erictruong.android.lists.state.TextItem;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.model.DummyModel;
 import fr.erictruong.android.core.activity.RecyclerActivity;

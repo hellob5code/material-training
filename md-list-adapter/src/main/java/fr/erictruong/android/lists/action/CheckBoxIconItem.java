@@ -1,6 +1,11 @@
-package fr.erictruong.android.lists;
+package fr.erictruong.android.lists.action;
 
 import android.support.annotation.DrawableRes;
+
+import fr.erictruong.android.lists.MaterialListAdapter;
+import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
+import fr.erictruong.android.lists.state.IconItem;
 
 public class CheckBoxIconItem extends IconItem {
 
