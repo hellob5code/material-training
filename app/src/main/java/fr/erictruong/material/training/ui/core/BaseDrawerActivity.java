@@ -1,6 +1,7 @@
 package fr.erictruong.material.training.ui.core;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -139,5 +140,6 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
      * @param id The navigation menu item ID of the desired content.
      * @return A {@code Fragment} instance or {@code null} if the menu item ID was unresolved.
      */
+    @Nullable
     protected abstract Fragment getSelectedFragment(int id);
 }
