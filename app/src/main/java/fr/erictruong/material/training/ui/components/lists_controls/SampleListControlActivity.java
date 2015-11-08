@@ -169,7 +169,7 @@ public class SampleListControlActivity extends RecyclerActivity {
                 return new IconExpandItem.Builder()
                         .id(item.getId())
                         .icon(R.drawable.gray)
-                        .isExpanded(item.getFlag())
+                        .isExpanded(item.getFlag()) // TODO: Keep or manage the flag internally?
                         .text1(item.getText1())
                         .action(new OnActionListener<DummyModel>() {
                             @Override
