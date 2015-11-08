@@ -13,6 +13,8 @@ import fr.erictruong.material.training.ui.components.cards.MaterialCardItem;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_EXPAND;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_EXPAND;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
 import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
 import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON;
@@ -59,7 +61,12 @@ public class ListsControlsFragment extends BaseCardFragment {
                     }
                 })
                 .button4("Reorder", null)
-                .button5("Expand/collapse", null)
+                .button5("Expand/collapse", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_ICON_EXPAND);
+                    }
+                })
                 .button6("Leave-behinds", null)
                 .build());
 

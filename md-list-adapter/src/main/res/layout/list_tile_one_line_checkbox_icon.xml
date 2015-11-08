@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
-    android:minHeight="@dimen/touch_target_56dp"
+    android:minHeight="@dimen/touch_target_48dp"
     android:paddingEnd="@dimen/keyline_1_material"
     android:paddingRight="@dimen/keyline_1_material">
 
@@ -26,8 +26,8 @@
         android:layout_toStartOf="@+id/icon"
         android:layout_marginLeft="@dimen/keyline_2_material"
         android:layout_marginStart="@dimen/keyline_2_material"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/material_text"

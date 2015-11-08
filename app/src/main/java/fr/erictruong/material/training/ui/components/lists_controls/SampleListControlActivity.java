@@ -21,12 +21,14 @@ import fr.erictruong.android.lists.OnActionListener;
 import fr.erictruong.android.lists.OnCheckActionListener;
 import fr.erictruong.android.lists.action.AvatarCheckBoxItem;
 import fr.erictruong.android.lists.action.CheckBoxIconItem;
+import fr.erictruong.android.lists.action.IconExpandItem;
 import fr.erictruong.android.lists.action.IconSwitchItem;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.model.DummyModel;
 
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_EXPAND;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
 
 public class SampleListControlActivity extends RecyclerActivity {
@@ -68,6 +70,8 @@ public class SampleListControlActivity extends RecyclerActivity {
                 return newOneLineAvatarCheckboxAdapter();
             case VIEW_TYPE_ONE_LINE_ICON_SWITCH:
                 return newOneLineIconSwitchAdapter();
+            case VIEW_TYPE_ONE_LINE_ICON_EXPAND:
+                return newOneLineIconExpandAdapter();
             default:
                 throw new IllegalArgumentException("Unknown view type: " + viewType);
         }
@@ -83,8 +87,6 @@ public class SampleListControlActivity extends RecyclerActivity {
                         .isChecked(item.getFlag())
                         .icon(R.drawable.ic_message_24dp_alpha54)
                         .text1(item.getText1())
-                        .text2(item.getText2())
-                        .text3(item.getText3())
                         .action(new OnActionListener<DummyModel>() {
                             @Override
                             public void onClick(View v, DummyModel item) {
@@ -113,8 +115,6 @@ public class SampleListControlActivity extends RecyclerActivity {
                         .avatarUrl(item.getAvatarUrl())
                         .isChecked(item.getFlag())
                         .text1(item.getText1())
-                        .text2(item.getText2())
-                        .text3(item.getText3())
                         .action(new OnActionListener<DummyModel>() {
                             @Override
                             public void onClick(View v, DummyModel item) {
@@ -143,8 +143,34 @@ public class SampleListControlActivity extends RecyclerActivity {
                         .icon(R.drawable.gray)
                         .isChecked(item.getFlag())
                         .text1(item.getText1())
-                        .text2(item.getText2())
-                        .text3(item.getText3())
+                        .action(new OnActionListener<DummyModel>() {
+                            @Override
+                            public void onClick(View v, DummyModel item) {
+                                Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
+                            }
+                        })
+                        .actionSecondary(new OnCheckActionListener<DummyModel>() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, DummyModel item) {
+                                Snackbar.make(getRecyclerView(), "Secondary action " + item, Snackbar.LENGTH_SHORT).show();
+                                item.setFlag(isChecked);
+                            }
+                        })
+                        .build();
+            }
+        });
+    }
+
+    @NonNull
+    private MaterialListAdapter<DummyModel> newOneLineIconExpandAdapter() {
+        return new MaterialListAdapter<>(new MaterialListItemMapper<DummyModel>() {
+            @Override
+            public MaterialListItem map(DummyModel item) {
+                return new IconExpandItem.Builder()
+                        .id(item.getId())
+                        .icon(R.drawable.gray)
+                        .isExpanded(item.getFlag())
+                        .text1(item.getText1())
                         .action(new OnActionListener<DummyModel>() {
                             @Override
                             public void onClick(View v, DummyModel item) {

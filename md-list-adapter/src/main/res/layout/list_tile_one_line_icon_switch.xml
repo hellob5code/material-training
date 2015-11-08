@@ -22,6 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/toggle"
+        android:layout_toStartOf="@+id/toggle"
         android:layout_marginLeft="@dimen/keyline_2_material"
         android:layout_marginStart="@dimen/keyline_2_material"
         android:paddingTop="@dimen/padding_medium"

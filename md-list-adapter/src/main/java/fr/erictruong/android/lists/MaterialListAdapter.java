@@ -11,13 +11,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.List;
 
-import fr.erictruong.android.lists.state.AvatarViewHolder;
-import fr.erictruong.android.lists.state.IconViewHolder;
-import fr.erictruong.android.lists.state.TextViewHolder;
 import fr.erictruong.android.lists.action.AvatarCheckBoxViewHolder;
 import fr.erictruong.android.lists.action.AvatarIconViewHolder;
 import fr.erictruong.android.lists.action.CheckBoxIconViewHolder;
+import fr.erictruong.android.lists.action.CheckBoxViewHolder;
+import fr.erictruong.android.lists.action.ExpandViewHolder;
+import fr.erictruong.android.lists.action.IconExpandViewHolder;
 import fr.erictruong.android.lists.action.IconSwitchViewHolder;
+import fr.erictruong.android.lists.state.AvatarViewHolder;
+import fr.erictruong.android.lists.state.IconViewHolder;
+import fr.erictruong.android.lists.state.TextViewHolder;
 
 public class MaterialListAdapter<T> extends RecyclerView.Adapter {
 
@@ -38,10 +41,13 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
 
     public static final int VIEW_TYPE_ONE_LINE_SWITCH = 21;
 
+    public static final int VIEW_TYPE_ONE_LINE_EXPAND = 31;
+
     public static final int VIEW_TYPE_ONE_LINE_CHECKBOX_ICON = 230;
     public static final int VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX = 245;
     public static final int VIEW_TYPE_ONE_LINE_ICON_SWITCH = 251;
     public static final int VIEW_TYPE_ONE_LINE_AVATAR_REORDER = 269;
+    public static final int VIEW_TYPE_ONE_LINE_ICON_EXPAND = 300;
 
     @IntDef({VIEW_TYPE_ONE_LINE, VIEW_TYPE_TWO_LINE, VIEW_TYPE_THREE_LINE})
     @Retention(RetentionPolicy.SOURCE)
@@ -135,6 +141,12 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
             case VIEW_TYPE_THREE_LINE_AVATAR_ICON:
                 view = inflater.inflate(R.layout.list_tile_three_line_avatar_icon, parent, false);
                 return new AvatarIconViewHolder(view);
+            case VIEW_TYPE_ONE_LINE_CHECKBOX:
+                view = inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false);
+                return new CheckBoxViewHolder(view);
+            case VIEW_TYPE_ONE_LINE_EXPAND:
+                view = inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false);
+                return new ExpandViewHolder(view);
             case VIEW_TYPE_ONE_LINE_CHECKBOX_ICON:
                 view = inflater.inflate(R.layout.list_tile_one_line_checkbox_icon, parent, false);
                 return new CheckBoxIconViewHolder(view);
@@ -144,6 +156,9 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
             case VIEW_TYPE_ONE_LINE_ICON_SWITCH:
                 view = inflater.inflate(R.layout.list_tile_one_line_icon_switch, parent, false);
                 return new IconSwitchViewHolder(view);
+            case VIEW_TYPE_ONE_LINE_ICON_EXPAND:
+                view = inflater.inflate(R.layout.list_tile_one_line_icon_expand, parent, false);
+                return new IconExpandViewHolder(view);
             default:
                 throw new IllegalArgumentException("Unknown view type: " + viewType);
         }
