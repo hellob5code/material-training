@@ -120,6 +120,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
+        finish();
         return true;
     }
 
