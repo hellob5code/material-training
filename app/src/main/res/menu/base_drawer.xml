@@ -169,13 +169,12 @@
                     android:title="@string/navigation_drawer_item_snackbars_and_toasts"
                     android:visible="false"/>
                 <item
-                    android:id="@+id/nav_steppers"
-                    android:title="@string/navigation_drawer_item_steppers"
-                    android:visible="false"/>
-                <item
                     android:id="@+id/nav_subheaders"
                     android:title="@string/navigation_drawer_item_subheaders"
                     android:visible="false"/>
+                <item
+                    android:id="@+id/nav_steppers"
+                    android:title="@string/navigation_drawer_item_steppers"/>
                 <item
                     android:id="@+id/nav_tabs"
                     android:title="@string/navigation_drawer_item_tabs"/>

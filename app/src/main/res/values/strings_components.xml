@@ -153,6 +153,10 @@
     <string name="subheaders_grid_subheaders">Grid subheaders</string>
     <string name="subheaders_menu_subheaders">Menu subheaders</string>
 
+    <!-- Stepper Fragment -->
+    <string name="steppers">Steppers</string>
+    <string name="steppers_txt">Steppers convey progress through numbered steps. They may also be used for navigation.</string>
+
     <!-- Tabs Fragment -->
     <string name="tabs">Tabs</string>
     <string name="tabs_txt">Tabs make it easy to explore and switch between different views or functional aspects of an app or to browse categorized data sets.</string>

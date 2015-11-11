@@ -8,6 +8,7 @@ import android.util.Log;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.components.lists.ListsFragment;
 import fr.erictruong.material.training.ui.components.lists_controls.ListsControlsFragment;
+import fr.erictruong.material.training.ui.components.steppers.SteppersFragment;
 import fr.erictruong.material.training.ui.components.tabs.TabsFragment;
 import fr.erictruong.material.training.ui.core.BaseDrawerActivity;
 import fr.erictruong.material.training.ui.core.DummyFragment;
@@ -64,7 +65,7 @@ public class ComponentsActivity extends BaseDrawerActivity {
             case R.id.nav_snackbars_and_toasts:
                 return DummyFragment.newInstance();
             case R.id.nav_steppers:
-                return DummyFragment.newInstance();
+                return SteppersFragment.newInstance();
             case R.id.nav_subheaders:
                 return DummyFragment.newInstance();
             case R.id.nav_tabs:

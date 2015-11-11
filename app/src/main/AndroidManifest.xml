@@ -15,8 +15,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
-            android:noHistory="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -94,6 +93,10 @@
             android:name=".ui.components.tabs.ColoredTabBarIconsActivity"
             android:label="@string/title_page_title"
             android:theme="@style/Grey50.NoActionBar"/>
+        <activity
+            android:name=".ui.components.steppers.MobileStepTextActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/LightBlue.NoActionBar"/>
 
         <activity
             android:name=".ui.patterns.swipe_to_refresh.SampleSwipeToRefreshActivity"
