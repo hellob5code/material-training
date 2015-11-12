@@ -10,35 +10,34 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 
 import butterknife.Bind;
-import butterknife.BindDimen;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fr.erictruong.android.core.adapter.SimpleFragmentPagerAdapter;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.DummyFragment;
 
-public class MobileStepTextActivity extends AppCompatActivity {
+public class MobileStepProgressBarActivity extends AppCompatActivity {
 
-    @Bind(R.id.mobile_step_text_drawer_layout) DrawerLayout drawerLayout;
-    @Bind(R.id.mobile_step_text_toolbar) Toolbar toolbar;
-    @Bind(R.id.mobile_step_text_view_pager) ViewPager viewPager;
+    @Bind(R.id.mobile_step_progress_bar_drawer_layout) DrawerLayout drawerLayout;
+    @Bind(R.id.mobile_step_progress_bar_toolbar) Toolbar toolbar;
+    @Bind(R.id.mobile_step_progress_bar_view_pager) ViewPager viewPager;
 
-    @Bind(R.id.mobile_step_text_indicator) TextView indicator;
-    @Bind(R.id.mobile_step_text_btn_back) Button btnBack;
-    @Bind(R.id.mobile_step_text_btn_next) Button btnNext;
+    @Bind(R.id.mobile_step_progress_bar_indicator) ProgressBar indicator;
+    @Bind(R.id.mobile_step_progress_bar_btn_back) Button btnBack;
+    @Bind(R.id.mobile_step_progress_bar_btn_next) Button btnNext;
 
     public static void start(Context context) {
-        Intent starter = new Intent(context, MobileStepTextActivity.class);
+        Intent starter = new Intent(context, MobileStepProgressBarActivity.class);
         context.startActivity(starter);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mobile_step_text);
+        setContentView(R.layout.activity_mobile_step_progress_bar);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
@@ -65,7 +64,7 @@ public class MobileStepTextActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 int pageCount = adapter.getCount();
-                indicator.setText(getString(R.string.aaa, position + 1, pageCount));
+                indicator.setProgress(position + 1);
                 btnBack.setEnabled(position != 0);
                 btnNext.setEnabled(position != pageCount - 1);
             }
@@ -75,7 +74,8 @@ public class MobileStepTextActivity extends AppCompatActivity {
                 // Do nothing
             }
         });
-        indicator.setText(getString(R.string.aaa, 1, adapter.getCount()));
+        indicator.setMax(adapter.getCount());
+        indicator.setProgress(1);
         btnBack.setEnabled(false);
     }
 
@@ -88,13 +88,13 @@ public class MobileStepTextActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.mobile_step_text_btn_back)
+    @OnClick(R.id.mobile_step_progress_bar_btn_back)
     protected void onBackClicked() {
         int currentItem = viewPager.getCurrentItem();
         viewPager.setCurrentItem(--currentItem, true);
     }
 
-    @OnClick(R.id.mobile_step_text_btn_next)
+    @OnClick(R.id.mobile_step_progress_bar_btn_next)
     protected void onNextClicked() {
         int currentItem = viewPager.getCurrentItem();
         viewPager.setCurrentItem(++currentItem, true);

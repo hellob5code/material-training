@@ -97,6 +97,10 @@
             android:name=".ui.components.steppers.MobileStepTextActivity"
             android:label="@string/title_sample"
             android:theme="@style/LightBlue.NoActionBar"/>
+        <activity
+            android:name=".ui.components.steppers.MobileStepProgressBarActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/LightBlue.NoActionBar"/>
 
         <activity
             android:name=".ui.patterns.swipe_to_refresh.SampleSwipeToRefreshActivity"

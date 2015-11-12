@@ -10,7 +10,6 @@ import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.components.cards.DisplayBodyItem;
 import fr.erictruong.material.training.ui.components.cards.HeadlineBodyItem;
 import fr.erictruong.material.training.ui.components.cards.MaterialCardItem;
-import fr.erictruong.material.training.ui.components.tabs.FixedTabBarActivity;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
 import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
@@ -45,7 +44,12 @@ public class SteppersFragment extends BaseCardFragment {
                     }
                 })
                 .button2("Mobile step dots", null)
-                .button3("Mobile step progress bar", null)
+                .button3("Mobile step progress bar", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MobileStepProgressBarActivity.start(getContext());
+                    }
+                })
                 .build());
 
         getAdapter().swapData(cards);
