@@ -112,4 +112,6 @@
     <string name="title_sample">Sample</string>
     <string name="title_page_title">Page title</string>
 
+    <string name="aaa">Step %1$d of %2$d</string>
+
 </resources>
