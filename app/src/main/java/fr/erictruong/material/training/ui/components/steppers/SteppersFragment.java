@@ -43,7 +43,12 @@ public class SteppersFragment extends BaseCardFragment {
                         MobileStepTextActivity.start(getContext());
                     }
                 })
-                .button2("Mobile step dots", null)
+                .button2("Mobile step dots", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MobileStepDotsActivity.start(getContext());
+                    }
+                })
                 .button3("Mobile step progress bar", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

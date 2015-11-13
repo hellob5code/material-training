@@ -49,8 +49,8 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                android:paddingLeft="@dimen/keyline_1_material"
-                android:paddingRight="@dimen/keyline_1_material"
+                android:paddingLeft="@dimen/padding_small"
+                android:paddingRight="@dimen/padding_small"
                 android:background="@color/background_material_light"
                 android:elevation="4dp">
 
@@ -61,8 +61,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
                     android:minWidth="0dp"
-                    android:paddingRight="@dimen/padding_medium"
-                    android:paddingEnd="@dimen/padding_medium"
+                    android:paddingRight="@dimen/padding_small"
+                    android:paddingEnd="@dimen/padding_small"
                     android:drawableLeft="@drawable/selector_chevron_left_light_24dp"
                     android:drawableStart="@drawable/selector_chevron_left_light_24dp"
                     android:text="Back"/>
@@ -74,8 +74,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:minWidth="0dp"
-                    android:paddingLeft="@dimen/padding_medium"
-                    android:paddingStart="@dimen/padding_medium"
+                    android:paddingLeft="@dimen/padding_small"
+                    android:paddingStart="@dimen/padding_small"
                     android:drawableRight="@drawable/selector_chevron_right_light_24dp"
                     android:drawableEnd="@drawable/selector_chevron_right_light_24dp"
                     android:text="Next"/>

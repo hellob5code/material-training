@@ -98,6 +98,10 @@
             android:label="@string/title_sample"
             android:theme="@style/LightBlue.NoActionBar"/>
         <activity
+            android:name=".ui.components.steppers.MobileStepDotsActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/LightBlue.NoActionBar"/>
+        <activity
             android:name=".ui.components.steppers.MobileStepProgressBarActivity"
             android:label="@string/title_sample"
             android:theme="@style/LightBlue.NoActionBar"/>
