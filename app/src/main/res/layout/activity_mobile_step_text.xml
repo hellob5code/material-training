@@ -61,8 +61,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
                     android:minWidth="0dp"
-                    android:paddingRight="@dimen/padding_small"
-                    android:paddingEnd="@dimen/padding_small"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:paddingEnd="@dimen/padding_medium"
                     android:drawableLeft="@drawable/selector_chevron_left_light_24dp"
                     android:drawableStart="@drawable/selector_chevron_left_light_24dp"
                     android:text="Back"/>
@@ -74,8 +74,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:minWidth="0dp"
-                    android:paddingLeft="@dimen/padding_small"
-                    android:paddingStart="@dimen/padding_small"
+                    android:paddingLeft="@dimen/padding_medium"
+                    android:paddingStart="@dimen/padding_medium"
                     android:drawableRight="@drawable/selector_chevron_right_light_24dp"
                     android:drawableEnd="@drawable/selector_chevron_right_light_24dp"
                     android:text="Next"/>
