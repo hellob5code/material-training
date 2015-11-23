@@ -56,6 +56,16 @@ public class SteppersFragment extends BaseCardFragment {
                     }
                 })
                 .build());
+        cards.add(new HeadlineBodyItem.Builder()
+                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON)
+                .headline("Types of steppers")
+                .button1("Vertical steppers", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        VerticalStepperActivity.start(getContext());
+                    }
+                })
+                .build());
 
         getAdapter().swapData(cards);
     }
