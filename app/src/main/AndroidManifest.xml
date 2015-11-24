@@ -105,6 +105,10 @@
             android:name=".ui.components.steppers.MobileStepProgressBarActivity"
             android:label="@string/title_sample"
             android:theme="@style/LightBlue.NoActionBar"/>
+        <activity
+            android:name=".ui.components.subheaders.SampleListSubheaderActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"/>
 
         <activity
             android:name=".ui.patterns.swipe_to_refresh.SampleSwipeToRefreshActivity"

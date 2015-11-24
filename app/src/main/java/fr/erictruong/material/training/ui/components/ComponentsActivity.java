@@ -10,6 +10,7 @@ import fr.erictruong.material.training.ui.components.cards.CardsFragment;
 import fr.erictruong.material.training.ui.components.lists.ListsFragment;
 import fr.erictruong.material.training.ui.components.lists_controls.ListsControlsFragment;
 import fr.erictruong.material.training.ui.components.steppers.SteppersFragment;
+import fr.erictruong.material.training.ui.components.subheaders.SubheadersFragment;
 import fr.erictruong.material.training.ui.components.tabs.TabsFragment;
 import fr.erictruong.material.training.ui.core.BaseDrawerActivity;
 import fr.erictruong.material.training.ui.core.DummyFragment;
@@ -68,7 +69,7 @@ public class ComponentsActivity extends BaseDrawerActivity {
             case R.id.nav_steppers:
                 return SteppersFragment.newInstance();
             case R.id.nav_subheaders:
-                return DummyFragment.newInstance();
+                return SubheadersFragment.newInstance();
             case R.id.nav_tabs:
                 return TabsFragment.newInstance();
             case R.id.nav_text_fields:
