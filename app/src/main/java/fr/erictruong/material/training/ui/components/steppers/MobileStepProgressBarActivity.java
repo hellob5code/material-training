@@ -64,7 +64,7 @@ public class MobileStepProgressBarActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 int pageCount = adapter.getCount();
-                indicator.setProgress(position + 1);
+                indicator.setProgress(position);
                 btnBack.setEnabled(position != 0);
                 btnNext.setEnabled(position != pageCount - 1);
             }
@@ -75,7 +75,6 @@ public class MobileStepProgressBarActivity extends AppCompatActivity {
             }
         });
         indicator.setMax(adapter.getCount());
-        indicator.setProgress(1);
         btnBack.setEnabled(false);
     }
 

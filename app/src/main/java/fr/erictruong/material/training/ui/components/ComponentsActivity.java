@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import fr.erictruong.material.training.R;
+import fr.erictruong.material.training.ui.components.cards.CardsFragment;
 import fr.erictruong.material.training.ui.components.lists.ListsFragment;
 import fr.erictruong.material.training.ui.components.lists_controls.ListsControlsFragment;
 import fr.erictruong.material.training.ui.components.steppers.SteppersFragment;
@@ -37,7 +38,7 @@ public class ComponentsActivity extends BaseDrawerActivity {
             case R.id.nav_buttons_floating_action_button:
                 return DummyFragment.newInstance();
             case R.id.nav_cards:
-                return DummyFragment.newInstance();
+                return CardsFragment.newInstance();
             case R.id.nav_chips:
                 return DummyFragment.newInstance();
             case R.id.nav_data_tables:
