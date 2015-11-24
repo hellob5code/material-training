@@ -9,7 +9,7 @@ import android.view.View;
 import fr.erictruong.android.core.fragment.RecyclerFragment;
 import fr.erictruong.android.core.util.BuildVersion;
 import fr.erictruong.material.training.R;
-import fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter;
+import fr.erictruong.android.cards.MaterialCardAdapter;
 
 public abstract class BaseCardFragment extends RecyclerFragment {
 

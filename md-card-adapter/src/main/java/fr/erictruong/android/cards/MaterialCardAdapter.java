@@ -1,4 +1,4 @@
-package fr.erictruong.material.training.ui.components.cards;
+package fr.erictruong.android.cards;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import java.util.Collections;
 import java.util.List;
 
-import fr.erictruong.material.training.R;
+import fr.erictruong.android.cards.R;
 
 public class MaterialCardAdapter extends RecyclerView.Adapter {
 

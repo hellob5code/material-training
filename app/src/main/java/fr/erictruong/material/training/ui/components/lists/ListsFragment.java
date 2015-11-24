@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.erictruong.material.training.R;
-import fr.erictruong.material.training.ui.components.cards.DisplayBodyItem;
-import fr.erictruong.material.training.ui.components.cards.HeadlineBodyItem;
-import fr.erictruong.material.training.ui.components.cards.MaterialCardItem;
+import fr.erictruong.android.cards.DisplayBodyItem;
+import fr.erictruong.android.cards.HeadlineBodyItem;
+import fr.erictruong.android.cards.MaterialCardItem;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
-import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
-import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON;
+import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
+import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON;

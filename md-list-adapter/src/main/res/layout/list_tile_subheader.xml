@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_subheader_material"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@color/material_divider"
+        android:gravity="start|center_vertical"/>
+
+    <TextView
+        android:id="@+id/text1"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/keyline_1_material"
+        android:paddingRight="@dimen/keyline_1_material"
+        android:paddingTop="@dimen/padding_medium"
+        android:textColor="@color/material_text_secondary"
+        android:textSize="@dimen/text_size_small"
+        android:fontFamily="sans-serif-medium"
+        tools:text="Subheader text"/>
+</RelativeLayout>

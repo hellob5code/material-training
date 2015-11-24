@@ -1,8 +1,6 @@
-package fr.erictruong.material.training.ui.components.cards;
+package fr.erictruong.android.cards;
 
 import android.view.View;
-
-import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_BODY1;
 
 public class HeadlineBodyItem extends MaterialCardItem {
 
@@ -64,7 +62,7 @@ public class HeadlineBodyItem extends MaterialCardItem {
 
         public Builder() {
             this.id = -1;
-            this.viewType = VIEW_TYPE_HEADLINE_BODY1;
+            this.viewType = MaterialCardAdapter.VIEW_TYPE_HEADLINE_BODY1;
         }
 
         private Builder(HeadlineBodyItem item) {

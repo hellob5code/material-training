@@ -1,4 +1,4 @@
-package fr.erictruong.material.training.ui.components.cards;
+package fr.erictruong.android.cards;
 
 public interface MaterialCardViewHolder<T extends MaterialCardItem> {
 

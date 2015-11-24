@@ -74,7 +74,7 @@ public class MobileStepProgressBarActivity extends AppCompatActivity {
                 // Do nothing
             }
         });
-        indicator.setMax(adapter.getCount());
+        indicator.setMax(adapter.getCount() - 1);
         btnBack.setEnabled(false);
     }
 

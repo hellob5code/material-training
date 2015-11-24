@@ -1,6 +1,4 @@
-package fr.erictruong.material.training.ui.components.cards;
-
-import static fr.erictruong.material.training.ui.components.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_BODY1;
+package fr.erictruong.android.cards;
 
 public class DisplayBodyItem extends MaterialCardItem {
 
@@ -26,7 +24,7 @@ public class DisplayBodyItem extends MaterialCardItem {
 
         public Builder() {
             this.id = NO_ID;
-            this.viewType = VIEW_TYPE_DISPLAY1_BODY1;
+            this.viewType = MaterialCardAdapter.VIEW_TYPE_DISPLAY1_BODY1;
         }
 
         private Builder(DisplayBodyItem item) {

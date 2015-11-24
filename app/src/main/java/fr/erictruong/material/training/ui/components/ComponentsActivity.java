@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import fr.erictruong.material.training.R;
-import fr.erictruong.material.training.ui.components.cards.CardsFragment;
+import fr.erictruong.android.cards.CardsFragment;
 import fr.erictruong.material.training.ui.components.lists.ListsFragment;
 import fr.erictruong.material.training.ui.components.lists_controls.ListsControlsFragment;
 import fr.erictruong.material.training.ui.components.steppers.SteppersFragment;

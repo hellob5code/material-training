@@ -39,6 +39,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile project(':core')
+    compile project(':md-card-adapter')
     compile project(':md-list-adapter')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
