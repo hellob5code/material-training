@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -55,7 +54,13 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
 
         // Initialze content
         int selectedNavId = getIntent().getIntExtra(EXTRA_NAV_ID, -1);
-        navigation.getMenu().performIdentifierAction(selectedNavId, 0);
+        Fragment fragment = getSelectedFragment(selectedNavId);
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.drawer_content, fragment)
+                    .commit();
+        }
     }
 
     @Override
@@ -79,6 +84,8 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }
+
+        finish();
 
         switch (id) {
             default:
@@ -118,9 +125,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
                         throw new IllegalStateException("Unknown navigation group: " + groupId);
                 }
         }
-
         drawerLayout.closeDrawer(GravityCompat.START);
-        finish();
         return true;
     }
 
@@ -131,8 +136,11 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
      * @param tag      The tag name for the fragment.
      */
     protected void replaceFragment(Fragment fragment, String tag) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.drawer_content, fragment, tag).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.drawer_content, fragment, tag)
+                .commit();
     }
 
     /**
