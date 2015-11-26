@@ -1,6 +1,7 @@
 package fr.erictruong.material.training.ui.core;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -10,8 +11,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 
 import butterknife.Bind;
+import butterknife.BindInt;
 import butterknife.ButterKnife;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.animation.AnimationActivity;
@@ -38,10 +41,13 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
     @Bind(R.id.drawer_content)
     protected ViewGroup content;
 
+    @BindInt(android.R.integer.config_shortAnimTime) int shortAnimTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_drawer);
+        overridePendingTransition(0, 0);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
@@ -54,6 +60,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
 
         // Initialze content
         int selectedNavId = getIntent().getIntExtra(EXTRA_NAV_ID, -1);
+        navigation.setCheckedItem(selectedNavId);
         Fragment fragment = getSelectedFragment(selectedNavId);
         if (fragment != null) {
             getSupportFragmentManager()
@@ -77,6 +84,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
         int id = item.getItemId();
         String title = item.getTitle().toString();
 
+        navigation.setCheckedItem(id);
         Fragment fragment = getSelectedFragment(id);
         if (fragment != null) {
             replaceFragment(fragment, title);
@@ -84,8 +92,6 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         }
-
-        finish();
 
         switch (id) {
             default:
@@ -124,23 +130,10 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
                     default:
                         throw new IllegalStateException("Unknown navigation group: " + groupId);
                 }
+                finish();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    /**
-     * Replace an existing fragment that was added to the drawer content container.
-     *
-     * @param fragment The new fragment to place in the container.
-     * @param tag      The tag name for the fragment.
-     */
-    protected void replaceFragment(Fragment fragment, String tag) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.drawer_content, fragment, tag)
-                .commit();
     }
 
     /**
@@ -151,4 +144,35 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
      */
     @Nullable
     protected abstract Fragment getSelectedFragment(int id);
+
+    /**
+     * Replace an existing fragment that was added to the drawer content container. Play
+     * fragment transition animation sequentially.
+     *
+     * @param fragment The new fragment to place in the container.
+     * @param tag      The tag name for the fragment.
+     */
+    protected void replaceFragment(final Fragment fragment, final String tag) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.drawer_content, fragment, tag)
+                        .commit();
+                fadeInContent();
+            }
+        }, shortAnimTime);
+        fadeOutContent();
+    }
+
+    private void fadeInContent() {
+        content.clearAnimation();
+        content.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
+    }
+
+    private void fadeOutContent() {
+        content.clearAnimation();
+        content.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_out));
+    }
 }
