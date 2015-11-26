@@ -71,7 +71,7 @@ public class ListsControlsFragment extends BaseCardFragment {
                 .build());
         cards.add(new HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
-                .headline("Switch")
+                .headline("Expand/collapse")
                 .button1("Sample", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
