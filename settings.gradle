@@ -1,1 +1,4 @@
-include ':app', ':core', ':md-card-adapter', ':md-list-adapter'
+include ':app',
+        ':core',
+        ':md-card-adapter',
+        ':md-list-adapter'

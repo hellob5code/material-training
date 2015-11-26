@@ -6,14 +6,14 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.erictruong.material.training.R;
 import fr.erictruong.android.cards.DisplayBodyItem;
 import fr.erictruong.android.cards.HeadlineBodyItem;
 import fr.erictruong.android.cards.MaterialCardItem;
+import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
 import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
-import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON;
+import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON;
@@ -47,83 +47,87 @@ public class ListsFragment extends BaseCardFragment {
                 .body(getString(R.string.lists_txt))
                 .build());
         cards.add(new HeadlineBodyItem.Builder()
-                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON)
-                .headline("Single-line list")
-                .button1("Text only", new View.OnClickListener() {
+                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
+                .headline("Text only")
+                .button1("Single-line", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleListActivity.start(getContext(), VIEW_TYPE_ONE_LINE);
                     }
                 })
-                .button2("Icon with text", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SampleListActivity.start(getContext(), VIEW_TYPE_ONE_LINE_ICON);
-                    }
-                })
-                .button3("Avatar with text", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SampleListActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR);
-                    }
-                })
-                .button4("Avatar with text and icon", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SampleListActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR_ICON);
-                    }
-                })
-                .build());
-        cards.add(new HeadlineBodyItem.Builder()
-                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON)
-                .headline("Two-line list")
-                .button1("Text only", new View.OnClickListener() {
+                .button2("Two-line", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleListActivity.start(getContext(), VIEW_TYPE_TWO_LINE);
                     }
                 })
-                .button2("Icon with text", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SampleListActivity.start(getContext(), VIEW_TYPE_TWO_LINE_ICON);
-                    }
-                })
-                .button3("Avatar with text", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SampleListActivity.start(getContext(), VIEW_TYPE_TWO_LINE_AVATAR);
-                    }
-                })
-                .button4("Avatar with text and icon", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SampleListActivity.start(getContext(), VIEW_TYPE_TWO_LINE_AVATAR_ICON);
-                    }
-                })
-                .build());
-        cards.add(new HeadlineBodyItem.Builder()
-                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON)
-                .headline("Three-line list")
-                .button1("Text only", new View.OnClickListener() {
+                .button3("Three-line", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleListActivity.start(getContext(), VIEW_TYPE_THREE_LINE);
                     }
                 })
-                .button2("Icon with text", new View.OnClickListener() {
+                .build());
+        cards.add(new HeadlineBodyItem.Builder()
+                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
+                .headline("Icon with text")
+                .button1("Single-line", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListActivity.start(getContext(), VIEW_TYPE_ONE_LINE_ICON);
+                    }
+                })
+                .button2("Two-line", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListActivity.start(getContext(), VIEW_TYPE_TWO_LINE_ICON);
+                    }
+                })
+                .button3("Three-line", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleListActivity.start(getContext(), VIEW_TYPE_THREE_LINE_ICON);
                     }
                 })
-                .button3("Avatar with text", new View.OnClickListener() {
+                .build());
+        cards.add(new HeadlineBodyItem.Builder()
+                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
+                .headline("Avatar with text")
+                .button1("Single-line", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR);
+                    }
+                })
+                .button2("Two-line", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListActivity.start(getContext(), VIEW_TYPE_TWO_LINE_AVATAR);
+                    }
+                })
+                .button3("Three-line", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleListActivity.start(getContext(), VIEW_TYPE_THREE_LINE_AVATAR);
                     }
                 })
-                .button4("Avatar with text and icon", new View.OnClickListener() {
+                .build());
+        cards.add(new HeadlineBodyItem.Builder()
+                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
+                .headline("Avatar with text and icon")
+                .button1("Single-line", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR_ICON);
+                    }
+                })
+                .button2("Two-line", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListActivity.start(getContext(), VIEW_TYPE_TWO_LINE_AVATAR_ICON);
+                    }
+                })
+                .button3("Three-line", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleListActivity.start(getContext(), VIEW_TYPE_THREE_LINE_AVATAR_ICON);

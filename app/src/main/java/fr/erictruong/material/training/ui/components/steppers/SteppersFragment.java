@@ -6,14 +6,14 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.erictruong.material.training.R;
 import fr.erictruong.android.cards.DisplayBodyItem;
 import fr.erictruong.android.cards.HeadlineBodyItem;
 import fr.erictruong.android.cards.MaterialCardItem;
+import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
 import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
-import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON;
+import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON;
 
 public class SteppersFragment extends BaseCardFragment {
 
@@ -35,21 +35,21 @@ public class SteppersFragment extends BaseCardFragment {
                 .body(getString(R.string.steppers_txt))
                 .build());
         cards.add(new HeadlineBodyItem.Builder()
-                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON)
-                .headline("Types of steps")
-                .button1("Mobile step text", new View.OnClickListener() {
+                .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
+                .headline("Mobile step")
+                .button1("Text", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         MobileStepTextActivity.start(getContext());
                     }
                 })
-                .button2("Mobile step dots", new View.OnClickListener() {
+                .button2("Dots", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         MobileStepDotsActivity.start(getContext());
                     }
                 })
-                .button3("Mobile step progress bar", new View.OnClickListener() {
+                .button3("Progress bar", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         MobileStepProgressBarActivity.start(getContext());

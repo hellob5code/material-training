@@ -37,7 +37,7 @@ public class SubheadersFragment extends BaseCardFragment {
         cards.add(new HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("List subheaders")
-                .button1("Example #1", new View.OnClickListener() {
+                .button1("Sample", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleListSubheaderActivity.start(getContext());

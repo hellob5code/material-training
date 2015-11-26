@@ -36,7 +36,7 @@ public class SwipeToRefreshFragment extends BaseCardFragment {
         cards.add(new HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON)
                 .headline(getString(R.string.swipe_to_refresh_swipe_to_refresh))
-                .button1("Example", new View.OnClickListener() {
+                .button1("Sample", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SampleSwipeToRefreshActivity.start(getContext());
