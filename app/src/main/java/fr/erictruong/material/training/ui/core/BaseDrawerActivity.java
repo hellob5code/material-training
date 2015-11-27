@@ -11,7 +11,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
 import butterknife.Bind;
 import butterknife.BindInt;
@@ -47,7 +48,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_drawer);
-        overridePendingTransition(0, 0);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
@@ -67,6 +68,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
                     .beginTransaction()
                     .add(R.id.drawer_content, fragment)
                     .commit();
+            fadeInContent();
         }
     }
 
@@ -80,8 +82,8 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
+    public boolean onNavigationItemSelected(final MenuItem item) {
+        final int id = item.getItemId();
         String title = item.getTitle().toString();
 
         navigation.setCheckedItem(id);
@@ -95,45 +97,56 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
 
         switch (id) {
             default:
-                int groupId = item.getGroupId();
-                switch (groupId) {
-                    case R.id.group_material_design:
-                        MaterialDesignActivity.start(this, id);
-                        break;
-                    case R.id.group_what_is_material:
-                        WhatIsMaterialActivity.start(this, id);
-                        break;
-                    case R.id.group_animation:
-                        AnimationActivity.start(this, id);
-                        break;
-                    case R.id.group_style:
-                        StyleActivity.start(this, id);
-                        break;
-                    case R.id.group_layout:
-                        LayoutActivity.start(this, id);
-                        break;
-                    case R.id.group_components:
-                        ComponentsActivity.start(this, id);
-                        break;
-                    case R.id.group_patterns:
-                        PatternsActivity.start(this, id);
-                        break;
-                    case R.id.group_usability:
-                        UsabilityActivity.start(this, id);
-                        break;
-                    case R.id.group_resources:
-                        ResourcesActivity.start(this, id);
-                        break;
-                    case R.id.group_whats_new:
-                        WhatsNewActivity.start(this, id);
-                        break;
-                    default:
-                        throw new IllegalStateException("Unknown navigation group: " + groupId);
-                }
-                finish();
+                // Perform action after a short delay to allow the close animation to play
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startGroup(item, id);
+                        finish();
+                    }
+                }, shortAnimTime);
+                fadeOutContent();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void startGroup(MenuItem item, int id) {
+        int groupId = item.getGroupId();
+        switch (groupId) {
+            case R.id.group_material_design:
+                MaterialDesignActivity.start(this, id);
+                break;
+            case R.id.group_what_is_material:
+                WhatIsMaterialActivity.start(this, id);
+                break;
+            case R.id.group_animation:
+                AnimationActivity.start(this, id);
+                break;
+            case R.id.group_style:
+                StyleActivity.start(this, id);
+                break;
+            case R.id.group_layout:
+                LayoutActivity.start(this, id);
+                break;
+            case R.id.group_components:
+                ComponentsActivity.start(this, id);
+                break;
+            case R.id.group_patterns:
+                PatternsActivity.start(this, id);
+                break;
+            case R.id.group_usability:
+                UsabilityActivity.start(this, id);
+                break;
+            case R.id.group_resources:
+                ResourcesActivity.start(this, id);
+                break;
+            case R.id.group_whats_new:
+                WhatsNewActivity.start(this, id);
+                break;
+            default:
+                throw new IllegalStateException("Unknown navigation group: " + groupId);
+        }
     }
 
     /**
@@ -153,6 +166,7 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
      * @param tag      The tag name for the fragment.
      */
     protected void replaceFragment(final Fragment fragment, final String tag) {
+        // Fade in an out sequentially
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -168,11 +182,11 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
 
     private void fadeInContent() {
         content.clearAnimation();
-        content.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
+        content.animate().setInterpolator(new DecelerateInterpolator()).alpha(1).setDuration(shortAnimTime);
     }
 
     private void fadeOutContent() {
         content.clearAnimation();
-        content.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_out));
+        content.animate().setInterpolator(new AccelerateInterpolator()).alpha(0).setDuration(shortAnimTime);
     }
 }
