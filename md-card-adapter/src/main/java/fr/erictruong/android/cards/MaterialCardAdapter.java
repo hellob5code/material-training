@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import java.util.Collections;
 import java.util.List;
 
+import fr.erictruong.android.cards.item.DisplayBodyViewHolder;
+import fr.erictruong.android.cards.item.HeadlineBodyViewHolder;
+
 public class MaterialCardAdapter extends RecyclerView.Adapter {
 
     public static final int VIEW_TYPE_DISPLAY1_BODY1 = 0;

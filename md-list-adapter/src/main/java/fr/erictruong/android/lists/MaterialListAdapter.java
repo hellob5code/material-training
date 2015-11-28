@@ -10,18 +10,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.List;
 
-import fr.erictruong.android.lists.action.AvatarCheckBoxViewHolder;
-import fr.erictruong.android.lists.action.AvatarIconViewHolder;
-import fr.erictruong.android.lists.action.CheckBoxIconViewHolder;
-import fr.erictruong.android.lists.action.CheckBoxViewHolder;
-import fr.erictruong.android.lists.action.ExpandViewHolder;
-import fr.erictruong.android.lists.action.IconExpandViewHolder;
-import fr.erictruong.android.lists.action.IconSwitchViewHolder;
-import fr.erictruong.android.lists.state.AvatarViewHolder;
-import fr.erictruong.android.lists.state.IconViewHolder;
-import fr.erictruong.android.lists.state.TextViewHolder;
+import fr.erictruong.android.lists.holder.AvatarCheckBoxViewHolder;
+import fr.erictruong.android.lists.holder.AvatarIconViewHolder;
+import fr.erictruong.android.lists.holder.CheckBoxIconViewHolder;
+import fr.erictruong.android.lists.holder.CheckBoxViewHolder;
+import fr.erictruong.android.lists.holder.ExpandViewHolder;
+import fr.erictruong.android.lists.holder.IconExpandViewHolder;
+import fr.erictruong.android.lists.holder.IconSwitchViewHolder;
+import fr.erictruong.android.lists.holder.AvatarViewHolder;
+import fr.erictruong.android.lists.holder.IconViewHolder;
+import fr.erictruong.android.lists.holder.TextViewHolder;
 
-public class MaterialListAdapter<T> extends RecyclerView.Adapter {
+public class MaterialListAdapter extends RecyclerView.Adapter {
 
     public static final int VIEW_TYPE_ONE_LINE = 0;
     public static final int VIEW_TYPE_TWO_LINE = 1;
@@ -68,35 +68,28 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
     public @interface AvatarIconViewType {
     }
 
-    private final MaterialListItemMapper<T> mapper;
+    private List<MaterialListItem> dataset = Collections.emptyList();
 
-    private List<T> dataset = Collections.emptyList();
-
-    public MaterialListAdapter(MaterialListItemMapper<T> mapper) {
-        this.mapper = mapper;
+    public MaterialListAdapter() {
     }
 
-    public void swapData(List<T> items) {
+    public void swapData(List<MaterialListItem> items) {
         this.dataset = items;
         notifyDataSetChanged();
     }
 
-    public T getData(int position) {
-        return dataset.get(position);
-    }
-
     public MaterialListItem getItem(int position) {
-        return mapper.map(dataset.get(position));
+        return dataset.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return getItem(position).id;
+        return getItem(position).getId();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return getItem(position).viewType;
+        return getItem(position).getViewType();
     }
 
     @Override
@@ -146,7 +139,7 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((MaterialListTileViewHolder) holder).bind(getItem(position), getData(position));
+        ((MaterialListTileViewHolder) holder).bind(getItem(position));
     }
 
     @Override

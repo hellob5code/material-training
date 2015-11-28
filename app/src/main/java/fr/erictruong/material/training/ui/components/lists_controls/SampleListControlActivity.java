@@ -8,7 +8,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.CompoundButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +15,11 @@ import java.util.List;
 import fr.erictruong.android.core.activity.RecyclerActivity;
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.MaterialListItem;
-import fr.erictruong.android.lists.MaterialListItemMapper;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.OnCheckActionListener;
-import fr.erictruong.android.lists.action.AvatarCheckBoxItem;
-import fr.erictruong.android.lists.action.CheckBoxIconItem;
-import fr.erictruong.android.lists.action.IconExpandItem;
-import fr.erictruong.android.lists.action.IconSwitchItem;
+import fr.erictruong.android.lists.item.AvatarCheckBoxItem;
+import fr.erictruong.android.lists.item.CheckBoxIconItem;
+import fr.erictruong.android.lists.item.IconExpandItem;
+import fr.erictruong.android.lists.item.IconSwitchItem;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.model.DummyModel;
 
@@ -47,145 +44,119 @@ public class SampleListControlActivity extends RecyclerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final RecyclerView recyclerView = getRecyclerView();
+
+        MaterialListAdapter adapter = new MaterialListAdapter();
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        final int viewType = getIntent().getIntExtra(EXTRA_LIST_VIEW_TYPE, -1);
-        MaterialListAdapter<DummyModel> adapter = newAdapter(viewType);
-        recyclerView.setAdapter(adapter);
+        int viewType = getIntent().getIntExtra(EXTRA_LIST_VIEW_TYPE, -1);
 
-        DummyModel item = new DummyModel(0, "http://placehold.it/100/888/888/", "Primary text", "Secondary text", "Tertiary text");
-        List<DummyModel> items = new ArrayList<>(ITEM_COUNT);
+        List<MaterialListItem> items = new ArrayList<>(ITEM_COUNT);
         for (int i = 0; i < ITEM_COUNT; i++) {
-            items.add(new DummyModel(i, item.getAvatarUrl(), item.getText1(), item.getText2(), item.getText3()));
+            DummyModel dummyModel = new DummyModel(i, "http://placehold.it/100/888/888/", "Primary text", "Secondary text", "Tertiary text");
+            MaterialListItem item = mapItem(viewType, dummyModel);
+            items.add(item);
         }
         adapter.swapData(items);
     }
 
     @NonNull
-    private MaterialListAdapter<DummyModel> newAdapter(int viewType) {
+    private MaterialListItem mapItem(int viewType, DummyModel model) {
         switch (viewType) {
             case VIEW_TYPE_ONE_LINE_CHECKBOX_ICON:
-                return newOneLineCheckboxIconAdapter();
+                return mapOneLineCheckboxIconItem(viewType, model);
             case VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX:
-                return newOneLineAvatarCheckboxAdapter();
+                return mapOneLineAvatarCheckboxItem(viewType, model);
             case VIEW_TYPE_ONE_LINE_ICON_SWITCH:
-                return newOneLineIconSwitchAdapter();
+                return mapOneLineIconSwitchItem(viewType, model);
             case VIEW_TYPE_ONE_LINE_ICON_EXPAND:
-                return newOneLineIconExpandAdapter();
+                return mapOneLineIconExpandItem(viewType, model);
             default:
                 throw new IllegalArgumentException("Unknown view type: " + viewType);
         }
     }
 
     @NonNull
-    private MaterialListAdapter<DummyModel> newOneLineCheckboxIconAdapter() {
-        return new MaterialListAdapter<>(new MaterialListItemMapper<DummyModel>() {
-            @Override
-            public MaterialListItem map(DummyModel item) {
-                return new CheckBoxIconItem.Builder()
-                        .id(item.getId())
-                        .isChecked(item.getFlag())
-                        .icon(R.drawable.ic_message_24dp_alpha54)
-                        .text1(item.getText1())
-                        .action(new OnActionListener<DummyModel>() {
-                            @Override
-                            public void onClick(View v, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
-                            }
-                        })
-                        .actionPrimary(new OnCheckActionListener<DummyModel>() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Primary action " + item, Snackbar.LENGTH_SHORT).show();
-                                item.setFlag(isChecked);
-                            }
-                        })
-                        .build();
-            }
-        });
+    private MaterialListItem mapOneLineCheckboxIconItem(int viewType, DummyModel model) {
+        return new CheckBoxIconItem.Builder()
+                .id(model.getId())
+                .icon(R.drawable.ic_message_24dp_alpha54)
+                .text1(model.getText1())
+                .action(new OnActionListener<CheckBoxIconItem>() {
+                    @Override
+                    public void onAction(View v, CheckBoxIconItem item) {
+                        Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .actionPrimary(new OnActionListener<CheckBoxIconItem>() {
+                    @Override
+                    public void onAction(View v, CheckBoxIconItem item) {
+                        Snackbar.make(getRecyclerView(), "Primary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .build();
     }
 
     @NonNull
-    private MaterialListAdapter<DummyModel> newOneLineAvatarCheckboxAdapter() {
-        return new MaterialListAdapter<>(new MaterialListItemMapper<DummyModel>() {
-            @Override
-            public MaterialListItem map(DummyModel item) {
-                return new AvatarCheckBoxItem.Builder()
-                        .id(item.getId())
-                        .avatarUrl(item.getAvatarUrl())
-                        .isChecked(item.getFlag())
-                        .text1(item.getText1())
-                        .action(new OnActionListener<DummyModel>() {
-                            @Override
-                            public void onClick(View v, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
-                            }
-                        })
-                        .actionSecondary(new OnCheckActionListener<DummyModel>() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Secondary action " + item, Snackbar.LENGTH_SHORT).show();
-                                item.setFlag(isChecked);
-                            }
-                        })
-                        .build();
-            }
-        });
+    private MaterialListItem mapOneLineAvatarCheckboxItem(int viewType, DummyModel model) {
+        return new AvatarCheckBoxItem.Builder()
+                .id(model.getId())
+                .avatarUrl(model.getAvatarUrl())
+                .text1(model.getText1())
+                .action(new OnActionListener<AvatarCheckBoxItem>() {
+                    @Override
+                    public void onAction(View v, AvatarCheckBoxItem item) {
+                        Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .actionSecondary(new OnActionListener<AvatarCheckBoxItem>() {
+                    @Override
+                    public void onAction(View v, AvatarCheckBoxItem item) {
+                        Snackbar.make(getRecyclerView(), "Secondary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .build();
     }
 
     @NonNull
-    private MaterialListAdapter<DummyModel> newOneLineIconSwitchAdapter() {
-        return new MaterialListAdapter<>(new MaterialListItemMapper<DummyModel>() {
-            @Override
-            public MaterialListItem map(DummyModel item) {
-                return new IconSwitchItem.Builder()
-                        .id(item.getId())
-                        .icon(R.drawable.gray)
-                        .isChecked(item.getFlag())
-                        .text1(item.getText1())
-                        .action(new OnActionListener<DummyModel>() {
-                            @Override
-                            public void onClick(View v, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
-                            }
-                        })
-                        .actionSecondary(new OnCheckActionListener<DummyModel>() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Secondary action " + item, Snackbar.LENGTH_SHORT).show();
-                                item.setFlag(isChecked);
-                            }
-                        })
-                        .build();
-            }
-        });
+    private MaterialListItem mapOneLineIconSwitchItem(int viewType, DummyModel model) {
+        return new IconSwitchItem.Builder()
+                .id(model.getId())
+                .icon(R.drawable.gray)
+                .text1(model.getText1())
+                .action(new OnActionListener<IconSwitchItem>() {
+                    @Override
+                    public void onAction(View v, IconSwitchItem item) {
+                        Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .actionSecondary(new OnActionListener<IconSwitchItem>() {
+                    @Override
+                    public void onAction(View v, IconSwitchItem item) {
+                        Snackbar.make(getRecyclerView(), "Secondary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .build();
     }
 
     @NonNull
-    private MaterialListAdapter<DummyModel> newOneLineIconExpandAdapter() {
-        return new MaterialListAdapter<>(new MaterialListItemMapper<DummyModel>() {
-            @Override
-            public MaterialListItem map(DummyModel item) {
-                return new IconExpandItem.Builder()
-                        .id(item.getId())
-                        .icon(R.drawable.gray)
-                        .isExpanded(item.getFlag()) // TODO: Keep or manage the flag internally?
-                        .text1(item.getText1())
-                        .action(new OnActionListener<DummyModel>() {
-                            @Override
-                            public void onClick(View v, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
-                            }
-                        })
-                        .actionSecondary(new OnCheckActionListener<DummyModel>() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Secondary action " + item, Snackbar.LENGTH_SHORT).show();
-                                item.setFlag(isChecked);
-                            }
-                        })
-                        .build();
-            }
-        });
+    private MaterialListItem mapOneLineIconExpandItem(int viewType, DummyModel model) {
+        return new IconExpandItem.Builder()
+                .id(model.getId())
+                .icon(R.drawable.gray)
+                .text1(model.getText1())
+                .action(new OnActionListener<IconExpandItem>() {
+                    @Override
+                    public void onAction(View v, IconExpandItem item) {
+                        Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .actionSecondary(new OnActionListener<IconExpandItem>() {
+                    @Override
+                    public void onAction(View v, IconExpandItem item) {
+                        Snackbar.make(getRecyclerView(), "Secondary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .build();
     }
 }

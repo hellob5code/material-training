@@ -1,30 +1,44 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.item;
 
 import android.support.annotation.DrawableRes;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.state.IconItem;
 
-public class AvatarIconItem extends IconItem {
+public class IconItem extends TextItem {
 
-    public final String avatarUrl;
+    private int icon;
 
-    private AvatarIconItem(Builder builder) {
-        super(builder.id, builder.viewType, builder.icon, builder.text1, builder.text2, builder.text3, builder.action);
-        this.avatarUrl = builder.avatarUrl;
+    private IconItem(Builder builder) {
+        super(builder.id, builder.viewType, builder.text1, builder.text2, builder.text3, builder.action);
+        this.icon = builder.icon;
     }
 
-    protected AvatarIconItem(long id, int viewType, String avatarUrl, int icon, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action) {
-        super(id, viewType, icon, text1, text2, text3, action);
-        this.avatarUrl = avatarUrl;
+    protected IconItem(long id, int viewType, int icon, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action) {
+        super(id, viewType, text1, text2, text3, action);
+        this.icon = icon;
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
+    }
+
+    @Override
+    public String toString() {
+        return "IconItem{" +
+                "id=" + getId() +
+                ", viewType=" + getViewType() +
+                '}';
     }
 
     public static final class Builder {
 
         private long id;
         private int viewType;
-        private String avatarUrl;
         private int icon;
         private CharSequence text1;
         private CharSequence text2;
@@ -33,7 +47,7 @@ public class AvatarIconItem extends IconItem {
 
         public Builder() {
             this.id = NO_ID;
-            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON;
+            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
         }
 
         public Builder id(long id) {
@@ -41,13 +55,8 @@ public class AvatarIconItem extends IconItem {
             return this;
         }
 
-        public Builder viewType(@MaterialListAdapter.AvatarIconViewType int viewType) {
+        public Builder viewType(@MaterialListAdapter.IconViewType int viewType) {
             this.viewType = viewType;
-            return this;
-        }
-
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
             return this;
         }
 
@@ -76,8 +85,8 @@ public class AvatarIconItem extends IconItem {
             return this;
         }
 
-        public AvatarIconItem build() {
-            return new AvatarIconItem(this);
+        public IconItem build() {
+            return new IconItem(this);
         }
     }
 }

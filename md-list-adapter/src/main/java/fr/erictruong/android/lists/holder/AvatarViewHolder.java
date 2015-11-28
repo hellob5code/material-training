@@ -1,4 +1,4 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.holder;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,10 +12,11 @@ import com.squareup.picasso.Picasso;
 import fr.erictruong.android.core.transform.CircleStrokeTransformation;
 import fr.erictruong.android.lists.MaterialListTileViewHolder;
 import fr.erictruong.android.lists.R;
+import fr.erictruong.android.lists.item.AvatarItem;
 
-public class AvatarCheckBoxViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarCheckBoxItem, T> {
+public class AvatarViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarItem> {
 
-    private CheckBoxViewHolder<T> checkboxHolder;
+    private TextViewHolder textHolder;
 
     @NonNull
     private ImageView avatar;
@@ -23,9 +24,9 @@ public class AvatarCheckBoxViewHolder<T> extends RecyclerView.ViewHolder impleme
     private Picasso picasso;
     private CircleStrokeTransformation circleStrokeTransformation;
 
-    public AvatarCheckBoxViewHolder(View itemView) {
+    public AvatarViewHolder(View itemView) {
         super(itemView);
-        checkboxHolder = new CheckBoxViewHolder<>(itemView);
+        textHolder = new TextViewHolder(itemView);
         avatar = (ImageView) itemView.findViewById(R.id.avatar);
         Context context = itemView.getContext();
         picasso = Picasso.with(context);
@@ -33,9 +34,9 @@ public class AvatarCheckBoxViewHolder<T> extends RecyclerView.ViewHolder impleme
     }
 
     @Override
-    public void bind(final AvatarCheckBoxItem item, final T object) {
-        checkboxHolder.bind(item, object);
-        picasso.load(item.avatarUrl)
+    public void bind(AvatarItem item) {
+        textHolder.bind(item);
+        picasso.load(item.getAvatarUrl())
                 .placeholder(R.drawable.circle)
                 .transform(circleStrokeTransformation)
                 .into(avatar);
@@ -43,6 +44,6 @@ public class AvatarCheckBoxViewHolder<T> extends RecyclerView.ViewHolder impleme
 
     @Override
     public void unbind() {
-        checkboxHolder.unbind();
+        textHolder.unbind();
     }
 }

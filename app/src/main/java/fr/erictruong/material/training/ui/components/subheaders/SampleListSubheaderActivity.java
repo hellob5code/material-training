@@ -3,6 +3,7 @@ package fr.erictruong.material.training.ui.components.subheaders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,10 +15,9 @@ import java.util.List;
 import fr.erictruong.android.core.activity.RecyclerActivity;
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.MaterialListItem;
-import fr.erictruong.android.lists.MaterialListItemMapper;
 import fr.erictruong.android.lists.OnActionListener;
 import fr.erictruong.android.lists.SectionedListAdapter;
-import fr.erictruong.android.lists.state.AvatarItem;
+import fr.erictruong.android.lists.item.AvatarItem;
 import fr.erictruong.material.training.model.DummyModel;
 
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR;
@@ -35,26 +35,20 @@ public class SampleListSubheaderActivity extends RecyclerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final RecyclerView recyclerView = getRecyclerView();
+
+        MaterialListAdapter adapter = new MaterialListAdapter();
+        SectionedListAdapter sectionedAdapter = new SectionedListAdapter(adapter);
+
+        recyclerView.setAdapter(sectionedAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        MaterialListAdapter<DummyModel> adapter = new MaterialListAdapter<>(new MaterialListItemMapper<DummyModel>() {
-            @Override
-            public MaterialListItem map(DummyModel item) {
-                return new AvatarItem.Builder()
-                        .id(item.getId())
-                        .viewType(VIEW_TYPE_TWO_LINE_AVATAR)
-                        .avatarUrl(item.getAvatarUrl())
-                        .text1(item.getText1())
-                        .text2(item.getText2())
-                        .action(new OnActionListener<DummyModel>() {
-                            @Override
-                            public void onClick(View v, DummyModel item) {
-                                Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
-                            }
-                        })
-                        .build();
-            }
-        });
+        List<MaterialListItem> items = new ArrayList<>(ITEM_COUNT);
+        for (int i = 0; i < ITEM_COUNT; i++) {
+            DummyModel dummyModel = new DummyModel(i, "http://placehold.it/100/888/888/", "Primary text", "Secondary text", "Tertiary text");
+            MaterialListItem item = mapItem(VIEW_TYPE_TWO_LINE_AVATAR, dummyModel);
+            items.add(item);
+        }
+        adapter.swapData(items);
 
         List<SectionedListAdapter.Section> sections = new ArrayList<>();
         sections.add(new SectionedListAdapter.Section(0, "Subheader"));
@@ -62,17 +56,23 @@ public class SampleListSubheaderActivity extends RecyclerActivity {
         sections.add(new SectionedListAdapter.Section(12, "Subheader"));
         sections.add(new SectionedListAdapter.Section(14, "Subheader"));
         sections.add(new SectionedListAdapter.Section(20, "Subheader"));
-
-        SectionedListAdapter sectionedAdapter = new SectionedListAdapter(adapter);
         sectionedAdapter.setSections(sections.toArray(new SectionedListAdapter.Section[sections.size()]));
+    }
 
-        recyclerView.setAdapter(sectionedAdapter);
-
-        DummyModel item = new DummyModel(0, "http://placehold.it/100/888/888/", "Two-line item", "Secondary text", "Tertiary text");
-        List<DummyModel> items = new ArrayList<>(ITEM_COUNT);
-        for (int i = 0; i < ITEM_COUNT; i++) {
-            items.add(new DummyModel(i, item.getAvatarUrl(), item.getText1(), item.getText2(), item.getText3()));
-        }
-        adapter.swapData(items);
+    @NonNull
+    private MaterialListItem mapItem(int viewType, DummyModel model) {
+        return new AvatarItem.Builder()
+                .id(model.getId())
+                .viewType(viewType)
+                .avatarUrl(model.getAvatarUrl())
+                .text1(model.getText1())
+                .text2(model.getText2())
+                .action(new OnActionListener<AvatarItem>() {
+                    @Override
+                    public void onAction(View v, AvatarItem item) {
+                        Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .build();
     }
 }

@@ -2,7 +2,7 @@ package fr.erictruong.android.lists;
 
 import android.view.View;
 
-public interface OnActionListener<T> {
+public interface OnActionListener<I extends MaterialListItem> {
 
-     void onClick(View v, T object);
+     void onAction(View v, I item);
 }

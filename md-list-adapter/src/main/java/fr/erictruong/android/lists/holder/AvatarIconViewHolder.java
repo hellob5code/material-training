@@ -1,4 +1,4 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.holder;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,11 +12,11 @@ import com.squareup.picasso.Picasso;
 import fr.erictruong.android.core.transform.CircleStrokeTransformation;
 import fr.erictruong.android.lists.MaterialListTileViewHolder;
 import fr.erictruong.android.lists.R;
-import fr.erictruong.android.lists.state.IconViewHolder;
+import fr.erictruong.android.lists.item.AvatarIconItem;
 
-public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarIconItem, T> {
+public class AvatarIconViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarIconItem> {
 
-    private IconViewHolder<T> iconHolder;
+    private IconViewHolder iconHolder;
 
     @NonNull
     private ImageView avatar;
@@ -26,7 +26,7 @@ public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements 
 
     public AvatarIconViewHolder(View itemView) {
         super(itemView);
-        iconHolder = new IconViewHolder<>(itemView);
+        iconHolder = new IconViewHolder(itemView);
         avatar = (ImageView) itemView.findViewById(R.id.avatar);
         Context context = itemView.getContext();
         picasso = Picasso.with(context);
@@ -34,9 +34,9 @@ public class AvatarIconViewHolder<T> extends RecyclerView.ViewHolder implements 
     }
 
     @Override
-    public void bind(AvatarIconItem item, T object) {
-        iconHolder.bind(item, object);
-        picasso.load(item.avatarUrl)
+    public void bind(AvatarIconItem item) {
+        iconHolder.bind(item);
+        picasso.load(item.getAvatarUrl())
                 .placeholder(R.drawable.circle)
                 .transform(circleStrokeTransformation)
                 .into(avatar);

@@ -1,16 +1,14 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.item;
 
 import android.support.annotation.DrawableRes;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.OnCheckActionListener;
-import fr.erictruong.android.lists.state.IconItem;
 
 public class CheckBoxIconItem extends IconItem {
 
-    public final boolean isChecked;
-    public final OnCheckActionListener actionPrimary;
+    private boolean isChecked;
+    private OnActionListener actionPrimary;
 
     private CheckBoxIconItem(Builder builder) {
         super(builder.id, builder.viewType, builder.icon, builder.text1, builder.text2, builder.text3, builder.action);
@@ -18,10 +16,34 @@ public class CheckBoxIconItem extends IconItem {
         this.actionPrimary = builder.actionPrimary;
     }
 
-    protected CheckBoxIconItem(long id, int viewType, boolean isChecked, int icon, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener actionPrimary) {
+    protected CheckBoxIconItem(long id, int viewType, boolean isChecked, int icon, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener actionPrimary) {
         super(id, viewType, icon, text1, text2, text3, action);
         this.isChecked = isChecked;
         this.actionPrimary = actionPrimary;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setIsChecked(boolean isChecked) {
+        this.isChecked = isChecked;
+    }
+
+    public OnActionListener getActionPrimary() {
+        return actionPrimary;
+    }
+
+    public void setActionPrimary(OnActionListener actionPrimary) {
+        this.actionPrimary = actionPrimary;
+    }
+
+    @Override
+    public String toString() {
+        return "CheckBoxIconItem{" +
+                "id=" + getId() +
+                ", viewType=" + getViewType() +
+                '}';
     }
 
     public static final class Builder {
@@ -34,7 +56,7 @@ public class CheckBoxIconItem extends IconItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnCheckActionListener actionPrimary;
+        private OnActionListener actionPrimary;
 
         public Builder() {
             this.id = NO_ID;
@@ -81,7 +103,7 @@ public class CheckBoxIconItem extends IconItem {
             return this;
         }
 
-        public Builder actionPrimary(OnCheckActionListener actionPrimary) {
+        public Builder actionPrimary(OnActionListener actionPrimary) {
             this.actionPrimary = actionPrimary;
             return this;
         }

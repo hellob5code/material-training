@@ -1,21 +1,36 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.item;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.OnCheckActionListener;
 
 public class AvatarCheckBoxItem extends CheckBoxItem {
 
-    public final String avatarUrl;
+    private String avatarUrl;
 
     private AvatarCheckBoxItem(Builder builder) {
         super(builder.id, builder.viewType, builder.isChecked, builder.text1, builder.text2, builder.text3, builder.action, builder.actionSecondary);
         this.avatarUrl = builder.avatarUrl;
     }
 
-    protected AvatarCheckBoxItem(long id, int viewType, String avatarUrl, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener actionSecondary) {
+    protected AvatarCheckBoxItem(long id, int viewType, String avatarUrl, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener actionSecondary) {
         super(id, viewType, isChecked, text1, text2, text3, action, actionSecondary);
         this.avatarUrl = avatarUrl;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "AvatarCheckBoxItem{" +
+                "id=" + getId() +
+                ", viewType=" + getViewType() +
+                '}';
     }
 
     public static final class Builder {
@@ -28,7 +43,7 @@ public class AvatarCheckBoxItem extends CheckBoxItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnCheckActionListener actionSecondary;
+        private OnActionListener actionSecondary;
 
         public Builder() {
             this.id = NO_ID;
@@ -75,7 +90,7 @@ public class AvatarCheckBoxItem extends CheckBoxItem {
             return this;
         }
 
-        public Builder actionSecondary(OnCheckActionListener actionSecondary) {
+        public Builder actionSecondary(OnActionListener actionSecondary) {
             this.actionSecondary = actionSecondary;
             return this;
         }

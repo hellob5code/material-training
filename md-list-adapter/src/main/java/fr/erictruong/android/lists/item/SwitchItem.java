@@ -1,8 +1,7 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.item;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.OnCheckActionListener;
 
 public class SwitchItem extends CheckBoxItem {
 
@@ -10,8 +9,16 @@ public class SwitchItem extends CheckBoxItem {
         super(builder.id, builder.viewType, builder.isChecked, builder.text1, builder.text2, builder.text3, builder.action, builder.checkAction);
     }
 
-    protected SwitchItem(long id, int viewType, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener checkAction) {
+    protected SwitchItem(long id, int viewType, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener checkAction) {
         super(id, viewType, isChecked, text1, text2, text3, action, checkAction);
+    }
+
+    @Override
+    public String toString() {
+        return "SwitchItem{" +
+                "id=" + getId() +
+                ", viewType=" + getViewType() +
+                '}';
     }
 
     public static final class Builder {
@@ -23,7 +30,7 @@ public class SwitchItem extends CheckBoxItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnCheckActionListener checkAction;
+        private OnActionListener checkAction;
 
         public Builder() {
             this.id = NO_ID;
@@ -65,7 +72,7 @@ public class SwitchItem extends CheckBoxItem {
             return this;
         }
 
-        public Builder checkAction(OnCheckActionListener checkAction) {
+        public Builder checkAction(OnActionListener checkAction) {
             this.checkAction = checkAction;
             return this;
         }

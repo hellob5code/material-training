@@ -1,4 +1,4 @@
-package fr.erictruong.android.cards;
+package fr.erictruong.android.cards.item;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Space;
 import android.widget.TextView;
 
+import fr.erictruong.android.cards.MaterialCardViewHolder;
 import fr.erictruong.android.cards.R;
 
 public class HeadlineBodyViewHolder extends RecyclerView.ViewHolder implements MaterialCardViewHolder<HeadlineBodyItem> {

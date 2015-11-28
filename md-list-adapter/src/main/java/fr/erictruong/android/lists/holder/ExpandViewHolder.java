@@ -1,4 +1,4 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.holder;
 
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
@@ -6,21 +6,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import fr.erictruong.android.core.util.ThemeUtils;
 import fr.erictruong.android.core.util.ViewUtils;
 import fr.erictruong.android.lists.MaterialListTileViewHolder;
 import fr.erictruong.android.lists.R;
-import fr.erictruong.android.lists.state.TextViewHolder;
+import fr.erictruong.android.lists.item.ExpandItem;
 
-public class IconExpandViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<IconExpandItem, T> {
+public class ExpandViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<ExpandItem> {
 
-    private TextViewHolder<T> textHolder;
+    private TextViewHolder textHolder;
 
-    @NonNull
-    private ImageView icon;
     @NonNull
     private TextView text1;
     @NonNull
@@ -29,10 +26,9 @@ public class IconExpandViewHolder<T> extends RecyclerView.ViewHolder implements 
     @ColorInt
     private int defaultColor, colorAccent;
 
-    public IconExpandViewHolder(View itemView) {
+    public ExpandViewHolder(View itemView) {
         super(itemView);
-        icon = (ImageView) itemView.findViewById(R.id.icon);
-        textHolder = new TextViewHolder<>(itemView);
+        textHolder = new TextViewHolder(itemView);
         text1 = (TextView) itemView.findViewById(R.id.text1);
         defaultColor = text1.getTextColors().getDefaultColor();
         colorAccent = ThemeUtils.obtainColorAccent(itemView.getContext());
@@ -43,26 +39,16 @@ public class IconExpandViewHolder<T> extends RecyclerView.ViewHolder implements 
     }
 
     @Override
-    public void bind(final IconExpandItem item, final T object) {
-        icon.setImageResource(item.icon);
-        if (item.isChecked) {
-            icon.setColorFilter(colorAccent);
-        } else {
-            icon.clearColorFilter();
-        }
-        textHolder.bind(item, object);
-        text1.setTextColor(item.isChecked ? colorAccent : defaultColor);
-        checkbox.setChecked(item.isChecked);
+    public void bind(final ExpandItem item) {
+        textHolder.bind(item);
+        text1.setTextColor(item.isChecked() ? colorAccent : defaultColor);
+        checkbox.setChecked(item.isChecked());
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    icon.setColorFilter(colorAccent);
-                } else {
-                    icon.clearColorFilter();
-                }
                 text1.setTextColor(isChecked ? colorAccent : defaultColor);
-                item.checkAction.onCheckedChanged(buttonView, isChecked, object);
+                item.setIsChecked(isChecked);
+                item.getCheckAction().onAction(buttonView, item);
             }
         });
     }

@@ -1,23 +1,38 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.item;
 
 import android.support.annotation.DrawableRes;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.OnCheckActionListener;
 
-public class IconExpandItem extends ExpandItem {
+public class IconSwitchItem extends SwitchItem {
 
-    public final int icon;
+    private int icon;
 
-    private IconExpandItem(Builder builder) {
-        super(builder.id, builder.viewType, builder.isExpanded, builder.text1, builder.text2, builder.text3, builder.action, builder.actionSecondary);
+    private IconSwitchItem(Builder builder) {
+        super(builder.id, builder.viewType, builder.isChecked, builder.text1, builder.text2, builder.text3, builder.action, builder.actionSecondary);
         this.icon = builder.icon;
     }
 
-    protected IconExpandItem(long id, int viewType, int icon, boolean isExpanded, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener actionSecondary) {
-        super(id, viewType, isExpanded, text1, text2, text3, action, actionSecondary);
+    protected IconSwitchItem(long id, int viewType, int icon, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener actionSecondary) {
+        super(id, viewType, isChecked, text1, text2, text3, action, actionSecondary);
         this.icon = icon;
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
+    }
+
+    @Override
+    public String toString() {
+        return "IconSwitchItem{" +
+                "id=" + getId() +
+                ", viewType=" + getViewType() +
+                '}';
     }
 
     public static final class Builder {
@@ -25,16 +40,16 @@ public class IconExpandItem extends ExpandItem {
         private long id;
         private int viewType;
         private int icon;
-        private boolean isExpanded;
+        private boolean isChecked;
         private CharSequence text1;
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnCheckActionListener actionSecondary;
+        private OnActionListener actionSecondary;
 
         public Builder() {
             this.id = NO_ID;
-            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_EXPAND;
+            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
         }
 
         public Builder id(long id) {
@@ -52,8 +67,8 @@ public class IconExpandItem extends ExpandItem {
             return this;
         }
 
-        public Builder isExpanded(boolean isExpanded) {
-            this.isExpanded = isExpanded;
+        public Builder isChecked(boolean isChecked) {
+            this.isChecked = isChecked;
             return this;
         }
 
@@ -77,13 +92,13 @@ public class IconExpandItem extends ExpandItem {
             return this;
         }
 
-        public Builder actionSecondary(OnCheckActionListener actionSecondary) {
+        public Builder actionSecondary(OnActionListener actionSecondary) {
             this.actionSecondary = actionSecondary;
             return this;
         }
 
-        public IconExpandItem build() {
-            return new IconExpandItem(this);
+        public IconSwitchItem build() {
+            return new IconSwitchItem(this);
         }
     }
 }

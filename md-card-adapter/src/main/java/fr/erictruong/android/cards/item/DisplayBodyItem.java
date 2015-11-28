@@ -1,4 +1,7 @@
-package fr.erictruong.android.cards;
+package fr.erictruong.android.cards.item;
+
+import fr.erictruong.android.cards.MaterialCardAdapter;
+import fr.erictruong.android.cards.MaterialCardItem;
 
 public class DisplayBodyItem extends MaterialCardItem {
 

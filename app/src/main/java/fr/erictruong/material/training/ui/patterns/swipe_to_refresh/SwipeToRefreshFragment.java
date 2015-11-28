@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.erictruong.material.training.R;
-import fr.erictruong.android.cards.DisplayBodyItem;
-import fr.erictruong.android.cards.HeadlineBodyItem;
+import fr.erictruong.android.cards.item.DisplayBodyItem;
+import fr.erictruong.android.cards.item.HeadlineBodyItem;
 import fr.erictruong.android.cards.MaterialCardItem;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 

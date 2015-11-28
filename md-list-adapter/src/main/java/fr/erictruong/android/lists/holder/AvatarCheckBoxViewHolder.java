@@ -1,4 +1,4 @@
-package fr.erictruong.android.lists.state;
+package fr.erictruong.android.lists.holder;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,10 +12,11 @@ import com.squareup.picasso.Picasso;
 import fr.erictruong.android.core.transform.CircleStrokeTransformation;
 import fr.erictruong.android.lists.MaterialListTileViewHolder;
 import fr.erictruong.android.lists.R;
+import fr.erictruong.android.lists.item.AvatarCheckBoxItem;
 
-public class AvatarViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarItem, T> {
+public class AvatarCheckBoxViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarCheckBoxItem> {
 
-    private TextViewHolder<T> textHolder;
+    private CheckBoxViewHolder checkboxHolder;
 
     @NonNull
     private ImageView avatar;
@@ -23,9 +24,9 @@ public class AvatarViewHolder<T> extends RecyclerView.ViewHolder implements Mate
     private Picasso picasso;
     private CircleStrokeTransformation circleStrokeTransformation;
 
-    public AvatarViewHolder(View itemView) {
+    public AvatarCheckBoxViewHolder(View itemView) {
         super(itemView);
-        textHolder = new TextViewHolder<>(itemView);
+        checkboxHolder = new CheckBoxViewHolder(itemView);
         avatar = (ImageView) itemView.findViewById(R.id.avatar);
         Context context = itemView.getContext();
         picasso = Picasso.with(context);
@@ -33,9 +34,9 @@ public class AvatarViewHolder<T> extends RecyclerView.ViewHolder implements Mate
     }
 
     @Override
-    public void bind(AvatarItem item, T object) {
-        textHolder.bind(item, object);
-        picasso.load(item.avatarUrl)
+    public void bind(final AvatarCheckBoxItem item) {
+        checkboxHolder.bind(item);
+        picasso.load(item.getAvatarUrl())
                 .placeholder(R.drawable.circle)
                 .transform(circleStrokeTransformation)
                 .into(avatar);
@@ -43,6 +44,6 @@ public class AvatarViewHolder<T> extends RecyclerView.ViewHolder implements Mate
 
     @Override
     public void unbind() {
-        textHolder.unbind();
+        checkboxHolder.unbind();
     }
 }

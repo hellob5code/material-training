@@ -1,4 +1,4 @@
-package fr.erictruong.android.cards;
+package fr.erictruong.android.cards.item;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Space;
 import android.widget.TextView;
 
+import fr.erictruong.android.cards.MaterialCardViewHolder;
 import fr.erictruong.android.cards.R;
 
 public class DisplayBodyViewHolder extends RecyclerView.ViewHolder implements MaterialCardViewHolder<DisplayBodyItem> {

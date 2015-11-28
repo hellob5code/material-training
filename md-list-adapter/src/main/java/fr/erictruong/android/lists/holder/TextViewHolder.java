@@ -1,4 +1,4 @@
-package fr.erictruong.android.lists.state;
+package fr.erictruong.android.lists.holder;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,9 +8,10 @@ import android.widget.TextView;
 
 import fr.erictruong.android.lists.MaterialListTileViewHolder;
 import fr.erictruong.android.lists.R;
+import fr.erictruong.android.lists.item.TextItem;
 
 
-public class TextViewHolder<T> extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<TextItem, T> {
+public class TextViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<TextItem> {
 
     @NonNull
     private TextView text1;
@@ -27,19 +28,19 @@ public class TextViewHolder<T> extends RecyclerView.ViewHolder implements Materi
     }
 
     @Override
-    public void bind(final TextItem item, final T object) {
-        text1.setText(item.text1);
+    public void bind(final TextItem item) {
+        text1.setText(item.getText1());
         if (text2 != null) {
-            text2.setText(item.text2);
+            text2.setText(item.getText2());
         }
         if (text3 != null) {
-            text3.setText(item.text3);
+            text3.setText(item.getText3());
         }
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (item.action != null) {
-                    item.action.onClick(v, object);
+                if (item.getAction() != null) {
+                    item.getAction().onAction(v, item);
                 }
             }
         });

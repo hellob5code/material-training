@@ -1,14 +1,12 @@
-package fr.erictruong.android.lists.action;
+package fr.erictruong.android.lists.item;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
-import fr.erictruong.android.lists.OnCheckActionListener;
-import fr.erictruong.android.lists.state.TextItem;
 
 public class CheckBoxItem extends TextItem {
 
-    public final boolean isChecked;
-    public final OnCheckActionListener checkAction;
+    private boolean isChecked;
+    private OnActionListener checkAction;
 
     private CheckBoxItem(Builder builder) {
         super(builder.id, builder.viewType, builder.text1, builder.text2, builder.text3, builder.action);
@@ -16,10 +14,34 @@ public class CheckBoxItem extends TextItem {
         this.checkAction = builder.checkAction;
     }
 
-    protected CheckBoxItem(long id, int viewType, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener checkAction) {
+    protected CheckBoxItem(long id, int viewType, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener checkAction) {
         super(id, viewType, text1, text2, text3, action);
         this.isChecked = isChecked;
         this.checkAction = checkAction;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setIsChecked(boolean isChecked) {
+        this.isChecked = isChecked;
+    }
+
+    public OnActionListener getCheckAction() {
+        return checkAction;
+    }
+
+    public void setCheckAction(OnActionListener checkAction) {
+        this.checkAction = checkAction;
+    }
+
+    @Override
+    public String toString() {
+        return "CheckBoxItem{" +
+                "id=" + getId() +
+                ", viewType=" + getViewType() +
+                '}';
     }
 
     public static final class Builder {
@@ -31,7 +53,7 @@ public class CheckBoxItem extends TextItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnCheckActionListener checkAction;
+        private OnActionListener checkAction;
 
         public Builder() {
             this.id = NO_ID;
@@ -73,7 +95,7 @@ public class CheckBoxItem extends TextItem {
             return this;
         }
 
-        public Builder checkAction(OnCheckActionListener checkAction) {
+        public Builder checkAction(OnActionListener checkAction) {
             this.checkAction = checkAction;
             return this;
         }
