@@ -3,7 +3,6 @@ package fr.erictruong.android.lists;
 import android.support.annotation.IntDef;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.annotation.Retention;
@@ -103,62 +102,43 @@ public class MaterialListAdapter<T> extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view;
         switch (viewType) {
             case VIEW_TYPE_ONE_LINE:
-                view = inflater.inflate(R.layout.list_tile_one_line, parent, false);
-                return new TextViewHolder(view);
+                return new TextViewHolder(inflater.inflate(R.layout.list_tile_one_line, parent, false));
             case VIEW_TYPE_TWO_LINE:
-                view = inflater.inflate(R.layout.list_tile_two_line, parent, false);
-                return new TextViewHolder(view);
+                return new TextViewHolder(inflater.inflate(R.layout.list_tile_two_line, parent, false));
             case VIEW_TYPE_THREE_LINE:
-                view = inflater.inflate(R.layout.list_tile_three_line, parent, false);
-                return new TextViewHolder(view);
+                return new TextViewHolder(inflater.inflate(R.layout.list_tile_three_line, parent, false));
             case VIEW_TYPE_ONE_LINE_ICON:
-                view = inflater.inflate(R.layout.list_tile_one_line_icon, parent, false);
-                return new IconViewHolder(view);
+                return new IconViewHolder(inflater.inflate(R.layout.list_tile_one_line_icon, parent, false));
             case VIEW_TYPE_TWO_LINE_ICON:
-                view = inflater.inflate(R.layout.list_tile_two_line_icon, parent, false);
-                return new IconViewHolder(view);
+                return new IconViewHolder(inflater.inflate(R.layout.list_tile_two_line_icon, parent, false));
             case VIEW_TYPE_THREE_LINE_ICON:
-                view = inflater.inflate(R.layout.list_tile_three_line_icon, parent, false);
-                return new IconViewHolder(view);
+                return new IconViewHolder(inflater.inflate(R.layout.list_tile_three_line_icon, parent, false));
             case VIEW_TYPE_ONE_LINE_AVATAR:
-                view = inflater.inflate(R.layout.list_tile_one_line_avatar, parent, false);
-                return new AvatarViewHolder(view);
+                return new AvatarViewHolder(inflater.inflate(R.layout.list_tile_one_line_avatar, parent, false));
             case VIEW_TYPE_TWO_LINE_AVATAR:
-                view = inflater.inflate(R.layout.list_tile_two_line_avatar, parent, false);
-                return new AvatarViewHolder(view);
+                return new AvatarViewHolder(inflater.inflate(R.layout.list_tile_two_line_avatar, parent, false));
             case VIEW_TYPE_THREE_LINE_AVATAR:
-                view = inflater.inflate(R.layout.list_tile_three_line_avatar, parent, false);
-                return new AvatarViewHolder(view);
+                return new AvatarViewHolder(inflater.inflate(R.layout.list_tile_three_line_avatar, parent, false));
             case VIEW_TYPE_ONE_LINE_AVATAR_ICON:
-                view = inflater.inflate(R.layout.list_tile_one_line_avatar_icon, parent, false);
-                return new AvatarIconViewHolder(view);
+                return new AvatarIconViewHolder(inflater.inflate(R.layout.list_tile_one_line_avatar_icon, parent, false));
             case VIEW_TYPE_TWO_LINE_AVATAR_ICON:
-                view = inflater.inflate(R.layout.list_tile_two_line_avatar_icon, parent, false);
-                return new AvatarIconViewHolder(view);
+                return new AvatarIconViewHolder(inflater.inflate(R.layout.list_tile_two_line_avatar_icon, parent, false));
             case VIEW_TYPE_THREE_LINE_AVATAR_ICON:
-                view = inflater.inflate(R.layout.list_tile_three_line_avatar_icon, parent, false);
-                return new AvatarIconViewHolder(view);
+                return new AvatarIconViewHolder(inflater.inflate(R.layout.list_tile_three_line_avatar_icon, parent, false));
             case VIEW_TYPE_ONE_LINE_CHECKBOX:
-                view = inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false);
-                return new CheckBoxViewHolder(view);
+                return new CheckBoxViewHolder(inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false));
             case VIEW_TYPE_ONE_LINE_EXPAND:
-                view = inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false);
-                return new ExpandViewHolder(view);
+                return new ExpandViewHolder(inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false));
             case VIEW_TYPE_ONE_LINE_CHECKBOX_ICON:
-                view = inflater.inflate(R.layout.list_tile_one_line_checkbox_icon, parent, false);
-                return new CheckBoxIconViewHolder(view);
+                return new CheckBoxIconViewHolder(inflater.inflate(R.layout.list_tile_one_line_checkbox_icon, parent, false));
             case VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX:
-                view = inflater.inflate(R.layout.list_tile_one_line_avatar_checkbox, parent, false);
-                return new AvatarCheckBoxViewHolder(view);
+                return new AvatarCheckBoxViewHolder(inflater.inflate(R.layout.list_tile_one_line_avatar_checkbox, parent, false));
             case VIEW_TYPE_ONE_LINE_ICON_SWITCH:
-                view = inflater.inflate(R.layout.list_tile_one_line_icon_switch, parent, false);
-                return new IconSwitchViewHolder(view);
+                return new IconSwitchViewHolder(inflater.inflate(R.layout.list_tile_one_line_icon_switch, parent, false));
             case VIEW_TYPE_ONE_LINE_ICON_EXPAND:
-                view = inflater.inflate(R.layout.list_tile_one_line_icon_expand, parent, false);
-                return new IconExpandViewHolder(view);
+                return new IconExpandViewHolder(inflater.inflate(R.layout.list_tile_one_line_icon_expand, parent, false));
             default:
                 throw new IllegalArgumentException("Unknown view type: " + viewType);
         }

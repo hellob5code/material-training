@@ -1,14 +1,11 @@
 package fr.erictruong.android.cards;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.Collections;
 import java.util.List;
-
-import fr.erictruong.android.cards.R;
 
 public class MaterialCardAdapter extends RecyclerView.Adapter {
 
@@ -52,44 +49,31 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        CardView cardView;
         switch (viewType) {
             case VIEW_TYPE_DISPLAY1_BODY1:
-                cardView = (CardView) inflater.inflate(R.layout.card_display1_body1, parent, false);
-                return new DisplayBodyViewHolder(cardView);
+                return new DisplayBodyViewHolder(inflater.inflate(R.layout.card_display1_body1, parent, false));
             case VIEW_TYPE_DISPLAY1_PRIMARY_BODY1:
-                cardView = (CardView) inflater.inflate(R.layout.card_display1_primary_body1, parent, false);
-                return new DisplayBodyViewHolder(cardView);
+                return new DisplayBodyViewHolder(inflater.inflate(R.layout.card_display1_primary_body1, parent, false));
             case VIEW_TYPE_DISPLAY1_BODY2:
-                cardView = (CardView) inflater.inflate(R.layout.card_display1_body2, parent, false);
-                return new DisplayBodyViewHolder(cardView);
+                return new DisplayBodyViewHolder(inflater.inflate(R.layout.card_display1_body2, parent, false));
             case VIEW_TYPE_DISPLAY1_PRIMARY_BODY2:
-                cardView = (CardView) inflater.inflate(R.layout.card_display1_primary_body2, parent, false);
-                return new DisplayBodyViewHolder(cardView);
+                return new DisplayBodyViewHolder(inflater.inflate(R.layout.card_display1_primary_body2, parent, false));
             case VIEW_TYPE_HEADLINE_BODY1:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_body1, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_body1, parent, false));
             case VIEW_TYPE_HEADLINE_BODY1_THREE_BUTTON:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_body1_three_button, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_body1_three_button, parent, false));
             case VIEW_TYPE_HEADLINE_BODY1_SIX_BUTTON:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_body1_six_button, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_body1_six_button, parent, false));
             case VIEW_TYPE_HEADLINE_BODY2:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_body2, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_body2, parent, false));
             case VIEW_TYPE_HEADLINE_PRIMARY_BODY1:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_primary_body1, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_primary_body1, parent, false));
             case VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_primary_body1_three_button, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_primary_body1_three_button, parent, false));
             case VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_primary_body1_six_button, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_primary_body1_six_button, parent, false));
             case VIEW_TYPE_HEADLINE_PRIMARY_BODY2:
-                cardView = (CardView) inflater.inflate(R.layout.card_headline_primary_body2, parent, false);
-                return new HeadlineBodyViewHolder(cardView);
+                return new HeadlineBodyViewHolder(inflater.inflate(R.layout.card_headline_primary_body2, parent, false));
             default:
                 throw new IllegalArgumentException("Unknown view type: " + viewType);
         }
