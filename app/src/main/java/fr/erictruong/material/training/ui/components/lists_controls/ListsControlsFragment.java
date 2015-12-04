@@ -15,6 +15,7 @@ import fr.erictruong.material.training.ui.core.BaseCardFragment;
 import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
 import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_REORDER;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_EXPAND;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
@@ -67,7 +68,12 @@ public class ListsControlsFragment extends BaseCardFragment {
         cards.add(new HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("Reorder")
-                .button1("Sample", null)
+                .button1("Sample", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR_REORDER);
+                    }
+                })
                 .build());
         cards.add(new HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)

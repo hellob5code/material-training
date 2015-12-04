@@ -4,8 +4,9 @@ import android.support.annotation.DrawableRes;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
 
-public class IconSwitchItem extends SwitchItem {
+public class IconSwitchItem extends CheckBoxItem implements Iconable {
 
     private int icon;
 
@@ -14,15 +15,17 @@ public class IconSwitchItem extends SwitchItem {
         this.icon = builder.icon;
     }
 
-    protected IconSwitchItem(long id, int viewType, int icon, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener actionSecondary) {
+    protected IconSwitchItem(long id, int viewType, int icon, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener actionSecondary) {
         super(id, viewType, isChecked, text1, text2, text3, action, actionSecondary);
         this.icon = icon;
     }
 
+    @Override
     public int getIcon() {
         return icon;
     }
 
+    @Override
     public void setIcon(int icon) {
         this.icon = icon;
     }
@@ -45,7 +48,7 @@ public class IconSwitchItem extends SwitchItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnActionListener actionSecondary;
+        private OnCheckActionListener actionSecondary;
 
         public Builder() {
             this.id = NO_ID;
@@ -92,7 +95,7 @@ public class IconSwitchItem extends SwitchItem {
             return this;
         }
 
-        public Builder actionSecondary(OnActionListener actionSecondary) {
+        public Builder actionSecondary(OnCheckActionListener actionSecondary) {
             this.actionSecondary = actionSecondary;
             return this;
         }

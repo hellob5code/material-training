@@ -14,16 +14,19 @@ import java.util.List;
 
 import fr.erictruong.android.core.activity.RecyclerActivity;
 import fr.erictruong.android.lists.MaterialListAdapter;
-import fr.erictruong.android.lists.MaterialListItem;
 import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
 import fr.erictruong.android.lists.item.AvatarCheckBoxItem;
+import fr.erictruong.android.lists.item.AvatarItem;
 import fr.erictruong.android.lists.item.CheckBoxIconItem;
 import fr.erictruong.android.lists.item.IconExpandItem;
 import fr.erictruong.android.lists.item.IconSwitchItem;
+import fr.erictruong.android.lists.item.MaterialListItem;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.model.DummyModel;
 
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX;
+import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_REORDER;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_EXPAND;
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
@@ -69,6 +72,8 @@ public class SampleListControlActivity extends RecyclerActivity {
                 return mapOneLineAvatarCheckboxItem(viewType, model);
             case VIEW_TYPE_ONE_LINE_ICON_SWITCH:
                 return mapOneLineIconSwitchItem(viewType, model);
+            case VIEW_TYPE_ONE_LINE_AVATAR_REORDER:
+                return mapOneLineAvatarReorderItem(viewType, model);
             case VIEW_TYPE_ONE_LINE_ICON_EXPAND:
                 return mapOneLineIconExpandItem(viewType, model);
             default:
@@ -88,7 +93,7 @@ public class SampleListControlActivity extends RecyclerActivity {
                         Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
                     }
                 })
-                .actionPrimary(new OnActionListener<CheckBoxIconItem>() {
+                .actionPrimary(new OnCheckActionListener<CheckBoxIconItem>() {
                     @Override
                     public void onAction(View v, CheckBoxIconItem item) {
                         Snackbar.make(getRecyclerView(), "Primary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
@@ -109,7 +114,7 @@ public class SampleListControlActivity extends RecyclerActivity {
                         Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
                     }
                 })
-                .actionSecondary(new OnActionListener<AvatarCheckBoxItem>() {
+                .actionSecondary(new OnCheckActionListener<AvatarCheckBoxItem>() {
                     @Override
                     public void onAction(View v, AvatarCheckBoxItem item) {
                         Snackbar.make(getRecyclerView(), "Secondary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
@@ -130,10 +135,26 @@ public class SampleListControlActivity extends RecyclerActivity {
                         Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
                     }
                 })
-                .actionSecondary(new OnActionListener<IconSwitchItem>() {
+                .actionSecondary(new OnCheckActionListener<IconSwitchItem>() {
                     @Override
                     public void onAction(View v, IconSwitchItem item) {
                         Snackbar.make(getRecyclerView(), "Secondary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
+                    }
+                })
+                .build();
+    }
+
+    @NonNull
+    private MaterialListItem mapOneLineAvatarReorderItem(int viewType, DummyModel model) {
+        return new AvatarItem.Builder()
+                .id(model.getId())
+                .viewType(viewType)
+                .avatarUrl(model.getAvatarUrl())
+                .text1(model.getText1())
+                .action(new OnActionListener<AvatarItem>() {
+                    @Override
+                    public void onAction(View v, AvatarItem item) {
+                        Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
                     }
                 })
                 .build();
@@ -151,7 +172,7 @@ public class SampleListControlActivity extends RecyclerActivity {
                         Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
                     }
                 })
-                .actionSecondary(new OnActionListener<IconExpandItem>() {
+                .actionSecondary(new OnCheckActionListener<IconExpandItem>() {
                     @Override
                     public void onAction(View v, IconExpandItem item) {
                         Snackbar.make(getRecyclerView(), "Secondary action #" + item.getId(), Snackbar.LENGTH_SHORT).show();

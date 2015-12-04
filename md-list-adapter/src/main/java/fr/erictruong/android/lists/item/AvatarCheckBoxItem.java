@@ -2,8 +2,9 @@ package fr.erictruong.android.lists.item;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
 
-public class AvatarCheckBoxItem extends CheckBoxItem {
+public class AvatarCheckBoxItem extends CheckBoxItem implements Avatarable {
 
     private String avatarUrl;
 
@@ -12,15 +13,17 @@ public class AvatarCheckBoxItem extends CheckBoxItem {
         this.avatarUrl = builder.avatarUrl;
     }
 
-    protected AvatarCheckBoxItem(long id, int viewType, String avatarUrl, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener actionSecondary) {
+    protected AvatarCheckBoxItem(long id, int viewType, String avatarUrl, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener actionSecondary) {
         super(id, viewType, isChecked, text1, text2, text3, action, actionSecondary);
         this.avatarUrl = avatarUrl;
     }
 
+    @Override
     public String getAvatarUrl() {
         return avatarUrl;
     }
 
+    @Override
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
@@ -43,7 +46,7 @@ public class AvatarCheckBoxItem extends CheckBoxItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnActionListener actionSecondary;
+        private OnCheckActionListener actionSecondary;
 
         public Builder() {
             this.id = NO_ID;
@@ -90,7 +93,7 @@ public class AvatarCheckBoxItem extends CheckBoxItem {
             return this;
         }
 
-        public Builder actionSecondary(OnActionListener actionSecondary) {
+        public Builder actionSecondary(OnCheckActionListener actionSecondary) {
             this.actionSecondary = actionSecondary;
             return this;
         }

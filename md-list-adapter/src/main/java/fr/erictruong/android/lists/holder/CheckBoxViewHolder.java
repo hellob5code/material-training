@@ -1,47 +1,40 @@
 package fr.erictruong.android.lists.holder;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
-import fr.erictruong.android.core.util.ViewUtils;
-import fr.erictruong.android.lists.MaterialListTileViewHolder;
-import fr.erictruong.android.lists.R;
-import fr.erictruong.android.lists.item.CheckBoxItem;
+import fr.erictruong.android.lists.Bindable;
+import fr.erictruong.android.lists.item.MaterialListItem;
+import fr.erictruong.android.lists.item.Checkable;
+import fr.erictruong.android.lists.item.Textable;
+import fr.erictruong.android.lists.stub.ActionStub;
+import fr.erictruong.android.lists.stub.CheckBoxStub;
+import fr.erictruong.android.lists.stub.TextStub;
 
-public class CheckBoxViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<CheckBoxItem> {
+public class CheckBoxViewHolder extends RecyclerView.ViewHolder implements Bindable<MaterialListItem> {
 
-    private TextViewHolder textHolder;
-
-    @NonNull
-    private CheckBox checkbox;
+    private ActionStub actionStub;
+    private TextStub textStub;
+    private CheckBoxStub checkBoxStub;
 
     public CheckBoxViewHolder(View itemView) {
         super(itemView);
-        textHolder = new TextViewHolder(itemView);
-        checkbox = (CheckBox) itemView.findViewById(R.id.checkbox);
-        int marginSmall = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.margin_small);
-        ViewUtils.expandTouchArea(itemView, checkbox, marginSmall);
+        actionStub = new ActionStub(itemView);
+        textStub = new TextStub(itemView);
+        checkBoxStub = new CheckBoxStub(itemView);
     }
 
     @Override
-    public void bind(final CheckBoxItem item) {
-        textHolder.bind(item);
-        checkbox.setChecked(item.isChecked());
-        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                item.setIsChecked(isChecked);
-                item.getCheckAction().onAction(buttonView, item);
-            }
-        });
+    public void bind(MaterialListItem item) {
+        actionStub.bind(item);
+        textStub.bind((Textable) item);
+        checkBoxStub.bind((Checkable) item);
     }
 
     @Override
     public void unbind() {
-        textHolder.unbind();
-        checkbox.setOnCheckedChangeListener(null);
+        actionStub.unbind();
+        textStub.unbind();
+        checkBoxStub.unbind();
     }
 }

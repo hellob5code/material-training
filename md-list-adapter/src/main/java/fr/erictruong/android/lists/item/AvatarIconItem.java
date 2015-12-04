@@ -5,7 +5,7 @@ import android.support.annotation.DrawableRes;
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
 
-public class AvatarIconItem extends IconItem {
+public class AvatarIconItem extends IconItem implements Avatarable {
 
     private String avatarUrl;
 
@@ -19,10 +19,12 @@ public class AvatarIconItem extends IconItem {
         this.avatarUrl = avatarUrl;
     }
 
+    @Override
     public String getAvatarUrl() {
         return avatarUrl;
     }
 
+    @Override
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }

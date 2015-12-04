@@ -1,49 +1,46 @@
 package fr.erictruong.android.lists.holder;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import fr.erictruong.android.lists.Bindable;
+import fr.erictruong.android.lists.item.MaterialListItem;
+import fr.erictruong.android.lists.item.Avatarable;
+import fr.erictruong.android.lists.item.Iconable;
+import fr.erictruong.android.lists.item.Textable;
+import fr.erictruong.android.lists.stub.ActionStub;
+import fr.erictruong.android.lists.stub.AvatarStub;
+import fr.erictruong.android.lists.stub.IconStub;
+import fr.erictruong.android.lists.stub.TextStub;
 
-import fr.erictruong.android.core.transform.CircleStrokeTransformation;
-import fr.erictruong.android.lists.MaterialListTileViewHolder;
-import fr.erictruong.android.lists.R;
-import fr.erictruong.android.lists.item.AvatarIconItem;
+public class AvatarIconViewHolder extends RecyclerView.ViewHolder implements Bindable<MaterialListItem> {
 
-public class AvatarIconViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<AvatarIconItem> {
-
-    private IconViewHolder iconHolder;
-
-    @NonNull
-    private ImageView avatar;
-
-    private Picasso picasso;
-    private CircleStrokeTransformation circleStrokeTransformation;
+    private ActionStub actionStub;
+    private TextStub textStub;
+    private IconStub iconStub;
+    private AvatarStub avatarStub;
 
     public AvatarIconViewHolder(View itemView) {
         super(itemView);
-        iconHolder = new IconViewHolder(itemView);
-        avatar = (ImageView) itemView.findViewById(R.id.avatar);
-        Context context = itemView.getContext();
-        picasso = Picasso.with(context);
-        circleStrokeTransformation = new CircleStrokeTransformation(context, Color.WHITE, 0);
+        actionStub = new ActionStub(itemView);
+        textStub = new TextStub(itemView);
+        iconStub = new IconStub(itemView);
+        avatarStub = new AvatarStub(itemView);
     }
 
     @Override
-    public void bind(AvatarIconItem item) {
-        iconHolder.bind(item);
-        picasso.load(item.getAvatarUrl())
-                .placeholder(R.drawable.circle)
-                .transform(circleStrokeTransformation)
-                .into(avatar);
+    public void bind(MaterialListItem item) {
+        actionStub.bind(item);
+        textStub.bind((Textable) item);
+        iconStub.bind((Iconable) item);
+        avatarStub.bind((Avatarable) item);
     }
 
     @Override
     public void unbind() {
-        iconHolder.unbind();
+        actionStub.unbind();
+        textStub.unbind();
+        iconStub.unbind();
+        avatarStub.unbind();
     }
 }

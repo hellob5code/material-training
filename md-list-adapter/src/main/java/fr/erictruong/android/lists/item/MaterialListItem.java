@@ -1,4 +1,6 @@
-package fr.erictruong.android.lists;
+package fr.erictruong.android.lists.item;
+
+import fr.erictruong.android.lists.OnActionListener;
 
 public class MaterialListItem {
 
@@ -6,10 +8,12 @@ public class MaterialListItem {
 
     private long id;
     private int viewType;
+    private OnActionListener action;
 
-    public MaterialListItem(long id, int viewType) {
+    public MaterialListItem(long id, int viewType, OnActionListener action) {
         this.id = id;
         this.viewType = viewType;
+        this.action = action;
     }
 
     public long getId() {
@@ -26,6 +30,14 @@ public class MaterialListItem {
 
     public void setViewType(int viewType) {
         this.viewType = viewType;
+    }
+
+    public OnActionListener getAction() {
+        return action;
+    }
+
+    public void setAction(OnActionListener action) {
+        this.action = action;
     }
 
     @Override

@@ -12,26 +12,31 @@ import java.util.List;
 
 import fr.erictruong.android.lists.holder.AvatarCheckBoxViewHolder;
 import fr.erictruong.android.lists.holder.AvatarIconViewHolder;
+import fr.erictruong.android.lists.holder.AvatarReorderViewHolder;
+import fr.erictruong.android.lists.holder.AvatarViewHolder;
 import fr.erictruong.android.lists.holder.CheckBoxIconViewHolder;
 import fr.erictruong.android.lists.holder.CheckBoxViewHolder;
 import fr.erictruong.android.lists.holder.ExpandViewHolder;
 import fr.erictruong.android.lists.holder.IconExpandViewHolder;
 import fr.erictruong.android.lists.holder.IconSwitchViewHolder;
-import fr.erictruong.android.lists.holder.AvatarViewHolder;
 import fr.erictruong.android.lists.holder.IconViewHolder;
 import fr.erictruong.android.lists.holder.TextViewHolder;
+import fr.erictruong.android.lists.item.MaterialListItem;
 
 public class MaterialListAdapter extends RecyclerView.Adapter {
 
     public static final int VIEW_TYPE_ONE_LINE = 0;
     public static final int VIEW_TYPE_TWO_LINE = 1;
     public static final int VIEW_TYPE_THREE_LINE = 2;
+
     public static final int VIEW_TYPE_ONE_LINE_ICON = 3;
     public static final int VIEW_TYPE_TWO_LINE_ICON = 4;
     public static final int VIEW_TYPE_THREE_LINE_ICON = 5;
+
     public static final int VIEW_TYPE_ONE_LINE_AVATAR = 6;
     public static final int VIEW_TYPE_TWO_LINE_AVATAR = 7;
     public static final int VIEW_TYPE_THREE_LINE_AVATAR = 8;
+
     public static final int VIEW_TYPE_ONE_LINE_AVATAR_ICON = 9;
     public static final int VIEW_TYPE_TWO_LINE_AVATAR_ICON = 10;
     public static final int VIEW_TYPE_THREE_LINE_AVATAR_ICON = 11;
@@ -43,9 +48,13 @@ public class MaterialListAdapter extends RecyclerView.Adapter {
     public static final int VIEW_TYPE_ONE_LINE_EXPAND = 31;
 
     public static final int VIEW_TYPE_ONE_LINE_CHECKBOX_ICON = 230;
+
     public static final int VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX = 245;
+
     public static final int VIEW_TYPE_ONE_LINE_ICON_SWITCH = 251;
+
     public static final int VIEW_TYPE_ONE_LINE_AVATAR_REORDER = 269;
+
     public static final int VIEW_TYPE_ONE_LINE_ICON_EXPAND = 300;
 
     @IntDef({VIEW_TYPE_ONE_LINE, VIEW_TYPE_TWO_LINE, VIEW_TYPE_THREE_LINE})
@@ -102,36 +111,49 @@ public class MaterialListAdapter extends RecyclerView.Adapter {
                 return new TextViewHolder(inflater.inflate(R.layout.list_tile_two_line, parent, false));
             case VIEW_TYPE_THREE_LINE:
                 return new TextViewHolder(inflater.inflate(R.layout.list_tile_three_line, parent, false));
+
             case VIEW_TYPE_ONE_LINE_ICON:
                 return new IconViewHolder(inflater.inflate(R.layout.list_tile_one_line_icon, parent, false));
             case VIEW_TYPE_TWO_LINE_ICON:
                 return new IconViewHolder(inflater.inflate(R.layout.list_tile_two_line_icon, parent, false));
             case VIEW_TYPE_THREE_LINE_ICON:
                 return new IconViewHolder(inflater.inflate(R.layout.list_tile_three_line_icon, parent, false));
+
             case VIEW_TYPE_ONE_LINE_AVATAR:
                 return new AvatarViewHolder(inflater.inflate(R.layout.list_tile_one_line_avatar, parent, false));
             case VIEW_TYPE_TWO_LINE_AVATAR:
                 return new AvatarViewHolder(inflater.inflate(R.layout.list_tile_two_line_avatar, parent, false));
             case VIEW_TYPE_THREE_LINE_AVATAR:
                 return new AvatarViewHolder(inflater.inflate(R.layout.list_tile_three_line_avatar, parent, false));
+
             case VIEW_TYPE_ONE_LINE_AVATAR_ICON:
                 return new AvatarIconViewHolder(inflater.inflate(R.layout.list_tile_one_line_avatar_icon, parent, false));
             case VIEW_TYPE_TWO_LINE_AVATAR_ICON:
                 return new AvatarIconViewHolder(inflater.inflate(R.layout.list_tile_two_line_avatar_icon, parent, false));
             case VIEW_TYPE_THREE_LINE_AVATAR_ICON:
                 return new AvatarIconViewHolder(inflater.inflate(R.layout.list_tile_three_line_avatar_icon, parent, false));
+
             case VIEW_TYPE_ONE_LINE_CHECKBOX:
                 return new CheckBoxViewHolder(inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false));
+
             case VIEW_TYPE_ONE_LINE_EXPAND:
                 return new ExpandViewHolder(inflater.inflate(R.layout.list_tile_one_line_checkbox_end, parent, false));
+
             case VIEW_TYPE_ONE_LINE_CHECKBOX_ICON:
                 return new CheckBoxIconViewHolder(inflater.inflate(R.layout.list_tile_one_line_checkbox_icon, parent, false));
+
             case VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX:
                 return new AvatarCheckBoxViewHolder(inflater.inflate(R.layout.list_tile_one_line_avatar_checkbox, parent, false));
+
             case VIEW_TYPE_ONE_LINE_ICON_SWITCH:
                 return new IconSwitchViewHolder(inflater.inflate(R.layout.list_tile_one_line_icon_switch, parent, false));
+
+            case VIEW_TYPE_ONE_LINE_AVATAR_REORDER:
+                return new AvatarReorderViewHolder(inflater.inflate(R.layout.list_tile_one_line_avatar_icon, parent, false));
+
             case VIEW_TYPE_ONE_LINE_ICON_EXPAND:
                 return new IconExpandViewHolder(inflater.inflate(R.layout.list_tile_one_line_icon_expand, parent, false));
+
             default:
                 throw new IllegalArgumentException("Unknown view type: " + viewType);
         }
@@ -139,7 +161,7 @@ public class MaterialListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((MaterialListTileViewHolder) holder).bind(getItem(position));
+        ((Bindable) holder).bind(getItem(position));
     }
 
     @Override
@@ -149,6 +171,6 @@ public class MaterialListAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onViewRecycled(RecyclerView.ViewHolder holder) {
-        ((MaterialListTileViewHolder) holder).unbind();
+        ((Bindable) holder).unbind();
     }
 }

@@ -3,7 +3,7 @@ package fr.erictruong.android.lists.item;
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
 
-public class AvatarItem extends TextItem {
+public class AvatarItem extends TextItem implements Textable, Avatarable {
 
     private String avatarUrl;
 
@@ -17,10 +17,12 @@ public class AvatarItem extends TextItem {
         this.avatarUrl = avatarUrl;
     }
 
+    @Override
     public String getAvatarUrl() {
         return avatarUrl;
     }
 
+    @Override
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }

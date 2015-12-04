@@ -5,7 +5,7 @@ import android.support.annotation.DrawableRes;
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
 
-public class IconItem extends TextItem {
+public class IconItem extends TextItem implements Textable, Iconable {
 
     private int icon;
 
@@ -19,10 +19,12 @@ public class IconItem extends TextItem {
         this.icon = icon;
     }
 
+    @Override
     public int getIcon() {
         return icon;
     }
 
+    @Override
     public void setIcon(int icon) {
         this.icon = icon;
     }

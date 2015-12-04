@@ -1,64 +1,58 @@
 package fr.erictruong.android.lists.item;
 
 import fr.erictruong.android.lists.MaterialListAdapter.TextViewType;
-import fr.erictruong.android.lists.MaterialListItem;
 import fr.erictruong.android.lists.OnActionListener;
 
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE;
 
-public class TextItem extends MaterialListItem {
+public class TextItem extends MaterialListItem implements Textable {
 
     private CharSequence text1;
     private CharSequence text2;
     private CharSequence text3;
-    private OnActionListener action;
 
     private TextItem(Builder builder) {
-        super(builder.id, builder.viewType);
+        super(builder.id, builder.viewType, builder.action);
         this.text1 = builder.text1;
         this.text2 = builder.text2;
         this.text3 = builder.text3;
-        this.action = builder.action;
     }
 
     protected TextItem(long id, int viewType, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action) {
-        super(id, viewType);
+        super(id, viewType, action);
         this.text1 = text1;
         this.text2 = text2;
         this.text3 = text3;
-        this.action = action;
     }
 
+    @Override
     public CharSequence getText1() {
         return text1;
     }
 
+    @Override
     public void setText1(CharSequence text1) {
         this.text1 = text1;
     }
 
+    @Override
     public CharSequence getText2() {
         return text2;
     }
 
+    @Override
     public void setText2(CharSequence text2) {
         this.text2 = text2;
     }
 
+    @Override
     public CharSequence getText3() {
         return text3;
     }
 
+    @Override
     public void setText3(CharSequence text3) {
         this.text3 = text3;
-    }
-
-    public OnActionListener getAction() {
-        return action;
-    }
-
-    public void setAction(OnActionListener action) {
-        this.action = action;
     }
 
     @Override

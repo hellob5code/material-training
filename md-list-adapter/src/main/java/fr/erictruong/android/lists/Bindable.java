@@ -1,6 +1,8 @@
 package fr.erictruong.android.lists;
 
-public interface MaterialListTileViewHolder<I extends MaterialListItem> {
+import fr.erictruong.android.lists.item.MaterialListItem;
+
+public interface Bindable<I> {
 
     /**
      * This method should be used to bind the ViewHolder to the list item. For instance, setting a text to a TextView.

@@ -14,10 +14,10 @@ import java.util.List;
 
 import fr.erictruong.android.core.activity.RecyclerActivity;
 import fr.erictruong.android.lists.MaterialListAdapter;
-import fr.erictruong.android.lists.MaterialListItem;
 import fr.erictruong.android.lists.OnActionListener;
 import fr.erictruong.android.lists.SectionedListAdapter;
 import fr.erictruong.android.lists.item.AvatarItem;
+import fr.erictruong.android.lists.item.MaterialListItem;
 import fr.erictruong.material.training.model.DummyModel;
 
 import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_TWO_LINE_AVATAR;

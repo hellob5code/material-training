@@ -64,7 +64,7 @@
         <activity
             android:name=".ui.components.lists_controls.SampleListControlActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Grey50"/>
+            android:theme="@style/Teal"/>
         <activity
             android:name=".ui.components.tabs.FixedTabBarActivity"
             android:label="@string/title_page_title"

@@ -1,61 +1,40 @@
 package fr.erictruong.android.lists.holder;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.TextView;
 
-import fr.erictruong.android.core.util.ThemeUtils;
-import fr.erictruong.android.core.util.ViewUtils;
-import fr.erictruong.android.lists.MaterialListTileViewHolder;
-import fr.erictruong.android.lists.R;
-import fr.erictruong.android.lists.item.ExpandItem;
+import fr.erictruong.android.lists.Bindable;
+import fr.erictruong.android.lists.item.Checkable;
+import fr.erictruong.android.lists.item.MaterialListItem;
+import fr.erictruong.android.lists.item.Textable;
+import fr.erictruong.android.lists.stub.ActionStub;
+import fr.erictruong.android.lists.stub.ExpandStub;
+import fr.erictruong.android.lists.stub.TextStub;
 
-public class ExpandViewHolder extends RecyclerView.ViewHolder implements MaterialListTileViewHolder<ExpandItem> {
+public class ExpandViewHolder extends RecyclerView.ViewHolder implements Bindable<MaterialListItem> {
 
-    private TextViewHolder textHolder;
-
-    @NonNull
-    private TextView text1;
-    @NonNull
-    private CheckBox checkbox;
-
-    @ColorInt
-    private int defaultColor, colorAccent;
+    private ActionStub actionStub;
+    private TextStub textStub;
+    private ExpandStub expandStub;
 
     public ExpandViewHolder(View itemView) {
         super(itemView);
-        textHolder = new TextViewHolder(itemView);
-        text1 = (TextView) itemView.findViewById(R.id.text1);
-        defaultColor = text1.getTextColors().getDefaultColor();
-        colorAccent = ThemeUtils.obtainColorAccent(itemView.getContext());
-        checkbox = (CheckBox) itemView.findViewById(R.id.checkbox);
-        checkbox.setButtonDrawable(R.drawable.selector_expand);
-        int marginSmall = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.margin_small);
-        ViewUtils.expandTouchArea(itemView, checkbox, marginSmall);
+        actionStub = new ActionStub(itemView);
+        textStub = new TextStub(itemView);
+        expandStub = new ExpandStub(itemView);
     }
 
     @Override
-    public void bind(final ExpandItem item) {
-        textHolder.bind(item);
-        text1.setTextColor(item.isChecked() ? colorAccent : defaultColor);
-        checkbox.setChecked(item.isChecked());
-        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                text1.setTextColor(isChecked ? colorAccent : defaultColor);
-                item.setIsChecked(isChecked);
-                item.getCheckAction().onAction(buttonView, item);
-            }
-        });
+    public void bind(MaterialListItem item) {
+        actionStub.bind(item);
+        textStub.bind((Textable) item);
+        expandStub.bind((Checkable) item);
     }
 
     @Override
     public void unbind() {
-        textHolder.unbind();
-        checkbox.setOnCheckedChangeListener(null);
+        actionStub.unbind();
+        textStub.unbind();
+        expandStub.unbind();
     }
 }

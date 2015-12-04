@@ -2,6 +2,7 @@ package fr.erictruong.android.lists.item;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
 
 public class ExpandItem extends CheckBoxItem {
 
@@ -9,7 +10,7 @@ public class ExpandItem extends CheckBoxItem {
         super(builder.id, builder.viewType, builder.isExpanded, builder.text1, builder.text2, builder.text3, builder.action, builder.checkAction);
     }
 
-    protected ExpandItem(long id, int viewType, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener checkAction) {
+    protected ExpandItem(long id, int viewType, boolean isChecked, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener checkAction) {
         super(id, viewType, isChecked, text1, text2, text3, action, checkAction);
     }
 
@@ -30,7 +31,7 @@ public class ExpandItem extends CheckBoxItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnActionListener checkAction;
+        private OnCheckActionListener checkAction;
 
         public Builder() {
             this.id = NO_ID;
@@ -72,7 +73,7 @@ public class ExpandItem extends CheckBoxItem {
             return this;
         }
 
-        public Builder checkAction(OnActionListener checkAction) {
+        public Builder checkAction(OnCheckActionListener checkAction) {
             this.checkAction = checkAction;
             return this;
         }

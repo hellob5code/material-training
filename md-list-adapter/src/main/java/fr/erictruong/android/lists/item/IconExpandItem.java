@@ -4,8 +4,9 @@ import android.support.annotation.DrawableRes;
 
 import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
+import fr.erictruong.android.lists.OnCheckActionListener;
 
-public class IconExpandItem extends ExpandItem {
+public class IconExpandItem extends ExpandItem implements Iconable {
 
     private int icon;
 
@@ -14,7 +15,7 @@ public class IconExpandItem extends ExpandItem {
         this.icon = builder.icon;
     }
 
-    protected IconExpandItem(long id, int viewType, int icon, boolean isExpanded, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnActionListener actionSecondary) {
+    protected IconExpandItem(long id, int viewType, int icon, boolean isExpanded, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action, OnCheckActionListener actionSecondary) {
         super(id, viewType, isExpanded, text1, text2, text3, action, actionSecondary);
         this.icon = icon;
     }
@@ -45,7 +46,7 @@ public class IconExpandItem extends ExpandItem {
         private CharSequence text2;
         private CharSequence text3;
         private OnActionListener action;
-        private OnActionListener actionSecondary;
+        private OnCheckActionListener actionSecondary;
 
         public Builder() {
             this.id = NO_ID;
@@ -92,7 +93,7 @@ public class IconExpandItem extends ExpandItem {
             return this;
         }
 
-        public Builder actionSecondary(OnActionListener actionSecondary) {
+        public Builder actionSecondary(OnCheckActionListener actionSecondary) {
             this.actionSecondary = actionSecondary;
             return this;
         }

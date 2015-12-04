@@ -59,16 +59,18 @@ public abstract class BaseDrawerActivity extends BaseActivity implements Navigat
 
         navigation.setNavigationItemSelectedListener(this);
 
-        // Initialze content
-        int selectedNavId = getIntent().getIntExtra(EXTRA_NAV_ID, -1);
-        navigation.setCheckedItem(selectedNavId);
-        Fragment fragment = getSelectedFragment(selectedNavId);
-        if (fragment != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.drawer_content, fragment)
-                    .commit();
-            fadeInContent();
+        if (savedInstanceState == null) {
+            // Initialze content
+            int selectedNavId = getIntent().getIntExtra(EXTRA_NAV_ID, -1);
+            navigation.setCheckedItem(selectedNavId);
+            Fragment fragment = getSelectedFragment(selectedNavId);
+            if (fragment != null) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.drawer_content, fragment)
+                        .commit();
+                fadeInContent();
+            }
         }
     }
 
