@@ -173,4 +173,15 @@ public class MaterialListAdapter extends RecyclerView.Adapter {
     public void onViewRecycled(RecyclerView.ViewHolder holder) {
         ((Bindable) holder).unbind();
     }
+
+    public void removeItem(int position) {
+        dataset.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public boolean moveItem(int fromPosition, int toPosition) {
+        Collections.swap(dataset, fromPosition, toPosition);
+        notifyItemMoved(fromPosition, toPosition);
+        return true;
+    }
 }

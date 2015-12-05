@@ -45,13 +45,13 @@ public class ListsControlsFragment extends BaseCardFragment {
                 .button1("Sample", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_CHECKBOX_ICON);
+                        CheckboxIconListControlActivity.start(getContext());
                     }
                 })
                 .button2("Alt", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX);
+                        AvatarCheckboxListControlActivity.start(getContext());
                     }
                 })
                 .build());
@@ -61,7 +61,7 @@ public class ListsControlsFragment extends BaseCardFragment {
                 .button1("Sample", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_ICON_SWITCH);
+                        IconSwitchListControlActivity.start(getContext());
                     }
                 })
                 .build());
@@ -71,7 +71,7 @@ public class ListsControlsFragment extends BaseCardFragment {
                 .button1("Sample", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_AVATAR_REORDER);
+                        AvatarReorderListControlActivity.start(getContext());
                     }
                 })
                 .build());
@@ -81,7 +81,7 @@ public class ListsControlsFragment extends BaseCardFragment {
                 .button1("Sample", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SampleListControlActivity.start(getContext(), VIEW_TYPE_ONE_LINE_ICON_EXPAND);
+                        IconExpandListControlActivity.start(getContext());
                     }
                 })
                 .build());

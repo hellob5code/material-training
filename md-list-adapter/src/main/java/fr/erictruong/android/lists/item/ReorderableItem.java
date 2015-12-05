@@ -1,37 +1,36 @@
 package fr.erictruong.android.lists.item;
 
-import android.support.annotation.DrawableRes;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
-import fr.erictruong.android.lists.MaterialListAdapter;
 import fr.erictruong.android.lists.OnActionListener;
 
-public class IconItem extends TextItem implements Iconable {
+public class ReorderableItem extends TextItem implements Reorderable {
 
-    private int icon;
+    private ItemTouchHelper itemTouchHelper;
 
-    private IconItem(Builder builder) {
+    private ReorderableItem(Builder builder) {
         super(builder.id, builder.viewType, builder.text1, builder.text2, builder.text3, builder.action);
-        this.icon = builder.icon;
+        this.itemTouchHelper = builder.itemTouchHelper;
     }
 
-    protected IconItem(long id, int viewType, int icon, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action) {
+    protected ReorderableItem(long id, int viewType, ItemTouchHelper itemTouchHelper, CharSequence text1, CharSequence text2, CharSequence text3, OnActionListener action) {
         super(id, viewType, text1, text2, text3, action);
-        this.icon = icon;
+        this.itemTouchHelper = itemTouchHelper;
     }
 
     @Override
-    public int getIcon() {
-        return icon;
+    public ItemTouchHelper getItemTouchHelper() {
+        return itemTouchHelper;
     }
 
     @Override
-    public void setIcon(int icon) {
-        this.icon = icon;
+    public void setItemTouchHelper(ItemTouchHelper helper) {
+        this.itemTouchHelper = helper;
     }
 
     @Override
     public String toString() {
-        return "IconItem{" +
+        return "ReorderableItem{" +
                 "id=" + getId() +
                 ", viewType=" + getViewType() +
                 '}';
@@ -41,7 +40,7 @@ public class IconItem extends TextItem implements Iconable {
 
         private long id;
         private int viewType;
-        private int icon;
+        private ItemTouchHelper itemTouchHelper;
         private CharSequence text1;
         private CharSequence text2;
         private CharSequence text3;
@@ -49,7 +48,7 @@ public class IconItem extends TextItem implements Iconable {
 
         public Builder() {
             this.id = NO_ID;
-            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
+//            this.viewType = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON;
         }
 
         public Builder id(long id) {
@@ -57,13 +56,13 @@ public class IconItem extends TextItem implements Iconable {
             return this;
         }
 
-        public Builder viewType(@MaterialListAdapter.IconViewType int viewType) {
+        public Builder viewType(int viewType) {
             this.viewType = viewType;
             return this;
         }
 
-        public Builder icon(@DrawableRes int icon) {
-            this.icon = icon;
+        public Builder itemTouchHelper(ItemTouchHelper itemTouchHelper) {
+            this.itemTouchHelper = itemTouchHelper;
             return this;
         }
 
@@ -87,8 +86,8 @@ public class IconItem extends TextItem implements Iconable {
             return this;
         }
 
-        public IconItem build() {
-            return new IconItem(this);
+        public ReorderableItem build() {
+            return new ReorderableItem(this);
         }
     }
 }

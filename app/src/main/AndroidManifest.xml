@@ -62,7 +62,23 @@
             android:label="@string/title_sample"
             android:theme="@style/Grey50"/>
         <activity
-            android:name=".ui.components.lists_controls.SampleListControlActivity"
+            android:name=".ui.components.lists_controls.CheckboxIconListControlActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Teal"/>
+        <activity
+            android:name=".ui.components.lists_controls.AvatarCheckboxListControlActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Teal"/>
+        <activity
+            android:name=".ui.components.lists_controls.IconSwitchListControlActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Teal"/>
+        <activity
+            android:name=".ui.components.lists_controls.AvatarReorderListControlActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Teal"/>
+        <activity
+            android:name=".ui.components.lists_controls.IconExpandListControlActivity"
             android:label="@string/title_sample"
             android:theme="@style/Teal"/>
         <activity

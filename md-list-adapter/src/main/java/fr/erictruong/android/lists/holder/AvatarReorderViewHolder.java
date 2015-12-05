@@ -4,8 +4,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import fr.erictruong.android.lists.Bindable;
-import fr.erictruong.android.lists.item.MaterialListItem;
 import fr.erictruong.android.lists.item.Avatarable;
+import fr.erictruong.android.lists.item.MaterialListItem;
+import fr.erictruong.android.lists.item.Reorderable;
 import fr.erictruong.android.lists.item.Textable;
 import fr.erictruong.android.lists.stub.ActionStub;
 import fr.erictruong.android.lists.stub.AvatarStub;
@@ -31,7 +32,8 @@ public class AvatarReorderViewHolder extends RecyclerView.ViewHolder implements 
     public void bind(MaterialListItem item) {
         actionStub.bind(item);
         textStub.bind((Textable) item);
-        reorderStub.bind(item);
+        reorderStub.bind((Reorderable) item);
+        reorderStub.setViewHolder(this);
         avatarStub.bind((Avatarable) item);
     }
 
