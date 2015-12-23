@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'spoon'
 
 def BOOLEAN = 'boolean'
 def STRING = 'String'
@@ -20,6 +21,8 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
         buildConfigField STRING, GIT_SHA, "\"${rootProject.ext.gitSha}\""
         buildConfigField STRING, BUILD_TIME, "\"${rootProject.ext.buildTime}\""
     }
@@ -39,6 +42,16 @@ android {
 }
 
 dependencies {
+    androidTestCompile "com.android.support:support-annotations:${rootProject.ext.supportVersion}"
+    androidTestCompile 'com.android.support.test:runner:0.4.1'
+    androidTestCompile 'com.android.support.test:rules:0.4.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.1') {
+        exclude module: 'recyclerview-v7' // TODO: Version conflict, remove exclusion eventually.
+        exclude module: 'support-v4' // TODO: Version conflict, remove exclusion eventually.
+    }
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.2.1'
+
     testCompile 'junit:junit:4.12'
 
     compile project(':core')
