@@ -6,19 +6,14 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.erictruong.android.cards.MaterialCardItem;
 import fr.erictruong.android.cards.item.DisplayBodyItem;
 import fr.erictruong.android.cards.item.HeadlineBodyItem;
-import fr.erictruong.android.cards.MaterialCardItem;
 import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.BaseCardFragment;
 
 import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_DISPLAY1_PRIMARY_BODY2;
 import static fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON;
-import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX;
-import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_REORDER;
-import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON;
-import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_EXPAND;
-import static fr.erictruong.android.lists.MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH;
 
 public class ListsControlsFragment extends BaseCardFragment {
 
@@ -88,7 +83,7 @@ public class ListsControlsFragment extends BaseCardFragment {
         cards.add(new HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("Leave-behinds")
-                .button1("Sample", null)
+                .button1("Sample", null) // TODO: Start LeaveBehindsListControlActivity.
                 .build());
 
         getAdapter().swapData(cards);

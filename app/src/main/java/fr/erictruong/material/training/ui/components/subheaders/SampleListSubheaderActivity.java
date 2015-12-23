@@ -70,7 +70,7 @@ public class SampleListSubheaderActivity extends RecyclerActivity {
                 .action(new OnActionListener<AvatarItem>() {
                     @Override
                     public void onAction(View v, AvatarItem item) {
-                        Snackbar.make(getRecyclerView(), "Action " + item, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(getRecyclerView(), "Action #" + item.getId(), Snackbar.LENGTH_SHORT).show();
                     }
                 })
                 .build();

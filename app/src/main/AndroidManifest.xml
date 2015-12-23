@@ -25,34 +25,44 @@
 
         <activity
             android:name=".ui.material_design.MaterialDesignActivity"
-            android:theme="@style/Cyan.NoActionBar"/>
+            android:theme="@style/Cyan.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.what_is_material.WhatIsMaterialActivity"
-            android:theme="@style/LightBlue.NoActionBar"/>
+            android:theme="@style/LightBlue.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.animation.AnimationActivity"
-            android:theme="@style/Purple.NoActionBar"/>
+            android:theme="@style/Purple.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.style.StyleActivity"
-            android:theme="@style/Teal.NoActionBar"/>
+            android:theme="@style/Teal.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.layout.LayoutActivity"
-            android:theme="@style/Pink.NoActionBar"/>
+            android:theme="@style/Pink.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.components.ComponentsActivity"
-            android:theme="@style/Indigo.NoActionBar"/>
+            android:theme="@style/Indigo.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.patterns.PatternsActivity"
-            android:theme="@style/Orange.NoActionBar"/>
+            android:theme="@style/Orange.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.usability.UsabilityActivity"
-            android:theme="@style/BlueGrey.NoActionBar"/>
+            android:theme="@style/BlueGrey.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.resources.ResourcesActivity"
-            android:theme="@style/LightBlue.NoActionBar"/>
+            android:theme="@style/LightBlue.NoActionBar"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".ui.whats_new.WhatsNewActivity"
-            android:theme="@style/LightBlue.NoActionBar"/>
+            android:theme="@style/LightBlue.NoActionBar"
+            android:launchMode="singleTop"/>
 
         <activity
             android:name=".ui.SettingsActivity"
@@ -61,27 +71,33 @@
         <activity
             android:name=".ui.components.lists.SampleListActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Grey50"/>
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
             android:name=".ui.components.lists_controls.CheckboxIconListControlActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Teal"/>
+            android:theme="@style/Teal"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
             android:name=".ui.components.lists_controls.AvatarCheckboxListControlActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Teal"/>
+            android:theme="@style/Teal"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
             android:name=".ui.components.lists_controls.IconSwitchListControlActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Teal"/>
+            android:theme="@style/Teal"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
             android:name=".ui.components.lists_controls.AvatarReorderListControlActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Teal"/>
+            android:theme="@style/Teal"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
             android:name=".ui.components.lists_controls.IconExpandListControlActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Teal"/>
+            android:theme="@style/Teal"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
             android:name=".ui.components.tabs.FixedTabBarActivity"
             android:label="@string/title_page_title"
@@ -125,7 +141,8 @@
         <activity
             android:name=".ui.components.subheaders.SampleListSubheaderActivity"
             android:label="@string/title_sample"
-            android:theme="@style/Grey50"/>
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
 
         <activity
             android:name=".ui.patterns.swipe_to_refresh.SampleSwipeToRefreshActivity"

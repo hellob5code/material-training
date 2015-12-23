@@ -48,7 +48,7 @@ public class AvatarReorderListControlActivity extends RecyclerActivity {
                     .id(i)
                     .avatarUrl(MODEL.getAvatarUrl())
                     .itemTouchHelper(itemTouchHelper)
-                    .text1(MODEL.getText1())
+                    .text1(MODEL.getText1() + " #" + i)
                     .action(new OnActionListener<AvatarReorderableItem>() {
                         @Override
                         public void onAction(View v, AvatarReorderableItem item) {
