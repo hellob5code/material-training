@@ -83,7 +83,7 @@ public class ListsControlsFragment extends BaseCardFragment {
         cards.add(new HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("Leave-behinds")
-                .button1("Sample", null) // TODO: Start LeaveBehindsListControlActivity.
+                .button1("Sample", null) // TODO: Write and start LeaveBehindsListControlActivity.
                 .build());
 
         getAdapter().swapData(cards);

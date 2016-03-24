@@ -55,11 +55,11 @@ public class TabsFragment extends BaseCardFragment {
                          PinnedTabBarActivity.start(getContext());
                     }
                 })
-                .button4("Inset search, app bar, and fixed tab bar", null)
+                .button4("Inset search, app bar, and fixed tab bar", null) // TODO: Write and start InsetSearchTabBarActivity.
                 .button5("Text color is the same as the tab indicator", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                         ColoredTabBarActivity.start(getContext());
+                        ColoredTabBarActivity.start(getContext());
                     }
                 })
                 .build());

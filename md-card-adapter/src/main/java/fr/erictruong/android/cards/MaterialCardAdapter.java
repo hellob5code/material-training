@@ -25,6 +25,19 @@ public class MaterialCardAdapter extends RecyclerView.Adapter {
     public static final int VIEW_TYPE_HEADLINE_PRIMARY_BODY1_SIX_BUTTON = 10;
     public static final int VIEW_TYPE_HEADLINE_PRIMARY_BODY2 = 11;
 
+    public static final int VIEW_TYPE_IMAGE_BODY1 = 20;
+    public static final int VIEW_TYPE_AVATAR_TITLE_SUBTITLE_IMAGE_BODY1_THREE_BUTTON = 25;
+    public static final int VIEW_TYPE_AVATAR_TITLE_SUBTITLE_IMAGE_BODY1_SIX_BUTTON = 30;
+    public static final int VIEW_TYPE_IMAGE_HEADLINE_SUBTITLE_BODY1_THREE_BUTTON_EXPAND = 35;
+    public static final int VIEW_TYPE_HEADLINE_SUBTITLE_BODY1_THREE_BUTTON = 40;
+    public static final int VIEW_TYPE_IMAGE_THREE_ICON = 45;
+    public static final int VIEW_TYPE_IMAGE_THREE_ICON_VERTICAL = 50;
+    public static final int VIEW_TYPE_BACKGROUND_HEADLINE_SUBTITLE_BODY1_THREE_BUTTON = 55;
+    public static final int VIEW_TYPE_IMAGE_HEADLINE_THREE_ICON = 60;
+    public static final int VIEW_TYPE_HEADLINE_SUBTITLE_IMAGE_THREE_BUTTON = 65;
+    public static final int VIEW_TYPE_HEADLINE_SUBTITLE_IMAGE_THREE_BUTTON_SMALL = 70;
+    public static final int VIEW_TYPE_HEADLINE_SUBTITLE_IMAGE_THREE_BUTTON_LARGE = 75;
+
     private List<MaterialCardItem> dataset = Collections.emptyList();
 
     public MaterialCardAdapter() {

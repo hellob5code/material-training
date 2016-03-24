@@ -69,6 +69,11 @@
             android:label="@string/title_settings"/>
 
         <activity
+            android:name=".ui.components.cards.SampleCardActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
             android:name=".ui.components.lists.SampleListActivity"
             android:label="@string/title_sample"
             android:theme="@style/Grey50"
