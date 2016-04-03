@@ -1,3 +1,15 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
+    }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -43,6 +55,10 @@ android {
     lintOptions {
         abortOnError false
     }
+
+//    sourceSets {
+//        main.java.srcDirs += 'src/main/kotlin'
+//    }
 }
 
 dependencies {
@@ -51,6 +67,17 @@ dependencies {
     compile project(':md-list-adapter')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.anko:anko-common:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sqlite:$ankoVersion"
+    compile "org.jetbrains.anko:anko-design:$ankoVersion"
+    compile "org.jetbrains.anko:anko-percent:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sdk19:$ankoVersion"
+    compile "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-cardview-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-gridlayout-v7:$ankoVersion"
 
     compile "com.android.support:support-v4:$supportVersion"
     compile "com.android.support:appcompat-v7:$supportVersion"
@@ -65,17 +92,6 @@ dependencies {
     compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.jakewharton:butterknife:7.0.1'
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile "org.jetbrains.anko:anko-common:$ankoVersion"
-    compile "org.jetbrains.anko:anko-sqlite:$ankoVersion"
-    compile "org.jetbrains.anko:anko-design:$ankoVersion"
-    compile "org.jetbrains.anko:anko-percent:$ankoVersion"
-    compile "org.jetbrains.anko:anko-sdk19:$ankoVersion"
-    compile "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion"
-    compile "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion"
-    compile "org.jetbrains.anko:anko-cardview-v7:$ankoVersion"
-    compile "org.jetbrains.anko:anko-gridlayout-v7:$ankoVersion"
-
     testCompile "junit:junit:4.12"
     testCompile "org.mockito:mockito-core:1.10.19"
 
@@ -85,15 +101,5 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-core:2.2.1"
     androidTestCompile("com.android.support.test.espresso:espresso-contrib:2.2.1") {
         exclude group: 'com.android.support'
-    }
-}
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
     }
 }

@@ -1,8 +1,22 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
+    }
+}
+
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion "${rootProject.ext.buildToolsVersion}"
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -26,15 +40,22 @@ android {
     lintOptions {
         abortOnError false
     }
+
+//    sourceSets {
+//        main.java.srcDirs += 'src/main/kotlin'
+//    }
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
-
     compile project(':core')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
     compile "com.android.support:cardview-v7:${rootProject.ext.supportVersion}"
+
+    testCompile 'junit:junit:4.12'
 }
 
 // fr.erictruong:md-card-adapter

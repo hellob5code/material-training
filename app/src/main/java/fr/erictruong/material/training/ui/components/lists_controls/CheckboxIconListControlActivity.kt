@@ -24,12 +24,12 @@ class CheckboxIconListControlActivity : RecyclerActivity() {
 
         val items = ArrayList<MaterialListItem>(itemCount)
         for (i in 0..itemCount - 1) {
-            val item = CheckBoxIconItem.Builder()
-                    .id(i.toLong())
-                    .icon(R.drawable.ic_message_24dp_alpha54).text1(objectModel.text1)
-                    .action { v, item -> Snackbar.make(recyclerView, "Action #" + item.id, Snackbar.LENGTH_SHORT).show() }
-                    .actionPrimary({ v, item -> Snackbar.make(recyclerView, "Primary action #" + item.id, Snackbar.LENGTH_SHORT).show() })
-                    .build()
+            val item = CheckBoxIconItem(
+                    id = i.toLong(),
+                    icon = R.drawable.ic_message_24dp_alpha54,
+                    text1 = objectModel.text1,
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() },
+                    actionPrimary = { v, item -> Snackbar.make(recyclerView, "Primary action - " + item, Snackbar.LENGTH_SHORT).show() })
             items.add(item)
         }
         adapter.swapData(items)

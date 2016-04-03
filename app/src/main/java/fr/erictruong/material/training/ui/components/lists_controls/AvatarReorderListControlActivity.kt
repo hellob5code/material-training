@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
-import fr.erictruong.android.lists.item.AvatarReorderableItem
+import fr.erictruong.android.lists.item.AvatarReorderItem
 import fr.erictruong.android.lists.item.MaterialListItem
 import fr.erictruong.material.training.model.DummyModel
 import java.util.*
@@ -28,13 +28,12 @@ class AvatarReorderListControlActivity : RecyclerActivity() {
 
         val items = ArrayList<MaterialListItem>(itemCount)
         for (i in 0..itemCount - 1) {
-            val item = AvatarReorderableItem.Builder()
-                    .id(i.toLong())
-                    .avatarUrl(objectModel.avatarUrl)
-                    .itemTouchHelper(itemTouchHelper)
-                    .text1(objectModel.text1 + " #" + i)
-                    .action { v, item -> Snackbar.make(recyclerView, "Action #" + item.id, Snackbar.LENGTH_SHORT).show() }
-                    .build()
+            val item = AvatarReorderItem(
+                    id = i.toLong(),
+                    avatarUrl = objectModel.avatarUrl,
+                    text1 = objectModel.text1 + " #" + i,
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() },
+                    itemTouchHelper = itemTouchHelper)
             items.add(item)
         }
         adapter.swapData(items)

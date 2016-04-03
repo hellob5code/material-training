@@ -23,13 +23,12 @@ class AvatarCheckboxListControlActivity : RecyclerActivity() {
 
         val items = ArrayList<MaterialListItem>(itemCount)
         for (i in 0..itemCount - 1) {
-            val item = AvatarCheckBoxItem.Builder()
-                    .id(i.toLong())
-                    .avatarUrl(objectModel.avatarUrl)
-                    .text1(objectModel.text1)
-                    .action { v, item -> Snackbar.make(recyclerView, "Action #" + item.id, Snackbar.LENGTH_SHORT).show() }
-                    .actionSecondary { v, item -> Snackbar.make(recyclerView, "Secondary action #" + item.id, Snackbar.LENGTH_SHORT).show() }
-                    .build()
+            val item = AvatarCheckBoxItem(
+                    id = i.toLong(),
+                    avatarUrl = objectModel.avatarUrl,
+                    text1 = objectModel.text1,
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() },
+                    checkAction = { v, item -> Snackbar.make(recyclerView, "Secondary action - " + item, Snackbar.LENGTH_SHORT).show() })
             items.add(item)
         }
         adapter.swapData(items)
