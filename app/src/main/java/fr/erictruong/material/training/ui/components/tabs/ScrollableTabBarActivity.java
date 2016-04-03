@@ -15,8 +15,8 @@ import android.view.MenuInflater;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import fr.erictruong.material.training.R;
 import fr.erictruong.android.core.adapter.SimpleFragmentPagerAdapter;
+import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.DummyFragment;
 
 public class ScrollableTabBarActivity extends AppCompatActivity {
@@ -43,14 +43,14 @@ public class ScrollableTabBarActivity extends AppCompatActivity {
         toggle.syncState();
 
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment("Item one", DummyFragment.newInstance());
-        adapter.addFragment("Item two", DummyFragment.newInstance());
-        adapter.addFragment("Item three", DummyFragment.newInstance());
-        adapter.addFragment("Item four", DummyFragment.newInstance());
-        adapter.addFragment("Item five", DummyFragment.newInstance());
-        adapter.addFragment("Item six", DummyFragment.newInstance());
-        adapter.addFragment("Item seven", DummyFragment.newInstance());
-        adapter.addFragment("Item eight", DummyFragment.newInstance());
+        adapter.addFragment("Item one", new DummyFragment());
+        adapter.addFragment("Item two", new DummyFragment());
+        adapter.addFragment("Item three", new DummyFragment());
+        adapter.addFragment("Item four", new DummyFragment());
+        adapter.addFragment("Item five", new DummyFragment());
+        adapter.addFragment("Item six", new DummyFragment());
+        adapter.addFragment("Item seven", new DummyFragment());
+        adapter.addFragment("Item eight", new DummyFragment());
 
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);

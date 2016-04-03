@@ -47,9 +47,9 @@ public class ColoredTabBarActivity extends AppCompatActivity {
         toggle.syncState();
 
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment("Item one", DummyFragment.newInstance());
-        adapter.addFragment("Item two", DummyFragment.newInstance());
-        adapter.addFragment("Item three", DummyFragment.newInstance());
+        adapter.addFragment("Item one", new DummyFragment());
+        adapter.addFragment("Item two", new DummyFragment());
+        adapter.addFragment("Item three", new DummyFragment());
 
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);

@@ -20,8 +20,8 @@ import android.view.MenuInflater;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import fr.erictruong.material.training.R;
 import fr.erictruong.android.core.adapter.SimpleFragmentPagerAdapter;
+import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.DummyFragment;
 
 public class FixedTabBarIconsActivity extends AppCompatActivity {
@@ -48,9 +48,9 @@ public class FixedTabBarIconsActivity extends AppCompatActivity {
         toggle.syncState();
 
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment("Recents", DummyFragment.newInstance());
-        adapter.addFragment("Favorites", DummyFragment.newInstance());
-        adapter.addFragment("Nearby", DummyFragment.newInstance());
+        adapter.addFragment("Recents", new DummyFragment());
+        adapter.addFragment("Favorites", new DummyFragment());
+        adapter.addFragment("Nearby", new DummyFragment());
 
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);

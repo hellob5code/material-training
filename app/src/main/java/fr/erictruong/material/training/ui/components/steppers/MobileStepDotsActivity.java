@@ -24,7 +24,8 @@ public class MobileStepDotsActivity extends AppCompatActivity {
     @Bind(R.id.mobile_step_dots_toolbar) Toolbar toolbar;
     @Bind(R.id.mobile_step_dots_view_pager) ViewPager viewPager;
 
-    @Bind(R.id.mobile_step_dots_indicator) DotProgressBar indicator;
+    @Bind(R.id.mobile_step_dots_indicator)
+    DotProgressBar indicator;
     @Bind(R.id.mobile_step_dots_btn_back) Button btnBack;
     @Bind(R.id.mobile_step_dots_btn_next) Button btnNext;
 
@@ -45,13 +46,13 @@ public class MobileStepDotsActivity extends AppCompatActivity {
         toggle.syncState();
 
         final SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment("Page one", DummyFragment.newInstance());
-        adapter.addFragment("Page two", DummyFragment.newInstance());
-        adapter.addFragment("Page three", DummyFragment.newInstance());
-        adapter.addFragment("Page four", DummyFragment.newInstance());
-        adapter.addFragment("Page five", DummyFragment.newInstance());
-        adapter.addFragment("Page six", DummyFragment.newInstance());
-        adapter.addFragment("Page seven", DummyFragment.newInstance());
+        adapter.addFragment("Page one", new DummyFragment());
+        adapter.addFragment("Page two", new DummyFragment());
+        adapter.addFragment("Page three", new DummyFragment());
+        adapter.addFragment("Page four", new DummyFragment());
+        adapter.addFragment("Page five", new DummyFragment());
+        adapter.addFragment("Page six", new DummyFragment());
+        adapter.addFragment("Page seven", new DummyFragment());
 
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

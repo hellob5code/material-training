@@ -49,9 +49,9 @@ public class ColoredTabBarIconsActivity extends AppCompatActivity {
         toggle.syncState();
 
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(DummyFragment.newInstance());
-        adapter.addFragment(DummyFragment.newInstance());
-        adapter.addFragment(DummyFragment.newInstance());
+        adapter.addFragment(new DummyFragment());
+        adapter.addFragment(new DummyFragment());
+        adapter.addFragment(new DummyFragment());
 
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'spoon'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 def BOOLEAN = 'boolean'
 def STRING = 'String'
@@ -12,7 +13,7 @@ def BUILD_TIME = 'BUILD_TIME'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion "${rootProject.ext.buildToolsVersion}"
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "fr.erictruong.material.training"
@@ -26,46 +27,73 @@ android {
         buildConfigField STRING, GIT_SHA, "\"${rootProject.ext.gitSha}\""
         buildConfigField STRING, BUILD_TIME, "\"${rootProject.ext.buildTime}\""
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
     lintOptions {
         abortOnError false
     }
 }
 
 dependencies {
-    androidTestCompile "com.android.support:support-annotations:${rootProject.ext.supportVersion}"
-    androidTestCompile 'com.android.support.test:runner:0.4.1'
-    androidTestCompile 'com.android.support.test:rules:0.4.1'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
-    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.1') {
-        exclude module: 'recyclerview-v7' // TODO: Version conflict, remove exclusion eventually.
-        exclude module: 'support-v4' // TODO: Version conflict, remove exclusion eventually.
-    }
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.2.1'
-
-    testCompile 'junit:junit:4.12'
-
     compile project(':core')
     compile project(':md-card-adapter')
     compile project(':md-list-adapter')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
-    compile "com.android.support:design:${rootProject.ext.supportVersion}"
-    compile "com.android.support:cardview-v7:${rootProject.ext.supportVersion}"
-    compile "com.android.support:recyclerview-v7:${rootProject.ext.supportVersion}"
 
-    compile "com.jakewharton:butterknife:${rootProject.ext.butterknifeVersion}"
+    compile "com.android.support:support-v4:$supportVersion"
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
+    compile "com.android.support:recyclerview-v7:$supportVersion"
+    compile "com.android.support:cardview-v7:$supportVersion"
 
-    compile "com.squareup.okhttp:okhttp:${rootProject.ext.okhttpVersion}"
-    compile "com.squareup.picasso:picasso:${rootProject.ext.picassoVersion}"
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile 'com.jakewharton.timber:timber:4.1.2'
+    compile 'com.jakewharton:butterknife:7.0.1'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.anko:anko-common:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sqlite:$ankoVersion"
+    compile "org.jetbrains.anko:anko-design:$ankoVersion"
+    compile "org.jetbrains.anko:anko-percent:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sdk19:$ankoVersion"
+    compile "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-cardview-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-gridlayout-v7:$ankoVersion"
+
+    testCompile "junit:junit:4.12"
+    testCompile "org.mockito:mockito-core:1.10.19"
+
+    androidTestCompile "com.android.support:support-annotations:$supportVersion"
+    androidTestCompile "com.android.support.test:runner:0.4.1"
+    androidTestCompile "com.android.support.test:rules:0.4.1"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:2.2.1"
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:2.2.1") {
+        exclude group: 'com.android.support'
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"
+    }
 }

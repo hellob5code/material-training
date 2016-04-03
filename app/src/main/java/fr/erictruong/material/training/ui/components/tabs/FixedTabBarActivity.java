@@ -15,8 +15,8 @@ import android.view.MenuInflater;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import fr.erictruong.material.training.R;
 import fr.erictruong.android.core.adapter.SimpleFragmentPagerAdapter;
+import fr.erictruong.material.training.R;
 import fr.erictruong.material.training.ui.core.DummyFragment;
 
 public class FixedTabBarActivity extends AppCompatActivity {
@@ -43,9 +43,9 @@ public class FixedTabBarActivity extends AppCompatActivity {
         toggle.syncState();
 
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment("Item one", DummyFragment.newInstance());
-        adapter.addFragment("Item two", DummyFragment.newInstance());
-        adapter.addFragment("Item three", DummyFragment.newInstance());
+        adapter.addFragment("Item one", new DummyFragment());
+        adapter.addFragment("Item two", new DummyFragment());
+        adapter.addFragment("Item three", new DummyFragment());
 
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);

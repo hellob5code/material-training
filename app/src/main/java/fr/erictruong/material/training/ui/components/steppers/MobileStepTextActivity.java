@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import butterknife.Bind;
-import butterknife.BindDimen;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import fr.erictruong.android.core.adapter.SimpleFragmentPagerAdapter;
@@ -47,13 +46,13 @@ public class MobileStepTextActivity extends AppCompatActivity {
         toggle.syncState();
 
         final SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment("Page one", DummyFragment.newInstance());
-        adapter.addFragment("Page two", DummyFragment.newInstance());
-        adapter.addFragment("Page three", DummyFragment.newInstance());
-        adapter.addFragment("Page four", DummyFragment.newInstance());
-        adapter.addFragment("Page five", DummyFragment.newInstance());
-        adapter.addFragment("Page six", DummyFragment.newInstance());
-        adapter.addFragment("Page seven", DummyFragment.newInstance());
+        adapter.addFragment("Page one", new DummyFragment());
+        adapter.addFragment("Page two", new DummyFragment());
+        adapter.addFragment("Page three", new DummyFragment());
+        adapter.addFragment("Page four", new DummyFragment());
+        adapter.addFragment("Page five", new DummyFragment());
+        adapter.addFragment("Page six", new DummyFragment());
+        adapter.addFragment("Page seven", new DummyFragment());
 
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
