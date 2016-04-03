@@ -19,6 +19,7 @@
     <dimen name="text_size_xxlarge">80sp</dimen>
 
     <!-- Grids, keylines and rhythm -->
+    <dimen name="touch_target_32dp">32dp</dimen>
     <dimen name="touch_target_48dp">48dp</dimen>
     <dimen name="touch_target_56dp">56dp</dimen>
     <dimen name="touch_target_72dp">72dp</dimen>

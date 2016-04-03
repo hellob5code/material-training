@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.components.text_fields.RegisterContactActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/register_contact_fab_photo_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/keyline_1_material"
+        android:clickable="true"
+        android:src="@drawable/ic_photo_camera_white_24dp"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/register_contact_img_photo"
+        app:layout_anchorGravity="bottom|right|end"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.percent.PercentFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/register_contact_img_photo"
+                    android:background="@color/primary_material_light"
+                    android:scaleType="centerCrop"
+                    app:layout_aspectRatio="@fraction/aspectRatio_16_9"
+                    app:layout_widthPercent="100%"/>
+            </android.support.percent.PercentFrameLayout>
+
+            <include layout="@layout/divider_horizontal"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/keyline_1_material"
+                android:layout_marginStart="@dimen/keyline_1_material"
+                android:layout_marginTop="@dimen/margin_large"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <ImageView
+                    android:id="@+id/register_contact_img_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_person_black_24dp_alpha54"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@+id/register_contact_img_name"
+                    android:gravity="bottom"
+                    android:hint="@string/register_contact_hint_name"
+                    android:inputType="textPersonName|textCapWords"
+                    android:singleLine="true"
+                    tools:text="Person Name"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/keyline_1_material"
+                android:layout_marginStart="@dimen/keyline_1_material"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <ImageView
+                    android:id="@+id/register_contact_img_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_call_black_24dp_alpha54"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@+id/register_contact_img_phone"
+                    android:layout_toStartOf="@+id/register_contact_edt_phone_type"
+                    android:gravity="bottom"
+                    android:hint="@string/register_contact_hint_phone"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    tools:text="555-5555-555"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_phone_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp_alpha54"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:inputType="none"
+                    android:minWidth="128dp"
+                    android:singleLine="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/keyline_1_material"
+                android:layout_marginStart="@dimen/keyline_1_material"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <ImageView
+                    android:id="@+id/register_contact_img_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_email_black_24dp_alpha54"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@+id/register_contact_img_email"
+                    android:layout_toStartOf="@+id/register_contact_edt_email_type"
+                    android:gravity="bottom"
+                    android:hint="@string/register_contact_hint_email"
+                    android:inputType="textWebEmailAddress"
+                    android:singleLine="true"
+                    tools:text="email@mail.com"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_email_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp_alpha54"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:inputType="none"
+                    android:minWidth="128dp"
+                    android:singleLine="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/keyline_1_material"
+                android:layout_marginStart="@dimen/keyline_1_material"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <ImageView
+                    android:id="@+id/register_contact_img_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_place_black_24dp_alpha54"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@+id/register_contact_img_address"
+                    android:layout_toStartOf="@+id/register_contact_edt_address_type"
+                    android:gravity="bottom"
+                    android:hint="@string/register_contact_hint_address"
+                    android:inputType="textPostalAddress"
+                    android:singleLine="true"
+                    tools:text="518 Bacon Drive, Eggs Hills, CA"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_address_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp_alpha54"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:inputType="none"
+                    android:minWidth="128dp"
+                    android:singleLine="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/keyline_1_material"
+                android:layout_marginStart="@dimen/keyline_1_material"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <ImageView
+                    android:id="@+id/register_contact_img_ringtone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_volume_up_black_24dp_alpha54"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_ringtone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@+id/register_contact_img_ringtone"
+                    android:gravity="bottom"
+                    android:hint="@string/register_contact_hint_ringtone"
+                    android:singleLine="true"
+                    tools:text="Dring"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/keyline_1_material"
+                android:layout_marginStart="@dimen/keyline_1_material"
+                android:minHeight="@dimen/touch_target_48dp">
+
+                <ImageView
+                    android:id="@+id/register_contact_img_add_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_add_black_24dp_alpha54"/>
+
+                <EditText
+                    android:id="@+id/register_contact_edt_add_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@+id/register_contact_img_add_note"
+                    android:gravity="bottom"
+                    android:hint="@string/register_contact_hint_add_note"
+                    android:inputType="textMultiLine"
+                    tools:text="I am a short note."/>
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

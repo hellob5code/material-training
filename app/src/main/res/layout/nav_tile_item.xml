@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:minHeight="@dimen/touch_target_48dp"
+    android:paddingLeft="@dimen/keyline_1_material"
+    android:paddingTop="@dimen/padding_medium"
+    android:paddingRight="@dimen/keyline_1_material"
+    android:paddingBottom="@dimen/padding_medium"
+    android:textColor="@color/material_text"
+    android:textSize="@dimen/text_size_normal"
+    android:fontFamily="sans-serif-medium"
+    tools:text="Single-line item"/>

@@ -3,8 +3,7 @@
 
     <string name="app_name">Material Training</string>
 
-
-    <!-- Accessibility Description -->
+    <!-- Accessibility Descriptions -->
     <string name="access_navigation_drawer_open">Open navigation drawer</string>
     <string name="access_navigation_drawer_close">Close navigation drawer</string>
 
@@ -13,105 +12,159 @@
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
 
-    <!-- Navigation Drawer -->
-    <string name="navigation_drawer_group_material_design">Material Design</string>
-    <string name="navigation_drawer_item_introduction">Introduction</string>
+    <!-- Navigation Menu Titles -->
+    <string name="title_material_design">Material Design</string>
+    <string name="title_material_design_introduction">Introduction</string>
 
-    <string name="navigation_drawer_group_what_is_material">What is material?</string>
-    <string name="navigation_drawer_item_environment">Environment</string>
-    <string name="navigation_drawer_item_material_properties">Material properties</string>
-    <string name="navigation_drawer_item_elevation_and_shadows">Elevation and shadows</string>
+    <string name="title_what_is_material">What is material?</string>
+    <string name="title_what_is_material_environment">Environment</string>
+    <string name="title_what_is_material_material_properties">Material properties</string>
+    <string name="title_what_is_material_elevation_shadows">Elevation and shadows</string>
 
-    <string name="navigation_drawer_group_animation">Animation</string>
-    <string name="navigation_drawer_item_authentic_motion">Authentic motion</string>
-    <string name="navigation_drawer_item_responsive_interaction">Responsive interaction</string>
-    <string name="navigation_drawer_item_meaningful_transitions">Meaningful transitions</string>
-    <string name="navigation_drawer_item_delightful_details">Delightful details</string>
+    <string name="title_motion">Motion</string>
+    <string name="title_motion_material_motion">Material motion</string>
+    <string name="title_motion_duration_easing">Duration and easing</string>
+    <string name="title_motion_movement">Movement</string>
+    <string name="title_motion_transforming_material">Transforming material</string>
+    <string name="title_motion_choreography">Choreography</string>
+    <string name="title_motion_creative_customization">Creative customization</string>
 
-    <string name="navigation_drawer_group_style">Style</string>
-    <string name="navigation_drawer_item_color">Color</string>
-    <string name="navigation_drawer_item_icons">Icons</string>
-    <string name="navigation_drawer_item_imagery">Imagery</string>
-    <string name="navigation_drawer_item_typography">Typography</string>
-    <string name="navigation_drawer_item_writing">Writing</string>
+    <string name="title_style">Style</string>
+    <string name="title_style_color">Color</string>
+    <string name="title_style_icons">Icons</string>
+    <string name="title_style_imagery">Imagery</string>
+    <string name="title_style_typography">Typography</string>
+    <string name="title_style_writing">Writing</string>
 
-    <string name="navigation_drawer_group_layout">Layout</string>
-    <string name="navigation_drawer_item_principles">Principles</string>
-    <string name="navigation_drawer_item_units_and_measurements">Units and measurements</string>
-    <string name="navigation_drawer_item_metrics_and_keylines">Metrics &amp; keylines</string>
-    <string name="navigation_drawer_item_structure">Structure</string>
-    <string name="navigation_drawer_item_adaptive_ui">Adaptive UI</string>
+    <string name="title_layout">Layout</string>
+    <string name="title_layout_principles">Principles</string>
+    <string name="title_layout_units_measurements">Units and measurements</string>
+    <string name="title_layout_metrics_keylines">Metrics &amp; keylines</string>
+    <string name="title_layout_structure">Structure</string>
+    <string name="title_layout_responsive_ui">Responsive UI</string>
+    <string name="title_layout_split_screen">Split screen</string>
 
-    <string name="navigation_drawer_group_components">Components</string>
-    <string name="navigation_drawer_item_bottom_sheets">Bottom sheets</string>
-    <string name="navigation_drawer_item_buttons">Buttons</string>
-    <string name="navigation_drawer_item_buttons_floating_action_button">Buttons: Floating Action Button</string>
-    <string name="navigation_drawer_item_cards">Cards</string>
-    <string name="navigation_drawer_item_chips">Chips</string>
-    <string name="navigation_drawer_item_data_tables">Data tables</string>
-    <string name="navigation_drawer_item_dialogs">Dialogs</string>
-    <string name="navigation_drawer_item_dividers">Dividers</string>
-    <string name="navigation_drawer_item_grid_lists">Grid Lists</string>
-    <string name="navigation_drawer_item_lists">Lists</string>
-    <string name="navigation_drawer_item_lists_controls">Lists: Controls</string>
-    <string name="navigation_drawer_item_menus">Menus</string>
-    <string name="navigation_drawer_item_pickers">Pickers</string>
-    <string name="navigation_drawer_item_progress_and_activity">Progress &amp; activity</string>
-    <string name="navigation_drawer_item_selection_controls">Selection controls</string>
-    <string name="navigation_drawer_item_sliders">Sliders</string>
-    <string name="navigation_drawer_item_snackbars_and_toasts">Snackbars &amp; toasts</string>
-    <string name="navigation_drawer_item_subheaders">Subheaders</string>
-    <string name="navigation_drawer_item_steppers">Steppers</string>
-    <string name="navigation_drawer_item_tabs">Tabs</string>
-    <string name="navigation_drawer_item_text_fields">Text fields</string>
-    <string name="navigation_drawer_item_toolbars">Toolbars</string>
-    <string name="navigation_drawer_item_tooltips">Tooltips</string>
+    <string name="title_components">Components</string>
+    <string name="title_components_bottom_navigation">Bottom navigation</string>
+    <string name="title_components_bottom_sheets">Bottom sheets</string>
+    <string name="title_components_buttons">Buttons</string>
+    <string name="title_components_buttons_floating_action_button">Buttons: Floating Action Button</string>
+    <string name="title_components_cards">Cards</string>
+    <string name="title_components_chips">Chips</string>
+    <string name="title_components_data_tables">Data tables</string>
+    <string name="title_components_dialogs">Dialogs</string>
+    <string name="title_components_dividers">Dividers</string>
+    <string name="title_components_expansion_panels">Expansion panels</string>
+    <string name="title_components_grid_lists">Grid Lists</string>
+    <string name="title_components_lists">Lists</string>
+    <string name="title_components_lists_controls">Lists: Controls</string>
+    <string name="title_components_menus">Menus</string>
+    <string name="title_components_pickers">Pickers</string>
+    <string name="title_components_progress_activity">Progress &amp; activity</string>
+    <string name="title_components_selection_controls">Selection controls</string>
+    <string name="title_components_sliders">Sliders</string>
+    <string name="title_components_snackbars_toasts">Snackbars &amp; toasts</string>
+    <string name="title_components_subheaders">Subheaders</string>
+    <string name="title_components_steppers">Steppers</string>
+    <string name="title_components_tabs">Tabs</string>
+    <string name="title_components_text_fields">Text fields</string>
+    <string name="title_components_toolbars">Toolbars</string>
+    <string name="title_components_tooltips">Tooltips</string>
 
-    <string name="navigation_drawer_group_patterns">Patterns</string>
-    <string name="navigation_drawer_item_app_structure">App structure</string>
-    <string name="navigation_drawer_item_data_formats">Data formats</string>
-    <string name="navigation_drawer_item_empty_states">Empty states</string>
-    <string name="navigation_drawer_item_errors">Errors</string>
-    <string name="navigation_drawer_item_gestures">Gestures</string>
-    <string name="navigation_drawer_item_fingerprint">Fingerprint</string>
-    <string name="navigation_drawer_item_launch_screens">Launch screens</string>
-    <string name="navigation_drawer_item_loading_images">Loading images</string>
-    <string name="navigation_drawer_item_navigation">Navigation</string>
-    <string name="navigation_drawer_item_navigation_drawer">Navigation drawer</string>
-    <string name="navigation_drawer_item_navigational_transitions">Navigational transitions</string>
-    <string name="navigation_drawer_item_notifications">Notifications</string>
-    <string name="navigation_drawer_item_scrolling_techniques">Scrolling techniques</string>
-    <string name="navigation_drawer_item_search">Search</string>
-    <string name="navigation_drawer_item_selection">Selection</string>
-    <string name="navigation_drawer_item_settings">Settings</string>
-    <string name="navigation_drawer_item_swipe_to_refresh">Swipe to refresh</string>
+    <string name="title_patterns">Patterns</string>
+    <string name="title_patterns_data_formats">Data formats</string>
+    <string name="title_patterns_empty_states">Empty states</string>
+    <string name="title_patterns_errors">Errors</string>
+    <string name="title_patterns_gestures">Gestures</string>
+    <string name="title_patterns_fingerprint">Fingerprint</string>
+    <string name="title_patterns_launch_screens">Launch screens</string>
+    <string name="title_patterns_loading_images">Loading images</string>
+    <string name="title_patterns_navigation">Navigation</string>
+    <string name="title_patterns_navigation_drawer">Navigation drawer</string>
+    <string name="title_patterns_navigational_transitions">Navigational transitions</string>
+    <string name="title_patterns_notifications">Notifications</string>
+    <string name="title_patterns_permissions">Permissions</string>
+    <string name="title_patterns_scrolling_techniques">Scrolling techniques</string>
+    <string name="title_patterns_search">Search</string>
+    <string name="title_patterns_selection">Selection</string>
+    <string name="title_patterns_settings">Settings</string>
+    <string name="title_patterns_swipe_to_refresh">Swipe to refresh</string>
 
-    <string name="navigation_drawer_group_usability">Usability</string>
-    <string name="navigation_drawer_item_accessibility">Accessibility</string>
-    <string name="navigation_drawer_item_bidirectionality">Bidirectionality</string>
+    <string name="title_growth_communications">Growth &amp; communications</string>
+    <string name="title_growth_communications_introduction">Introduction</string>
+    <string name="title_growth_communications_onboarding">Onboarding</string>
+    <string name="title_growth_communications_feature_discovery">Feature discovery</string>
+    <string name="title_growth_communications_gesture_education">Gesture education</string>
 
-    <string name="navigation_drawer_group_resources">Resources</string>
-    <string name="navigation_drawer_item_color_palettes">Color palettes</string>
-    <string name="navigation_drawer_item_devices">Devices</string>
-    <string name="navigation_drawer_item_layout_templates">Layout templates</string>
-    <string name="navigation_drawer_item_roboto_and_noto_fonts">Roboto &amp; Noto fonts</string>
-    <string name="navigation_drawer_item_sticker_sheets_and_icons">Sticker sheets &amp; icons</string>
+    <string name="title_usability">Usability</string>
+    <string name="title_usability_accessibility">Accessibility</string>
+    <string name="title_usability_bidirectionality">Bidirectionality</string>
 
-    <string name="navigation_drawer_group_whats_new">What\'s new</string>
-    <string name="navigation_drawer_item_whats_new">What\'s new</string>
+    <string name="title_resources">Resources</string>
+    <string name="title_resources_color_palettes">Color palettes</string>
+    <string name="title_resources_devices">Devices</string>
+    <string name="title_resources_layout_templates">Layout templates</string>
+    <string name="title_resources_roboto_noto_fonts">Roboto &amp; Noto fonts</string>
+    <string name="title_resources_sticker_sheets_icons">Sticker sheets &amp; icons</string>
 
-    <string name="navigation_drawer_item_app_prefs">Settings</string>
-    <string name="navigation_drawer_item_developer_mode">Developer Mode</string>
+    <string name="title_whats_new">What\'s new</string>
+    <string name="title_whats_new_whats_new">What\'s new</string>
 
-    <!-- Settings Activity -->
-    <string name="title_settings">Settings</string>
-
-    <!-- About Activity -->
-    <string name="title_about">About</string>
-
+    <!--  -->
     <string name="title_sample">Sample</string>
     <string name="title_page_title">Page title</string>
 
-    <string name="aaa">Step %1$d of %2$d</string>
+    <!-- Register Application Activity -->
+    <string name="title_activity_register_application">Application</string>
+    <string name="register_application_hint_title">Title</string>
+    <string name="register_application_hint_price">Price</string>
+    <string name="register_application_hint_location">Location (optional)</string>
+    <string name="register_application_hint_description">Description</string>
+
+    <!-- Register Application Activity -->
+    <string name="title_activity_register_reminder">Reminder</string>
+    <string name="register_reminder_hint_title">Title</string>
+    <string name="register_reminder_hint_description">Description</string>
+
+    <!-- Register Event Activity -->
+    <string name="title_activity_register_event">Event</string>
+    <string name="register_event_hint_title">Event name</string>
+    <string name="register_event_hint_from">From</string>
+    <string name="register_event_hint_location">Location</string>
+    <string name="register_event_hint_to">To</string>
+    <string name="register_event_hint_timezone">Timezone</string>
+    <string name="register_event_txt_all_day">All day</string>
+
+    <!-- Register Contact Activity -->
+    <string name="title_activity_register_contact">Contact</string>
+    <string name="register_contact_hint_name">Full Name</string>
+    <string name="register_contact_hint_phone">Phone number</string>
+    <string name="register_contact_hint_email">Email</string>
+    <string name="register_contact_hint_address">Address</string>
+    <string name="register_contact_hint_ringtone">Ringtone</string>
+    <string name="register_contact_hint_add_note">Add note</string>
+
+    <!-- Compose Email Activity -->
+    <string name="title_activity_compose_email">Compose</string>
+    <string name="compose_email_hint_from">From</string>
+    <string name="compose_email_hint_message">Message</string>
+    <string name="compose_email_hint_subject">Subject</string>
+    <string name="compose_email_hint_to">To</string>
+
+    <!-- Register Note Activity -->
+    <string name="title_activity_register_note">Note</string>
+    <string name="register_note_hint_title">Title</string>
+    <string name="register_note_hint_description">Description</string>
+    <string name="register_note_hint_extra">More descriptive text</string>
+
+    <!-- Register DMV Application Activity -->
+    <string name="title_activity_register_dmv_application">DMV Application</string>
+    <string name="register_dmv_application_headline">Personal info</string>
+    <string name="register_dmv_application_hint_first_name">Legal first name *</string>
+    <!-- TODO: Use <string name="register_dmv_application_hint_first_name">Legal first name &lt;font color=\'#f44336\'>*&lt;/font></string> -->
+    <string name="register_dmv_application_hint_middle_name">Legal middle name</string>
+    <string name="register_dmv_application_hint_last_name">Legal last name *</string>
+    <!-- TODO: Use <string name="register_dmv_application_hint_last_name">Legal last name &lt;font color=\'#f44336\'>*&lt;/font></string> -->
+    <string name="register_dmv_application_required_legend">* indicates required field</string>
 
 </resources>

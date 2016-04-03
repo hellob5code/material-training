@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.components.text_fields.ComposeEmailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_medium">
+
+        <EditText
+            android:id="@+id/compose_email_edt_from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1_material"
+            android:layout_marginStart="@dimen/keyline_1_material"
+            android:background="@null"
+            android:drawableEnd="@drawable/ic_arrow_drop_down_black_24dp_alpha54"
+            android:drawablePadding="@dimen/padding_small"
+            android:inputType="textEmailAddress"
+            android:minHeight="@dimen/touch_target_56dp"
+            android:singleLine="true"
+            tools:text="email@mail.com"/>
+
+        <include layout="@layout/divider_horizontal"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1_material"
+            android:layout_marginStart="@dimen/keyline_1_material"
+            app:hintEnabled="false">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/compose_email_edt_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/compose_email_hint_to"
+                android:inputType="textWebEmailAddress"
+                android:minHeight="@dimen/touch_target_56dp"
+                tools:text="email@mail.com"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <include layout="@layout/divider_horizontal"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1_material"
+            android:layout_marginStart="@dimen/keyline_1_material"
+            app:hintEnabled="false">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/compose_email_edt_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/compose_email_hint_subject"
+                android:minHeight="@dimen/touch_target_56dp"
+                android:singleLine="true"
+                tools:text="Et est denique indoctum reprimique."/>
+        </android.support.design.widget.TextInputLayout>
+
+        <include layout="@layout/divider_horizontal"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_1_material"
+            android:layout_marginStart="@dimen/keyline_1_material"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:counterEnabled="true"
+            app:counterMaxLength="120"
+            app:hintEnabled="false">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/compose_email_edt_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="@string/compose_email_hint_message"
+                tools:text="Sea tation ignota no, mel et appellantur definitiones. In latine commune salutatus vim, duo hinc verear maiestatis ad. Vim nulla expetendis cu, eu everti facilis singulis cum. Facilis invidunt cum at. In zril quando graeco sed, dicat noster sanctus ad eam."/>
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

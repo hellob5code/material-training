@@ -10,7 +10,7 @@ import fr.erictruong.android.core.R;
 
 public abstract class RecyclerActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+     RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

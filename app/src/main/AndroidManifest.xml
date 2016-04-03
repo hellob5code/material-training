@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fr.erictruong.material.training">
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="fr.erictruong.material.training">
 
     <application
         android:allowBackup="true"
@@ -12,72 +8,74 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".ui.MainActivity"
-            android:label="@string/app_name"
-            android:noHistory="true">
+            android:name=".MainActivity"
+            android:noHistory="true"
+            android:theme="@style/LaunchScreen.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.material_design.MaterialDesignActivity"
-            android:theme="@style/Cyan.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/Cyan.NoActionBar"/>
         <activity
             android:name=".ui.what_is_material.WhatIsMaterialActivity"
-            android:theme="@style/LightBlue.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/LightBlue.NoActionBar"/>
         <activity
-            android:name=".ui.animation.AnimationActivity"
-            android:theme="@style/Purple.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:name=".ui.motion.MotionActivity"
+            android:theme="@style/Purple.NoActionBar"/>
         <activity
             android:name=".ui.style.StyleActivity"
-            android:theme="@style/Teal.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/Teal.NoActionBar"/>
         <activity
             android:name=".ui.layout.LayoutActivity"
-            android:theme="@style/Pink.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/Pink.NoActionBar"/>
         <activity
             android:name=".ui.components.ComponentsActivity"
-            android:theme="@style/Indigo.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/Indigo.NoActionBar"/>
         <activity
             android:name=".ui.patterns.PatternsActivity"
-            android:theme="@style/Orange.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/Orange.NoActionBar"/>
+        <activity
+            android:name=".ui.growth_communications.GrowthCommunicationsActivity"
+            android:theme="@style/Orange.NoActionBar"/>
         <activity
             android:name=".ui.usability.UsabilityActivity"
-            android:theme="@style/BlueGrey.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/BlueGrey.NoActionBar"/>
         <activity
             android:name=".ui.resources.ResourcesActivity"
-            android:theme="@style/LightBlue.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/LightBlue.NoActionBar"/>
         <activity
             android:name=".ui.whats_new.WhatsNewActivity"
-            android:theme="@style/LightBlue.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:theme="@style/LightBlue.NoActionBar"/>
+
+        <!-- Lists -->
 
         <activity
-            android:name=".ui.SettingsActivity"
-            android:label="@string/title_settings"/>
-
-        <activity
-            android:name=".ui.components.cards.SampleCardActivity"
+            android:name=".ui.components.lists.TextListActivity"
             android:label="@string/title_sample"
             android:theme="@style/Grey50"
             android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
-            android:name=".ui.components.lists.SampleListActivity"
+            android:name=".ui.components.lists.IconListActivity"
             android:label="@string/title_sample"
             android:theme="@style/Grey50"
             android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.lists.AvatarListActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.lists.AvatarIconListActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+
+        <!-- Lists Controls -->
+
         <activity
             android:name=".ui.components.lists_controls.CheckboxIconListControlActivity"
             android:label="@string/title_sample"
@@ -103,6 +101,17 @@
             android:label="@string/title_sample"
             android:theme="@style/Teal"
             android:parentActivityName=".ui.components.ComponentsActivity"/>
+
+        <!-- SubheadersFragment -->
+
+        <activity
+            android:name=".ui.components.subheaders.SampleListSubheaderActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+
+        <!-- Tabs -->
+
         <activity
             android:name=".ui.components.tabs.FixedTabBarActivity"
             android:label="@string/title_page_title"
@@ -131,27 +140,76 @@
             android:name=".ui.components.tabs.ColoredTabBarIconsActivity"
             android:label="@string/title_page_title"
             android:theme="@style/Grey50.NoActionBar"/>
+
+        <!-- Text Fields -->
+
         <activity
-            android:name=".ui.components.steppers.MobileStepTextActivity"
-            android:label="@string/title_sample"
-            android:theme="@style/LightBlue.NoActionBar"/>
+            android:name=".ui.components.text_fields.RegisterApplicationActivity"
+            android:label="@string/title_activity_register_application"
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Indigo.ControlActivated"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".ui.components.steppers.MobileStepDotsActivity"
-            android:label="@string/title_sample"
-            android:theme="@style/LightBlue.NoActionBar"/>
+            android:name=".ui.components.text_fields.RegisterReminderActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Indigo.Cyan.NoActionBar"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".ui.components.steppers.MobileStepProgressBarActivity"
-            android:label="@string/title_sample"
-            android:theme="@style/LightBlue.NoActionBar"/>
+            android:name=".ui.components.text_fields.RegisterEventActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Teal.ControlActivated"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".ui.components.subheaders.SampleListSubheaderActivity"
-            android:label="@string/title_sample"
-            android:theme="@style/Grey50"
-            android:parentActivityName=".ui.components.ComponentsActivity"/>
+            android:name=".ui.components.text_fields.RegisterContactActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Indigo"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".ui.components.text_fields.ComposeEmailActivity"
+            android:label="@string/title_activity_compose_email"
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Pink"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".ui.components.text_fields.RegisterNoteActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Teal.ControlActivated"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".ui.components.text_fields.RegisterDmvApplicationActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Indigo.ControlActivated"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <!-- Toolbars -->
+
+        <activity
+            android:name=".ui.components.toolbars.ToolbarAboveActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Grey50.NoActionBar"/>
+        <activity
+            android:name=".ui.components.toolbars.ToolbarSameLevelActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Grey50.NoActionBar"/>
+        <activity
+            android:name=".ui.components.toolbars.ToolbarBelowActivity"
+            android:label=""
+            android:parentActivityName=".ui.components.ComponentsActivity"
+            android:theme="@style/Grey50.NoActionBar"/>
+
+        <!-- Swipe to Refresh -->
 
         <activity
             android:name=".ui.patterns.swipe_to_refresh.SampleSwipeToRefreshActivity"
             android:label="@string/title_sample"
             android:theme="@style/Grey50"/>
     </application>
+
 </manifest>

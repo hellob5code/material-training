@@ -1,3 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Core</string>
+
+    <string name="send">Send</string>
+    <string name="validate">Validate</string>
+    <string name="loading">Loading…</string>
+    <string name="empty">Empty :(</string>
+    <string name="discard">Discard</string>
+
+    <string name="confirm_discard_changes">Discard changes?</string>
+
+
 </resources>

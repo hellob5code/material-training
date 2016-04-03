@@ -1,333 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="@string/navigation_drawer_group_material_design">
+    <item
+        android:id="@+id/nav_material_design"
+        android:checkable="true"
+        android:title="@string/title_material_design">
         <menu>
             <group
                 android:id="@+id/group_material_design"
                 android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_introduction"
-                    android:title="@string/navigation_drawer_item_introduction"/>
+                    android:id="@+id/nav_material_design_introduction"
+                    android:title="@string/title_material_design_introduction"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_what_is_material">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_what_is_material"
+        android:checkable="true"
+        android:title="@string/title_what_is_material">
         <menu>
             <group
                 android:id="@+id/group_what_is_material"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_environment"
-                    android:title="@string/navigation_drawer_item_environment"/>
+                    android:id="@+id/nav_what_is_material_environment"
+                    android:title="@string/title_what_is_material_environment"/>
                 <item
-                    android:id="@+id/nav_material_properties"
-                    android:title="@string/navigation_drawer_item_material_properties"/>
+                    android:id="@+id/nav_what_is_material_material_properties"
+                    android:title="@string/title_what_is_material_material_properties"/>
                 <item
-                    android:id="@+id/nav_elevation_and_shadows"
-                    android:title="@string/navigation_drawer_item_elevation_and_shadows"/>
+                    android:id="@+id/nav_what_is_material_elevation_shadows"
+                    android:title="@string/title_what_is_material_elevation_shadows"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_animation">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_motion"
+        android:checkable="true"
+        android:title="@string/title_motion">
         <menu>
             <group
-                android:id="@+id/group_animation"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:id="@+id/group_motion"
+                android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_authentic_motion"
-                    android:title="@string/navigation_drawer_item_authentic_motion"/>
+                    android:id="@+id/nav_motion_material_motion"
+                    android:title="@string/title_motion_material_motion"/>
                 <item
-                    android:id="@+id/nav_responsive_interaction"
-                    android:title="@string/navigation_drawer_item_responsive_interaction"/>
+                    android:id="@+id/nav_motion_duration_easing"
+                    android:title="@string/title_motion_duration_easing"/>
                 <item
-                    android:id="@+id/nav_meaningful_transitions"
-                    android:title="@string/navigation_drawer_item_meaningful_transitions"/>
+                    android:id="@+id/nav_motion_movement"
+                    android:title="@string/title_motion_movement"/>
                 <item
-                    android:id="@+id/nav_delightful_details"
-                    android:title="@string/navigation_drawer_item_delightful_details"/>
+                    android:id="@+id/nav_motion_transforming_material"
+                    android:title="@string/title_motion_transforming_material"/>
+                <item
+                    android:id="@+id/nav_motion_choreography"
+                    android:title="@string/title_motion_choreography"/>
+                <item
+                    android:id="@+id/nav_motion_creative_customization"
+                    android:title="@string/title_motion_creative_customization"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_style">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_style"
+        android:checkable="true"
+        android:title="@string/title_style">
         <menu>
             <group
                 android:id="@+id/group_style"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_color"
-                    android:title="@string/navigation_drawer_item_color"/>
+                    android:id="@+id/nav_style_color"
+                    android:title="@string/title_style_color"/>
                 <item
-                    android:id="@+id/nav_icons"
-                    android:title="@string/navigation_drawer_item_icons"/>
+                    android:id="@+id/nav_style_icons"
+                    android:title="@string/title_style_icons"/>
                 <item
-                    android:id="@+id/nav_imagery"
-                    android:title="@string/navigation_drawer_item_imagery"/>
+                    android:id="@+id/nav_style_imagery"
+                    android:title="@string/title_style_imagery"/>
                 <item
-                    android:id="@+id/nav_typography"
-                    android:title="@string/navigation_drawer_item_typography"/>
+                    android:id="@+id/nav_style_typography"
+                    android:title="@string/title_style_typography"/>
                 <item
-                    android:id="@+id/nav_writing"
-                    android:title="@string/navigation_drawer_item_writing"/>
+                    android:id="@+id/nav_style_writing"
+                    android:title="@string/title_style_writing"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_layout">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_layout"
+        android:checkable="true"
+        android:title="@string/title_layout">
         <menu>
             <group
                 android:id="@+id/group_layout"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_principles"
-                    android:title="@string/navigation_drawer_item_principles"/>
+                    android:id="@+id/nav_layout_principles"
+                    android:title="@string/title_layout_principles"/>
                 <item
-                    android:id="@+id/nav_units_and_measurements"
-                    android:title="@string/navigation_drawer_item_units_and_measurements"/>
+                    android:id="@+id/nav_layout_units_measurements"
+                    android:title="@string/title_layout_units_measurements"/>
                 <item
-                    android:id="@+id/nav_metrics_and_keylines"
-                    android:title="@string/navigation_drawer_item_metrics_and_keylines"/>
+                    android:id="@+id/nav_layout_metrics_keylines"
+                    android:title="@string/title_layout_metrics_keylines"/>
                 <item
-                    android:id="@+id/nav_structure"
-                    android:title="@string/navigation_drawer_item_structure"/>
+                    android:id="@+id/nav_layout_structure"
+                    android:title="@string/title_layout_structure"/>
                 <item
-                    android:id="@+id/nav_adaptive_ui"
-                    android:title="@string/navigation_drawer_item_adaptive_ui"/>
+                    android:id="@+id/nav_layout_responsive_ui"
+                    android:title="@string/title_layout_responsive_ui"/>
+                <item
+                    android:id="@+id/nav_layout_split_screen"
+                    android:title="@string/title_layout_split_screen"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_components">
+    <item
+        android:id="@+id/nav_components"
+        android:checkable="true"
+        android:title="@string/title_components">
         <menu>
             <group
                 android:id="@+id/group_components"
                 android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_bottom_sheets"
-                    android:title="@string/navigation_drawer_item_bottom_sheets"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_bottom_navigation"
+                    android:title="@string/title_components_bottom_navigation"/>
                 <item
-                    android:id="@+id/nav_buttons"
-                    android:title="@string/navigation_drawer_item_buttons"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_bottom_sheets"
+                    android:title="@string/title_components_bottom_sheets"/>
                 <item
-                    android:id="@+id/nav_buttons_floating_action_button"
-                    android:title="@string/navigation_drawer_item_buttons_floating_action_button"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_buttons"
+                    android:title="@string/title_components_buttons"/>
                 <item
-                    android:id="@+id/nav_cards"
-                    android:title="@string/navigation_drawer_item_cards"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_buttons_floating_action_button"
+                    android:title="@string/title_components_buttons_floating_action_button"/>
                 <item
-                    android:id="@+id/nav_chips"
-                    android:title="@string/navigation_drawer_item_chips"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_cards"
+                    android:title="@string/title_components_cards"/>
                 <item
-                    android:id="@+id/nav_data_tables"
-                    android:title="@string/navigation_drawer_item_data_tables"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_chips"
+                    android:title="@string/title_components_chips"/>
                 <item
-                    android:id="@+id/nav_dialogs"
-                    android:title="@string/navigation_drawer_item_dialogs"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_data_tables"
+                    android:title="@string/title_components_data_tables"/>
                 <item
-                    android:id="@+id/nav_dividers"
-                    android:title="@string/navigation_drawer_item_dividers"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_dialogs"
+                    android:title="@string/title_components_dialogs"/>
                 <item
-                    android:id="@+id/nav_grid_lists"
-                    android:title="@string/navigation_drawer_item_grid_lists"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_dividers"
+                    android:title="@string/title_components_dividers"/>
                 <item
-                    android:id="@+id/nav_lists"
-                    android:title="@string/navigation_drawer_item_lists"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_expansion_panels"
+                    android:title="@string/title_components_expansion_panels"/>
                 <item
-                    android:id="@+id/nav_lists_controls"
-                    android:title="@string/navigation_drawer_item_lists_controls"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_grid_lists"
+                    android:title="@string/title_components_grid_lists"/>
                 <item
-                    android:id="@+id/nav_menus"
-                    android:title="@string/navigation_drawer_item_menus"
-                    android:visible="false"/>
+                    android:id="@+id/nav_components_lists"
+                    android:title="@string/title_components_lists"/>
                 <item
-                    android:id="@+id/nav_pickers"
-                    android:title="@string/navigation_drawer_item_pickers"
-                    android:visible="false"/>
+                    android:id="@+id/nav_components_lists_controls"
+                    android:title="@string/title_components_lists_controls"/>
                 <item
-                    android:id="@+id/nav_progress_and_activity"
-                    android:title="@string/navigation_drawer_item_progress_and_activity"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_menus"
+                    android:title="@string/title_components_menus"/>
                 <item
-                    android:id="@+id/nav_selection_controls"
-                    android:title="@string/navigation_drawer_item_selection_controls"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_pickers"
+                    android:title="@string/title_components_pickers"/>
                 <item
-                    android:id="@+id/nav_sliders"
-                    android:title="@string/navigation_drawer_item_sliders"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_progress_activity"
+                    android:title="@string/title_components_progress_activity"/>
                 <item
-                    android:id="@+id/nav_snackbars_and_toasts"
-                    android:title="@string/navigation_drawer_item_snackbars_and_toasts"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_selection_controls"
+                    android:title="@string/title_components_selection_controls"/>
                 <item
-                    android:id="@+id/nav_subheaders"
-                    android:title="@string/navigation_drawer_item_subheaders"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_sliders"
+                    android:title="@string/title_components_sliders"/>
                 <item
-                    android:id="@+id/nav_steppers"
-                    android:title="@string/navigation_drawer_item_steppers"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_snackbars_toasts"
+                    android:title="@string/title_components_snackbars_toasts"/>
                 <item
-                    android:id="@+id/nav_tabs"
-                    android:title="@string/navigation_drawer_item_tabs"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_steppers"
+                    android:title="@string/title_components_steppers"/>
                 <item
-                    android:id="@+id/nav_text_fields"
-                    android:title="@string/navigation_drawer_item_text_fields"
-                    android:visible="false"/>
+                    android:visible="false"
+                    android:id="@+id/nav_components_subheaders"
+                    android:title="@string/title_components_subheaders"/>
                 <item
-                    android:id="@+id/nav_toolbars"
-                    android:title="@string/navigation_drawer_item_toolbars"
-                    android:visible="false"/>
+                    android:id="@+id/nav_components_tabs"
+                    android:title="@string/title_components_tabs"/>
                 <item
-                    android:id="@+id/nav_tooltips"
-                    android:title="@string/navigation_drawer_item_tooltips"
-                    android:visible="false"/>
+                    android:id="@+id/nav_components_text_fields"
+                    android:title="@string/title_components_text_fields"/>
+                <item
+                    android:visible="false"
+                    android:id="@+id/nav_components_toolbars"
+                    android:title="@string/title_components_toolbars"/>
+                <item
+                    android:visible="false"
+                    android:id="@+id/nav_components_tooltips"
+                    android:title="@string/title_components_tooltips"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_patterns">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_patterns"
+        android:checkable="true"
+        android:title="@string/title_patterns">
         <menu>
             <group
                 android:id="@+id/group_patterns"
                 android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_app_structure"
-                    android:title="@string/navigation_drawer_item_app_structure"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_data_formats"
+                    android:title="@string/title_patterns_data_formats"/>
                 <item
-                    android:id="@+id/nav_data_formats"
-                    android:title="@string/navigation_drawer_item_data_formats"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_empty_states"
+                    android:title="@string/title_patterns_empty_states"/>
                 <item
-                    android:id="@+id/nav_empty_states"
-                    android:title="@string/navigation_drawer_item_empty_states"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_errors"
+                    android:title="@string/title_patterns_errors"/>
                 <item
-                    android:id="@+id/nav_errors"
-                    android:title="@string/navigation_drawer_item_errors"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_gestures"
+                    android:title="@string/title_patterns_gestures"/>
                 <item
-                    android:id="@+id/nav_gestures"
-                    android:title="@string/navigation_drawer_item_gestures"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_fingerprint"
+                    android:title="@string/title_patterns_fingerprint"/>
                 <item
-                    android:id="@+id/nav_fingerprint"
-                    android:title="@string/navigation_drawer_item_fingerprint"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_launch_screens"
+                    android:title="@string/title_patterns_launch_screens"/>
                 <item
-                    android:id="@+id/nav_launch_screens"
-                    android:title="@string/navigation_drawer_item_launch_screens"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_loading_images"
+                    android:title="@string/title_patterns_loading_images"/>
                 <item
-                    android:id="@+id/nav_loading_images"
-                    android:title="@string/navigation_drawer_item_loading_images"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_navigation"
+                    android:title="@string/title_patterns_navigation"/>
                 <item
-                    android:id="@+id/nav_navigation"
-                    android:title="@string/navigation_drawer_item_navigation"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_navigation_drawer"
+                    android:title="@string/title_patterns_navigation_drawer"/>
                 <item
-                    android:id="@+id/nav_navigation_drawer"
-                    android:title="@string/navigation_drawer_item_navigation_drawer"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_navigational_transitions"
+                    android:title="@string/title_patterns_navigational_transitions"/>
                 <item
-                    android:id="@+id/nav_navigational_transitions"
-                    android:title="@string/navigation_drawer_item_navigational_transitions"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_notifications"
+                    android:title="@string/title_patterns_notifications"/>
                 <item
-                    android:id="@+id/nav_notifications"
-                    android:title="@string/navigation_drawer_item_notifications"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_permissions"
+                    android:title="@string/title_patterns_permissions"/>
                 <item
-                    android:id="@+id/nav_scrolling_techniques"
-                    android:title="@string/navigation_drawer_item_scrolling_techniques"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_scrolling_techniques"
+                    android:title="@string/title_patterns_scrolling_techniques"/>
                 <item
-                    android:id="@+id/nav_search"
-                    android:title="@string/navigation_drawer_item_search"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_search"
+                    android:title="@string/title_patterns_search"/>
                 <item
-                    android:id="@+id/nav_selection"
-                    android:title="@string/navigation_drawer_item_selection"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_selection"
+                    android:title="@string/title_patterns_selection"/>
                 <item
-                    android:id="@+id/nav_settings"
-                    android:title="@string/navigation_drawer_item_settings"
-                    android:visible="false"/>
+                    android:id="@+id/nav_patterns_settings"
+                    android:title="@string/title_patterns_settings"/>
                 <item
-                    android:id="@+id/nav_swipe_to_refresh"
-                    android:title="@string/navigation_drawer_item_swipe_to_refresh"/>
+                    android:id="@+id/nav_patterns_swipe_to_refresh"
+                    android:title="@string/title_patterns_swipe_to_refresh"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_usability">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_growth_communications"
+        android:checkable="true"
+        android:title="@string/title_growth_communications">
+        <menu>
+            <group
+                android:id="@+id/group_growth_communications"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_growth_communications_introduction"
+                    android:title="@string/title_growth_communications_introduction"/>
+                <item
+                    android:id="@+id/nav_growth_communications_onboarding"
+                    android:title="@string/title_growth_communications_onboarding"/>
+                <item
+                    android:id="@+id/nav_growth_communications_feature_discovery"
+                    android:title="@string/title_growth_communications_feature_discovery"/>
+                <item
+                    android:id="@+id/nav_growth_communications_gesture_education"
+                    android:title="@string/title_growth_communications_gesture_education"/>
+            </group>
+        </menu>
+    </item>
+    <item
+        android:visible="false"
+        android:id="@+id/nav_usability"
+        android:checkable="true"
+        android:title="@string/title_usability">
         <menu>
             <group
                 android:id="@+id/group_usability"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_accessibility"
-                    android:title="@string/navigation_drawer_item_accessibility"/>
+                    android:id="@+id/nav_usability_accessibility"
+                    android:title="@string/title_usability_accessibility"/>
                 <item
-                    android:id="@+id/nav_bidirectionality"
-                    android:title="@string/navigation_drawer_item_bidirectionality"/>
+                    android:id="@+id/nav_usability_bidirectionality"
+                    android:title="@string/title_usability_bidirectionality"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_resources">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_resources"
+        android:checkable="true"
+        android:title="@string/title_resources">
         <menu>
             <group
                 android:id="@+id/group_resources"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_color_palettes"
-                    android:title="@string/navigation_drawer_item_color_palettes"/>
+                    android:id="@+id/nav_resources_color_palettes"
+                    android:title="@string/title_resources_color_palettes"/>
                 <item
-                    android:id="@+id/nav_devices"
-                    android:title="@string/navigation_drawer_item_devices"/>
+                    android:id="@+id/nav_resources_devices"
+                    android:title="@string/title_resources_devices"/>
                 <item
-                    android:id="@+id/nav_layout_templates"
-                    android:title="@string/navigation_drawer_item_layout_templates"/>
+                    android:id="@+id/nav_resources_layout_templates"
+                    android:title="@string/title_resources_layout_templates"/>
                 <item
-                    android:id="@+id/nav_roboto_and_noto_fonts"
-                    android:title="@string/navigation_drawer_item_roboto_and_noto_fonts"/>
+                    android:id="@+id/nav_resources_roboto_noto_fonts"
+                    android:title="@string/title_resources_roboto_noto_fonts"/>
                 <item
-                    android:id="@+id/nav_sticker_sheets_and_icons"
-                    android:title="@string/navigation_drawer_item_sticker_sheets_and_icons"/>
+                    android:id="@+id/nav_resources_sticker_sheets_icons"
+                    android:title="@string/title_resources_sticker_sheets_icons"/>
             </group>
         </menu>
     </item>
-    <item android:title="@string/navigation_drawer_group_whats_new">
+    <item
+        android:visible="false"
+        android:id="@+id/nav_whats_new"
+        android:checkable="true"
+        android:title="@string/title_whats_new">
         <menu>
             <group
                 android:id="@+id/group_whats_new"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_whats_new"
-                    android:title="@string/navigation_drawer_item_whats_new"/>
+                    android:id="@+id/nav_whats_new_whats_new"
+                    android:title="@string/title_whats_new_whats_new"/>
             </group>
         </menu>
     </item>
-    <group
-        android:id="@+id/group_options"
-        android:checkableBehavior="none">
-        <item
-            android:id="@+id/nav_app_prefs"
-            android:enabled="false"
-            android:title="@string/title_settings"/>
-        <item
-            android:id="@+id/nav_about"
-            android:enabled="false"
-            android:title="@string/title_about"/>
-    </group>
 </menu>
