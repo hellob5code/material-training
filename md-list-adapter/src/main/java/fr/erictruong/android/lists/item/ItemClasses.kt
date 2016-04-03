@@ -122,8 +122,8 @@ class CheckBoxIconItem(id: Long = NO_ID,
                        text2: CharSequence? = "",
                        text3: CharSequence? = "",
                        isChecked: Boolean = false,
-                       actionPrimary: (view: View, item: Checkable) -> Unit,
-                       override var icon: Int) : CheckBoxItem(id, viewType, action, text1, text2, text3, isChecked, actionPrimary), Iconable {
+                       checkAction: (view: View, item: Checkable) -> Unit,
+                       override var icon: Int) : CheckBoxItem(id, viewType, action, text1, text2, text3, isChecked, checkAction), Iconable {
 
     override fun toString(): String = "CheckBoxIconItem(id=$id, viewType=$viewType)"
 }
