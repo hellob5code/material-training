@@ -1,6 +1,5 @@
 package fr.erictruong.material.training.ui.components.lists_controls
 
-
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager

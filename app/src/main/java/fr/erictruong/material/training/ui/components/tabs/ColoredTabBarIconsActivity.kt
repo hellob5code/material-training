@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.activity_colored_tab_bar.colored_tab_bar_t
 import kotlinx.android.synthetic.main.activity_colored_tab_bar.colored_tab_bar_toolbar as toolbar
 import kotlinx.android.synthetic.main.activity_colored_tab_bar.colored_tab_bar_view_pager as viewPager
 
-
 class ColoredTabBarIconsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

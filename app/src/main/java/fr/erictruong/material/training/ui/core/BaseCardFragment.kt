@@ -21,7 +21,6 @@ abstract class BaseCardFragment : RecyclerFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView = recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
