@@ -93,8 +93,11 @@
                     android:id="@+id/nav_structure"
                     android:title="@string/navigation_drawer_item_structure"/>
                 <item
-                    android:id="@+id/nav_adaptive_ui"
-                    android:title="@string/navigation_drawer_item_adaptive_ui"/>
+                    android:id="@+id/nav_responsive_ui"
+                    android:title="@string/navigation_drawer_item_responsive_ui"/>
+                <item
+                    android:id="@+id/nav_split_screen"
+                    android:title="@string/navigation_drawer_item_split_screen"/>
             </group>
         </menu>
     </item>
@@ -103,6 +106,10 @@
             <group
                 android:id="@+id/group_components"
                 android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_bottom_navigation"
+                    android:title="@string/navigation_drawer_item_bottom_navigation"
+                    android:visible="false"/>
                 <item
                     android:id="@+id/nav_bottom_sheets"
                     android:title="@string/navigation_drawer_item_bottom_sheets"
@@ -198,10 +205,6 @@
                 android:id="@+id/group_patterns"
                 android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_app_structure"
-                    android:title="@string/navigation_drawer_item_app_structure"
-                    android:visible="false"/>
-                <item
                     android:id="@+id/nav_data_formats"
                     android:title="@string/navigation_drawer_item_data_formats"
                     android:visible="false"/>
@@ -244,6 +247,10 @@
                 <item
                     android:id="@+id/nav_notifications"
                     android:title="@string/navigation_drawer_item_notifications"
+                    android:visible="false"/>
+                <item
+                    android:id="@+id/nav_permissions"
+                    android:title="@string/navigation_drawer_item_permissions"
                     android:visible="false"/>
                 <item
                     android:id="@+id/nav_scrolling_techniques"

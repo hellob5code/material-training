@@ -40,9 +40,11 @@
     <string name="navigation_drawer_item_units_and_measurements">Units and measurements</string>
     <string name="navigation_drawer_item_metrics_and_keylines">Metrics &amp; keylines</string>
     <string name="navigation_drawer_item_structure">Structure</string>
-    <string name="navigation_drawer_item_adaptive_ui">Adaptive UI</string>
+    <string name="navigation_drawer_item_responsive_ui">Responsive UI</string>
+    <string name="navigation_drawer_item_split_screen">Split screen</string>
 
     <string name="navigation_drawer_group_components">Components</string>
+    <string name="navigation_drawer_item_bottom_navigation">Bottom navigation</string>
     <string name="navigation_drawer_item_bottom_sheets">Bottom sheets</string>
     <string name="navigation_drawer_item_buttons">Buttons</string>
     <string name="navigation_drawer_item_buttons_floating_action_button">Buttons: Floating Action Button</string>
@@ -68,7 +70,6 @@
     <string name="navigation_drawer_item_tooltips">Tooltips</string>
 
     <string name="navigation_drawer_group_patterns">Patterns</string>
-    <string name="navigation_drawer_item_app_structure">App structure</string>
     <string name="navigation_drawer_item_data_formats">Data formats</string>
     <string name="navigation_drawer_item_empty_states">Empty states</string>
     <string name="navigation_drawer_item_errors">Errors</string>
@@ -80,6 +81,7 @@
     <string name="navigation_drawer_item_navigation_drawer">Navigation drawer</string>
     <string name="navigation_drawer_item_navigational_transitions">Navigational transitions</string>
     <string name="navigation_drawer_item_notifications">Notifications</string>
+    <string name="navigation_drawer_item_permissions">Permissions</string>
     <string name="navigation_drawer_item_scrolling_techniques">Scrolling techniques</string>
     <string name="navigation_drawer_item_search">Search</string>
     <string name="navigation_drawer_item_selection">Selection</string>
