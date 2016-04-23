@@ -7,7 +7,9 @@ import fr.erictruong.android.cards.MaterialCardAdapter.VIEW_TYPE_HEADLINE_PRIMAR
 import fr.erictruong.android.cards.MaterialCardItem
 import fr.erictruong.android.cards.item.DisplayBodyItem
 import fr.erictruong.android.cards.item.HeadlineBodyItem
-import fr.erictruong.android.lists.holder.Holder
+import fr.erictruong.android.lists.holder.Holder.Companion.ONE_LINE
+import fr.erictruong.android.lists.holder.Holder.Companion.THREE_LINE
+import fr.erictruong.android.lists.holder.Holder.Companion.TWO_LINE
 import fr.erictruong.material.training.R
 import fr.erictruong.material.training.ui.core.BaseCardFragment
 import org.jetbrains.anko.startActivity
@@ -28,30 +30,30 @@ class ListsFragment : BaseCardFragment() {
         cards.add(HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("Text only")
-                .button1("Single-line") { ctx.startActivity<TextListActivity>(TextListActivity.LIST_VIEW_TYPE to Holder.ONE_LINE) }
-                .button2("Two-line") { ctx.startActivity<TextListActivity>(TextListActivity.LIST_VIEW_TYPE to Holder.TWO_LINE) }
-                .button3("Three-line") { ctx.startActivity<TextListActivity>(TextListActivity.LIST_VIEW_TYPE to Holder.THREE_LINE) }
+                .button1("Single-line") { ctx.startActivity<TextListActivity>("extra_list_view_type" to ONE_LINE) }
+                .button2("Two-line") { ctx.startActivity<TextListActivity>("extra_list_view_type" to TWO_LINE) }
+                .button3("Three-line") { ctx.startActivity<TextListActivity>("extra_list_view_type" to THREE_LINE) }
                 .build())
         cards.add(HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("Icon with text")
-                .button1("Single-line") { ctx.startActivity<IconListActivity>(IconListActivity.LIST_VIEW_TYPE to Holder.ONE_LINE) }
-                .button2("Two-line") { ctx.startActivity<IconListActivity>(IconListActivity.LIST_VIEW_TYPE to Holder.TWO_LINE) }
-                .button3("Three-line") { ctx.startActivity<IconListActivity>(IconListActivity.LIST_VIEW_TYPE to Holder.THREE_LINE) }
+                .button1("Single-line") { ctx.startActivity<IconListActivity>("extra_list_view_type" to ONE_LINE) }
+                .button2("Two-line") { ctx.startActivity<IconListActivity>("extra_list_view_type" to TWO_LINE) }
+                .button3("Three-line") { ctx.startActivity<IconListActivity>("extra_list_view_type" to THREE_LINE) }
                 .build())
         cards.add(HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("Avatar with text")
-                .button1("Single-line") { ctx.startActivity<AvatarListActivity>(AvatarListActivity.LIST_VIEW_TYPE to Holder.ONE_LINE) }
-                .button2("Two-line") { ctx.startActivity<AvatarListActivity>(AvatarListActivity.LIST_VIEW_TYPE to Holder.TWO_LINE) }
-                .button3("Three-line") { ctx.startActivity<AvatarListActivity>(AvatarListActivity.LIST_VIEW_TYPE to Holder.THREE_LINE) }
+                .button1("Single-line") { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to ONE_LINE) }
+                .button2("Two-line") { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to TWO_LINE) }
+                .button3("Three-line") { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to THREE_LINE) }
                 .build())
         cards.add(HeadlineBodyItem.Builder()
                 .viewType(VIEW_TYPE_HEADLINE_PRIMARY_BODY1_THREE_BUTTON)
                 .headline("Avatar with text and icon")
-                .button1("Single-line") { ctx.startActivity<AvatarIconListActivity>(AvatarIconListActivity.LIST_VIEW_TYPE to Holder.ONE_LINE) }
-                .button2("Two-line") { ctx.startActivity<AvatarIconListActivity>(AvatarIconListActivity.LIST_VIEW_TYPE to Holder.TWO_LINE) }
-                .button3("Three-line") { ctx.startActivity<AvatarIconListActivity>(AvatarIconListActivity.LIST_VIEW_TYPE to Holder.THREE_LINE) }
+                .button1("Single-line") { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to ONE_LINE) }
+                .button2("Two-line") { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to TWO_LINE) }
+                .button3("Three-line") { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to THREE_LINE) }
                 .build())
 
         adapter.swapData(cards)

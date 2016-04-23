@@ -15,10 +15,6 @@ import java.util.*
 
 class IconListActivity : RecyclerActivity() {
 
-    companion object {
-        val LIST_VIEW_TYPE = "extra_list_view_type"
-    }
-
     val itemCount = 42
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +23,7 @@ class IconListActivity : RecyclerActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val viewType = intent.getIntExtra(LIST_VIEW_TYPE, -1)
+        val viewType = intent.getIntExtra("extra_list_view_type", -1)
 
         val items = ArrayList<MaterialListItem>(itemCount)
         for (i in 0..itemCount - 1) {
@@ -43,33 +39,27 @@ class IconListActivity : RecyclerActivity() {
      */
     private fun mapItem(viewType: Int, model: DummyModel): MaterialListItem {
         when (viewType) {
-            Holder.ONE_LINE -> return mapOneLineItem(model)
-            Holder.TWO_LINE -> return mapTwoLineItem(model)
-            Holder.THREE_LINE -> return mapThreeLineItem(model)
+            Holder.ONE_LINE -> return IconItem(
+                    id = model.id,
+                    icon = R.drawable.gray,
+                    text1 = "Single-line item",
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+            Holder.TWO_LINE -> return IconItem(
+                    id = model.id,
+                    viewType = Holder.TWO_LINE,
+                    icon = R.drawable.gray,
+                    text1 = "Two-line item",
+                    text2 = model.text2,
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+            Holder.THREE_LINE -> return IconItem(
+                    id = model.id,
+                    viewType = Holder.THREE_LINE,
+                    icon = R.drawable.gray,
+                    text1 = "Three-line item",
+                    text2 = model.text2,
+                    text3 = model.text3,
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
             else -> throw IllegalArgumentException("Unknown view type: " + viewType)
         }
     }
-
-    private fun mapOneLineItem(model: DummyModel): MaterialListItem = IconItem(
-            id = model.id,
-            icon = R.drawable.gray,
-            text1 = "Single-line item",
-            action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
-
-    private fun mapTwoLineItem(model: DummyModel): MaterialListItem =  IconItem(
-            id = model.id,
-            viewType = Holder.TWO_LINE,
-            icon = R.drawable.gray,
-            text1 = "Two-line item",
-            text2 = model.text2,
-            action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
-
-    private fun mapThreeLineItem(model: DummyModel): MaterialListItem = IconItem(
-            id = model.id,
-            viewType = Holder.THREE_LINE,
-            icon = R.drawable.gray,
-            text1 = "Three-line item",
-            text2 = model.text2,
-            text3 = model.text3,
-            action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
 }
