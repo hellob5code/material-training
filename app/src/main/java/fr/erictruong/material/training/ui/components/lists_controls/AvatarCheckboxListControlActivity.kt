@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
+import fr.erictruong.android.lists.holder.AvatarCheckBoxViewHolder
 import fr.erictruong.android.lists.item.AvatarCheckBoxItem
 import fr.erictruong.android.lists.item.MaterialListItem
 import fr.erictruong.material.training.model.DummyModel
@@ -17,7 +18,7 @@ class AvatarCheckboxListControlActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter()
+        val adapter = MaterialListAdapter<AvatarCheckBoxViewHolder>()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 

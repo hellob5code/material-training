@@ -74,7 +74,22 @@
             android:theme="@style/Grey50"
             android:parentActivityName=".ui.components.ComponentsActivity"/>
         <activity
-            android:name=".ui.components.lists.SampleListActivity"
+            android:name=".ui.components.lists.TextListActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.lists.IconListActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.lists.AvatarListActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.lists.AvatarIconListActivity"
             android:label="@string/title_sample"
             android:theme="@style/Grey50"
             android:parentActivityName=".ui.components.ComponentsActivity"/>

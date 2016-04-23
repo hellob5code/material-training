@@ -3,17 +3,15 @@ package fr.erictruong.android.lists.item
 import android.support.annotation.DrawableRes
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
-import fr.erictruong.android.lists.MaterialListAdapter
+import fr.erictruong.android.lists.holder.Holder
 
-open class MaterialListItem(var id: Long,
-                            var viewType: Int,
-                            var action: (view: View, item: MaterialListItem) -> Unit) {
+abstract class MaterialListItem(var id: Long,
+                                @Holder.ViewType var viewType: Int,
+                                var action: (view: View, item: MaterialListItem) -> Unit) {
 
     companion object {
         val NO_ID: Long = -1
     }
-
-    override fun toString(): String = "MaterialListItem(id=$id, viewType=$viewType)"
 }
 
 // *********************
@@ -21,7 +19,7 @@ open class MaterialListItem(var id: Long,
 // *********************
 
 open class TextItem(id: Long = NO_ID,
-                    @MaterialListAdapter.TextViewType viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE,
+                    @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                     action: (view: View, item: MaterialListItem) -> Unit,
                     override var text1: CharSequence,
                     override var text2: CharSequence? = "",
@@ -31,7 +29,7 @@ open class TextItem(id: Long = NO_ID,
 }
 
 open class IconItem(id: Long = NO_ID,
-                    @MaterialListAdapter.IconViewType viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON,
+                    @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                     action: (view: View, item: MaterialListItem) -> Unit,
                     text1: CharSequence,
                     text2: CharSequence? = "",
@@ -42,7 +40,7 @@ open class IconItem(id: Long = NO_ID,
 }
 
 open class AvatarItem(id: Long = NO_ID,
-                      @MaterialListAdapter.AvatarViewType viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR,
+                      @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                       action: (view: View, item: MaterialListItem) -> Unit,
                       text1: CharSequence,
                       text2: CharSequence? = "",
@@ -53,7 +51,7 @@ open class AvatarItem(id: Long = NO_ID,
 }
 
 open class CheckBoxItem(id: Long = NO_ID,
-                        viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX,
+                        @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                         action: (view: View, item: MaterialListItem) -> Unit,
                         text1: CharSequence,
                         text2: CharSequence? = "",
@@ -65,7 +63,7 @@ open class CheckBoxItem(id: Long = NO_ID,
 }
 
 open class ReorderItem(id: Long = NO_ID,
-                       viewType: Int = 99, // TODO: Create real ID and replace current placeholder.
+                       @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                        action: (view: View, item: MaterialListItem) -> Unit,
                        text1: CharSequence,
                        text2: CharSequence? = "",
@@ -76,7 +74,7 @@ open class ReorderItem(id: Long = NO_ID,
 }
 
 class SwitchItem(id: Long = NO_ID,
-                 viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_SWITCH,
+                 @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                  action: (view: View, item: MaterialListItem) -> Unit,
                  text1: CharSequence,
                  text2: CharSequence? = "",
@@ -88,7 +86,7 @@ class SwitchItem(id: Long = NO_ID,
 }
 
 open class ExpandItem(id: Long = NO_ID,
-                      viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_EXPAND,
+                      @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                       action: (view: View, item: MaterialListItem) -> Unit,
                       text1: CharSequence,
                       text2: CharSequence? = "",
@@ -104,7 +102,7 @@ open class ExpandItem(id: Long = NO_ID,
 // *********************
 
 class AvatarIconItem(id: Long = NO_ID,
-                     @MaterialListAdapter.AvatarIconViewType viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_ICON,
+                     @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                      action: (view: View, item: MaterialListItem) -> Unit,
                      text1: CharSequence,
                      text2: CharSequence? = "",
@@ -116,7 +114,7 @@ class AvatarIconItem(id: Long = NO_ID,
 }
 
 class CheckBoxIconItem(id: Long = NO_ID,
-                       viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_CHECKBOX_ICON,
+                       @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                        action: (view: View, item: MaterialListItem) -> Unit,
                        text1: CharSequence,
                        text2: CharSequence? = "",
@@ -129,7 +127,7 @@ class CheckBoxIconItem(id: Long = NO_ID,
 }
 
 class AvatarCheckBoxItem(id: Long = NO_ID,
-                         viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_CHECKBOX,
+                         @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                          action: (view: View, item: MaterialListItem) -> Unit,
                          text1: CharSequence,
                          text2: CharSequence? = "",
@@ -142,7 +140,7 @@ class AvatarCheckBoxItem(id: Long = NO_ID,
 }
 
 class IconSwitchItem(id: Long = NO_ID,
-                     viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_SWITCH,
+                     @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                      action: (view: View, item: MaterialListItem) -> Unit,
                      text1: CharSequence,
                      text2: CharSequence? = "",
@@ -155,7 +153,7 @@ class IconSwitchItem(id: Long = NO_ID,
 }
 
 class AvatarReorderItem(id: Long = NO_ID,
-                        viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_AVATAR_REORDER,
+                        @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                         action: (view: View, item: MaterialListItem) -> Unit,
                         text1: CharSequence,
                         text2: CharSequence? = "",
@@ -167,7 +165,7 @@ class AvatarReorderItem(id: Long = NO_ID,
 }
 
 class IconExpandItem(id: Long = NO_ID,
-                     viewType: Int = MaterialListAdapter.VIEW_TYPE_ONE_LINE_ICON_EXPAND,
+                     @Holder.ViewType viewType: Int = Holder.ONE_LINE,
                      action: (view: View, item: MaterialListItem) -> Unit,
                      text1: CharSequence,
                      text2: CharSequence? = "",

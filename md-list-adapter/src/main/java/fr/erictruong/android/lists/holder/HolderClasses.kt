@@ -1,33 +1,47 @@
 package fr.erictruong.android.lists.holder
 
+import android.support.annotation.IntDef
+import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
-import android.view.View
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import fr.erictruong.android.lists.Bindable
-import fr.erictruong.android.lists.item.Avatarable
-import fr.erictruong.android.lists.item.Checkable
-import fr.erictruong.android.lists.item.Iconable
-import fr.erictruong.android.lists.item.MaterialListItem
-import fr.erictruong.android.lists.item.Reorderable
-import fr.erictruong.android.lists.item.Textable
-import fr.erictruong.android.lists.stub.ActionStub
-import fr.erictruong.android.lists.stub.AvatarStub
-import fr.erictruong.android.lists.stub.CheckBoxStub
-import fr.erictruong.android.lists.stub.ExpandStub
-import fr.erictruong.android.lists.stub.IconStub
-import fr.erictruong.android.lists.stub.ReorderStub
-import fr.erictruong.android.lists.stub.SwitchStub
-import fr.erictruong.android.lists.stub.TextStub
+import fr.erictruong.android.lists.R
+import fr.erictruong.android.lists.item.*
+import fr.erictruong.android.lists.stub.*
+
+abstract class Holder(parent: ViewGroup, resource: Int) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(resource, parent, false)), Bindable<MaterialListItem> {
+
+    companion object {
+        const val ONE_LINE = 0
+        const val TWO_LINE = 1
+        const val THREE_LINE = 2
+    }
+
+    @IntDef(ONE_LINE.toLong(), TWO_LINE.toLong(), THREE_LINE.toLong())
+    @Retention(AnnotationRetention.SOURCE)
+    annotation class ViewType
+}
+
+fun getLayout(viewType: Int, @LayoutRes layout1: Int, @LayoutRes layout2: Int = 0, @LayoutRes layout3: Int = 0): Int {
+    when (viewType) {
+        Holder.ONE_LINE -> return layout1
+        Holder.TWO_LINE -> return layout2
+        Holder.THREE_LINE -> return layout3
+        else -> throw IllegalArgumentException("Unknown view type: " + viewType)
+    }
+}
 
 // *********************
 // Single trait classes.
 // *********************
 
-class TextViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class TextViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout(viewType, R.layout.list_tile_one_line, R.layout.list_tile_two_line, R.layout.list_tile_three_line)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
     }
@@ -43,13 +57,13 @@ class TextViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindab
     }
 }
 
-class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class IconViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val iconStub: IconStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_icon, R.layout.list_tile_two_line_icon, R.layout.list_tile_three_line_icon)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         iconStub = IconStub(itemView)
@@ -68,13 +82,13 @@ class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindab
     }
 }
 
-class AvatarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class AvatarViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val avatarStub: AvatarStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_avatar, R.layout.list_tile_two_line_avatar, R.layout.list_tile_three_line_avatar)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         avatarStub = AvatarStub(itemView)
@@ -93,13 +107,13 @@ class AvatarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bind
     }
 }
 
-class CheckBoxViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class CheckBoxViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val checkBoxStub: CheckBoxStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_checkbox_end)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         checkBoxStub = CheckBoxStub(itemView)
@@ -118,13 +132,13 @@ class CheckBoxViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bi
     }
 }
 
-class SwitchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class SwitchViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val switchStub: SwitchStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_icon_switch)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         switchStub = SwitchStub(itemView)
@@ -143,13 +157,13 @@ class SwitchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bind
     }
 }
 
-class ExpandViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class ExpandViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val expandStub: ExpandStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_checkbox_end)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         expandStub = ExpandStub(itemView)
@@ -172,14 +186,14 @@ class ExpandViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bind
 // Double trait classes.
 // *********************
 
-class AvatarIconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class AvatarIconViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val iconStub: IconStub
     private val avatarStub: AvatarStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_avatar_icon, R.layout.list_tile_two_line_avatar_icon, R.layout.list_tile_three_line_avatar_icon)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         iconStub = IconStub(itemView)
@@ -201,14 +215,14 @@ class AvatarIconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), 
     }
 }
 
-class CheckBoxIconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class CheckBoxIconViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val iconStub: IconStub
     private val checkBoxStub: CheckBoxStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_checkbox_icon)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         iconStub = IconStub(itemView)
@@ -230,14 +244,14 @@ class CheckBoxIconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     }
 }
 
-class AvatarCheckBoxViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class AvatarCheckBoxViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val checkBoxStub: CheckBoxStub
     private val avatarStub: AvatarStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_avatar_checkbox)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         checkBoxStub = CheckBoxStub(itemView)
@@ -259,14 +273,14 @@ class AvatarCheckBoxViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
     }
 }
 
-class IconSwitchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class IconSwitchViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val switchStub: SwitchStub
     private val iconStub: IconStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_icon_switch)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         switchStub = SwitchStub(itemView)
@@ -288,14 +302,14 @@ class IconSwitchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), 
     }
 }
 
-class AvatarReorderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class AvatarReorderViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val reorderStub: ReorderStub
     private val avatarStub: AvatarStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_avatar_icon)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         reorderStub = ReorderStub(itemView)
@@ -318,14 +332,14 @@ class AvatarReorderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     }
 }
 
-class IconExpandViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Bindable<MaterialListItem> {
+class IconExpandViewHolder : Holder {
 
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val expandStub: ExpandStub
     private val iconStub: IconStub
 
-    init {
+    constructor(parent: ViewGroup, viewType: Int) : super(parent, getLayout (viewType, R.layout.list_tile_one_line_icon_expand)) {
         actionStub = ActionStub(itemView)
         textStub = TextStub(itemView)
         expandStub = ExpandStub(itemView)

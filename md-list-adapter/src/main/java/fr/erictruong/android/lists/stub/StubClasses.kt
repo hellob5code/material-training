@@ -16,19 +16,14 @@ import fr.erictruong.android.core.util.ThemeUtils
 import fr.erictruong.android.core.util.ViewUtils
 import fr.erictruong.android.lists.Bindable
 import fr.erictruong.android.lists.R
-import fr.erictruong.android.lists.item.Avatarable
-import fr.erictruong.android.lists.item.Checkable
-import fr.erictruong.android.lists.item.Iconable
-import fr.erictruong.android.lists.item.MaterialListItem
-import fr.erictruong.android.lists.item.Reorderable
-import fr.erictruong.android.lists.item.Textable
+import fr.erictruong.android.lists.item.*
 
-open class BaseStub(val view: View)
+open class Stub(val itemView: View)
 
-class ActionStub(view: View) : BaseStub(view), Bindable<MaterialListItem> {
+class ActionStub(itemView: View) : Stub(itemView), Bindable<MaterialListItem> {
 
     override fun bind(item: MaterialListItem) {
-        view.setOnClickListener { v -> item.action(v, item) }
+        itemView.setOnClickListener { v -> item.action(v, item) }
     }
 
     override fun unbind() {
@@ -36,16 +31,16 @@ class ActionStub(view: View) : BaseStub(view), Bindable<MaterialListItem> {
     }
 }
 
-class TextStub(view: View) : BaseStub(view), Bindable<Textable> {
+class TextStub(itemView: View) : Stub(itemView), Bindable<Textable> {
 
     private val text1: TextView
     private val text2: TextView?
     private val text3: TextView?
 
     init {
-        text1 = view.findViewById(R.id.text1) as TextView
-        text2 = view.findViewById(R.id.text2) as TextView?
-        text3 = view.findViewById(R.id.text3) as TextView?
+        text1 = itemView.findViewById(R.id.text1) as TextView
+        text2 = itemView.findViewById(R.id.text2) as TextView?
+        text3 = itemView.findViewById(R.id.text3) as TextView?
     }
 
     override fun bind(item: Textable) {
@@ -59,12 +54,12 @@ class TextStub(view: View) : BaseStub(view), Bindable<Textable> {
     }
 }
 
-class IconStub(view: View) : BaseStub(view), Bindable<Iconable> {
+class IconStub(itemView: View) : Stub(itemView), Bindable<Iconable> {
 
     private val icon: ImageView
 
     init {
-        icon = view.findViewById(R.id.icon) as ImageView
+        icon = itemView.findViewById(R.id.icon) as ImageView
     }
 
     override fun bind(item: Iconable) {
@@ -76,7 +71,7 @@ class IconStub(view: View) : BaseStub(view), Bindable<Iconable> {
     }
 }
 
-class AvatarStub(view: View) : BaseStub(view), Bindable<Avatarable> {
+class AvatarStub(itemView: View) : Stub(itemView), Bindable<Avatarable> {
 
     private val avatar: ImageView
 
@@ -84,8 +79,8 @@ class AvatarStub(view: View) : BaseStub(view), Bindable<Avatarable> {
     private val circleStrokeTransformation: CircleStrokeTransformation
 
     init {
-        val context = view.context
-        avatar = view.findViewById(R.id.avatar) as ImageView
+        val context = itemView.context
+        avatar = itemView.findViewById(R.id.avatar) as ImageView
         picasso = Picasso.with(context)
         circleStrokeTransformation = CircleStrokeTransformation(context, Color.WHITE, 0)
     }
@@ -102,15 +97,15 @@ class AvatarStub(view: View) : BaseStub(view), Bindable<Avatarable> {
     }
 }
 
-class CheckBoxStub(view: View) : BaseStub(view), Bindable<Checkable> {
+class CheckBoxStub(itemView: View) : Stub(itemView), Bindable<Checkable> {
 
     private val checkbox: CheckBox
 
     init {
-        val context = view.context
-        checkbox = view.findViewById(R.id.checkbox) as CheckBox
+        val context = itemView.context
+        checkbox = itemView.findViewById(R.id.checkbox) as CheckBox
         val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
-        ViewUtils.expandTouchArea(view, checkbox, marginSmall)
+        ViewUtils.expandTouchArea(itemView, checkbox, marginSmall)
     }
 
     override fun bind(item: Checkable) {
@@ -126,13 +121,13 @@ class CheckBoxStub(view: View) : BaseStub(view), Bindable<Checkable> {
     }
 }
 
-class ReorderStub(view: View) : BaseStub(view), Bindable<Reorderable> {
+class ReorderStub(itemView: View) : Stub(itemView), Bindable<Reorderable> {
 
     private val icon: ImageView
     private var holder: RecyclerView.ViewHolder? = null
 
     init {
-        icon = view.findViewById(R.id.icon) as ImageView
+        icon = itemView.findViewById(R.id.icon) as ImageView
     }
 
     override fun bind(item: Reorderable) {
@@ -154,15 +149,15 @@ class ReorderStub(view: View) : BaseStub(view), Bindable<Reorderable> {
     }
 }
 
-class SwitchStub(view: View) : BaseStub(view), Bindable<Checkable> {
+class SwitchStub(itemView: View) : Stub(itemView), Bindable<Checkable> {
 
     private val switch_: Switch
 
     init {
-        val context = view.context
-        switch_ = view.findViewById(R.id.switch_) as Switch
+        val context = itemView.context
+        switch_ = itemView.findViewById(R.id.switch_) as Switch
         val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
-        ViewUtils.expandTouchArea(view, switch_, marginSmall)
+        ViewUtils.expandTouchArea(itemView, switch_, marginSmall)
     }
 
     override fun bind(item: Checkable) {
@@ -178,7 +173,7 @@ class SwitchStub(view: View) : BaseStub(view), Bindable<Checkable> {
     }
 }
 
-class ExpandStub(view: View) : BaseStub(view), Bindable<Checkable> {
+class ExpandStub(itemView: View) : Stub(itemView), Bindable<Checkable> {
 
     private val icon: ImageView?
     private val text1: TextView
@@ -190,15 +185,15 @@ class ExpandStub(view: View) : BaseStub(view), Bindable<Checkable> {
     private val colorAccent: Int
 
     init {
-        val context = view.context
-        icon = view.findViewById(R.id.icon) as ImageView
-        text1 = view.findViewById(R.id.text1) as TextView
+        val context = itemView.context
+        icon = itemView.findViewById(R.id.icon) as ImageView
+        text1 = itemView.findViewById(R.id.text1) as TextView
         defaultColor = text1.textColors.defaultColor
         colorAccent = ThemeUtils.obtainColorAccent(context)
-        checkbox = view.findViewById(R.id.checkbox) as CheckBox
+        checkbox = itemView.findViewById(R.id.checkbox) as CheckBox
         checkbox.setButtonDrawable(R.drawable.selector_expand)
         val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
-        ViewUtils.expandTouchArea(view, checkbox, marginSmall)
+        ViewUtils.expandTouchArea(itemView, checkbox, marginSmall)
     }
 
     override fun bind(item: Checkable) {

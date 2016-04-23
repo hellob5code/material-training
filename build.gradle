@@ -14,7 +14,7 @@ buildscript {
 
         supportVersion = '23.2.1'
         playServicesVersion = '7.8.0'
-        kotlinVersion = '1.0.1'
+        kotlinVersion = '1.0.1-2'
         ankoVersion = '0.8.3'
 
         versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild

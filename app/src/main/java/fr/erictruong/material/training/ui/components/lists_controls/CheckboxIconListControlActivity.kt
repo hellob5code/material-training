@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
+import fr.erictruong.android.lists.holder.CheckBoxIconViewHolder
 import fr.erictruong.android.lists.item.CheckBoxIconItem
 import fr.erictruong.android.lists.item.MaterialListItem
 import fr.erictruong.material.training.R
@@ -18,7 +19,7 @@ class CheckboxIconListControlActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter()
+        val adapter = MaterialListAdapter<CheckBoxIconViewHolder>()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 

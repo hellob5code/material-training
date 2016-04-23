@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
+import fr.erictruong.android.lists.holder.AvatarReorderViewHolder
 import fr.erictruong.android.lists.item.AvatarReorderItem
 import fr.erictruong.android.lists.item.MaterialListItem
 import fr.erictruong.material.training.model.DummyModel
@@ -19,7 +20,7 @@ class AvatarReorderListControlActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter()
+        val adapter = MaterialListAdapter<AvatarReorderViewHolder>()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -39,7 +40,7 @@ class AvatarReorderListControlActivity : RecyclerActivity() {
         adapter.swapData(items)
     }
 
-    inner class ReorderItemTouchHelperCallback(private val adapter: MaterialListAdapter) : ItemTouchHelper.Callback() {
+    inner class ReorderItemTouchHelperCallback(private val adapter: MaterialListAdapter<AvatarReorderViewHolder>) : ItemTouchHelper.Callback() {
 
         override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
             val dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN
