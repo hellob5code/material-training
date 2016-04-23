@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
 import fr.erictruong.android.lists.holder.Holder
-import fr.erictruong.android.lists.holder.TextViewHolder
 import fr.erictruong.android.lists.item.MaterialListItem
 import fr.erictruong.android.lists.item.TextItem
 import fr.erictruong.material.training.model.DummyModel
@@ -18,7 +17,7 @@ class TextListActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter<TextViewHolder>()
+        val adapter = MaterialListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 

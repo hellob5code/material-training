@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
 import fr.erictruong.android.lists.holder.Holder
-import fr.erictruong.android.lists.holder.IconViewHolder
 import fr.erictruong.android.lists.item.IconItem
 import fr.erictruong.android.lists.item.MaterialListItem
 import fr.erictruong.material.training.R
@@ -19,7 +18,7 @@ class IconListActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter<IconViewHolder>()
+        val adapter = MaterialListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 

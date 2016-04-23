@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
 import fr.erictruong.android.lists.SectionedListAdapter
-import fr.erictruong.android.lists.holder.AvatarViewHolder
 import fr.erictruong.android.lists.holder.Holder
 import fr.erictruong.android.lists.item.AvatarItem
 import fr.erictruong.android.lists.item.MaterialListItem
@@ -20,7 +19,7 @@ class SampleListSubheaderActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter<AvatarViewHolder>()
+        val adapter = MaterialListAdapter()
         val sectionedAdapter = SectionedListAdapter(adapter)
 
         recyclerView.adapter = sectionedAdapter

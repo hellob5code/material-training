@@ -5,7 +5,6 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
-import fr.erictruong.android.lists.holder.IconExpandViewHolder
 import fr.erictruong.android.lists.item.IconExpandItem
 import fr.erictruong.android.lists.item.MaterialListItem
 import fr.erictruong.material.training.R
@@ -19,7 +18,7 @@ class IconExpandListControlActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter<IconExpandViewHolder>()
+        val adapter = MaterialListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 

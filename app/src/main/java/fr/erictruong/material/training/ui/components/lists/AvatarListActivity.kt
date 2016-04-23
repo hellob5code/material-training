@@ -5,7 +5,6 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import fr.erictruong.android.core.activity.RecyclerActivity
 import fr.erictruong.android.lists.MaterialListAdapter
-import fr.erictruong.android.lists.holder.AvatarViewHolder
 import fr.erictruong.android.lists.holder.Holder
 import fr.erictruong.android.lists.item.AvatarItem
 import fr.erictruong.android.lists.item.MaterialListItem
@@ -18,7 +17,7 @@ class AvatarListActivity : RecyclerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter<AvatarViewHolder>()
+        val adapter = MaterialListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 

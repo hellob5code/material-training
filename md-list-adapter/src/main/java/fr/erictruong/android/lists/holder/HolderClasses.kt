@@ -38,6 +38,10 @@ fun getLayout(viewType: Int, @LayoutRes layout1: Int, @LayoutRes layout2: Int = 
 
 class TextViewHolder : Holder {
 
+    companion object {
+        val TYPE: Int = 1
+    }
+
     private val actionStub: ActionStub
     private val textStub: TextStub
 
@@ -58,6 +62,10 @@ class TextViewHolder : Holder {
 }
 
 class IconViewHolder : Holder {
+
+    companion object {
+        val TYPE: Int = 2
+    }
 
     private val actionStub: ActionStub
     private val textStub: TextStub
@@ -84,6 +92,10 @@ class IconViewHolder : Holder {
 
 class AvatarViewHolder : Holder {
 
+    companion object {
+        val TYPE: Int = 3
+    }
+
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val avatarStub: AvatarStub
@@ -108,6 +120,10 @@ class AvatarViewHolder : Holder {
 }
 
 class CheckBoxViewHolder : Holder {
+
+    companion object {
+        val TYPE: Int = 4
+    }
 
     private val actionStub: ActionStub
     private val textStub: TextStub
@@ -134,6 +150,10 @@ class CheckBoxViewHolder : Holder {
 
 class SwitchViewHolder : Holder {
 
+    companion object {
+        val TYPE: Int = 6
+    }
+
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val switchStub: SwitchStub
@@ -158,6 +178,10 @@ class SwitchViewHolder : Holder {
 }
 
 class ExpandViewHolder : Holder {
+
+    companion object {
+        val TYPE: Int = 7
+    }
 
     private val actionStub: ActionStub
     private val textStub: TextStub
@@ -188,6 +212,10 @@ class ExpandViewHolder : Holder {
 
 class AvatarIconViewHolder : Holder {
 
+    companion object {
+        val TYPE: Int = 11
+    }
+
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val iconStub: IconStub
@@ -216,6 +244,10 @@ class AvatarIconViewHolder : Holder {
 }
 
 class CheckBoxIconViewHolder : Holder {
+
+    companion object {
+        val TYPE: Int = 12
+    }
 
     private val actionStub: ActionStub
     private val textStub: TextStub
@@ -246,6 +278,10 @@ class CheckBoxIconViewHolder : Holder {
 
 class AvatarCheckBoxViewHolder : Holder {
 
+    companion object {
+        val TYPE: Int = 13
+    }
+
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val checkBoxStub: CheckBoxStub
@@ -274,6 +310,10 @@ class AvatarCheckBoxViewHolder : Holder {
 }
 
 class IconSwitchViewHolder : Holder {
+
+    companion object {
+        val TYPE: Int = 14
+    }
 
     private val actionStub: ActionStub
     private val textStub: TextStub
@@ -304,6 +344,10 @@ class IconSwitchViewHolder : Holder {
 
 class AvatarReorderViewHolder : Holder {
 
+    companion object {
+        val TYPE: Int = 15
+    }
+
     private val actionStub: ActionStub
     private val textStub: TextStub
     private val reorderStub: ReorderStub
@@ -333,6 +377,10 @@ class AvatarReorderViewHolder : Holder {
 }
 
 class IconExpandViewHolder : Holder {
+
+    companion object {
+        val TYPE: Int = 16
+    }
 
     private val actionStub: ActionStub
     private val textStub: TextStub
