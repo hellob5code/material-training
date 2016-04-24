@@ -9,14 +9,17 @@ interface Textable {
 
 interface Headlineable {
     var headline: CharSequence
+    var headlineColor: Int?
 }
 
 interface Displayable {
     var display: CharSequence
+    var displayColor: Int?
 }
 
 interface Bodyable {
     var body: CharSequence
+    var bodyAppearance: Int?
 }
 
 interface Buttonable {

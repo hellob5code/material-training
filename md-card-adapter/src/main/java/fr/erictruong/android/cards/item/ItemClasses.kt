@@ -29,7 +29,9 @@ abstract class MaterialCardItem(var id: Long,
 class DisplayBodyItem(id: Long = NO_ID,
                       viewType: Int = Holder.NORMAL,
                       override var display: CharSequence,
-                      override var body: CharSequence = "") : MaterialCardItem(id, viewType), Displayable, Bodyable {
+                      override var displayColor: Int? = null,
+                      override var body: CharSequence = "",
+                      override var bodyAppearance: Int? = null) : MaterialCardItem(id, viewType), Displayable, Bodyable {
 
     override fun encodeViewType(viewType: Int): Int {
         return (viewType * MAGIC_NUMBER) + DisplayBodyViewHolder.TYPE
@@ -41,14 +43,16 @@ class DisplayBodyItem(id: Long = NO_ID,
 class HeadlineBodyItem(id: Long = NO_ID,
                        viewType: Int = Holder.NORMAL,
                        override var headline: CharSequence,
+                       override var headlineColor: Int? = null,
                        override var body: CharSequence = "",
+                       override var bodyAppearance: Int? = null,
                        override var button1: Buttonable? = null,
                        override var button2: Buttonable? = null,
                        override var button3: Buttonable? = null,
                        override var button4: Buttonable? = null,
                        override var button5: Buttonable? = null,
                        override var button6: Buttonable? = null
-//                       override var button1Text: CharSequence?,
+        //                       override var button1Text: CharSequence?,
 //                       override var button2Text: CharSequence?,
 //                       override var button3Text: CharSequence?,
 //                       override var button4Text: CharSequence?,

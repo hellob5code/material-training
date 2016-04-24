@@ -19,33 +19,14 @@ class DisplayStub(itemView: View) : Stub(itemView), Bindable<Displayable> {
     }
 
     override fun bind(item: Displayable) {
+        if (item.displayColor != null) {
+            display.setTextColor(item.displayColor as Int)
+        }
         if (item.display.length == 0) {
             display.visibility = View.GONE
         } else {
             display.visibility = View.VISIBLE
             display.text = item.display
-        }
-    }
-
-    override fun unbind() {
-        // Nothing to do
-    }
-}
-
-class BodyStub(itemView: View) : Stub(itemView), Bindable<Bodyable> {
-
-    private val body: TextView
-
-    init {
-        body = itemView.findViewById(R.id.body) as TextView
-    }
-
-    override fun bind(item: Bodyable) {
-        if (item.body.length == 0) {
-            body.visibility = View.GONE
-        } else {
-            body.visibility = View.VISIBLE
-            body.text = item.body
         }
     }
 
@@ -63,11 +44,39 @@ class HeadlineStub(itemView: View) : Stub(itemView), Bindable<Headlineable> {
     }
 
     override fun bind(item: Headlineable) {
+        if (item.headlineColor != null) {
+            headline.setTextColor(item.headlineColor as Int)
+        }
         if (item.headline == null || item.headline.length == 0) {
             headline.visibility = View.GONE
         } else {
             headline.visibility = View.VISIBLE
             headline.text = item.headline
+        }
+    }
+
+    override fun unbind() {
+        // Nothing to do
+    }
+}
+
+class BodyStub(itemView: View) : Stub(itemView), Bindable<Bodyable> {
+
+    private val body: TextView
+
+    init {
+        body = itemView.findViewById(R.id.body) as TextView
+    }
+
+    override fun bind(item: Bodyable) {
+        if (item.bodyAppearance != null) {
+            body.setTextAppearance(item.bodyAppearance as Int)
+        }
+        if (item.body.length == 0) {
+            body.visibility = View.GONE
+        } else {
+            body.visibility = View.VISIBLE
+            body.text = item.body
         }
     }
 

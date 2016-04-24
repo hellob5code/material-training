@@ -5,18 +5,22 @@ import android.view.View
 import fr.erictruong.android.cards.item.DisplayBodyItem
 import fr.erictruong.android.cards.item.HeadlineBodyItem
 import fr.erictruong.android.cards.item.MaterialCardItem
+import fr.erictruong.android.core.util.ThemeUtils
 import fr.erictruong.material.training.R
 import fr.erictruong.material.training.ui.core.BaseCardFragment
+import org.jetbrains.anko.support.v4.ctx
 import java.util.*
 
 class ListsFragment : BaseCardFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val colorPrimary = ThemeUtils.obtainColorPrimary(ctx)
 
         val cards = ArrayList<MaterialCardItem>()
-        // display1_primary body2
-        cards.add(DisplayBodyItem(display = getString(R.string.lists), body = getString(R.string.lists_txt)))
+        cards.add(DisplayBodyItem(
+                display = getString(R.string.lists), displayColor = colorPrimary,
+                body = getString(R.string.lists_txt), bodyAppearance = R.style.TextAppearance_AppCompat_Body2))
         cards.add(
                 HeadlineBodyItem(
                         headline = "Text only"/*,

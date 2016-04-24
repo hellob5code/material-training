@@ -256,7 +256,7 @@
             <group
                 android:id="@+id/group_resources"
                 android:checkableBehavior="single"
-                >
+                android:visible="false">
                 <item
                     android:id="@+id/nav_color_palettes"
                     android:title="@string/navigation_drawer_item_color_palettes"/>
@@ -279,7 +279,8 @@
         <menu>
             <group
                 android:id="@+id/group_whats_new"
-                android:checkableBehavior="single">
+                android:checkableBehavior="single"
+                android:visible="false">
                 <item
                     android:id="@+id/nav_whats_new"
                     android:title="@string/navigation_drawer_item_whats_new"/>
