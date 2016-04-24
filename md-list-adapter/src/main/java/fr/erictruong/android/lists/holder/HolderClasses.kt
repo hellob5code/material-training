@@ -23,11 +23,11 @@ abstract class Holder(parent: ViewGroup, resource: Int) : RecyclerView.ViewHolde
     annotation class ViewType
 }
 
-fun getLayout(viewType: Int, @LayoutRes layout1: Int, @LayoutRes layout2: Int = 0, @LayoutRes layout3: Int = 0): Int {
+fun getLayout(viewType: Int, @LayoutRes oneLine: Int, @LayoutRes twoLine: Int = 0, @LayoutRes threeLine: Int = 0): Int {
     when (viewType) {
-        Holder.ONE_LINE -> return layout1
-        Holder.TWO_LINE -> return layout2
-        Holder.THREE_LINE -> return layout3
+        Holder.ONE_LINE -> return oneLine
+        Holder.TWO_LINE -> return twoLine
+        Holder.THREE_LINE -> return threeLine
         else -> throw IllegalArgumentException("Unknown view type: " + viewType)
     }
 }

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Bottom Navigation Fragment -->
+    <string name="bottom_navigation">Bottom navigation</string>
+    <string name="bottom_navigation_txt">Bottom navigation bars make it easy to explore and switch between top-level views in a single tap.</string>
+
     <!-- Bottom Sheets Fragment -->
     <string name="bottom_sheets">Bottom sheets</string>
-    <string name="bottom_sheets_txt">A bottom sheet is a sheet of paper that slides up from the bottom edge of the screen and presents a set of clear and simple actions.</string>
+    <string name="bottom_sheets_txt">Bottom sheets slide up from the bottom edge of the screen to reveal additional content.</string>
     <string name="bottom_sheets_usage">Usage</string>
     <string name="bottom_sheets_content">Content</string>
     <string name="bottom_sheets_behavior">Behavior</string>
@@ -25,9 +29,7 @@
 
     <!-- Cards Fragment -->
     <string name="cards">Cards</string>
-    <string name="cards_txt">A card is a piece of paper with unique related data that serves as an entry point to more detailed information. For example, a card could contain a photo, text, and a link about a single subject.
-        \n\nCards have a constant width and variable height. The maximum height is limited to the height of the available space on a platform, but it can temporarily expand (for example, to display a comment field). Cards do not flip over to reveal information on the back.
-    </string>
+    <string name="cards_txt">A card is a sheet of material that serves as an entry point to more detailed information. A card could contain a photo, text, and a link about a single subject.</string>
     <string name="cards_usage">Usage</string>
     <string name="cards_content">Content</string>
     <string name="cards_actions">Actions</string>
@@ -35,20 +37,12 @@
 
     <!-- Chips Fragment -->
     <string name="chips">Chips</string>
-    <string name="chips_txt">Chips represent complex entities in small blocks, such as a contact. They can contain a photo, short title string, and brief information.
-        \n\nChips are manipulated through drag-and-drop. Touching them invokes the full view in a card or full screen view or invokes a menu of options related to that chip’s entity.
-        \n\nAnimations invoked from chips should resize responsively across views for element persistence.
-    </string>
+    <string name="chips_txt">Chips represent complex entities in small blocks, such as a contact.</string>
     <string name="chips_contact_chips">Contact chips</string>
 
     <!-- Data Tables Fragment -->
     <string name="data_tables">Data tables</string>
-    <string name="data_tables_txt">Data tables are used to present raw data sets, and usually appear in desktop enterprise products.
-        \n\nData sets may include:
-        \n\n• Three or more columns of data
-        \n• A corresponding visualization
-        \n• The ability for users to query and manipulate data at scale
-    </string>
+    <string name="data_tables_txt">Data tables display raw data sets. They usually appear in desktop enterprise products.</string>
     <string name="data_tables_structure">Structure</string>
     <string name="data_tables_interaction">Interaction</string>
     <string name="data_tables_tables_within_cards">Tables within cards</string>
@@ -56,9 +50,7 @@
 
     <!-- Dialogs Fragment -->
     <string name="dialogs">Dialogs</string>
-    <string name="dialogs_txt">Dialogs inform users about critical information, require users to make decisions, or encapsulate multiple tasks within a discrete process. Use dialogs sparingly because they are interruptive in nature. Their sudden appearance forces users to stop their current task and refocus on the dialog content. Not every choice, setting, or detail warrants interruption and prominence.
-        \n\nAlternatives to dialogs include menus or inline expansion within the current content area. Both approaches present non-interruptive options while maintaining the current context.
-    </string>
+    <string name="dialogs_txt">Dialogs contain text and UI controls focused on a specific task. They inform users about critical information, require users to make decisions, or involve multiple tasks.</string>
     <string name="dialogs_content">Content</string>
     <string name="dialogs_behavior">Behavior</string>
     <string name="dialogs_alerts">Alerts</string>
@@ -109,22 +101,19 @@
 
     <!-- Pickers Fragment -->
     <string name="pickers">Pickers</string>
-    <string name="pickers_txt">Pickers provide a simple way to select a single value from a set.
-        \n\nEach picker is a dialog with a set of controls for entering the units of the date (month, day, year) or time (hour, minute, AM/PM). Using these components in your app helps ensure that a user\'s specification of a date or time input is valid and formatted correctly. The format of a time and date picker adjusts automatically to the locale, i.e. month-day-year in the US and day-month-year in other regions.
-        \n\nOn mobile, pickers are best suited for display in a dialog. For inline display, such as on a form, consider using compact controls such as text fields or dropdown menus.
-    </string>
+    <string name="pickers_txt">Pickers provide a simple way to select a single value from a pre-determined set.</string>
     <string name="pickers_date_pickers">Date pickers</string>
     <string name="pickers_time_pickers">Time pickers</string>
 
     <!-- Progress and Activity Fragment -->
     <string name="progress_and_activity">Progress &amp; activity</string>
-    <string name="progress_and_activity_txt">Make loading content in your app as delightful and painless as possible by minimizing the amount of visual change a user sees before they can view and interact with content. Each operation should only be represented by one activity indicator—for example, one refresh operation should not display both a refresh bar and an activity circle.</string>
+    <string name="progress_and_activity_txt">Minimize visual changes that occur while your app loads content by representing each operation with a single activity indicator. For example, a refresh operation should display either a refresh bar or an activity circle, but not both.</string>
     <string name="progress_and_activity_types_of_indicators">Types of indicators</string>
     <string name="progress_and_activity_behavior">Behavior</string>
 
     <!-- Selection Controls Fragment -->
     <string name="selection_controls">Selection controls</string>
-    <string name="selection_controls_txt">Selection controls allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches.</string>
+    <string name="selection_controls_txt">Selection controls allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Selection controls use the theme’s accent color.</string>
     <string name="selection_controls_checkbox">Checkbox</string>
     <string name="selection_controls_radio_button">Radio button</string>
     <string name="selection_controls_switch">Switch</string>
@@ -137,12 +126,15 @@
 
     <!-- Snackbars and Toasts Fragment -->
     <string name="snackbars_and_toasts">Snackbars &amp; toasts</string>
-    <string name="snackbars_and_toasts_txt">Snackbars provide lightweight feedback about an operation. They show a brief message at the bottom of the screen. Snackbars appear above most elements on screen, are equal in elevation to the floating action button, and lower in elevation to dialogs, bottom sheets, and navigation drawers. Snackbars can contain an action.
-        \n\nSnackbars animate upwards from the bottom edge of the screen. They automatically disappear after a timeout or after user interaction elsewhere on the screen, particularly after interactions that summon a new surface or activity. Snackbars can be swiped off screen. They do not block input on the screens on which they appear. Show only one snackbar on screen at a time.
+    <string name="snackbars_and_toasts_txt">Snackbars provide lightweight feedback about an operation by showing a brief message at the bottom of the screen. Snackbars can contain an action.
         \n\nAndroid also provides a toast, primarily used for system messaging. Toasts are similar to snackbars but do not contain actions and cannot be swiped off screen.
     </string>
     <string name="snackbars_and_toasts_usage">Usage</string>
     <string name="snackbars_and_toasts_specs">Specs</string>
+
+    <!-- Steppers Fragment -->
+    <string name="steppers">Steppers</string>
+    <string name="steppers_txt">Steppers convey progress through numbered steps. They may also be used for navigation.</string>
 
     <!-- Subheaders Fragment -->
     <string name="subheaders">Subheaders</string>
@@ -152,10 +144,6 @@
     <string name="subheaders_list_subheaders">List subheaders</string>
     <string name="subheaders_grid_subheaders">Grid subheaders</string>
     <string name="subheaders_menu_subheaders">Menu subheaders</string>
-
-    <!-- Stepper Fragment -->
-    <string name="steppers">Steppers</string>
-    <string name="steppers_txt">Steppers convey progress through numbered steps. They may also be used for navigation.</string>
 
     <!-- Tabs Fragment -->
     <string name="tabs">Tabs</string>
@@ -167,9 +155,7 @@
 
     <!-- Text Fields Fragment -->
     <string name="text_fields">Text fields</string>
-    <string name="text_fields_txt">Text fields allow the user to input text. They can be single line, with or without scrolling, or multi-line, and can have an icon. Touching a text field places the cursor and automatically displays the keyboard. In addition to typing, text fields allow for a variety of other tasks, such as text selection (cut, copy, paste) and data lookup via auto-completion. See Patterns > Selection for text selection design.
-        \n\nThe type of text field determines what kind of characters are allowed inside the field and may prompt the virtual keyboard to optimize its layout for frequently used characters. Common types for which you should optimize include number, text, email address, phone number, person’s name, username, URL, street address, credit card number, PIN, and search query.
-    </string>
+    <string name="text_fields_txt">Text fields allow the user to input text, <a href="/design/spec/patterns/selection.html">select text</a>, and lookup data via auto-completion.</string>
     <string name="text_fields_single_line_text_field">Single-line text field</string>
     <string name="text_fields_floating_labels">Floating labels</string>
     <string name="text_fields_multi_line_text_field">Multi-line text field</string>
@@ -181,5 +167,9 @@
     <!-- Toolbars Fragment -->
     <string name="toolbars">Toolbars</string>
     <string name="toolbars_usage">Usage</string>
+
+    <!-- Tooltips Fragment -->
+    <string name="tooltips">Tooltips</string>
+    <string name="tooltips_txt">Tooltips are labels that appear on hover and focus when the user hovers over an element with the cursor, focuses on an element using a keyboard (usually through the tab key), or upon touch (without releasing) in a touch UI. They contain textual identification for the element in question. They may also contain brief helper text regarding the function of the element. The label itself cannot receive input focus.</string>
 
 </resources>

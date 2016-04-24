@@ -15,8 +15,7 @@
         <menu>
             <group
                 android:id="@+id/group_what_is_material"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_environment"
                     android:title="@string/navigation_drawer_item_environment"/>
@@ -33,8 +32,7 @@
         <menu>
             <group
                 android:id="@+id/group_animation"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_authentic_motion"
                     android:title="@string/navigation_drawer_item_authentic_motion"/>
@@ -54,8 +52,7 @@
         <menu>
             <group
                 android:id="@+id/group_style"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_color"
                     android:title="@string/navigation_drawer_item_color"/>
@@ -78,8 +75,7 @@
         <menu>
             <group
                 android:id="@+id/group_layout"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_principles"
                     android:title="@string/navigation_drawer_item_principles"/>
@@ -108,43 +104,34 @@
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_bottom_navigation"
-                    android:title="@string/navigation_drawer_item_bottom_navigation"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_bottom_navigation"/>
                 <item
                     android:id="@+id/nav_bottom_sheets"
-                    android:title="@string/navigation_drawer_item_bottom_sheets"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_bottom_sheets"/>
                 <item
                     android:id="@+id/nav_buttons"
-                    android:title="@string/navigation_drawer_item_buttons"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_buttons"/>
                 <item
                     android:id="@+id/nav_buttons_floating_action_button"
-                    android:title="@string/navigation_drawer_item_buttons_floating_action_button"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_buttons_floating_action_button"/>
                 <item
                     android:id="@+id/nav_cards"
                     android:title="@string/navigation_drawer_item_cards"/>
                 <item
                     android:id="@+id/nav_chips"
-                    android:title="@string/navigation_drawer_item_chips"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_chips"/>
                 <item
                     android:id="@+id/nav_data_tables"
-                    android:title="@string/navigation_drawer_item_data_tables"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_data_tables"/>
                 <item
                     android:id="@+id/nav_dialogs"
-                    android:title="@string/navigation_drawer_item_dialogs"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_dialogs"/>
                 <item
                     android:id="@+id/nav_dividers"
-                    android:title="@string/navigation_drawer_item_dividers"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_dividers"/>
                 <item
                     android:id="@+id/nav_grid_lists"
-                    android:title="@string/navigation_drawer_item_grid_lists"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_grid_lists"/>
                 <item
                     android:id="@+id/nav_lists"
                     android:title="@string/navigation_drawer_item_lists"/>
@@ -153,28 +140,22 @@
                     android:title="@string/navigation_drawer_item_lists_controls"/>
                 <item
                     android:id="@+id/nav_menus"
-                    android:title="@string/navigation_drawer_item_menus"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_menus"/>
                 <item
                     android:id="@+id/nav_pickers"
-                    android:title="@string/navigation_drawer_item_pickers"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_pickers"/>
                 <item
                     android:id="@+id/nav_progress_and_activity"
-                    android:title="@string/navigation_drawer_item_progress_and_activity"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_progress_and_activity"/>
                 <item
                     android:id="@+id/nav_selection_controls"
-                    android:title="@string/navigation_drawer_item_selection_controls"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_selection_controls"/>
                 <item
                     android:id="@+id/nav_sliders"
-                    android:title="@string/navigation_drawer_item_sliders"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_sliders"/>
                 <item
                     android:id="@+id/nav_snackbars_and_toasts"
-                    android:title="@string/navigation_drawer_item_snackbars_and_toasts"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_snackbars_and_toasts"/>
                 <item
                     android:id="@+id/nav_subheaders"
                     android:title="@string/navigation_drawer_item_subheaders"/>
@@ -186,16 +167,13 @@
                     android:title="@string/navigation_drawer_item_tabs"/>
                 <item
                     android:id="@+id/nav_text_fields"
-                    android:title="@string/navigation_drawer_item_text_fields"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_text_fields"/>
                 <item
                     android:id="@+id/nav_toolbars"
-                    android:title="@string/navigation_drawer_item_toolbars"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_toolbars"/>
                 <item
                     android:id="@+id/nav_tooltips"
-                    android:title="@string/navigation_drawer_item_tooltips"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_tooltips"/>
             </group>
         </menu>
     </item>
@@ -206,68 +184,52 @@
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_data_formats"
-                    android:title="@string/navigation_drawer_item_data_formats"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_data_formats"/>
                 <item
                     android:id="@+id/nav_empty_states"
-                    android:title="@string/navigation_drawer_item_empty_states"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_empty_states"/>
                 <item
                     android:id="@+id/nav_errors"
-                    android:title="@string/navigation_drawer_item_errors"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_errors"/>
                 <item
                     android:id="@+id/nav_gestures"
-                    android:title="@string/navigation_drawer_item_gestures"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_gestures"/>
                 <item
                     android:id="@+id/nav_fingerprint"
-                    android:title="@string/navigation_drawer_item_fingerprint"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_fingerprint"/>
                 <item
                     android:id="@+id/nav_launch_screens"
-                    android:title="@string/navigation_drawer_item_launch_screens"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_launch_screens"/>
                 <item
                     android:id="@+id/nav_loading_images"
-                    android:title="@string/navigation_drawer_item_loading_images"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_loading_images"/>
                 <item
                     android:id="@+id/nav_navigation"
-                    android:title="@string/navigation_drawer_item_navigation"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_navigation"/>
                 <item
                     android:id="@+id/nav_navigation_drawer"
-                    android:title="@string/navigation_drawer_item_navigation_drawer"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_navigation_drawer"/>
                 <item
                     android:id="@+id/nav_navigational_transitions"
-                    android:title="@string/navigation_drawer_item_navigational_transitions"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_navigational_transitions"/>
                 <item
                     android:id="@+id/nav_notifications"
-                    android:title="@string/navigation_drawer_item_notifications"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_notifications"/>
                 <item
                     android:id="@+id/nav_permissions"
-                    android:title="@string/navigation_drawer_item_permissions"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_permissions"/>
                 <item
                     android:id="@+id/nav_scrolling_techniques"
-                    android:title="@string/navigation_drawer_item_scrolling_techniques"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_scrolling_techniques"/>
                 <item
                     android:id="@+id/nav_search"
-                    android:title="@string/navigation_drawer_item_search"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_search"/>
                 <item
                     android:id="@+id/nav_selection"
-                    android:title="@string/navigation_drawer_item_selection"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_selection"/>
                 <item
                     android:id="@+id/nav_settings"
-                    android:title="@string/navigation_drawer_item_settings"
-                    android:visible="false"/>
+                    android:title="@string/navigation_drawer_item_settings"/>
                 <item
                     android:id="@+id/nav_swipe_to_refresh"
                     android:title="@string/navigation_drawer_item_swipe_to_refresh"/>
@@ -279,7 +241,7 @@
             <group
                 android:id="@+id/group_usability"
                 android:checkableBehavior="single"
-                android:visible="false">
+                >
                 <item
                     android:id="@+id/nav_accessibility"
                     android:title="@string/navigation_drawer_item_accessibility"/>
@@ -294,7 +256,7 @@
             <group
                 android:id="@+id/group_resources"
                 android:checkableBehavior="single"
-                android:visible="false">
+                >
                 <item
                     android:id="@+id/nav_color_palettes"
                     android:title="@string/navigation_drawer_item_color_palettes"/>
@@ -317,8 +279,7 @@
         <menu>
             <group
                 android:id="@+id/group_whats_new"
-                android:checkableBehavior="single"
-                android:visible="false">
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_whats_new"
                     android:title="@string/navigation_drawer_item_whats_new"/>

@@ -23,7 +23,7 @@ abstract class MaterialListItem(var id: Long,
     }
 
     /**
-     * Concatenate holderType (i.e. which view holder class to instanciate) and viewType (i.e. one-line, two-line, three-line)
+     * Concatenate holderType (i.e. which view holder class to instantiate) and viewType (i.e. one-line, two-line, three-line)
      */
     abstract fun encodeViewType(viewType: Int): Int
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Environment Fragment -->
+    <string name="environment">Environment</string>
+    <string name="environment_3d_world">3D world</string>
+    <string name="environment_3d_world_txt">The material environment is a 3D space, which means all objects have x, y, and z dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the positive z-axis extending towards the viewer. Every sheet of material occupies a single position along the z-axis and has a standard 1dp thickness.
+        \n\nOn the web, the z-axis is used for layering and not perspective, so the 3D world is emulated by manipulating the y-axis.
+    </string>
+    <string name="environment_light_and_shadow">Light and shadow</string>
+    <string name="environment_light_and_shadow_txt">Within the material environment, virtual lights illuminate the scene. Key lights create directional shadows, while ambient light creates soft shadows from all angles.
+        \n\nShadows in the material environment are cast by these two light sources. In Android development, shadows occur when light sources are blocked by sheets of material at various positions along the z-axis. On the web, shadows are depicted by manipulating the y-axis only.
+    </string>
+
+    <!-- Material Properties Fragment -->
+    <string name="material_properties">Material properties</string>
+    <string name="material_properties_txt">Material has certain immutable characteristics and inherent behaviors. Understanding these qualities will help you manipulate material in a way that’s consistent with the vision of material design.</string>
+    <string name="material_properties_physical_properties">Physical properties</string>
+    <string name="material_properties_physical_properties_txt">Material has <b>varying x &amp; y dimensions</b> (measured in dps) and a <b>uniform thickness</b> (1dp).
+        \n\nMaterial casts shadows.
+        \n\nShadows result naturally from the relative elevation (z-position) between material elements.
+        \n\nContent is displayed on material, in any shape and color. Content does not add thickness to material.
+        \n\nContent can behave independently of the material, but is limited within the bounds of the material.
+        \n\nMaterial is solid.
+        \n\nInput events cannot pass through material.
+        \n\nMultiple material elements cannot occupy the same dimension in space simultaneously.
+        \n\nMaterial cannot pass through other material.
+        \n\nFor example, one sheet of material cannot pass through another sheet of material when changing elevation.
+    </string>
+    <string name="material_properties_transforming_material">Transforming material</string>
+    <string name="material_properties_transforming_material_txt">Material can change shape.
+        \n\nMaterial grows and shrinks only along its plane.
+        \n\nMaterial never bends or folds.
+        \n\nSheets of material can join together to become a single sheet of material.
+        \n\nWhen split, material can heal. For example, if you remove a portion of material from a sheet of material, the sheet of material will become a whole sheet again.
+    </string>
+    <string name="material_properties_movement_of_material">Movement of material</string>
+    <string name="material_properties_movement_of_material_txt">Material can be spontaneously generated or destroyed anywhere in the environment.
+        \n\nMaterial can move along any axis.
+        \n\nZ-axis motion is typically a result of user interaction with material.
+    </string>
+
+    <!-- Elevation and shadows Fragment -->
+    <string name="objects_elevation_and_shadows">Elevation and shadows</string>
+    <string name="objects_elevation_and_shadows_txt">Objects in material design possess similar qualities to objects in the physical world. In the physical world, objects can be stacked or affixed to one another, but cannot pass through each other. Objects cast shadows and reflect light.
+        \n\nThese qualities form a spatial model that is familiar to users and can be applied consistently across apps. Underpinning this spatial model are the concepts of elevation and shadow.
+    </string>
+    <string name="objects_elevation_and_shadows_elevation_android">Elevation (Android)</string>
+    <string name="objects_elevation_and_shadows_elevation_android_txt">Elevation is the relative distance between two surfaces along the z-axis. A child object\'s elevation is relative to the parent object\'s elevation.
+        \n\nElevation is measured in the same units as the x and y axes, typically in density-independent pixels (dp). Since material has a standard 1dp thickness, all elevations are measured in the distance from the top of one surface to the top of another surface.
+        \n\nThe images and values shown are for Android apps.
+        \n\n<b>Resting elevation</b>
+        \n\nAll material objects have a resting elevation, or default elevation, whether the object is a small component or a sheet that spans the entire display.
+        \n\nThe resting elevation for an object does not change; it is constant throughout an app. If an object changes elevation, it should return to its resting elevation as soon as possible.
+        \n\nThe resting elevation for a component type is consistent across apps. However, components may have different resting elevations across platforms, depending on the depth of the environment (e.g., TV has a greater depth than mobile or desktop).
+        \n\n<b>Responsive elevation and dynamic elevation offsets</b>
+        \n\nSome component types have <b>responsive elevation</b>, meaning they change elevation in response to user input (e.g., normal, focused, and pressed) or system events. These elevation changes are consistently implemented using dynamic elevation offsets.
+        \n\n<b>Dynamic elevation offsets</b> are the goal elevation for the component to move towards, relative to the component’s resting state. They also ensure that elevation changes are consistent across actions and component types. For example, all components that lift on press have the same elevation change relative to their resting elevation, and toolbars that lift to allow material to slide under them have consistent offsets.
+        \n\nOnce the input event is completed or cancelled, the component will return to its resting elevation.
+        \n\n<b>Functional shadows</b>
+        \n\nShadows provide important visual cues about objects’ depth and directional movement. They are the only visual cue indicating the amount of separation between surfaces. An object’s elevation determines the appearance of its shadow.
+        \n\nIn motion, shadows are a useful tool to provide cues about an object’s direction of movement and whether the distance between surfaces is increasing or decreasing.
+    </string>
+    <string name="objects_elevation_and_shadows_object_relationships">Object relationships</string>
+    <string name="objects_elevation_and_shadows_object_relationships_txt"><b>Object hierarchy</b>
+        \n\nHow you organize objects, or collections of objects, in an app determines how they move in relation to one another. Objects can move independently of each other or be constrained by objects higher in the hierarchy.
+        \n\nAll objects are part of a hierarchy described in terms of a parent-child relationships. The “child” in each of these relationships refers to an element that is a subordinate to its “parent” element. Objects can be children of either the system or another object.
+        \n\nParent-child specifics:
+        \n\n• Each object has one parent.
+        \n• Each object may have any number of children.
+        \n• Children inherit transformative properties from their parent, such as position, rotation, scale, and elevation.
+        \n• Siblings are objects at the same level of hierarchy.
+        \n\n<b>Exceptions</b>
+        \n\nItems parented to the root, such as primary UI elements, move independently of other objects. For example, the floating action button does not scroll with content. Other elements include:
+        \n\n• An app’s side nav drawer
+        \n• The action bar
+        \n• Dialogs
+        \n\n<b>Interaction</b>
+        \n\nHow objects interact with one another is determined by their place in the parent-child hierarchy.
+        \n\nFor example:
+        \n\n• Children have minimal z-axis separation from their parent; other objects do not get inserted between parents and children.
+        \n• In a scrolling card collection, the cards are siblings of each other, so they all move together in tandem. They are children of the card collection object that controls their movement.
+        \n\n<b>Elevation</b>
+        \n\nHow you determine the elevation of objects—their position in z-space—depends on the content hierarchy you want to express and whether an object needs to move independently of other objects.
+    </string>
+
+</resources>

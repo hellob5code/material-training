@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Principles Fragment -->
+    <string name="principles">Principles</string>
+    <string name="principles_txt">Material design is guided by print-based design elements – such as typography, grids, space, scale, color, and imagery – to create hierarchy, meaning, and focus that immerse the user in the experience. Material design adopts tools from the field of print design, like baseline grids and structural templates, encouraging consistency across environments by repeating visual elements, structural grids, and spacing across platforms and screen sizes. These layouts scale to fit any screen size, which simplifies the process of creating scalable apps.</string>
+    <string name="principles_how_paper_works">How paper works</string>
+    <string name="principles_floating_action_button">Floating action button</string>
+
+    <!-- Units and Measurements Fragment -->
+    <string name="units_and_measurements">Units &amp; measurements</string>
+    <string name="units_and_measurements_txt">Some units have different meanings in different contexts. This chapter discusses the usage of device-independent pixels, scaleable pixels, as well as concepts like pixel density.</string>
+    <string name="units_and_measurements_pixel_density">Pixel density</string>
+    <string name="units_and_measurements_density_independent_pixels_dp">Density-independent pixels (dp)</string>
+    <string name="units_and_measurements_scaleable_pixels_sp">Scaleable pixels (sp)</string>
+    <string name="units_and_measurements_designing_layouts_for_dp">Designing layouts for dp</string>
+    <string name="units_and_measurements_Image_scaling">Image scaling</string>
+
+    <!-- Metrics and Keylines Fragment -->
+    <string name="metrics_and_keylines">Metrics &amp; keylines</string>
+    <string name="metrics_and_keylines_baseline_grids">Baseline grids</string>
+    <string name="metrics_and_keylines_keylines_and_spacing">Keylines and spacing</string>
+    <string name="metrics_and_keylines_ratio_keylines">Ratio keylines</string>
+    <string name="metrics_and_keylines_incremental_keylines">Incremental keylines</string>
+    <string name="metrics_and_keylines_touch_target_size">Touch target size</string>
+
+    <!-- Structure Fragment -->
+    <string name="structure">Structure</string>
+    <string name="structure_ui_regions">UI regions</string>
+    <string name="structure_toolbars">Toolbars</string>
+    <string name="structure_app_bar">App bar</string>
+    <string name="structure_system_bars">System bars</string>
+    <string name="structure_side_nav">Side nav</string>
+    <string name="structure_whiteframes">Whiteframes</string>
+
+    <!-- Responsive UI Fragment -->
+    <string name="responsive_ui">Responsive UI</string>
+    <string name="responsive_ui_txt">Responsive layouts in material design adapt to any possible screen size. This UI guidance includes a flexible grid that ensures consistency across layouts, breakpoint details about how content reflows on different screens, and a description of how an app can scale from small to extra-large screens.</string>
+
+    <!-- Split Screen Fragment -->
+    <string name="split_screen">Split screen</string>
+    <string name="split_screen_txt">Split-screen mode allows two activities to be visible on screen at the same time.</string>
+
+</resources>

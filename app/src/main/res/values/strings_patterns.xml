@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- App Structure Fragment -->
-    <string name="app_structure">App structure</string>
-    <string name="app_structure_txt">Your app\'s structure is informed by the content and tasks you want to surface for your users. For example, your app could:
-        \n\n• Focus on a single activity (such as a calculator or game)
-        \n• Contain limited navigation (such as a phone dialer with favorites and contacts)
-        \n• Contain complex data views and deep navigation (such as a mail app with folders)
-    </string>
-    <string name="app_structure_start_screen">Start screen</string>
-    <string name="app_structure_top_level_navigation_strategies">Top-level navigation strategies</string>
-    <string name="app_structure_combining_navigation_strategies">Combining navigation strategies</string>
-
     <!-- Data Formats Fragment -->
     <string name="data_formats">Data formats</string>
-    <string name="data_formats_txt">These guidelines apply to US English content only.
-        \n\nThe libraries used to generate date and time formats for other languages may differ.
-    </string>
     <string name="data_formats_date_and_time">Date &amp; time</string>
     <string name="data_formats_data_redaction_and_truncation">Data redaction and truncation</string>
 
+    <!-- Empty States Fragment -->
+    <string name="empty_states">Empty states</string>
+    <string name="empty_states_txt">Empty states occur when the regular content of a view can’t be shown. It might be a list which has no items, or a search which returned no results. Although these states aren’t typical, they are important opportunities for good design to avoid user disappointment or confusion.
+        \n\nIf content cannot be displayed because of a system failure, see <a href="/design/spec/patterns/errors.html#errors-app-errors">app errors</a>.
+    </string>
+
     <!-- Errors Fragment -->
     <string name="errors">Errors</string>
-    <string name="errors_txt">Errors occur when an app fails to complete what is expected. Errors happen when:
-        \n\n• The app does not understand user input
-        \n• The system or app fails
-        \n• A user intends to run incompatible operations concurrently
-        \n\nMinimize errors by designing apps that make it easy for users to input information flexibly. Apps should accept common data formats use affordances to improve user understanding.
-        \n\nWhen an error occurs:
-        \n\n• Clearly communicate what is happening
-        \n• Describe how a user can resolve it
-        \n• Preserve as much user-entered input as possible
-    </string>
+    <string name="errors_txt">Errors occur when an app fails to complete an expected action.</string>
     <string name="errors_user_input_errors">User input errors</string>
     <string name="errors_app_errors">App errors</string>
     <string name="errors_incompatible_state_errors">Incompatible state errors</string>
 
     <!-- Gestures Fragment -->
     <string name="gestures">Gestures</string>
-    <string name="gestures_txt">Gestures are divided into <b>Touch Mechanics</b> (what your fingers do on the screen) and <b>Touch Activities</b> (context-specific results of specific gestures in the user interface). A single touch mechanic (touch) may have multiple results depending on context (tap, cancel, enable/disable lights out), and a single touch activity (zoom in) may be achieved through multiple touch mechanics (pinch open, double touch, double-touch drag, etc.)
-        \n\nNote that Drag, Swipe, and Fling gesture activities are covered in more detail in their own section due to their highly contextual results.
-        \n\nThe information in this section is for mobile-only.
+    <string name="gestures_txt">Gestures are divided into <strong>Touch Mechanics</strong> (what your fingers do on the screen) and <strong>Touch Activities</strong> (results of specific gestures).
+        \n\nA touch mechanic (such as swipe) may have multiple results (such as enable/disable), depending on the context. A touch activity (zoom in) may be achieved through multiple touch mechanics (pinch open, double touch, etc.).
+        \n\nThe <a href="/design/spec/patterns/gestures.html#gestures-drag-swipe-or-fling-details">Drag, Swipe, and Fling</a> touch activities are covered in more detail due to their highly contextual results.
     </string>
     <string name="gestures_touch_mechanics">Touch mechanics</string>
     <string name="gestures_touch_activities">Touch activities</string>
     <string name="gestures_drag_swipe_or_fling_details">Drag, swipe, or fling details</string>
 
+    <!-- Fingerprint Fragment -->
+    <string name="fingerprint">Errors</string>
+    <string name="fingerprint_txt">Fingerprint detection can be used to unlock a device, sign in to apps, and authenticate purchases with Google Play and some third-party apps.
+        \n\nFingerprint is not as secure as a strong PIN or password.
+    </string>
+
+    <!-- Launch Screens Fragment -->
+    <string name="launch_screens">Launch screens</string>
+    <string name="launch_screens_txt">"The launch screen is a user’s first experience of your application."</string>
+
     <!-- Loading Images Fragment -->
     <string name="loading_images">Loading images</string>
     <string name="loading_images_loading_images">Loading images</string>
+
+    <!-- Navigation Fragment -->
+    <string name="navigation">Navigation</string>
+    <string name="navigation_txt">Navigation guides users between different parts of your app.
+        \n\nYour app\'s structure should be organized according to the content and tasks you want users to see. Focus attention on important destinations by placing them in tabs or side navigation. Alternatively, de-emphasize inessential content by placing it in less prominent locations.
+    </string>
 
     <!-- Navigation Drawer Fragment -->
     <string name="navigation_drawer">Navigation drawer</string>
@@ -58,11 +57,21 @@
 
     <!-- Navigational Transitions Fragment -->
     <string name="navigational_transitions">Navigational transitions</string>
-    <string name="navigational_transitions_txt">Navigational transitions occur when the user is taken from one state to another within the app, such as moving from a high-level view to a detailed view or a task-completion view. Most transitions are hierarchical in nature, but non-hierarchical transitions also occur.
-        \n\nThese brief moments are very important for the user experience. Consider the user’s journey carefully to determine which transition to use when. Different kinds of transitions are appropriate for various cases.
+    <string name="navigational_transitions_txt">Navigational transitions are movements between states in an app, such as from a high-level view to a detailed view. Most, but not all, transitions are hierarchical in nature.
+        \n\nThese moments should reflect the user’s journey through each state of an app appropriately.
     </string>
     <string name="navigational_transitions_parent_to_child">Parent to child</string>
     <string name="navigational_transitions_sibling_to_sibling">Sibling to sibling</string>
+
+    <!-- Notifications Fragment -->
+    <string name="notifications">Notifications</string>
+    <string name="notifications_txt">Notifications inform your app’s users about relevant and timely events in your app. You can create notifications to draw attention to messages from friends, alert a commuter to traffic slowdowns, show the progress of a new app being installed, and more.
+        \n\nNotifications should be synced to all of a user’s devices.
+    </string>
+
+    <!-- Permissions Fragment -->
+    <string name="permissions">Permissions</string>
+    <string name="permissions_txt">Permission requests should be simple, transparent, and understandable. When requesting access, apps should ensure that either the feature itself or an explanation provided makes it clear why a permission is needed.</string>
 
     <!-- Scrolling Techniques Fragment -->
     <string name="scrolling_techniques">Scrolling techniques</string>
@@ -74,19 +83,13 @@
 
     <!-- Selection Fragment -->
     <string name="selection">Selection</string>
-    <string name="selection_txt">A <b>long-press</b> (a touch or mousedown that’s held in the same position for a moment) is the global gesture to select data. On touch devices, a two-finger touch may also be used to trigger selection.
-        \n\nThe use of checkboxes (or custom analogs) to initiate selection is not encouraged on mobile. For desktop, checkboxes may be used, with the following guidelines:
-        \n\n• Avoid persistently displaying checkboxes as part of each item.
-        \n• When hovering on an item, display a single checkbox for that item.
-        \n• After an item has been selected, display checkboxes for all remaining items in that set.
-        \n\nUsing checkboxes in contexts such as task lists or checklists, to checking an item indicates completion, rather than selection, is entirely appropriate.
-    </string>
+    <string name="selection_txt">Selection includes the gestures and visual cues that enable user choices.</string>
     <string name="selection_item_selection">Item selection</string>
     <string name="selection_text_selection">Text selection</string>
 
     <!-- Settings Fragment -->
     <string name="settings">Settings</string>
-    <string name="settings_txt">Application settings let users indicate their preferences for how an app should behave. They grant the user a sense of control over apps and services in one consolidated location.</string>
+    <string name="settings_txt">Application settings let users indicate their preferences for how an app or service should behave.</string>
     <string name="settings_flow_and_structure">Flow &amp; structure</string>
     <string name="settings_writing_guidelines">Writing guidelines</string>
 

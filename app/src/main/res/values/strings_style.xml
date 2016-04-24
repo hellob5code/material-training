@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color Fragment -->
+    <string name="color">Color</string>
+    <string name="color_txt">Color in material design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights. Material takes cues from contemporary architecture, road signs, pavement marking tape, and athletic courts. Color should be unexpected and vibrant.</string>
+    <string name="color_color_palette">Color palette</string>
+    <string name="color_ui_color_application">UI color application</string>
+    <string name="color_themes">Themes</string>
+
+    <!-- Icons Fragment -->
+    <string name="icons">Icons</string>
+    <string name="icons_product_icons">Product icons</string>
+    <string name="icons_system_icons">System icons</string>
+
+    <!-- Imagery Fragment -->
+    <string name="imagery">Imagery</string>
+    <string name="imagery_txt">Imagery is more than decoration. It’s a powerful tool to help you communicate and differentiate your product. Bold, graphic, and intentional imagery helps to engage the user.
+        \n\nWhether the mood is subdued and muted or bright and colorful, the following principles and best practices can help you successfully incorporate imagery and bring your apps to life, no matter what the visual brand.
+    </string>
+    <string name="imagery_principles">Principles</string>
+    <string name="imagery_best_practices">Best practices</string>
+    <string name="imagery_ui_integration">UI integration</string>
+
+    <!-- Typography Fragment -->
+    <string name="typography">Typography</string>
+    <string name="typography_txt">Since the Ice Cream Sandwich release, Roboto has been the standard typeface on Android. Since Froyo, Noto has been the standard typeface on Android for all languages not covered by Roboto. Noto is also the standard typeface for all languages on Chrome OS.</string>
+    <string name="typography_language_categorization">Language categorization</string>
+    <string name="typography_typeface">Typeface</string>
+    <string name="typography_styles">Styles</string>
+    <string name="typography_line_height">Line height</string>
+    <string name="typography_other_typographic_guidelines">Other typographic guidelines</string>
+    <string name="typography_language_categories_reference">Language categories reference</string>
+
+    <!-- Writing Fragment -->
+    <string name="writing">Writing</string>
+    <string name="writing_txt">Clear, accurate, and concise text makes interfaces more usable and builds trust. Strive to write text that is understandable by anyone, anywhere, regardless of their culture or language.
+        \n\nIn addition to these guidelines, be sure to consult guidelines for specific UI elements, such as <a href="/design/spec/patterns/errors.html">Errors</a>, <a href="/design/spec/components/dialogs.html">Dialogs</a>, <a href="/design/spec/patterns/settings.html">Settings</a>, and  <a href="/design/spec/patterns/data-formats.html">Data formats</a>
+    </string>
+
+</resources>

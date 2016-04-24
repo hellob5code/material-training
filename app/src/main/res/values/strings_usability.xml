@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Accessibility Fragment -->
+    <string name="accessibility">Accessibility</string>
+    <string name="accessibility_txt">Accessible design allows users of all abilities to navigate, understand, and use your UI successfully.</string>
+    <string name="accessibility_navigation">Navigation</string>
+    <string name="accessibility_readability">Readability</string>
+    <string name="accessibility_guidance_and_feedback">Guidance and feedback</string>
+
+    <!-- Bidirectionality Fragment -->
+    <string name="bidirectionality">Bidirectionality</string>
+    <string name="bidirectionality_txt">A well-designed app can be easily localized for language scripts that are written and read from left-to-right (LTR), such as English, and for bidirectional language scripts.
+        \n\nIn bidirectional scripts, text is written and read from right-to-left, but numbers and embedded words from LTR languages, such as non-localized names, are written left-to-right (LTR). Bidirectional scripts include Arabic, Hebrew, and Persian.
+        \n\nBidirectionality affects not only the layout of text and UI elements but also iconography. This section provides basic, high-level information about how to consider bidirectionality in design.
+    </string>
+    <string name="bidirectionality_ui_mirroring_overview">UI mirroring overview</string>
+    <string name="bidirectionality_rtl_mirroring_guidelines">RTL mirroring guidelines</string>
+    <string name="bidirectionality_other_localization_considerations">Other localization considerations</string>
+
+</resources>
