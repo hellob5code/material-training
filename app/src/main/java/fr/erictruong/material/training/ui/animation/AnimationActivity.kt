@@ -15,9 +15,9 @@ class AnimationActivity : BaseDrawerActivity(), AnkoLogger {
     override fun getSelectedFragment(id: Int): Fragment? {
         when (id) {
             R.id.nav_authentic_motion -> return AuthenticMotionFragment()
-            R.id.nav_responsive_interaction -> return DelightfulDetailsFragment()
+            R.id.nav_responsive_interaction -> return ResponsiveInteractionFragment()
             R.id.nav_meaningful_transitions -> return MeaningfulTransitionsFragment()
-            R.id.nav_delightful_details -> return ResponsiveInteractionFragment()
+            R.id.nav_delightful_details -> return DelightfulDetailsFragment()
             else -> {
                 debug("Unknown ID: $id")
                 return null
