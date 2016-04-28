@@ -10,7 +10,10 @@ import fr.erictruong.android.lists.R
 import fr.erictruong.android.lists.item.*
 import fr.erictruong.android.lists.stub.*
 
-abstract class Holder(parent: ViewGroup, resource: Int) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(resource, parent, false)), Bindable<MaterialListItem> {
+
+fun inflate(parent: ViewGroup, resource: Int) = LayoutInflater.from(parent.context).inflate(resource, parent, false)
+
+abstract class Holder(parent: ViewGroup, resource: Int) : RecyclerView.ViewHolder(inflate(parent, resource)), Bindable<MaterialListItem> {
 
     companion object {
         const val ONE_LINE = 0

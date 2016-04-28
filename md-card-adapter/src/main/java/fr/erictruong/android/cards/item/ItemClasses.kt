@@ -1,37 +1,26 @@
 package fr.erictruong.android.cards.item
 
-import fr.erictruong.android.cards.holder.DisplayBodyViewHolder
-import fr.erictruong.android.cards.holder.HeadlineBodyViewHolder
-import fr.erictruong.android.cards.holder.Holder
+import android.text.style.UpdateAppearance
+import fr.erictruong.android.cards.holder.*
 
-abstract class MaterialCardItem(var id: Long,
-                                var viewType: Int) {
+interface MaterialCardItem {
+    var id: Long
+    var viewType: Int
 
-    companion object {
-        val NO_ID: Long = -1
-        val MAGIC_NUMBER: Int = 100
+    //    fun decodeViewType(viewType: Int): Int = viewType / MAGIC_NUMBER
 
-        fun decodeViewType(viewType: Int): Int {
-            return viewType / MAGIC_NUMBER
-        }
+    //    fun decodeHolderType(viewType: Int): Int = viewType % MAGIC_NUMBER
 
-        fun decodeHolderType(viewType: Int): Int {
-            return viewType % MAGIC_NUMBER
-        }
-    }
-
-    /**
-     * Concatenate holderType (i.e. which view holder class to instantiate) and viewType (i.e. one-line, two-line, three-line)
-     */
-    abstract fun encodeViewType(viewType: Int): Int
+    //    /**
+    //     * Concatenate holderType (i.e. which view holder class to instantiate) and viewType (i.e. one-line, two-line, three-line)
+    //     */
+    //    fun encodeViewType(viewType: Int): Int
 }
 
-class DisplayBodyItem(id: Long = NO_ID,
-                      viewType: Int = Holder.NORMAL,
-                      override var display: CharSequence,
-                      override var displayColor: Int? = null,
-                      override var body: CharSequence = "",
-                      override var bodyAppearance: Int? = null) : MaterialCardItem(id, viewType), Displayable, Bodyable {
+class DisplayBodyItem(override var id: Long, override var viewType: Int = Holder.NORMAL,
+                      override var display: CharSequence, override var displayColor: Int? = null, override var displayAppearance: Int? = null,
+                      override var body: CharSequence = "", override var bodyColor: Int? = null, override var bodyAppearance: Int? = null
+) : MaterialCardItem, Displayable, Bodyable {
 
     override fun encodeViewType(viewType: Int): Int {
         return (viewType * MAGIC_NUMBER) + DisplayBodyViewHolder.TYPE
@@ -42,33 +31,48 @@ class DisplayBodyItem(id: Long = NO_ID,
 
 class HeadlineBodyItem(id: Long = NO_ID,
                        viewType: Int = Holder.NORMAL,
-                       override var headline: CharSequence,
-                       override var headlineColor: Int? = null,
-                       override var body: CharSequence = "",
-                       override var bodyAppearance: Int? = null,
-                       override var button1: Buttonable? = null,
-                       override var button2: Buttonable? = null,
-                       override var button3: Buttonable? = null,
-                       override var button4: Buttonable? = null,
-                       override var button5: Buttonable? = null,
-                       override var button6: Buttonable? = null
-        //                       override var button1Text: CharSequence?,
-//                       override var button2Text: CharSequence?,
-//                       override var button3Text: CharSequence?,
-//                       override var button4Text: CharSequence?,
-//                       override var button5Text: CharSequence?,
-//                       override var button6Text: CharSequence?,
-//                       override var button1Action: (view: View, item: Buttonable) -> Unit?,
-//                       override var button2Action: (view: View, item: Buttonable) -> Unit?,
-//                       override var button3Action: (view: View, item: Buttonable) -> Unit?,
-//                       override var button4Action: (view: View, item: Buttonable) -> Unit?,
-//                       override var button5Action: (view: View, item: Buttonable) -> Unit?,
-//                       override var button6Action: (view: View, item: Buttonable) -> Unit?
-) : MaterialCardItem(id, viewType), Headlineable, Bodyable, SixButtonable {
+                       override var headline: CharSequence, override var headlineColor: Int? = null,
+                       override var body: CharSequence = "", override var bodyAppearance: Int? = null
+) : MaterialCardItem(id, viewType), Headlineable, Bodyable {
 
     override fun encodeViewType(viewType: Int): Int {
         return (viewType * MAGIC_NUMBER) + HeadlineBodyViewHolder.TYPE
     }
 
     override fun toString(): String = "HeadlineBodyItem(id=$id, viewType=$viewType)"
+}
+
+class HeadlineBodyThreeButtonItem(id: Long = NO_ID,
+                                  viewType: Int = Holder.NORMAL,
+                                  override var headline: CharSequence, override var headlineColor: Int? = null,
+                                  override var body: CharSequence = "", override var bodyAppearance: Int? = null,
+                                  override var button1: CharSequence? = null, override var button1Action: (() -> Unit)? = null,
+                                  override var button2: CharSequence? = null, override var button2Action: (() -> Unit)? = null,
+                                  override var button3: CharSequence? = null, override var button3Action: (() -> Unit)? = null
+) : MaterialCardItem(id, viewType), Headlineable, Bodyable, ThreeButtonable {
+
+    override fun encodeViewType(viewType: Int): Int {
+        return (viewType * MAGIC_NUMBER) + HeadlineBodyThreeButtonViewHolder.TYPE
+    }
+
+    override fun toString(): String = "HeadlineBodyThreeButtonItem(id=$id, viewType=$viewType)"
+}
+
+class HeadlineBodySixButtonItem(id: Long = NO_ID,
+                                viewType: Int = Holder.NORMAL,
+                                override var headline: CharSequence, override var headlineColor: Int? = null,
+                                override var body: CharSequence = "", override var bodyAppearance: Int? = null,
+                                override var button1: CharSequence? = null, override var button1Action: (() -> Unit)? = null,
+                                override var button2: CharSequence? = null, override var button2Action: (() -> Unit)? = null,
+                                override var button3: CharSequence? = null, override var button3Action: (() -> Unit)? = null,
+                                override var button4: CharSequence? = null, override var button4Action: (() -> Unit)? = null,
+                                override var button5: CharSequence? = null, override var button5Action: (() -> Unit)? = null,
+                                override var button6: CharSequence? = null, override var button6Action: (() -> Unit)? = null
+) : MaterialCardItem(id, viewType), Headlineable, Bodyable, SixButtonable {
+
+    override fun encodeViewType(viewType: Int): Int {
+        return (viewType * MAGIC_NUMBER) + HeadlineBodySixButtonViewHolder.TYPE
+    }
+
+    override fun toString(): String = "HeadlineBodySixButtonItem(id=$id, viewType=$viewType)"
 }

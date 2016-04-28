@@ -54,8 +54,8 @@ class MaterialListAdapter : RecyclerView.Adapter<Holder>() {
         return dataset.size
     }
 
-    override fun onViewRecycled(holder: Holder?) {
-        holder?.unbind()
+    override fun onViewRecycled(holder: Holder) {
+        holder.unbind()
     }
 
     fun swapData(items: MutableList<MaterialListItem>) {

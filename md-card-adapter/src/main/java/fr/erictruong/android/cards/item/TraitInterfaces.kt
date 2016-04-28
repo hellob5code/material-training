@@ -7,18 +7,21 @@ interface Textable {
     var text1: CharSequence
 }
 
+interface Displayable {
+    var display: CharSequence
+    var displayColor:  Int?
+    var displayAppearance: Int?
+}
+
 interface Headlineable {
     var headline: CharSequence
     var headlineColor: Int?
-}
-
-interface Displayable {
-    var display: CharSequence
-    var displayColor: Int?
+    var headlineAppearance: Int?
 }
 
 interface Bodyable {
     var body: CharSequence
+    var bodyColor: Int?
     var bodyAppearance: Int?
 }
 
@@ -27,26 +30,28 @@ interface Buttonable {
     var action: () -> Unit?
 }
 
-interface SixButtonable {
-    var button1: Buttonable?
-    var button2: Buttonable?
-    var button3: Buttonable?
-    var button4: Buttonable?
-    var button5: Buttonable?
-    var button6: Buttonable?
+interface ThreeButtonable {
+    var button1: CharSequence?
+    var button1Action: (() -> Unit)?
+    var button2: CharSequence?
+    var button2Action: (() -> Unit)?
+    var button3: CharSequence?
+    var button3Action: (() -> Unit)?
+}
 
-//    var button1Text: CharSequence?
-//    var button2Text: CharSequence?
-//    var button3Text: CharSequence?
-//    var button4Text: CharSequence?
-//    var button5Text: CharSequence?
-//    var button6Text: CharSequence?
-//    var button1Action: (view: View, item: Buttonable) -> Unit?
-//    var button2Action: (view: View, item: Buttonable) -> Unit?
-//    var button3Action: (view: View, item: Buttonable) -> Unit?
-//    var button4Action: (view: View, item: Buttonable) -> Unit?
-//    var button5Action: (view: View, item: Buttonable) -> Unit?
-//    var button6Action: (view: View, item: Buttonable) -> Unit?
+interface SixButtonable {
+    var button1: CharSequence?
+    var button1Action: (() -> Unit)?
+    var button2: CharSequence?
+    var button2Action: (() -> Unit)?
+    var button3: CharSequence?
+    var button3Action: (() -> Unit)?
+    var button4: CharSequence?
+    var button4Action: (() -> Unit)?
+    var button5: CharSequence?
+    var button5Action: (() -> Unit)?
+    var button6: CharSequence?
+    var button6Action: (() -> Unit)?
 }
 
 interface Iconable {

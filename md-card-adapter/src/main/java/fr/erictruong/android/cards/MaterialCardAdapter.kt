@@ -2,15 +2,18 @@ package fr.erictruong.android.cards
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import fr.erictruong.android.cards.holder.DisplayBodyViewHolder
-import fr.erictruong.android.cards.holder.HeadlineBodyViewHolder
-import fr.erictruong.android.cards.holder.Holder
+import fr.erictruong.android.cards.holder.*
 import fr.erictruong.android.cards.item.MaterialCardItem
 import fr.erictruong.android.cards.item.MaterialCardItem.Companion.decodeHolderType
 import fr.erictruong.android.cards.item.MaterialCardItem.Companion.decodeViewType
 import java.util.*
 
 class MaterialCardAdapter : RecyclerView.Adapter<Holder>() {
+
+    companion object {
+        val NO_ID: Long = -1
+        val MAGIC_NUMBER: Int = 100
+    }
 
     private var dataset: MutableList<MaterialCardItem> = arrayListOf()
 
@@ -33,6 +36,8 @@ class MaterialCardAdapter : RecyclerView.Adapter<Holder>() {
         when (holderType) {
             DisplayBodyViewHolder.TYPE -> return DisplayBodyViewHolder(parent, originalType)
             HeadlineBodyViewHolder.TYPE -> return HeadlineBodyViewHolder(parent, originalType)
+            HeadlineBodyThreeButtonViewHolder.TYPE -> return HeadlineBodyThreeButtonViewHolder(parent, originalType)
+            HeadlineBodySixButtonViewHolder.TYPE -> return HeadlineBodySixButtonViewHolder(parent, originalType)
             else -> throw IllegalArgumentException("Unknown view type: " + viewType)
         }
     }
