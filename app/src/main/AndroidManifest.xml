@@ -51,6 +51,44 @@
             android:name=".ui.whats_new.WhatsNewActivity"
             android:theme="@style/LightBlue.NoActionBar"/>
 
+        <!-- Cards -->
+
+        <activity
+            android:name=".ui.components.cards.AvatarSubheaderMediaBody1ActionsActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.cards.HeadlineSubtextBody1ActionsActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.cards.MediaActionsActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.cards.MediaBody1CardActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.cards.MediaHeadlineActionsActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.cards.MediaHeadlineSubtextActionsActivity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+        <activity
+            android:name=".ui.components.cards.MediaHeadlineSubtextActionsExpandBody1Activity"
+            android:label="@string/title_sample"
+            android:theme="@style/Grey50"
+            android:parentActivityName=".ui.components.ComponentsActivity"/>
+
         <!-- Lists -->
 
         <activity

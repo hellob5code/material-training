@@ -35,7 +35,7 @@ class SampleListSubheaderActivity : RecyclerActivity() {
                     avatarUrl = objectModel.avatarUrl,
                     text1 = objectModel.text1,
                     text2 = objectModel.text2,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
             items.add(item)
         }
         adapter.swapData(items)

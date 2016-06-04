@@ -26,6 +26,7 @@ class ListsFragmentUI : AnkoComponent<Fragment> {
             verticalLayout {
                 padding = dimen(R.dimen.padding_medium)
                 bottomPadding += dimen(R.dimen.action_bar_size)
+                clipToPadding = false
                 textView("Text only")
                 button("Single-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to ONE_LINE) } }
                 button("Two-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to TWO_LINE) } }

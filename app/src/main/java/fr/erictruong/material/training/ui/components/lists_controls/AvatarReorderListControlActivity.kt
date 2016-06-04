@@ -33,7 +33,7 @@ class AvatarReorderListControlActivity : RecyclerActivity() {
                     id = i.toLong(),
                     avatarUrl = objectModel.avatarUrl,
                     text1 = objectModel.text1 + " #" + i,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() },
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() },
                     itemTouchHelper = itemTouchHelper)
             items.add(item)
         }

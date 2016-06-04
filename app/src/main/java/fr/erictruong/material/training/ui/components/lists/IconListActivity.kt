@@ -45,14 +45,14 @@ class IconListActivity : RecyclerActivity() {
                     id = model.id,
                     icon = R.drawable.gray,
                     text1 = "Single-line item",
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
             TWO_LINE -> return IconItem(
                     id = model.id,
                     viewType = TWO_LINE,
                     icon = R.drawable.gray,
                     text1 = "Two-line item",
                     text2 = model.text2,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
             THREE_LINE -> return IconItem(
                     id = model.id,
                     viewType = THREE_LINE,
@@ -60,7 +60,7 @@ class IconListActivity : RecyclerActivity() {
                     text1 = "Three-line item",
                     text2 = model.text2,
                     text3 = model.text3,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
             else -> throw IllegalArgumentException("Unknown view type: " + viewType)
         }
     }

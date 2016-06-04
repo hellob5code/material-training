@@ -44,14 +44,14 @@ class AvatarListActivity : RecyclerActivity() {
                     id = model.id,
                     avatarUrl = model.avatarUrl,
                     text1 = "Single-line item",
-                    action = { v, item -> Snackbar.make(recyclerView, "Action #" + item, Snackbar.LENGTH_SHORT).show() })
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
             TWO_LINE -> return AvatarItem(
                     id = model.id,
                     viewType = TWO_LINE,
                     avatarUrl = model.avatarUrl,
                     text1 = "Two-line item",
                     text2 = model.text2,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
             THREE_LINE -> return AvatarItem(
                     id = model.id,
                     viewType = THREE_LINE,
@@ -59,7 +59,7 @@ class AvatarListActivity : RecyclerActivity() {
                     text1 = "Three-line item",
                     text2 = model.text2,
                     text3 = model.text3,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() })
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
             else -> throw IllegalArgumentException("Unknown view type: " + viewType)
         }
     }

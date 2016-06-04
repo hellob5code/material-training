@@ -28,7 +28,7 @@ class AvatarCheckboxListControlActivity : RecyclerActivity() {
                     id = i.toLong(),
                     avatarUrl = objectModel.avatarUrl,
                     text1 = objectModel.text1,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() },
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() },
                     checkAction = { v, item -> Snackbar.make(recyclerView, "Secondary action - " + item, Snackbar.LENGTH_SHORT).show() })
             items.add(item)
         }

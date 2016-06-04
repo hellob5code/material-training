@@ -29,7 +29,7 @@ class CheckboxIconListControlActivity : RecyclerActivity() {
                     id = i.toLong(),
                     icon = R.drawable.ic_message_24dp_alpha54,
                     text1 = objectModel.text1,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - " + item, Snackbar.LENGTH_SHORT).show() },
+                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() },
                     checkAction = { v, item -> Snackbar.make(recyclerView, "Primary action - " + item, Snackbar.LENGTH_SHORT).show() })
             items.add(item)
         }
