@@ -147,7 +147,6 @@
                     android:id="@+id/nav_components_buttons_floating_action_button"
                     android:title="@string/title_components_buttons_floating_action_button"/>
                 <item
-                    android:visible="false"
                     android:id="@+id/nav_components_cards"
                     android:title="@string/title_components_cards"/>
                 <item

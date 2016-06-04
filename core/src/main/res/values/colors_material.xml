@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <color name="background_material_dark">#ff303030</color>
-    <color name="background_material_light">#ffeeeeee</color>
-    <color name="background_floating_material_dark">#ff424242</color>
-    <color name="background_floating_material_light">#ffeeeeee</color>
+    <color name="background_material_dark" tools:ignore="PrivateResource">#ff303030</color>
+    <color name="background_material_light" tools:ignore="PrivateResource">#ffeeeeee</color>
+    <color name="background_floating_material_dark" tools:ignore="PrivateResource">#ff424242</color>
+    <color name="background_floating_material_light" tools:ignore="PrivateResource">#ffeeeeee</color>
 
-    <color name="primary_material_dark">#ff212121</color>
-    <color name="primary_material_light">#ffbdbdbd</color>
-    <color name="primary_dark_material_dark">#ff000000</color>
-    <color name="primary_dark_material_light">#ff757575</color>
+    <color name="primary_material_dark" tools:ignore="PrivateResource">#ff212121</color>
+    <color name="primary_material_light" tools:ignore="PrivateResource">#ffbdbdbd</color>
+    <color name="primary_dark_material_dark" tools:ignore="PrivateResource">#ff000000</color>
+    <color name="primary_dark_material_light" tools:ignore="PrivateResource">#ff757575</color>
 
     <color name="material_text">#de000000</color>
     <color name="material_text_secondary">#8a000000</color>
