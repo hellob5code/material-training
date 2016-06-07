@@ -15,4 +15,5 @@
     android:paddingBottom="@dimen/padding_medium"
     android:textColor="@color/material_text"
     android:textSize="@dimen/text_size_normal"
-    tools:text="Single-line item"/>
+    android:text="Single-line item"
+    tools:ignore="HardcodedText"/>

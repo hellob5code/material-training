@@ -5,44 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
-    android:minHeight="@dimen/touch_target_56dp"
+    android:minHeight="@dimen/touch_target_48dp"
     android:paddingEnd="@dimen/keyline_1_material"
     android:paddingRight="@dimen/keyline_1_material">
-
-    <ImageView
-        android:id="@+id/avatar"
-        android:layout_width="@dimen/avatar_size_mini"
-        android:layout_height="@dimen/avatar_size_mini"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/keyline_1_material"
-        android:layout_marginStart="@dimen/keyline_1_material"
-        android:background="@drawable/circle"/>
-
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/checkbox"
-        android:layout_toStartOf="@+id/checkbox"
-        android:layout_marginLeft="@dimen/keyline_2_material"
-        android:layout_marginStart="@dimen/keyline_2_material"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:textColor="@color/material_text"
-        android:textSize="@dimen/text_size_normal"
-        android:text="Single-line item"
-        tools:ignore="HardcodedText"/>
 
     <CheckBox
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium"/>
+        android:layout_marginLeft="@dimen/keyline_1_material"
+        android:layout_marginStart="@dimen/keyline_1_material"
+        android:button="@drawable/selector_expand"/>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/icon"
+        android:layout_toStartOf="@+id/icon"
+        android:layout_marginLeft="@dimen/keyline_2_material"
+        android:layout_marginStart="@dimen/keyline_2_material"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/material_text"
+        android:textSize="@dimen/text_size_normal"
+        android:text="Single-line item"
+        tools:ignore="HardcodedText"/>
 </RelativeLayout>

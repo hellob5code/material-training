@@ -6,9 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import fr.erictruong.material.training.R
-import fr.erictruong.android.lists.holder.MaterialListHolder.Companion.ONE_LINE
-import fr.erictruong.android.lists.holder.MaterialListHolder.Companion.THREE_LINE
-import fr.erictruong.android.lists.holder.MaterialListHolder.Companion.TWO_LINE
 import org.jetbrains.anko.*
 import org.jetbrains.anko.support.v4.nestedScrollView
 
@@ -28,21 +25,21 @@ class ListsFragmentUI : AnkoComponent<Fragment> {
                 bottomPadding += dimen(R.dimen.action_bar_size)
                 clipToPadding = false
                 textView("Text only")
-                button("Single-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to ONE_LINE) } }
-                button("Two-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to TWO_LINE) } }
-                button("Three-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to THREE_LINE) } }
+                button("Single-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to 0) } }
+                button("Two-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to 1) } }
+                button("Three-line") { onClick { ctx.startActivity<TextListActivity>("extra_list_view_type" to 2) } }
                 textView("Icon with text")
-                button("Single-line") { onClick { ctx.startActivity<IconListActivity>("extra_list_view_type" to ONE_LINE) } }
-                button("Two-line") { onClick { ctx.startActivity<IconListActivity>("extra_list_view_type" to TWO_LINE) } }
-                button("Three-line") { onClick { ctx.startActivity<IconListActivity>("extra_list_view_type" to THREE_LINE) } }
+                button("Single-line") { onClick { ctx.startActivity<IconListActivity>("extra_list_view_type" to 0) } }
+                button("Two-line") { onClick { ctx.startActivity<IconListActivity>("extra_list_view_type" to 1) } }
+                button("Three-line") { onClick { ctx.startActivity<IconListActivity>("extra_list_view_type" to 2) } }
                 textView("Avatar with text")
-                button("Single-line") { onClick { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to ONE_LINE) } }
-                button("Two-line") { onClick { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to TWO_LINE) } }
-                button("Three-line") { onClick { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to THREE_LINE) } }
+                button("Single-line") { onClick { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to 0) } }
+                button("Two-line") { onClick { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to 1) } }
+                button("Three-line") { onClick { ctx.startActivity<AvatarListActivity>("extra_list_view_type" to 2) } }
                 textView("Avatar with text and icon")
-                button("Single-line") { onClick { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to ONE_LINE) } }
-                button("Two-line") { onClick { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to TWO_LINE) } }
-                button("Three-line") { onClick { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to THREE_LINE) } }
+                button("Single-line") { onClick { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to 0) } }
+                button("Two-line") { onClick { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to 1) } }
+                button("Three-line") { onClick { ctx.startActivity<AvatarIconListActivity>("extra_list_view_type" to 2) } }
             }
         }
     }

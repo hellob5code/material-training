@@ -15,7 +15,8 @@
         android:layout_height="@dimen/icon_size"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/keyline_1_material"
-        android:layout_marginStart="@dimen/keyline_1_material"/>
+        android:layout_marginStart="@dimen/keyline_1_material"
+        android:src="@color/primary_material_light"/>
 
     <TextView
         android:id="@+id/text1"
@@ -30,5 +31,6 @@
         android:maxLines="1"
         android:textColor="@color/material_text"
         android:textSize="@dimen/text_size_normal"
-        tools:text="Single-line item"/>
+        android:text="Single-line item"
+        tools:ignore="HardcodedText"/>
 </RelativeLayout>

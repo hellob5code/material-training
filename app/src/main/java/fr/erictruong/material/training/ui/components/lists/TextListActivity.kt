@@ -3,61 +3,53 @@ package fr.erictruong.material.training.ui.components.lists
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.ViewGroup
+import fr.erictruong.android.cards.Bindable
 import fr.erictruong.android.core.activity.RecyclerActivity
-import fr.erictruong.android.lists.MaterialListAdapter
-import fr.erictruong.android.lists.holder.MaterialListHolder.Companion.ONE_LINE
-import fr.erictruong.android.lists.holder.MaterialListHolder.Companion.THREE_LINE
-import fr.erictruong.android.lists.holder.MaterialListHolder.Companion.TWO_LINE
 import fr.erictruong.android.lists.holder.TextViewHolder
-import fr.erictruong.android.lists.item.MaterialListItem
-import fr.erictruong.android.lists.item.TextItem
-import fr.erictruong.material.training.data.DummyModel
-import java.util.*
+import fr.erictruong.android.lists.stub.ActionStub
+import fr.erictruong.android.lists.stub.TextStub
 
 class TextListActivity : RecyclerActivity() {
 
-    val itemCount = 42
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = MaterialListAdapter<TextViewHolder>()
-        recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        val viewType = intent.getIntExtra("extra_list_view_type", -1)
-
-        val items = ArrayList<MaterialListItem>(itemCount)
-        for (i in 0..itemCount - 1) {
-            val objectModel = DummyModel(i.toLong(), "http://placehold.it/100/888/888/", "Primary text", "Secondary text", "Tertiary text")
-            val item = mapItem(viewType, objectModel)
-            items.add(item)
-        }
-        adapter.swapData(items)
+        recyclerView.adapter = TextAdapter(intent.getIntExtra("extra_list_view_type", 0))
     }
 
-    /**
-     * Map an object model into a list item holder.
-     */
-    private fun mapItem(viewType: Int, model: DummyModel): MaterialListItem {
-        when (viewType) {
-            ONE_LINE -> return TextItem(
-                    id = model.id,
-                    text1 = "Single-line item",
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
-            TWO_LINE -> return TextItem(
-                    id = model.id,
-                    viewType = TWO_LINE,
-                    text1 = "Two-line item",
-                    text2 = model.text2,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
-            THREE_LINE -> return TextItem(
-                    id = model.id,
-                    viewType = THREE_LINE,
-                    text1 = "Three-line item",
-                    text2 = model.text2,
-                    text3 = model.text3,
-                    action = { v, item -> Snackbar.make(recyclerView, "Action - id=${item.id}", Snackbar.LENGTH_SHORT).show() })
-            else -> throw IllegalArgumentException("Unknown view type: " + viewType)
+    class TextAdapter(val viewType: Int = 0) : RecyclerView.Adapter<ViewHolder>() {
+
+        override fun getItemCount(): Int = 24
+
+        override fun getItemId(position: Int): Long = position.toLong()
+
+        override fun getItemViewType(position: Int): Int = viewType
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder? = ViewHolder(parent, viewType)
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(position)
+    }
+
+    class ViewHolder : TextViewHolder, Bindable<Int> {
+
+        val actionStub: ActionStub
+        val textStub: TextStub
+
+        constructor(parent: ViewGroup, viewType: Int) : super(parent, viewType) {
+            actionStub = ActionStub(itemView)
+            textStub = TextStub(text1, text2, text3)
+        }
+
+        override fun bind(item: Int) {
+            actionStub.bind { v -> Snackbar.make(v, "Action - id=$item", Snackbar.LENGTH_SHORT).show() }
+            // TODO: Bind holder to item.
+        }
+
+        override fun unbind() {
+            actionStub.unbind()
+            // TODO: Unbind holder.
         }
     }
 }

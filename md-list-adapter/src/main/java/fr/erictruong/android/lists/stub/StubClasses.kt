@@ -1,222 +1,181 @@
 package fr.erictruong.android.lists.stub
 
 import android.graphics.Color
-import android.support.annotation.ColorInt
+import android.support.annotation.DrawableRes
 import android.support.v4.view.MotionEventCompat
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.MotionEvent
 import android.view.View
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.Switch
-import android.widget.TextView
+import android.widget.*
 import com.squareup.picasso.Picasso
 import fr.erictruong.android.core.transform.CircleStrokeTransformation
-import fr.erictruong.android.core.util.ThemeUtils
-import fr.erictruong.android.core.util.ViewUtils
-import fr.erictruong.android.lists.Bindable
 import fr.erictruong.android.lists.R
-import fr.erictruong.android.lists.item.*
 
-abstract class Stub(val itemView: View)
+class ActionStub(val itemView: View) {
 
-class ActionStub(itemView: View) : Stub(itemView), Bindable<MaterialListItem> {
-
-    override fun bind(item: MaterialListItem) {
-        itemView.setOnClickListener { v -> item.action(v, item) }
+    fun bind(onClick: (v: View) -> Unit) {
+        itemView.setOnClickListener { v -> onClick(v) }
     }
 
-    override fun unbind() {
+    fun unbind() {
         // Nothing to do
     }
 }
 
-class TextStub(itemView: View) : Stub(itemView), Bindable<Textable> {
+class TextStub(val text1: TextView, val text2: TextView? = null, val text3: TextView? = null) {
 
-    private val text1: TextView
-    private val text2: TextView?
-    private val text3: TextView?
-
-    init {
-        text1 = itemView.findViewById(R.id.text1) as TextView
-        text2 = itemView.findViewById(R.id.text2) as TextView?
-        text3 = itemView.findViewById(R.id.text3) as TextView?
+    fun bind(text1: CharSequence, text2: CharSequence? = null, text3: CharSequence? = null) {
+        this.text1.text = text1
+        this.text2?.text = text2
+        this.text3?.text = text3
     }
 
-    override fun bind(item: Textable) {
-        text1.text = item.text1
-        text2?.text = item.text2
-        text3?.text = item.text3
-    }
-
-    override fun unbind() {
+    fun unbind() {
         // Nothing to do
     }
 }
 
-class IconStub(itemView: View) : Stub(itemView), Bindable<Iconable> {
+class IconStub(val icon: ImageView) {
 
-    private val icon: ImageView
-
-    init {
-        icon = itemView.findViewById(R.id.icon) as ImageView
+    fun bind(@DrawableRes icon: Int) {
+        this.icon.setImageResource(icon)
     }
 
-    override fun bind(item: Iconable) {
-        icon.setImageResource(item.icon)
-    }
-
-    override fun unbind() {
+    fun unbind() {
         // Nothing to do
     }
 }
 
-class AvatarStub(itemView: View) : Stub(itemView), Bindable<Avatarable> {
+class AvatarStub(val avatar: ImageView) {
 
-    private val avatar: ImageView
+    val picasso = Picasso.with(avatar.context)
+    val circleStrokeTransformation = CircleStrokeTransformation(avatar.context, Color.WHITE, 0)
 
-    private val picasso: Picasso
-    private val circleStrokeTransformation: CircleStrokeTransformation
-
-    init {
-        val context = itemView.context
-        avatar = itemView.findViewById(R.id.avatar) as ImageView
-        picasso = Picasso.with(context)
-        circleStrokeTransformation = CircleStrokeTransformation(context, Color.WHITE, 0)
-    }
-
-    override fun bind(item: Avatarable) {
-        picasso.load(item.avatarUrl)
+    fun bind(avatarUrl: String) {
+        picasso.load(avatarUrl)
                 .placeholder(R.drawable.circle)
                 .transform(circleStrokeTransformation)
                 .into(avatar)
     }
 
-    override fun unbind() {
+    fun unbind() {
         // Nothing to do
     }
 }
 
-class CheckBoxStub(itemView: View) : Stub(itemView), Bindable<Checkable> {
-
-    private val checkbox: CheckBox
+class CheckBoxStub(val checkbox: CheckBox) {
 
     init {
-        val context = itemView.context
-        checkbox = itemView.findViewById(R.id.checkbox) as CheckBox
+        val context = checkbox.context
         val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
-        ViewUtils.expandTouchArea(itemView, checkbox, marginSmall)
+//        ViewUtils.expandTouchArea(checkbox, checkbox, marginSmall)
     }
 
-    override fun bind(item: Checkable) {
-        checkbox.isChecked = item.isChecked
-        checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
-            item.isChecked = isChecked
-            item.checkAction(buttonView, item)
-        }
+    fun bind(isChecked: Boolean, onCheckedChanged: (buttonView: CompoundButton, isChecked: Boolean) -> Unit) {
+        checkbox.isChecked = isChecked
+        checkbox.setOnCheckedChangeListener { buttonView, isChecked -> onCheckedChanged(buttonView, isChecked) }
     }
 
-    override fun unbind() {
+    fun unbind() {
         checkbox.setOnCheckedChangeListener(null)
     }
 }
 
-class ReorderStub(itemView: View) : Stub(itemView), Bindable<Reorderable> {
+class ReorderStub(val icon: ImageView, val itemTouchHelper : ItemTouchHelper) {
 
-    private val icon: ImageView
-    private var holder: RecyclerView.ViewHolder? = null
-
-    init {
-        icon = itemView.findViewById(R.id.icon) as ImageView
-    }
-
-    override fun bind(item: Reorderable) {
+    fun bind(holder: RecyclerView.ViewHolder) {
         icon.setImageResource(R.drawable.ic_reorder_black_24dp_alpha54)
         icon.setOnTouchListener { v, event ->
             if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-                item.itemTouchHelper.startDrag(holder)
+                itemTouchHelper.startDrag(holder)
             }
             false
         }
     }
 
-    override fun unbind() {
+    fun unbind() {
         // Nothing to do
     }
+}
 
-    fun setViewHolder(holder: RecyclerView.ViewHolder) {
-        this.holder = holder
+class SwitchStub(val toggle: Switch) {
+
+    init {
+        val context = toggle.context
+        val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
+//        ViewUtils.expandTouchArea(toggle, toggle, marginSmall)
+    }
+
+    fun bind(isChecked: Boolean, onCheckedChanged: (buttonView: CompoundButton, isChecked: Boolean) -> Unit) {
+        toggle.isChecked = isChecked
+        toggle.setOnCheckedChangeListener { buttonView, isChecked -> onCheckedChanged(buttonView, isChecked) }
+    }
+
+    fun unbind() {
+        toggle.setOnCheckedChangeListener(null)
     }
 }
 
-class SwitchStub(itemView: View) : Stub(itemView), Bindable<Checkable> {
-
-    private val switch_: Switch
+class ExpandStub(val checkbox: CheckBox) {
 
     init {
-        val context = itemView.context
-        switch_ = itemView.findViewById(R.id.switch_) as Switch
+        val context = checkbox.context
         val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
-        ViewUtils.expandTouchArea(itemView, switch_, marginSmall)
+//        ViewUtils.expandTouchArea(checkbox, checkbox, marginSmall)
     }
 
-    override fun bind(item: Checkable) {
-        switch_.isChecked = item.isChecked
-        switch_.setOnCheckedChangeListener { buttonView, isChecked ->
-            item.isChecked = isChecked
-            item.checkAction(buttonView, item)
-        }
+    fun bind(isChecked: Boolean, onCheckedChanged: (buttonView: CompoundButton, isChecked: Boolean) -> Unit) {
+        checkbox.isChecked = isChecked
+        checkbox.setOnCheckedChangeListener { buttonView, isChecked -> onCheckedChanged(buttonView, isChecked) }
     }
 
-    override fun unbind() {
-        switch_.setOnCheckedChangeListener(null)
-    }
-}
-
-class ExpandStub(itemView: View) : Stub(itemView), Bindable<Checkable> {
-
-    private val icon: ImageView?
-    private val text1: TextView
-    private val checkbox: CheckBox
-
-    @ColorInt
-    private val defaultColor: Int
-    @ColorInt
-    private val colorAccent: Int
-
-    init {
-        val context = itemView.context
-        icon = itemView.findViewById(R.id.icon) as ImageView
-        text1 = itemView.findViewById(R.id.text1) as TextView
-        defaultColor = text1.textColors.defaultColor
-        colorAccent = ThemeUtils.obtainColorAccent(context)
-        checkbox = itemView.findViewById(R.id.checkbox) as CheckBox
-        checkbox.setButtonDrawable(R.drawable.selector_expand)
-        val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
-        ViewUtils.expandTouchArea(itemView, checkbox, marginSmall)
-    }
-
-    override fun bind(item: Checkable) {
-        if (item.isChecked) {
-            icon?.setColorFilter(colorAccent)
-        } else {
-            icon?.clearColorFilter()
-        }
-        text1.setTextColor(if (item.isChecked) colorAccent else defaultColor)
-        checkbox.isChecked = item.isChecked
-        checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                icon?.setColorFilter(colorAccent)
-            } else {
-                icon?.clearColorFilter()
-            }
-            text1.setTextColor(if (isChecked) colorAccent else defaultColor)
-            item.isChecked = isChecked
-            item.checkAction(buttonView, item)
-        }
-    }
-
-    override fun unbind() {
+    fun unbind() {
         checkbox.setOnCheckedChangeListener(null)
     }
+
+//    private val icon: ImageView?
+//    private val text1: TextView
+//    private val checkbox: CheckBox
+//
+//    @ColorInt
+//    private val defaultColor: Int
+//    @ColorInt
+//    private val colorAccent: Int
+//
+//    init {
+//        val context = itemView.context
+//        icon = itemView.findViewById(R.id.icon) as ImageView
+//        text1 = itemView.findViewById(R.id.text1) as TextView
+//        defaultColor = text1.textColors.defaultColor
+//        colorAccent = ThemeUtils.obtainColorAccent(context)
+//        checkbox = itemView.findViewById(R.id.checkbox) as CheckBox
+//        checkbox.setButtonDrawable(R.drawable.selector_expand)
+//        val marginSmall = context.resources.getDimensionPixelSize(R.dimen.margin_small)
+//        ViewUtils.expandTouchArea(itemView, checkbox, marginSmall)
+//    }
+//
+//    fun bind(item: Checkable) {
+//        if (item.isChecked) {
+//            icon?.setColorFilter(colorAccent)
+//        } else {
+//            icon?.clearColorFilter()
+//        }
+//        text1.setTextColor(if (item.isChecked) colorAccent else defaultColor)
+//        checkbox.isChecked = item.isChecked
+//        checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
+//            if (isChecked) {
+//                icon?.setColorFilter(colorAccent)
+//            } else {
+//                icon?.clearColorFilter()
+//            }
+//            text1.setTextColor(if (isChecked) colorAccent else defaultColor)
+//            item.isChecked = isChecked
+//            item.checkAction(buttonView, item)
+//        }
+//    }
+//
+//     fun unbind() {
+//        checkbox.setOnCheckedChangeListener(null)
+//    }
 }

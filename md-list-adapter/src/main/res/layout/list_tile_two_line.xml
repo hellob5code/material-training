@@ -21,7 +21,8 @@
         android:maxLines="1"
         android:textColor="@color/material_text"
         android:textSize="@dimen/text_size_normal"
-        tools:text="Two-line item"/>
+        android:text="Two-line item"
+        tools:ignore="HardcodedText"/>
 
     <TextView
         android:id="@+id/text2"
@@ -31,5 +32,6 @@
         android:maxLines="1"
         android:textColor="@color/material_text_secondary"
         android:textSize="@dimen/text_size_small"
-        tools:text="Ipsum praesent"/>
+        android:text="Secondary text"
+        tools:ignore="HardcodedText"/>
 </LinearLayout>

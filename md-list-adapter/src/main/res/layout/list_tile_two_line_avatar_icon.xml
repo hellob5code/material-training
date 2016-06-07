@@ -15,7 +15,8 @@
         android:layout_height="@dimen/avatar_size_mini"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/keyline_1_material"
-        android:layout_marginStart="@dimen/keyline_1_material"/>
+        android:layout_marginStart="@dimen/keyline_1_material"
+        android:background="@drawable/circle"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +38,8 @@
             android:maxLines="1"
             android:textColor="@color/material_text"
             android:textSize="@dimen/text_size_normal"
-            tools:text="Two-line item"/>
+            android:text="Two-line item"
+            tools:ignore="HardcodedText"/>
 
         <TextView
             android:id="@+id/text2"
@@ -47,7 +49,8 @@
             android:maxLines="1"
             android:textColor="@color/material_text_secondary"
             android:textSize="@dimen/text_size_small"
-            tools:text="Ipsum praesent"/>
+            android:text="Secondary text"
+            tools:ignore="HardcodedText"/>
     </LinearLayout>
 
     <ImageView
@@ -58,5 +61,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium"/>
+        android:layout_marginStart="@dimen/margin_medium"
+        android:src="@color/primary_material_light"/>
 </RelativeLayout>
